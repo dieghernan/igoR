@@ -1,2 +1,7 @@
 ^igoR\.Rproj$
 ^\.Rproj\.user$
+^data-raw$
+^LICENSE\.md$
+^\.github$
+^docs$
+^_pkgdown\.yml$
