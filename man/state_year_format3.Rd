@@ -5,7 +5,27 @@
 \alias{state_year_format3}
 \title{Country membership to IGO by year}
 \format{
-data frame with 15557 rows. See \strong{Codebook Version 3 IGO Data} for full reference.
+data frame with 15557 rows. Relevant fields:
+\itemize{
+\item{\strong{ccode}: }{\href{https://correlatesofwar.org/data-sets/cow-country-codes}{COW country number.}}
+\item{\strong{year}: }{Calendar Year.}
+\item{\strong{state}: }{Abbreviated state name – identical to variable
+names in \code{\link{igo_year_format3}}}
+\item{\strong{aaaid...wassen}: }{IGO variables containing information on
+state membership status:
+\tabular{cc}{
+\strong{Category} \tab \strong{Numerical Value}\cr
+No Membership \tab 0 \cr
+Full Membership \tab 1 \cr
+Associate Membership \tab 2 \cr
+Observer \tab 3\cr
+Missing data \tab -9 \cr
+IGO Not In Existence \tab -1 \cr
+}
+}
+}
+
+See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
 }
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)},
@@ -20,5 +40,7 @@ intervals through 1965, and annually thereafter).
 Raw data used internally by \pkg{igoR}
 }
 \seealso{
-\code{\link{igo_year_format3}}
+\code{\link{igo_year_format3}},
+\code{\link[countrycode]{countrycode}} to convert between different country
+code schemes.
 }

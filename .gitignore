@@ -1,1 +1,10 @@
 .Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+igoR.Rcheck/
+igoR*.tar.gz
+igoR*.tgz
+Meta
+CRAN-RELEASE
+cran-comments.md

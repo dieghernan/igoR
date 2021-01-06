@@ -5,7 +5,32 @@
 \alias{igo_year_format3}
 \title{Intergovernmental Organizations (IGO) by year}
 \format{
-data frame with 19335 rows. See \strong{Codebook Version 3 IGO Data} for full reference.
+data frame with 19335 rows. Relevant fields:
+\itemize{
+\item{\strong{ioname}: }{Short abbreviation of the IGO name.}
+\item{\strong{orgname}: }{Full IGO name.}
+\item{\strong{year}: }{Calendar Year.}
+\item{\strong{afghanistan...zimbabwe}: }{status of that state in the IGO:
+\tabular{cc}{
+\strong{Category} \tab \strong{Numerical Value}\cr
+No Membership \tab 0 \cr
+Full Membership \tab 1 \cr
+Associate Membership \tab 2 \cr
+Observer \tab 3\cr
+Missing data \tab -9 \cr
+State Not System Member \tab -1 \cr
+}
+}
+\item{\strong{sdate}: }{start date (year) that the IGO started.}
+\item{\strong{deaddate}: }{dead date (year) that the IGO dead.}
+\item{\strong{longorgname}: }{a longer version of the IGOs name
+(including previous names)}
+\item{\strong{ionum}: }{IGO id number in v2.1 and v3.0 of the data.}
+\item{\strong{version}: }{COW version number.}
+}
+
+See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
+for full reference.
 }
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)},

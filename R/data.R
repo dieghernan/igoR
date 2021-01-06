@@ -6,7 +6,32 @@
 #' through 1965, and annually thereafter).
 #' @source \href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)},
 #' The Correlates of War Project (IGO Data Stata Files)
-#' @format data frame with 19335 rows. See \strong{Codebook Version 3 IGO Data} for full reference.
+#' @format data frame with 19335 rows. Relevant fields:
+#' \itemize{
+#'   \item{\strong{ioname}: }{Short abbreviation of the IGO name.}
+#'   \item{\strong{orgname}: }{Full IGO name.}
+#'   \item{\strong{year}: }{Calendar Year.}
+#'   \item{\strong{afghanistan...zimbabwe}: }{status of that state in the IGO:
+#'   \tabular{cc}{
+#'     \strong{Category} \tab \strong{Numerical Value}\cr
+#'     No Membership \tab 0 \cr
+#'     Full Membership \tab 1 \cr
+#'     Associate Membership \tab 2 \cr
+#'     Observer \tab 3\cr
+#'     Missing data \tab -9 \cr
+#'     State Not System Member \tab -1 \cr
+#'     }
+#'   }
+#'   \item{\strong{sdate}: }{start date (year) that the IGO started.}
+#'   \item{\strong{deaddate}: }{dead date (year) that the IGO dead.}
+#'   \item{\strong{longorgname}: }{a longer version of the IGOs name
+#'   (including previous names)}
+#'   \item{\strong{ionum}: }{IGO id number in v2.1 and v3.0 of the data.}
+#'   \item{\strong{version}: }{COW version number.}
+#'   }
+#'
+#' See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
+#' for full reference.
 #' @seealso \code{\link{state_year_format3}}
 #' @note Raw data used internally by \pkg{igoR}
 NULL
@@ -19,7 +44,29 @@ NULL
 #' intervals through 1965, and annually thereafter).
 #' @source \href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)},
 #' The Correlates of War Project (IGO Data Stata Files)
-#' @format data frame with 15557 rows. See \strong{Codebook Version 3 IGO Data} for full reference.
-#' @seealso \code{\link{igo_year_format3}}
+#' @format data frame with 15557 rows. Relevant fields:
+#' \itemize{
+#'   \item{\strong{ccode}: }{\href{https://correlatesofwar.org/data-sets/cow-country-codes}{COW country number.}}
+#'   \item{\strong{year}: }{Calendar Year.}
+#'   \item{\strong{state}: }{Abbreviated state name – identical to variable
+#'   names in \code{\link{igo_year_format3}}}
+#'   \item{\strong{aaaid...wassen}: }{IGO variables containing information on
+#'   state membership status:
+#'   \tabular{cc}{
+#'     \strong{Category} \tab \strong{Numerical Value}\cr
+#'     No Membership \tab 0 \cr
+#'     Full Membership \tab 1 \cr
+#'     Associate Membership \tab 2 \cr
+#'     Observer \tab 3\cr
+#'     Missing data \tab -9 \cr
+#'     IGO Not In Existence \tab -1 \cr
+#'     }
+#'   }
+#' }
+#'
+#' See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
+#' @seealso \code{\link{igo_year_format3}},
+#' \code{\link[countrycode]{countrycode}} to convert between different country
+#' code schemes.
 #' @note Raw data used internally by \pkg{igoR}
 NULL
