@@ -1,40 +1,24 @@
 library(hexSticker)
 # https://github.com/GuangchuangYu/hexSticker
 # Add font
-sysfonts::font_add_google("Architects Daughter", "architect")
+sysfonts::font_add_google("IBM Plex Sans", "ibm")
 
-imgurl <- "tools/readme/toro.png"
-sticker(
+imgurl <- "data-raw/handshake.png"
+p <- sticker(
   imgurl,
-  package = "spanish",
-  p_size = 25,
-  p_y =1.61,
-  s_x = 0.97,
-  s_y = .85,
-  s_width = .58,
-  h_fill = "#f93740",
-  h_color = "#fef34c",
-  p_family = "architect",
-  filename = "tools/readme/logo.png"
-)
-
-# To Readme
-
-sticker(
-  imgurl,
-  package = "spanish",
-  p_size = 25,
-  p_y =1.61,
-  s_x = 0.97,
-  s_y = .85,
-  s_width = .58,
-  h_fill = "#f93740",
-  h_color = "#fef34c",
-  p_family = "architect",
+  package = "igoR",
+  p_size = 35,
+  p_y =1.5,
+  s_x = 1,
+  s_y = .88,
+  s_width = 0.99,
+  h_fill = "#0099ff",
+  h_color = "#99d6ff",
+  p_family = "ibm",
+  p_color = "white",
   filename = "man/figures/logo.png"
 )
 
-# Favicons
 
-pkgdown::build_favicons(overwrite = TRUE)
-
+par(mar=c(0,0,0,0))
+plot(p)
