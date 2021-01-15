@@ -1,0 +1,116 @@
+---
+output: github_document
+bibliography: vignettes/refs_igo.bib
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  warning = FALSE,
+  message = FALSE,
+  out.width = "100%"
+)
+```
+
+# igoR <img src="man/figures/logo.png" align="right" width="120" />
+
+<!-- badges: start -->
+[![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
+<!-- badges: end -->
+
+The goal of `igoR`is to provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project <https://correlatesofwar.org/> (@doi:10.1177/0022343319881175). 
+
+The dataset (V3) includes information of **`r nrow(igoR::igo_search())`** IGO from `r min(igoR::igo_year_format3$year)` to `r max(igoR::igo_year_format3$year)`, as well as 
+membership information.
+
+**Source**: [Intergovernmental Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs).
+
+
+Documentation and vignettes on <https://dieghernan.github.io/igoR/>
+
+## Installation
+
+You can install the released version of igoR from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+library(remotes)
+install_github("dieghernan/igoR")
+```
+
+## Basic usage
+
+### Search an IGO by name:
+
+Search all IGOs related with the sugar: 
+
+```{r search}
+library(igoR)
+
+result_sugar <- igo_search("Sugar")
+
+```
+
+```{r echo=FALSE}
+knitr::kable(result_sugar)
+```
+
+### IGO members:
+
+Composition of the [European Economic Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time:
+
+```{r eec}
+
+eec_code <- igo_search("EEC", exact = TRUE)
+
+# Founding
+eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
+
+# Latest date
+eec_end <- igo_members(eec_code$ioname)
+
+```
+
+```{r echo=FALSE}
+knitr::kable(eec_init,
+             caption = paste0("EEC, members (",
+                              unique(eec_init$year), ")"))
+  
+      
+```
+
+```{r echo=FALSE}
+knitr::kable(eec_end,
+             caption = paste0("EEC, members (",
+                              unique(eec_end$year), ")"))
+             
+```
+
+
+
+## Recommended packages
+
+- `countrycode` for converting country names and codes across different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
+- `dplyr` for data manipulation.
+
+
+## Citation
+
+To cite the `igoR` package in publications use:
+
+D, Hernangómez (`r format(Sys.time(), "%Y")`). 
+igoR: Intergovernmental Organizations Database. 
+R package version `r packageVersion("igoR")`. 
+Package url: https://dieghernan.github.io/igoR/
+
+
+
+## References
+
+
+
+
+

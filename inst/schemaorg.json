@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "type": "SoftwareSourceCode",
+      "author": {
+        "id": "https://orcid.org/0000-0001-8457-4658"
+      },
+      "codeRepository": "https://github.com/dieghernan/igoR",
+      "contributor": {},
+      "copyrightHolder": {
+        "id": "https://orcid.org/0000-0001-8457-4658",
+        "type": "Person",
+        "email": "diego.hernangomezherrero@gmail.com",
+        "familyName": "Hernangómez",
+        "givenName": "Diego"
+      },
+      "description": "Tools to extract information from the\n    Intergovernmental Organizations ('IGO') Database , version 3, provided\n    by the Correlates of War Project <https://correlatesofwar.org/>. See\n    also Pevehouse, Jon C.W., Timothy Nordstron, Roseanne W McManus, Anne\n    Spencer Jamison, \"Tracking Organizations in the World: The Correlates\n    of War 'IGO' Version 3.0 datasets\", Journal of Peace Research\n    <doi:10.1177/0022343319881175>. Version 3 includes information from\n    1815 to 2014.",
+      "funder": {},
+      "license": "https://spdx.org/licenses/GPL-3.0",
+      "name": "igoR: Intergovernmental Organizations Database",
+      "programmingLanguage": {
+        "type": "ComputerLanguage",
+        "name": "R",
+        "url": "https://r-project.org"
+      },
+      "runtimePlatform": "R version 4.0.3 (2020-10-10)",
+      "version": "0.0.0.9000"
+    },
+    {
+      "type": "SoftwareSourceCode",
+      "author": {
+        "type": "Person",
+        "familyName": "Hernangómez",
+        "givenName": "Diego"
+      },
+      "description": "R package version ",
+      "name": "igoR: "
+    }
+  ]
+}

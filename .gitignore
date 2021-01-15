@@ -8,3 +8,5 @@ igoR*.tgz
 Meta
 CRAN-RELEASE
 cran-comments.md
+inst/doc
+doc

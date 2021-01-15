@@ -1,0 +1,41 @@
+url: https://dieghernan.github.io/igoR
+
+
+
+reference:
+  - title: "Datasets"
+    desc: These objects are datasets already included in the package.
+    contents:
+      - cow_country_codes
+      - igo_year_format3
+      - state_year_format3
+
+  - title: "Search functions"
+    desc: Helper function to extract information.
+    contents:
+      - igo_search
+      - igo_members
+
+  - title: "About the package"
+    contents:
+      - igoR-package
+
+
+figures:
+  fig.retina: 2
+
+
+template:
+  opengraph:
+    twitter:
+      creator: "@dhernangomez"
+      card: summary_large_image
+
+home:
+  title: igoR | R package for Intergovernmental Organizations (IGOs)
+  description: This package provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project.
+
+
+authors:
+  Diego Hernangómez:
+    href: https://dieghernan.github.io/

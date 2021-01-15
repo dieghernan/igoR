@@ -34,6 +34,11 @@
 #' for full reference.
 #' @seealso \code{\link{state_year_format3}}
 #' @note Raw data used internally by \pkg{igoR}
+#' @references
+#' Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
+#' Jamison. "Tracking Organizations in the World: The Correlates of War
+#' IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
+#' (May 2020): 492-503. \url{https://doi.org/10.1177/0022343319881175}.
 NULL
 
 #' @title Country membership to IGO by year
@@ -46,9 +51,10 @@ NULL
 #' The Correlates of War Project (IGO Data Stata Files)
 #' @format data frame with 15557 rows. Relevant fields:
 #' \itemize{
-#'   \item{\strong{ccode}: }{\href{https://correlatesofwar.org/data-sets/cow-country-codes}{COW country number.}}
+#'   \item{\strong{ccode}: }{COW country number,
+#'   see \code{\link{cow_country_codes}}}.
 #'   \item{\strong{year}: }{Calendar Year.}
-#'   \item{\strong{state}: }{Abbreviated state name – identical to variable
+#'   \item{\strong{state}: }{Abbreviated state name, identical to variable
 #'   names in \code{\link{igo_year_format3}}}
 #'   \item{\strong{aaaid...wassen}: }{IGO variables containing information on
 #'   state membership status:
@@ -66,7 +72,35 @@ NULL
 #'
 #' See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
 #' @seealso \code{\link{igo_year_format3}},
-#' \code{\link[countrycode]{countrycode}} to convert between different country
-#' code schemes.
+#' \code{\link{cow_country_codes}}. See also \code{\link[countrycode]{countrycode}} to
+#' convert between different country code schemes.
 #' @note Raw data used internally by \pkg{igoR}
+#' @references
+#' Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
+#' Jamison. "Tracking Organizations in the World: The Correlates of War
+#' IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
+#' (May 2020): 492-503. \url{https://doi.org/10.1177/0022343319881175}.
 NULL
+
+
+#' @title COW Country Codes
+#' @name cow_country_codes
+#' @docType data
+#' @description The list of states with COW abbreviations and ID numbers, plus
+#' the field \code{state} from \code{\link{state_year_format3}}.
+#' @source \href{https://correlatesofwar.org/data-sets/cow-country-codes}{
+#' COW Country Codes}, The Correlates of War Project.
+#' @format data frame with 217 rows:
+#' \itemize{
+#'   \item{\strong{ccode}: }{COW country number.}
+#'   \item{\strong{stateabb}: }{COW state abbreviation (3 characters).}
+#'   \item{\strong{statenme}: }{COW state name.}
+#'   \item{\strong{state}: }{Abbreviated state name as appear in
+#'   \code{\link{state_year_format3}}.}
+#'  }
+#'
+#' @seealso \code{\link{state_year_format3}}, \code{\link{igo_year_format3}}.
+#' @note \code{state} variable added to original data to help comparison across
+#' datasets on this package.
+NULL
+#'

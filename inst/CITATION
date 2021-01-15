@@ -1,0 +1,18 @@
+citHeader("To cite the 'igoR' package in publications use:")
+
+year = format(Sys.time(), "%Y")
+vers = paste('R package version', meta$Version)
+url = 'https://dieghernan.github.io/igoR/'
+citEntry(
+  ,
+  entry = 'manual',
+  title = paste('igoR:', meta$Title),
+  author = "Diego Hernangómez",
+  year = year,
+  note = vers,
+  url = url,
+  textVersion = paste0('D, Hernangómez (', year, '). igoR: ', meta$Title, '. ', vers, '. Package url: ', url),
+  mfooter = paste0("Please also cite:\n\n","Pevehouse, J. C. et al. (2020) 'Tracking organizations in the world: The Correlates of War IGO Version 3.0 datasets', Journal of Peace Research, 57(3), pp. 492–503. doi: 10.1177/0022343319881175.")
+)
+
+
