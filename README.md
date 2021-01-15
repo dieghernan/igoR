@@ -9,6 +9,7 @@
 status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/master/graph/badge.svg?token=UH3VLTTTRE)](https://codecov.io/gh/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4442958-blue)](https://doi.org/10.5281/zenodo.4442958)
 <!-- badges: end -->
 
 The goal of `igoR`is to provide access and to extract information from
@@ -37,7 +38,7 @@ install_github("dieghernan/igoR")
 
 ### Search an IGO by name:
 
-Search all IGOs related with the sugar:
+Search all IGOs related with sugar:
 
 ``` r
 library(igoR)
@@ -107,9 +108,8 @@ EEC, members (1992)
 
 To cite the `igoR` package in publications use:
 
-D, Hernangómez (2021). igoR: Intergovernmental Organizations Database. R
-package version 0.0.0.9000. Package url:
-<https://dieghernan.github.io/igoR/>
+D. Hernangómez (2021). igoR: Intergovernmental Organizations Database. R
+package version 0.0.0.9000. <https://doi.org/10.5281/zenodo.4442958>.
 
 ## References
 
