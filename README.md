@@ -5,6 +5,9 @@
 
 <!-- badges: start -->
 
+![R-CMD-check](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)
+[![codecov](https://codecov.io/gh/dieghernan/igoR/branch/master/graph/badge.svg?token=UH3VLTTTRE)](https://codecov.io/gh/dieghernan/igoR)
+[![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
 <!-- badges: end -->
 
 The goal of `igoR`is to provide access and to extract information from
