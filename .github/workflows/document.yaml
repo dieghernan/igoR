@@ -1,16 +1,11 @@
 on:
   push:
-    branches:
-      - master
-      - remotedev
-  pull_request:
-    branches:
-      - master
+    branches: remotedev
 
-name: test-coverage
+name: document-remotes
 
 jobs:
-  test-coverage:
+  document-remotes:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -38,9 +33,21 @@ jobs:
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
-          remotes::install_cran("covr")
+          install.packages("roxygen2")
+          install.packages("rmarkdown")
         shell: Rscript {0}
-
-      - name: Test coverage
-        run: covr::codecov()
-        shell: Rscript {0}
+          
+      - name: Roxygenise
+        run: Rscript -e 'roxygen2::roxygenise()'
+        
+      - name: Render README
+        run: Rscript -e 'rmarkdown::render("README.Rmd")'
+        
+        
+      - name: Commit results
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add -A
+          git commit . -m 'Update documentation' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
