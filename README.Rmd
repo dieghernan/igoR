@@ -36,7 +36,7 @@ Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
 ## Installation
 
-You can install the released version of igoR from [CRAN](https://CRAN.R-project.org) with:
+You can install developing version from GitHub:
 
 ``` r
 library(remotes)
