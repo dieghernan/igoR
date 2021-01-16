@@ -16,7 +16,7 @@ of the IGO would be extracted.}
 
 \item{status}{Character or vector with the membership status to be
 extracted. See Details
-on  \code{\link{state_year_format3}}.}
+on \code{\link{state_year_format3}}.}
 }
 \value{
 A dataframe.
