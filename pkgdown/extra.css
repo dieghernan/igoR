@@ -24,6 +24,10 @@ h6,
 
 }
 
+.datatables {
+  font-size: 80%;
+}
+
 a {
   color: #0099ff;
 }
