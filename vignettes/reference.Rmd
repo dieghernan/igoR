@@ -1,0 +1,54 @@
+---
+title: "List of IGOs and Countries"
+bibliography: refs_igo.bib
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{List of IGOs and Countries}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r knitropts, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 6, 
+  fig.height = 4,
+  out.width = "100%",
+  out.height = "60%"
+)
+
+
+```
+
+
+Annex with the list of IGOs (@doi:10.1177/0022343319881175) and 
+countries (@correlates of war_2015) included on this package.
+
+
+## IGOs included
+
+```{r }
+library(igoR)
+
+igo <- igo_search()
+knitr::kable(igo[, c(1:4)])
+
+```
+
+## Countries included
+
+```{r }
+
+cc <- cow_country_codes
+knitr::kable(cc)
+
+```
+
+
+## References
+
