@@ -12,11 +12,16 @@ body {
   font-weight: 400;
 }
 
-@media only screen and (max-device-width: 768px) {
-  .datatables {
-    font-size: 70%;
-    font-weight: bold;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+
 }
 
 a {
