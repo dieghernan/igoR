@@ -134,12 +134,10 @@ igo_members <- function(ioname,
   codestatus <- helpdf[helpdf$category %in% status, ]
   cntriesend <- merge(cntries, codestatus)
   cntriesend <- merge(cntriesend, df)
-  
-  # Names
-  dfnames <- igoR::cow_country_codes[ ,c("ccode", "statenme")]
-  cntriesend <- merge(cntriesend, dfnames)
-  
 
+  # Names
+  dfnames <- igoR::cow_country_codes[, c("ccode", "statenme")]
+  cntriesend <- merge(cntriesend, dfnames)
 
   # Rearrange columns
   rearcol <- unique(c("ioname",
