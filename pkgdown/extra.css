@@ -1,0 +1,167 @@
+/* Import fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
+/* ---Theming pkgdown--- */
+
+
+/* General typography of Bootstrap 4 */
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+}
+
+@media only screen and (max-device-width: 768px) {
+  .datatables {
+    font-size: 70%;
+    font-weight: bold;
+  }
+}
+
+a {
+  color: #0099ff;
+}
+
+a:hover,
+a:focus {
+  color: #003434;
+}
+
+
+/* Footer */
+
+footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #0099ff;
+  color: white;
+}
+
+footer a {
+  color: #bfc4db;
+}
+
+footer div {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+
+/* Navbar */
+
+.navbar {
+  background-color: #0099ff;
+}
+
+
+/* Brand */
+
+.navbar .navbar-brand .navbar-link {
+  color: white;
+}
+
+.navbar .navbar-brand .navbar-link:hover,
+.navbar .navbar-brand .navbar-link:focus {
+  color: #99d6ff;
+}
+
+.navbar .navbar-brand .label-default {
+  background-color: white;
+  color: #0099ff;
+}
+
+.navbar-default .navbar-collapse {
+  border-color: #0099ff;
+}
+
+
+/* Toggle */
+
+.navbar .navbar-toggle {
+  color: white;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.navbar .navbar-toggle:hover,
+.navbar .navbar-toggle:focus {
+  background-color: #99d6ff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+
+/* Navbar links */
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+  color: #99d6ff;
+}
+
+.navbar-default .navbar-nav>.active>a {
+  background-color: #99d6ff;
+  color: white;
+}
+
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+  color: #0099ff;
+  background-color: #99d6ff;
+}
+
+
+/* Dropdowns */
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+  color: #0099ff;
+  background-color: #99d6ff;
+}
+
+
+/* Childs */
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+  color: white;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
+  color: #99d6ff;
+}
+
+.navbar-default .navbar-nav>li>.dropdown-menu {
+  background-color: #0099ff;
+}
+
+.navbar-default .dropdown-menu>li>a:focus,
+.navbar-default .dropdown-menu>li>a:hover {
+  background-color: #0099ff;
+  color: #99d6ff;
+}
+
+
+/* Childs Active */
+
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a {
+  background-color: #99d6ff;
+  color: white;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
+  background-color: #99d6ff;
+  color: #0099ff;
+}

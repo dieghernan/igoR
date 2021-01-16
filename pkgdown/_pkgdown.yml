@@ -26,6 +26,8 @@ figures:
 
 
 template:
+  params:
+    ganalytics: G-S61Y539QDX
   opengraph:
     twitter:
       creator: "@dhernangomez"
