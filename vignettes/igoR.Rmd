@@ -31,7 +31,7 @@ The analysis would be based on those provided on @doi:10.1177/0022343319881175. 
 
 ## Definitions
 
-**What is an IGO?**
+### What is an IGO?
 
 The definition of an Intergovernmental Organization (IGO) on the original dataset is based on the following criteria:
 
@@ -41,13 +41,13 @@ The definition of an Intergovernmental Organization (IGO) on the original datase
   
   3. An IGO must possess a permanent secretariat and corresponding headquarters.
 
-**When does an IGO actually begin?**
+### When does an IGO actually begin?
 
-The datasets begin to code an IGO by identifying the first year in which the
+The datasets begins to code an IGO by identifying the first year in which the
 organization functions. In some cases, individual members are listed by year of
 accession or signature.
 
-**When does an IGO die?**
+### When does an IGO die?
 
 Version 3.0 of the IGO data set uses the following criteria:
 
@@ -255,7 +255,8 @@ regions$region <-
 
 </details>
 
-
+After we have created a data frame with the regions, we can 
+classify the IGOs by region.
 
 
 
