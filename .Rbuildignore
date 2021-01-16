@@ -1,4 +1,5 @@
 ^doc$
+^docs$
 ^Meta$
 ^vignettes/mapping.Rmd$
 ^.*\.Rproj$

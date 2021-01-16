@@ -3,7 +3,7 @@ title: "Mapping IGOs"
 bibliography: refs_igo.bib
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Mapping with igoR}
+  %\VignetteIndexEntry{Mapping IGOs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
