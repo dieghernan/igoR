@@ -14,7 +14,7 @@
 #' of the IGO would be extracted.
 #' @param status Character or vector with the membership status to be
 #' extracted. See Details
-#' on  \code{\link{state_year_format3}}.
+#' on \code{\link{state_year_format3}}.
 #' @examples
 #' # Composition on two different dates
 #' igo_members("EU", year = 1993)
@@ -105,9 +105,10 @@ igo_members <- function(ioname,
       "Full Membership",
       "Associate Membership",
       "Observer",
-      "Missing Data"
+      "Missing Data",
+      "IGO Not In Existence"
     ),
-    value = c(0, 1, 2, 3, -9),
+    value = c(0, 1, 2, 3, -9, -1),
     stringsAsFactors = FALSE
   )
 
