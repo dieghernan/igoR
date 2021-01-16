@@ -27,10 +27,13 @@ knitr::opts_chunk$set(
 
 
 Annex with the list of IGOs (@doi:10.1177/0022343319881175) and 
-countries (@cow_2015) included on this package.
+countries @cow_2015 included on this package.
 
 
 ## IGOs included
+
+<details>
+  <summary><strong>IGOs</strong></summary>
 
 ```{r }
 library(igoR)
@@ -39,8 +42,13 @@ igo <- igo_search()
 knitr::kable(igo[, c(1:4)])
 
 ```
+</details>
+
 
 ## Countries included
+
+<details>
+  <summary><strong>Countries</strong></summary>
 
 ```{r }
 
@@ -48,7 +56,17 @@ cc <- cow_country_codes
 knitr::kable(cc)
 
 ```
+</details>
 
+## Session Info
+
+<details>
+  <summary><strong>Details</strong></summary>
+```{r session_info, echo=FALSE}
+sessionInfo()
+
+```
+</details>
 
 ## References
 
