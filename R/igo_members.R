@@ -136,7 +136,7 @@ igo_members <- function(ioname,
   cntriesend <- merge(cntriesend, df)
 
   # Names
-  dfnames <- igoR::cow_country_codes[,c("ccode", "statenme")]
+  dfnames <- igoR::cow_country_codes[, c("ccode", "statenme")]
   cntriesend <- merge(cntriesend, dfnames)
 
   # Rearrange columns
