@@ -120,6 +120,16 @@ ggplot(world2) + geom_sf(fill = "#B9B9B9", color = NA) +
 
 ```
 
+## Session Info
+
+<details>
+  <summary><strong>Details</strong></summary>
+```{r session_info, echo=FALSE}
+sessionInfo()
+
+```
+</details>
+
 
 
 ## References
