@@ -13,3 +13,4 @@
 ^igoR\.Rcheck$
 ^igoR.*\.tar\.gz$
 ^igoR.*\.tgz$
+^vignettes/reference.Rmd$
