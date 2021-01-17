@@ -63,7 +63,7 @@ reactable(cc,
           searchable = TRUE,
           showPageSizeOptions = TRUE,
           striped = TRUE,
-          paginationType = “jump”
+          paginationType = "jump"
           )
 
 ```
