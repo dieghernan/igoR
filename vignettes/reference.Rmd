@@ -44,7 +44,8 @@ igo <- igo_search()
 reactable(igo,
           filterable = TRUE,
           searchable = TRUE,
-          showPageSizeOptions = TRUE
+          showPageSizeOptions = TRUE,
+          compact = TRUE
           )
 
 ```
@@ -59,7 +60,8 @@ cc <- cow_country_codes
 reactable(cc,
           filterable = TRUE,
           searchable = TRUE,
-          showPageSizeOptions = TRUE
+          showPageSizeOptions = TRUE,
+          compact = TRUE
           )
 
 ```
