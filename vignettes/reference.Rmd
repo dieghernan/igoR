@@ -22,8 +22,8 @@ knitr::opts_chunk$set(
   out.height = "60%"
 )
 
-if (isFALSE(requireNamespace("DT", quietly = TRUE))) {
-  install.packages("DT")
+if (isFALSE(requireNamespace("reactable", quietly = TRUE))) {
+  install.packages("reactable")
 }
 
 ```
@@ -38,10 +38,14 @@ countries @cow_2015 included on this package.
 ```{r igo, echo=FALSE}
 
 library(igoR)
-library(DT)
+library(reactable)
 
 igo <- igo_search()
-datatable(igo[, c(1:4)], rownames = FALSE)
+reactable(igo,
+          filterable = TRUE,
+          searchable = TRUE,
+          defaultPageSize = 50
+          )
 
 ```
 
@@ -52,7 +56,11 @@ datatable(igo[, c(1:4)], rownames = FALSE)
 ```{r countries, echo=FALSE}
 
 cc <- cow_country_codes
-datatable(cc, rownames = FALSE)
+reactable(cc,
+          filterable = TRUE,
+          searchable = TRUE,
+          defaultPageSize = 50
+          )
 
 ```
 
