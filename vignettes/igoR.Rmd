@@ -74,7 +74,6 @@ This section provides some quick analysis based on the figures of @doi:10.1177/0
 library(igoR)
 
 # Additional libraries
-library(countrycode)
 library(ggplot2)
 library(dplyr)
 ```
