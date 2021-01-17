@@ -41,7 +41,7 @@ library(igoR)
 library(reactable)
 
 igo <- igo_search()
-reactable(igo,
+reactable(igo[, 1:7],
           filterable = TRUE,
           searchable = TRUE,
           showPageSizeOptions = TRUE,
