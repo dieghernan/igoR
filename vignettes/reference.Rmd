@@ -45,7 +45,8 @@ reactable(igo[, 1:7],
           filterable = TRUE,
           searchable = TRUE,
           showPageSizeOptions = TRUE,
-          compact = TRUE
+          striped = TRUE,
+          paginationType = "jump"
           )
 
 ```
@@ -61,7 +62,8 @@ reactable(cc,
           filterable = TRUE,
           searchable = TRUE,
           showPageSizeOptions = TRUE,
-          compact = TRUE
+          striped = TRUE,
+          paginationType = “jump”
           )
 
 ```
