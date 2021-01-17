@@ -2,6 +2,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
+
+/* Navbar logo */
+
+#navbar-logo {
+  margin-top: -4px;
+  height: 32px;
+  margin-right: 7px;
+}
+
+
 /* ---Theming pkgdown--- */
 
 
