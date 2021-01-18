@@ -2,7 +2,7 @@
 % Please edit documentation in R/igo_state_membership.R
 \name{igo_state_membership}
 \alias{igo_state_membership}
-\title{Extract Memberships of a Country}
+\title{Extract Memberships of a State}
 \usage{
 igo_state_membership(state, year = NULL, status = "Full Membership")
 }
@@ -12,7 +12,7 @@ igo_state_membership(state, year = NULL, status = "Full Membership")
 
 \item{year}{Year to be assessed, an integer or an array of year.
 If \code{NULL} the latest year available
-of the IGO would be extracted.}
+of the state would be extracted.}
 
 \item{status}{Character or vector with the membership status to be
 extracted. See Details
@@ -29,6 +29,9 @@ Extract all the memberships of a state on a specific date.
 igo_state_membership("Spain", year = 1850)
 igo_state_membership("Spain", year = 1870)
 igo_state_membership("Spain", year = 1880:1882)
+
+# Last year
+igo_state_membership("baden")[, 1:7]
 
 # Use codes to get countries
 igo_state_membership("2", year = 1865)
