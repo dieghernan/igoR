@@ -298,41 +298,33 @@ India, China, Pakistan, Indonesia and Bangladesh.
 
 ```{r Fig4, message=FALSE, warning=FALSE, fig.cap="Figure 4. IGO membership: five states in Asia, 1865-2014"}
 
+asia5_cntries <- c("China", "India",
+                   "Pakistan", "Indonesia",
+                   "Bangladesh")
+
 # Five countries of Asia
-asia5_names <-
-  cow_country_codes %>% filter(statenme %in% c("India", "China", 
-                                               "Pakistan", "Indonesia",
-                                               "Bangladesh"))
+asia5_igos <- igo_state_membership(
+  state = asia5_cntries,
+  year = 1865:2014,
+  status = c("Full Membership")
+)
+
+asia5 <- asia5_igos %>%
+  group_by(statenme, year) %>%
+  summarise(values = n(), .groups = "keep")
 
 
-asia5 <-
-  state_year_format3 %>%
-  merge(asia5_names) %>%
-  filter(year >= 1865)
-
-
-## Analyse number of memberships
-numcols <- unlist(lapply(asia5, is.numeric))
-
-# All kinds of Membership
-asia5$values <- rowSums(asia5 == 1, na.rm = TRUE) +
-  rowSums(asia5 == 2, na.rm = TRUE) +
-  rowSums(asia5 == 3, na.rm = TRUE)
-
-
-asia5 <- asia5[, c("year", "ccode", "statenme", "values")]
-
+# Reorder
 asia5$statenme <- factor(asia5$statenme,
-                         levels = c("China", "India",
-                                    "Pakistan", "Indonesia",
-                                    "Bangladesh"))
+                         levels = asia5_cntries)
+
 
 
 # Plot
 ggplot(asia5, aes(x = year, y = values)) +
   geom_line(size = 0.8, color = "black", aes(linetype = statenme)) +
   scale_linetype_manual(values = c("solid", "dashed",
-                                   "dotted", "dotdash", 
+                                   "dotted", "dotdash",
                                    "longdash")) +
   guides(linetype = guide_legend(ncol = 3, byrow = TRUE)) +
   theme(axis.title.y.left = element_text(
@@ -345,8 +337,8 @@ ggplot(asia5, aes(x = year, y = values)) +
     breaks = c(0, 20, 40, 60, 80, 100),
     limits = c(0, 95),
     labels = as.character(c(0, 20, 40, 60, 80, 100))
-  ) + 
-  theme_igoR 
+  ) +
+  theme_igoR
 
 ```
 

@@ -2,4 +2,5 @@
 
 export(igo_members)
 export(igo_search)
+export(igo_state_membership)
 importFrom(stats,aggregate)

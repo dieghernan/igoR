@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @param ioname Any valid \code{ioname} of an IGO as specified on
-#' \code{\link{igo_year_format3}}.
+#' \code{\link{igo_year_format3}}. It could be also a vector of IGOs.
 #' @param year Year to be assessed, an integer or an array of year.
 #' If \code{NULL} the latest year available
 #' of the IGO would be extracted.
@@ -27,14 +27,18 @@
 #' # States no members of the UN
 #' igo_members("UN", status = "No Membership")
 #'
+#' # Vectorized
+#'
+#' igo_members(c("NAFTA","EU"), year = 1993)
+#'
 #' # Use countrycodes package to get additional codes
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   EU <- igo_members("EU")
 #'   EU$iso3c <- countrycode(EU$ccode, origin = "cown",
 #'                           destination = "iso3c")
-#'   EU$un.subregion <- countrycode(EU$ccode, origin = "cown",
-#'                                  destination = "un.regionsub.name")
+#'   EU$continent <- countrycode(EU$ccode, origin = "cown",
+#'                               destination = "continent")
 #'
 #'   head(EU)
 #' }
@@ -48,116 +52,131 @@ igo_members <- function(ioname,
     stop("You must enter a value on 'ioname'")
   }
 
-  df <- igoR::igo_year_format3
+  if (length(ioname) == 1) {
+    df <- igoR::igo_year_format3
 
-  if (!(ioname %in% df$ioname)) {
-    stop(ioname, " is not a valid ioname. See igoR::igo_year_format3")
-  }
+    if (!(ioname %in% df$ioname)) {
+      stop(ioname, " is not a valid ioname. See igoR::igo_year_format3")
+    }
 
-  df <- df[df$ioname == ioname, ]
-  interval <- c(min(df$year), max(df$year))
+    df <- df[df$ioname == ioname, ]
+    interval <- c(min(df$year), max(df$year))
 
-  if (is.null(year)) {
-    year <- interval[2]
-  }
-  year <- sort(unique(as.integer(year)))
-  yeardf <- data.frame(year = year,
-                       check = NA)
+    if (is.null(year)) {
+      year <- interval[2]
+    }
+    year <- sort(unique(as.integer(year)))
+    yeardf <- data.frame(year = year,
+                         check = NA)
 
-  yeardf$check <- ifelse(yeardf$year %in% df$year,
-                         TRUE,
-                         FALSE)
+    yeardf$check <- ifelse(yeardf$year %in% df$year,
+                           TRUE,
+                           FALSE)
 
 
 
-  if (isFALSE(all(yeardf$check))) {
-    warning(
-      "The IGO requested is not available for year(s) ",
-      paste0("'",
-             as.character(yeardf[!yeardf$check, ]$year),
-             "'", collapse = ", ")
+    if (isFALSE(all(yeardf$check))) {
+      warning(
+        "The IGO requested is not available for year(s) ",
+        paste0("'",
+               as.character(yeardf[!yeardf$check, ]$year),
+               "'", collapse = ", ")
+      )
+    }
+
+    df <- df[df$year %in% year, c("year", "ioname", "orgname")]
+
+    if (nrow(df) == 0) {
+      stop(
+        "year(s) ",
+        paste0("'",
+               as.character(yeardf[!yeardf$check, ]$year),
+               "'", collapse = ", "),
+        " not valid for ",
+        ioname,
+        " date should be any year between ",
+        interval[1],
+        " and ",
+        interval[2]
+      )
+    }
+
+
+    # End checks
+
+    helpdf <- data.frame(
+      category = c(
+        "No Membership",
+        "Full Membership",
+        "Associate Membership",
+        "Observer",
+        "Missing Data",
+        "IGO Not In Existence"
+      ),
+      value = c(0, 1, 2, 3, -9, -1),
+      stringsAsFactors = FALSE
     )
+
+    checkstatus <- match(status, helpdf$category)
+    if (isTRUE(anyNA(checkstatus))) {
+      warning(
+        "status ",
+        paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
+        " not valid. Valid values are ",
+        paste0("'", helpdf$category, collapse = "', "),
+        "'"
+      )
+    }
+
+    # Extract countries
+    cntries <- igoR::state_year_format3
+    cntries <-
+      cntries[cntries$year %in% year, tolower(c("ccode", "state",
+                                                "year",
+                                                ioname))]
+
+    colnames(cntries) <- c("ccode", "state", "year", "value")
+    cntries$ioname <- as.character(ioname)
+    codestatus <- helpdf[helpdf$category %in% status, ]
+    cntriesend <- merge(cntries, codestatus)
+    cntriesend <- merge(cntriesend, df)
+
+    # Names
+    dfnames <- igoR::cow_country_codes[, c("ccode", "statenme")]
+    cntriesend <- merge(cntriesend, dfnames)
+
+    # Rearrange columns
+    rearcol <- unique(c(
+      "ioname",
+      "ccode",
+      "state",
+      "statenme",
+      "year",
+      colnames(cntriesend)
+    ))
+
+    cntriesend <- cntriesend[, rearcol]
+
+    # Extra check
+    if (nrow(cntriesend) == 0) {
+      stop("Parameters selected return an empty result")
+    }
+
+    cntriesend <- cntriesend[order(cntriesend$state), ]
+    cntriesend <- cntriesend[order(cntriesend$year), ]
+    rownames(cntriesend) <- NULL
+
+    return(cntriesend)
+  } else {
+    # Vectorized
+    df <- igo_members(ioname[1], year = year, status = status)
+    dflen <- seq_len(length(ioname))[-1]
+
+    for (i in dflen) {
+      df <-
+        rbind(df, igo_members(ioname[i], year = year, status = status))
+    }
+
+    return(df)
   }
-
-  df <- df[df$year %in% year, c("year", "ioname", "orgname")]
-
-  if (nrow(df) == 0) {
-    stop(
-      "year(s) ",
-      paste0("'",
-             as.character(yeardf[!yeardf$check, ]$year),
-             "'", collapse = ", "),
-      " not valid for ",
-      ioname,
-      " date should be any year between ",
-      interval[1],
-      " and ",
-      interval[2]
-    )
-  }
-
-
-  # End checks
-
-  helpdf <- data.frame(
-    category = c(
-      "No Membership",
-      "Full Membership",
-      "Associate Membership",
-      "Observer",
-      "Missing Data",
-      "IGO Not In Existence"
-    ),
-    value = c(0, 1, 2, 3, -9, -1),
-    stringsAsFactors = FALSE
-  )
-
-  checkstatus <- match(status, helpdf$category)
-  if (isTRUE(anyNA(checkstatus))) {
-    warning(
-      "status ",
-      paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
-      " not valid. Valid values are ",
-      paste0("'", helpdf$category, collapse = "', "),
-      "'"
-    )
-  }
-
-  # Extract countries
-  cntries <- igoR::state_year_format3
-  cntries <-
-    cntries[cntries$year %in% year, tolower(c("ccode", "state",
-                                              "year",
-                                              ioname))]
-
-  colnames(cntries) <- c("ccode", "state", "year", "value")
-  cntries$ioname <- as.character(ioname)
-  codestatus <- helpdf[helpdf$category %in% status, ]
-  cntriesend <- merge(cntries, codestatus)
-  cntriesend <- merge(cntriesend, df)
-
-  # Names
-  dfnames <- igoR::cow_country_codes[, c("ccode", "statenme")]
-  cntriesend <- merge(cntriesend, dfnames)
-
-  # Rearrange columns
-  rearcol <- unique(c("ioname",
-                      "ccode",
-                      "state",
-                      "statenme",
-                      "year",
-                      colnames(cntriesend)))
-
-  cntriesend <- cntriesend[, rearcol]
-
-  # Extra check
-  if (nrow(cntriesend) == 0) {
-    stop("Parameters selected return an empty result")
-  }
-
-  cntriesend <- cntriesend[order(cntriesend$state), ]
-  cntriesend <- cntriesend[order(cntriesend$year), ]
-  rownames(cntriesend) <- NULL
-
-  return(cntriesend)
 }
