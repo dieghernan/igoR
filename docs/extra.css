@@ -78,6 +78,10 @@ footer div {
   color: #0099ff;
 }
 
+.navbar .navbar-brand .label {
+  font-size: 50%;
+}
+
 .navbar-default .navbar-collapse {
   border-color: #0099ff;
 }
