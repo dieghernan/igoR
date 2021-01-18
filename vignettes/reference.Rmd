@@ -30,7 +30,7 @@ if (isFALSE(requireNamespace("reactable", quietly = TRUE))) {
 
 
 Annex with the list of IGOs (@doi:10.1177/0022343319881175) and 
-countries (@cow_2015) included on this package.
+countries @cow_2015 included on this package.
 
 
 ## List of IGOs
