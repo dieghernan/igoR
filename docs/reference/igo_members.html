@@ -171,7 +171,7 @@ date.</p>
     <tr>
       <th>ioname</th>
       <td><p>Any valid <code>ioname</code> of an IGO as specified on
-<code><a href='igo_year_format3.html'>igo_year_format3</a></code>.</p></td>
+<code><a href='igo_year_format3.html'>igo_year_format3</a></code>. It could be also a vector of IGOs.</p></td>
     </tr>
     <tr>
       <th>year</th>
@@ -367,14 +367,49 @@ on <code><a href='state_year_format3.html'>state_year_format3</a></code>.</p></t
 </div><div class='output co'>#&gt;   ioname ccode  state statenme year value      category        orgname
 #&gt; 1     UN   347 kosovo   Kosovo 2014     0 No Membership United Nations
 #&gt; 2     UN   713 taiwan   Taiwan 2014     0 No Membership United Nations</div><div class='input'>
+<span class='co'># Vectorized</span>
+
+<span class='fu'>igo_members</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"NAFTA"</span>,<span class='st'>"EU"</span><span class='op'>)</span>, year <span class='op'>=</span> <span class='fl'>1993</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    ioname ccode       state                 statenme year value        category
+#&gt; 1   NAFTA    20      canada                   Canada 1993     1 Full Membership
+#&gt; 2   NAFTA    70      mexico                   Mexico 1993     1 Full Membership
+#&gt; 3   NAFTA     2         usa United States of America 1993     1 Full Membership
+#&gt; 4      EU   211     belgium                  Belgium 1993     1 Full Membership
+#&gt; 5      EU   390     denmark                  Denmark 1993     1 Full Membership
+#&gt; 6      EU   220      france                   France 1993     1 Full Membership
+#&gt; 7      EU   255     germany                  Germany 1993     1 Full Membership
+#&gt; 8      EU   350      greece                   Greece 1993     1 Full Membership
+#&gt; 9      EU   205     ireland                  Ireland 1993     1 Full Membership
+#&gt; 10     EU   325       italy                    Italy 1993     1 Full Membership
+#&gt; 11     EU   212  luxembourg               Luxembourg 1993     1 Full Membership
+#&gt; 12     EU   210 netherlands              Netherlands 1993     1 Full Membership
+#&gt; 13     EU   235    portugal                 Portugal 1993     1 Full Membership
+#&gt; 14     EU   230       spain                    Spain 1993     1 Full Membership
+#&gt; 15     EU   200          uk           United Kingdom 1993     1 Full Membership
+#&gt;               orgname
+#&gt; 1  North American FTA
+#&gt; 2  North American FTA
+#&gt; 3  North American FTA
+#&gt; 4      European Union
+#&gt; 5      European Union
+#&gt; 6      European Union
+#&gt; 7      European Union
+#&gt; 8      European Union
+#&gt; 9      European Union
+#&gt; 10     European Union
+#&gt; 11     European Union
+#&gt; 12     European Union
+#&gt; 13     European Union
+#&gt; 14     European Union
+#&gt; 15     European Union</div><div class='input'>
 <span class='co'># Use countrycodes package to get additional codes</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span><span class='op'>(</span><span class='st'>"countrycode"</span>, quietly <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/vincentarelbundock/countrycode'>countrycode</a></span><span class='op'>)</span>
   <span class='va'>EU</span> <span class='op'>&lt;-</span> <span class='fu'>igo_members</span><span class='op'>(</span><span class='st'>"EU"</span><span class='op'>)</span>
   <span class='va'>EU</span><span class='op'>$</span><span class='va'>iso3c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/countrycode/man/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>$</span><span class='va'>ccode</span>, origin <span class='op'>=</span> <span class='st'>"cown"</span>,
                           destination <span class='op'>=</span> <span class='st'>"iso3c"</span><span class='op'>)</span>
-  <span class='va'>EU</span><span class='op'>$</span><span class='va'>un.subregion</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/countrycode/man/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>$</span><span class='va'>ccode</span>, origin <span class='op'>=</span> <span class='st'>"cown"</span>,
-                                 destination <span class='op'>=</span> <span class='st'>"un.regionsub.name"</span><span class='op'>)</span>
+  <span class='va'>EU</span><span class='op'>$</span><span class='va'>continent</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/countrycode/man/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>$</span><span class='va'>ccode</span>, origin <span class='op'>=</span> <span class='st'>"cown"</span>,
+                              destination <span class='op'>=</span> <span class='st'>"continent"</span><span class='op'>)</span>
 
   <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>EU</span><span class='op'>)</span>
 <span class='op'>}</span>
@@ -385,13 +420,13 @@ on <code><a href='state_year_format3.html'>state_year_format3</a></code>.</p></t
 #&gt; 4     EU   344  croatia        Croatia 2014     1 Full Membership
 #&gt; 5     EU   352   cyprus         Cyprus 2014     1 Full Membership
 #&gt; 6     EU   316 czechrep Czech Republic 2014     1 Full Membership
-#&gt;          orgname iso3c    un.subregion
-#&gt; 1 European Union   AUT  Western Europe
-#&gt; 2 European Union   BEL  Western Europe
-#&gt; 3 European Union   BGR  Eastern Europe
-#&gt; 4 European Union   HRV Southern Europe
-#&gt; 5 European Union   CYP    Western Asia
-#&gt; 6 European Union   CZE  Eastern Europe</div></pre>
+#&gt;          orgname iso3c continent
+#&gt; 1 European Union   AUT    Europe
+#&gt; 2 European Union   BEL    Europe
+#&gt; 3 European Union   BGR    Europe
+#&gt; 4 European Union   HRV    Europe
+#&gt; 5 European Union   CYP      Asia
+#&gt; 6 European Union   CZE    Europe</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
