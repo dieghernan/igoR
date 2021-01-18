@@ -194,7 +194,226 @@ on <code><a href='igo_year_format3.html'>igo_year_format3</a></code>.</p></td>
 <code><a href='cow_country_codes.html'>cow_country_codes</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"></pre>
+    <pre class="examples"><div class='input'><span class='co'># Memberships on two different dates</span>
+<span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"Spain"</span>, year <span class='op'>=</span> <span class='fl'>1850</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   ccode stateabb statenme state year ioname        category
+#&gt; 1   230      SPN    Spain spain 1850    SCH Full Membership
+#&gt;                      orgname                longorgname political social
+#&gt; 1 Superior Council of Health Superior Council of Health         0      1
+#&gt;   economic
+#&gt; 1        0</div><div class='input'><span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"Spain"</span>, year <span class='op'>=</span> <span class='fl'>1870</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   ccode stateabb statenme state year ioname        category
+#&gt; 1   230      SPN    Spain spain 1870 ICCSLT Full Membership
+#&gt; 2   230      SPN    Spain spain 1870    ITU Full Membership
+#&gt; 3   230      SPN    Spain spain 1870    SCH Full Membership
+#&gt;                           orgname
+#&gt; 1 Intl Comm of Cape Spartel Light
+#&gt; 2              Intl Telecom Union
+#&gt; 3      Superior Council of Health
+#&gt;                                                     longorgname political
+#&gt; 1 International Commission of the Cape Spartel Light in Tangier         0
+#&gt; 2                         International Telecommunication Union         0
+#&gt; 3                                    Superior Council of Health         0
+#&gt;   social economic
+#&gt; 1      0        1
+#&gt; 2      0        1
+#&gt; 3      1        0</div><div class='input'><span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"Spain"</span>, year <span class='op'>=</span> <span class='fl'>1880</span><span class='op'>:</span><span class='fl'>1882</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    ccode stateabb statenme state year ioname        category
+#&gt; 1    230      SPN    Spain spain 1880   BIPM Full Membership
+#&gt; 2    230      SPN    Spain spain 1880 ICCSLT Full Membership
+#&gt; 3    230      SPN    Spain spain 1880 IPentC Full Membership
+#&gt; 4    230      SPN    Spain spain 1880    ITU Full Membership
+#&gt; 5    230      SPN    Spain spain 1880    SCH Full Membership
+#&gt; 6    230      SPN    Spain spain 1880    UPU Full Membership
+#&gt; 7    230      SPN    Spain spain 1881   BIPM Full Membership
+#&gt; 8    230      SPN    Spain spain 1881 ICCSLT Full Membership
+#&gt; 9    230      SPN    Spain spain 1881 IPentC Full Membership
+#&gt; 10   230      SPN    Spain spain 1881    ITU Full Membership
+#&gt; 11   230      SPN    Spain spain 1881    SCH Full Membership
+#&gt; 12   230      SPN    Spain spain 1881    UPU Full Membership
+#&gt; 13   230      SPN    Spain spain 1882   BIPM Full Membership
+#&gt; 14   230      SPN    Spain spain 1882 ICCSLT Full Membership
+#&gt; 15   230      SPN    Spain spain 1882 IPentC Full Membership
+#&gt; 16   230      SPN    Spain spain 1882    ITU Full Membership
+#&gt; 17   230      SPN    Spain spain 1882    SCH Full Membership
+#&gt; 18   230      SPN    Spain spain 1882    UPU Full Membership
+#&gt;                                       orgname
+#&gt; 1  International Bureau of Weights &amp; Measures
+#&gt; 2             Intl Comm of Cape Spartel Light
+#&gt; 3                      Intl Penitentiary Comm
+#&gt; 4                          Intl Telecom Union
+#&gt; 5                  Superior Council of Health
+#&gt; 6                      Universal Postal Union
+#&gt; 7  International Bureau of Weights &amp; Measures
+#&gt; 8             Intl Comm of Cape Spartel Light
+#&gt; 9                      Intl Penitentiary Comm
+#&gt; 10                         Intl Telecom Union
+#&gt; 11                 Superior Council of Health
+#&gt; 12                     Universal Postal Union
+#&gt; 13 International Bureau of Weights &amp; Measures
+#&gt; 14            Intl Comm of Cape Spartel Light
+#&gt; 15                     Intl Penitentiary Comm
+#&gt; 16                         Intl Telecom Union
+#&gt; 17                 Superior Council of Health
+#&gt; 18                     Universal Postal Union
+#&gt;                                                      longorgname political
+#&gt; 1            International Bureau of Weights and Measures (BIPM)         0
+#&gt; 2  International Commission of the Cape Spartel Light in Tangier         0
+#&gt; 3                          International Penitentiary Commission         0
+#&gt; 4                          International Telecommunication Union         0
+#&gt; 5                                     Superior Council of Health         0
+#&gt; 6                                         Universal Postal Union         0
+#&gt; 7            International Bureau of Weights and Measures (BIPM)         0
+#&gt; 8  International Commission of the Cape Spartel Light in Tangier         0
+#&gt; 9                          International Penitentiary Commission         0
+#&gt; 10                         International Telecommunication Union         0
+#&gt; 11                                    Superior Council of Health         0
+#&gt; 12                                        Universal Postal Union         0
+#&gt; 13           International Bureau of Weights and Measures (BIPM)         0
+#&gt; 14 International Commission of the Cape Spartel Light in Tangier         0
+#&gt; 15                         International Penitentiary Commission         0
+#&gt; 16                         International Telecommunication Union         0
+#&gt; 17                                    Superior Council of Health         0
+#&gt; 18                                        Universal Postal Union         0
+#&gt;    social economic
+#&gt; 1       0        1
+#&gt; 2       0        1
+#&gt; 3       1        0
+#&gt; 4       0        1
+#&gt; 5       1        0
+#&gt; 6       0        1
+#&gt; 7       0        1
+#&gt; 8       0        1
+#&gt; 9       1        0
+#&gt; 10      0        1
+#&gt; 11      1        0
+#&gt; 12      0        1
+#&gt; 13      0        1
+#&gt; 14      0        1
+#&gt; 15      1        0
+#&gt; 16      0        1
+#&gt; 17      1        0
+#&gt; 18      0        1</div><div class='input'>
+<span class='co'># Use codes to get countries</span>
+<span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"2"</span>, year <span class='op'>=</span> <span class='fl'>1865</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   ccode stateabb                 statenme state year ioname        category
+#&gt; 1     2      USA United States of America   usa 1865 ICCSLT Full Membership
+#&gt;                           orgname
+#&gt; 1 Intl Comm of Cape Spartel Light
+#&gt;                                                     longorgname political
+#&gt; 1 International Commission of the Cape Spartel Light in Tangier         0
+#&gt;   social economic
+#&gt; 1      0        1</div><div class='input'>
+<span class='co'># Extract different status</span>
+
+<span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"kosovo"</span>,
+                     status <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Associate Membership"</span>,
+                     <span class='st'>"Observer"</span>,
+                     <span class='st'>"Full Membership"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   ccode stateabb statenme  state year ioname             category
+#&gt; 1   347      KOS   Kosovo kosovo 2014   ACCT Associate Membership
+#&gt; 2   347      KOS   Kosovo kosovo 2014   EBRD      Full Membership
+#&gt; 3   347      KOS   Kosovo kosovo 2014   IBRD      Full Membership
+#&gt; 4   347      KOS   Kosovo kosovo 2014    IFC      Full Membership
+#&gt; 5   347      KOS   Kosovo kosovo 2014    IMF      Full Membership
+#&gt; 6   347      KOS   Kosovo kosovo 2014   MIGA      Full Membership
+#&gt;                                          orgname
+#&gt; 1                             Francophone Agency
+#&gt; 2 European Bank for Reconstruction &amp; Development
+#&gt; 3                                     World Bank
+#&gt; 4                      Int'l Finance Corporation
+#&gt; 5                             Intl Monetary Fund
+#&gt; 6       Multilateral Investment Guarantee Agency
+#&gt;                                                          longorgname political
+#&gt; 1                                   Agence de La Francophonie (ACCT)         0
+#&gt; 2            European Bank for Reconstruction and Development (EBRD)         0
+#&gt; 3 International Bank for Reconstruction and Development (World Bank)         0
+#&gt; 4                            International Finance Corporation (IFC)         0
+#&gt; 5                                        International Monetary Fund         0
+#&gt; 6                    Multilateral Investment Guarantee Agency (MIGA)         0
+#&gt;   social economic
+#&gt; 1      1        0
+#&gt; 2      0        1
+#&gt; 3      0        1
+#&gt; 4      0        1
+#&gt; 5      0        1
+#&gt; 6      0        1</div><div class='input'>
+<span class='co'># Vectorized</span>
+<span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"usa"</span>, <span class='st'>"spain"</span><span class='op'>)</span>,
+                     year <span class='op'>=</span> <span class='fl'>1870</span><span class='op'>:</span><span class='fl'>1871</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   ccode stateabb                 statenme state year ioname        category
+#&gt; 1     2      USA United States of America   usa 1870 ICCSLT Full Membership
+#&gt; 2     2      USA United States of America   usa 1871 ICCSLT Full Membership
+#&gt; 3   230      SPN                    Spain spain 1870 ICCSLT Full Membership
+#&gt; 4   230      SPN                    Spain spain 1870    ITU Full Membership
+#&gt; 5   230      SPN                    Spain spain 1870    SCH Full Membership
+#&gt; 6   230      SPN                    Spain spain 1871 ICCSLT Full Membership
+#&gt; 7   230      SPN                    Spain spain 1871    ITU Full Membership
+#&gt; 8   230      SPN                    Spain spain 1871    SCH Full Membership
+#&gt;                           orgname
+#&gt; 1 Intl Comm of Cape Spartel Light
+#&gt; 2 Intl Comm of Cape Spartel Light
+#&gt; 3 Intl Comm of Cape Spartel Light
+#&gt; 4              Intl Telecom Union
+#&gt; 5      Superior Council of Health
+#&gt; 6 Intl Comm of Cape Spartel Light
+#&gt; 7              Intl Telecom Union
+#&gt; 8      Superior Council of Health
+#&gt;                                                     longorgname political
+#&gt; 1 International Commission of the Cape Spartel Light in Tangier         0
+#&gt; 2 International Commission of the Cape Spartel Light in Tangier         0
+#&gt; 3 International Commission of the Cape Spartel Light in Tangier         0
+#&gt; 4                         International Telecommunication Union         0
+#&gt; 5                                    Superior Council of Health         0
+#&gt; 6 International Commission of the Cape Spartel Light in Tangier         0
+#&gt; 7                         International Telecommunication Union         0
+#&gt; 8                                    Superior Council of Health         0
+#&gt;   social economic
+#&gt; 1      0        1
+#&gt; 2      0        1
+#&gt; 3      0        1
+#&gt; 4      0        1
+#&gt; 5      1        0
+#&gt; 6      0        1
+#&gt; 7      0        1
+#&gt; 8      1        0</div><div class='input'>
+<span class='co'># Use countrycodes package to get additional codes</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span><span class='op'>(</span><span class='st'>"countrycode"</span>, quietly <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/vincentarelbundock/countrycode'>countrycode</a></span><span class='op'>)</span>
+  <span class='va'>IT</span> <span class='op'>&lt;-</span> <span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"Italy"</span>, year <span class='op'>=</span> <span class='fl'>1880</span><span class='op'>)</span>
+  <span class='va'>IT</span><span class='op'>$</span><span class='va'>iso3c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/countrycode/man/countrycode.html'>countrycode</a></span><span class='op'>(</span><span class='va'>IT</span><span class='op'>$</span><span class='va'>ccode</span>, origin <span class='op'>=</span> <span class='st'>"cown"</span>,
+                          destination <span class='op'>=</span> <span class='st'>"iso3c"</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>IT</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div><div class='output co'>#&gt;   ccode stateabb statenme state year ioname        category
+#&gt; 1   325      ITA    Italy italy 1880   BIPM Full Membership
+#&gt; 2   325      ITA    Italy italy 1880   ECCD Full Membership
+#&gt; 3   325      ITA    Italy italy 1880 ICCSLT Full Membership
+#&gt; 4   325      ITA    Italy italy 1880 IPentC Full Membership
+#&gt; 5   325      ITA    Italy italy 1880    ITU Full Membership
+#&gt; 6   325      ITA    Italy italy 1880    SCH Full Membership
+#&gt;                                      orgname
+#&gt; 1 International Bureau of Weights &amp; Measures
+#&gt; 2            Euro Comm for Control of Danube
+#&gt; 3            Intl Comm of Cape Spartel Light
+#&gt; 4                     Intl Penitentiary Comm
+#&gt; 5                         Intl Telecom Union
+#&gt; 6                 Superior Council of Health
+#&gt;                                                     longorgname political
+#&gt; 1           International Bureau of Weights and Measures (BIPM)         0
+#&gt; 2                 European Commission for Control of the Danube         0
+#&gt; 3 International Commission of the Cape Spartel Light in Tangier         0
+#&gt; 4                         International Penitentiary Commission         0
+#&gt; 5                         International Telecommunication Union         0
+#&gt; 6                                    Superior Council of Health         0
+#&gt;   social economic iso3c
+#&gt; 1      0        1   ITA
+#&gt; 2      1        0   ITA
+#&gt; 3      0        1   ITA
+#&gt; 4      1        0   ITA
+#&gt; 5      0        1   ITA
+#&gt; 6      1        0   ITA</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
