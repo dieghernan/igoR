@@ -31,7 +31,7 @@ igo_state_membership("Spain", year = 1870)
 igo_state_membership("Spain", year = 1880:1882)
 
 # Last year
-head(igo_state_membership("CZE")[, 1:7])
+igo_state_membership(“ZAN”)[, 1:7]
 
 # Use codes to get countries
 igo_state_membership("2", year = 1865)
