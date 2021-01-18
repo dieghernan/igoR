@@ -55,9 +55,15 @@ igo_members <- function(ioname,
   if (length(ioname) == 1) {
     df <- igoR::igo_year_format3
 
-    if (!(ioname %in% df$ioname)) {
+
+
+    if (!(tolower(ioname) %in% tolower(df$ioname))) {
       stop(ioname, " is not a valid ioname. See igoR::igo_year_format3")
     }
+
+    ioname <- df[tolower(df$ioname) == tolower(ioname), "ioname"]
+
+    ioname <- unique(ioname)
 
     df <- df[df$ioname == ioname, ]
     interval <- c(min(df$year), max(df$year))

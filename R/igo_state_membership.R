@@ -19,10 +19,10 @@
 #' igo_state_membership("Spain", year = 1850)
 #' igo_state_membership("Spain", year = 1870)
 #' igo_state_membership("Spain", year = 1880:1882)
-#' 
+#'
 #' # Last year
 #' igo_state_membership("ZAN")[, 1:7]
-#' 
+#'
 #' # Use codes to get countries
 #' igo_state_membership("2", year = 1865)
 #'
@@ -62,12 +62,12 @@ igo_state_membership <- function(state,
 
 
     # Lookup
-    find_state <- c()
+    find_state <- vector(mode = "numeric")
 
     for (i in seq_len(ncol(df_states))) {
       find_state <-
         sort(unique(c(
-          find_state, match(state, df_states[, i])
+          find_state, match(tolower(state), tolower(df_states[, i]))
         )))
     }
 

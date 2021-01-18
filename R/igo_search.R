@@ -82,11 +82,11 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
     }
 
     # Search in long name
-    lon <- grep(pattern, db_end$longorgname)
+    lon <- grep(pattern, db_end$longorgname, ignore.case = TRUE)
     # Search in org name
-    lon <- c(lon, grep(pattern, db_end$orgname))
+    lon <- c(lon, grep(pattern, db_end$orgname, ignore.case = TRUE))
     # Search in id
-    lon <- c(lon, grep(pattern, db_end$ioname))
+    lon <- c(lon, grep(pattern, db_end$ioname, ignore.case = TRUE))
     # Search on ionum
     lon <- c(lon, grep(pattern, as.character(db_end$ionum)))
 
