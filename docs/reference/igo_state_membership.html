@@ -295,14 +295,12 @@ on <code><a href='igo_year_format3.html'>igo_year_format3</a></code>.</p></td>
 #&gt; 17      1        0
 #&gt; 18      0        1</div><div class='input'>
 <span class='co'># Last year</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"CZE"</span><span class='op'>)</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   ccode stateabb       statenme          state year ioname        category
-#&gt; 1   315      CZE Czechoslovakia czechoslovakia 1992   BIPM Full Membership
-#&gt; 2   315      CZE Czechoslovakia czechoslovakia 1992    BIS Full Membership
-#&gt; 3   315      CZE Czechoslovakia czechoslovakia 1992  CEFTA Full Membership
-#&gt; 4   315      CZE Czechoslovakia czechoslovakia 1992    CEI Full Membership
-#&gt; 5   315      CZE Czechoslovakia czechoslovakia 1992 Danube Full Membership
-#&gt; 6   315      CZE Czechoslovakia czechoslovakia 1992   EBRD Full Membership</div><div class='input'>
+<span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"ZAN"</span><span class='op'>)</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>]</span>
+</div><div class='output co'>#&gt;   ccode stateabb statenme    state year ioname        category
+#&gt; 1   511      ZAN Zanzibar zanzibar 1964    CEC Full Membership
+#&gt; 2   511      ZAN Zanzibar zanzibar 1964    ITU Full Membership
+#&gt; 3   511      ZAN Zanzibar zanzibar 1964     UN Full Membership
+#&gt; 4   511      ZAN Zanzibar zanzibar 1964    UPU Full Membership</div><div class='input'>
 <span class='co'># Use codes to get countries</span>
 <span class='fu'>igo_state_membership</span><span class='op'>(</span><span class='st'>"2"</span>, year <span class='op'>=</span> <span class='fl'>1865</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   ccode stateabb                 statenme state year ioname        category
