@@ -1,4 +1,4 @@
-#' @title Extract Memberships of a country
+#' @title Extract Memberships of a Country
 #' @name igo_state_membership
 #' @description Extract all the memberships of a state on a specific date.
 #' @return A dataframe.
