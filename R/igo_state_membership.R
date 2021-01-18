@@ -21,7 +21,7 @@
 #' igo_state_membership("Spain", year = 1880:1882)
 #' 
 #' # Last year
-#' igo_state_membership("baden")[, 1:7]
+#' igo_state_membership("YUG")[, 1:7]
 #' 
 #' # Use codes to get countries
 #' igo_state_membership("2", year = 1865)
