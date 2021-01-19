@@ -3,11 +3,11 @@
 #' @description Extract all the memberships of a state on a specific date.
 #' @return A dataframe.
 #' @seealso \code{\link{igo_year_format3}},
-#' \code{\link{cow_country_codes}}.
+#' \code{\link{states2016}}.
 #' @export
 #'
 #' @param state Any valid name or code of a state as specified on
-#' \code{\link{cow_country_codes}}. It could be also a vector of states
+#' \code{\link{states2016}}. It could be also a vector of states
 #' @param year Year to be assessed, an integer or an array of year.
 #' If \code{NULL} the latest year available
 #' of the state would be extracted.
@@ -58,7 +58,7 @@ igo_state_membership <- function(state,
   if (length(state) == 1) {
     ## A. States
     # Search state
-    df_states <- igoR::cow_country_codes
+    df_states <- cow_country_codes
 
 
     # Lookup

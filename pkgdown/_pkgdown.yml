@@ -8,7 +8,7 @@ reference:
     contents:
       - cow_country_codes
       - igo_year_format3
-      - state_year_format3
+      - states2016
 
   - title: "Search functions"
     desc: Helper function to extract information.

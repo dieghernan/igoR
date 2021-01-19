@@ -57,7 +57,7 @@ reactable(igo[, 1:7],
 
 ```{r countries, echo=FALSE}
 
-cc <- cow_country_codes
+cc <- states2016
 reactable(cc,
           filterable = TRUE,
           searchable = TRUE,

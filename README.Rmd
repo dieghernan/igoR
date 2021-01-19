@@ -112,8 +112,3 @@ R package version `r packageVersion("igoR")`. <https://doi.org/10.5281/zenodo.44
 
 
 ## References
-
-
-
-
-

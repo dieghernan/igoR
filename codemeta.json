@@ -130,7 +130,7 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/igoR/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/igoR/blob/master/README.md",
-  "fileSize": "63157.315KB",
+  "fileSize": "63723.22KB",
   "contIntegration": "https://codecov.io/gh/dieghernan/igoR",
   "developmentStatus": "https://www.tidyverse.org/lifecycle/#experimental",
   "keywords": ["r-package", "igo", "correlates-of-war", "intergovernmental-organizations"],

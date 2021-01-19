@@ -8,7 +8,7 @@ igo_state_membership(state, year = NULL, status = "Full Membership")
 }
 \arguments{
 \item{state}{Any valid name or code of a state as specified on
-\code{\link{cow_country_codes}}. It could be also a vector of states}
+\code{\link{states2016}}. It could be also a vector of states}
 
 \item{year}{Year to be assessed, an integer or an array of year.
 If \code{NULL} the latest year available
@@ -59,5 +59,5 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 }
 \seealso{
 \code{\link{igo_year_format3}},
-\code{\link{cow_country_codes}}.
+\code{\link{states2016}}.
 }
