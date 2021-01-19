@@ -12,3 +12,4 @@ expect_silent(igo_members("EU", year = 2000))
 expect_false(nrow(igo_members("EU", year = 2000)) ==
                nrow(igo_members("EU", year = 1993)))
 expect_silent(igo_members(c("NAFTA", "EU"), year = 1993))
+expect_silent(igo_members(c("nafta", "un", "eu"), year = 1993))
