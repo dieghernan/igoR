@@ -89,7 +89,8 @@ NULL
 #' @description The list of states with COW abbreviations and ID numbers, plus
 #' the field \code{state} from \code{\link{state_year_format3}}.
 #' @source \href{https://correlatesofwar.org/data-sets/cow-country-codes}{
-#' COW Country Codes}, The Correlates of War Project.
+#' COW Country Codes}, The Correlates of War Project. 
+#' Accesed: 2021-01-12.
 #' @format data frame with 217 rows:
 #' \itemize{
 #'   \item{\strong{ccode}: }{COW country number.}
@@ -102,5 +103,9 @@ NULL
 #' @seealso \code{\link{state_year_format3}}, \code{\link{igo_year_format3}}.
 #' @note \code{state} variable added to original data to help comparison across
 #' datasets on this package.
+#' @references
+#' Correlates of War Project. 2017 
+#' "State System Membership List, v2016." Online, 
+#' \url{http://correlatesofwar.org}.
 NULL
 #'
