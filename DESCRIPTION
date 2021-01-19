@@ -12,9 +12,9 @@ Authors@R:
              role = c("aut", "cre", "cph"),
              email = "diego.hernangomezherrero@gmail.com",
              comment = c(ORCID = "0000-0001-8457-4658")),
-      person(given = "The Correlates of War Project"
-             role = c("cph"),
-             comment = c("for the data set")
+      person(given = "The Correlates of War Project",
+             role = "cph",
+             comment = "for the data set")
              )
 License: GPL (>= 3)
 BugReports: https://github.com/dieghernan/igoR/issues
