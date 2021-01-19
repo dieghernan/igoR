@@ -9,7 +9,7 @@
 \url{https://correlatesofwar.org/data-sets/IGOs}
 }
 \description{
-\if{html}{\figure{logo.png}{options: width=120 alt="igoR logo" align='right'}}
+\if{html}{\figure{logo.png}{options: width=120 alt="igoR" align='right'}}
 Tools to extract information from the Intergovernmental
 Organizations Database ('IGO'), version 3, provided by the Correlates of
 War Project \url{https://correlatesofwar.org/}.

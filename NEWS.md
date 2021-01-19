@@ -5,6 +5,7 @@
 * Add `igo_state_membership()`
 * `cow_country_codes` now is internal. 
 * Added `igoR::states2016` in replacement of `cow_country_codes`.
+* Add `igo_dyadic()`
 
 
 # igoR 0.0.0.9000
