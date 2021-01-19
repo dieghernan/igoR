@@ -26,6 +26,9 @@ as well as membership information.
 
 Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
+Additionally, a distribution of the State System Membership (Correlates
+of War Project (2017)) is included on this package.
+
 ## Installation
 
 You can install developing version from GitHub:
@@ -115,6 +118,13 @@ package version 0.0.0.9000. <https://doi.org/10.5281/zenodo.4442958>.
 ## References
 
 <div id="refs" class="references">
+
+<div id="ref-cow_2017">
+
+Correlates of War Project. 2017. “State System Membership List, V2016.”
+<http://correlatesofwar.org>.
+
+</div>
 
 <div id="ref-doi:10.1177/0022343319881175">
 
