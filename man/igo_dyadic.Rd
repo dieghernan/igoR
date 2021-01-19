@@ -6,6 +6,9 @@
 \usage{
 igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 }
+\arguments{
+\item{country1, country2, year, ioname}{XXXXX}
+}
 \value{
 XXXXX
 }

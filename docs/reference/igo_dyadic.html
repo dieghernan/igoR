@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • igoR</title>
+<title>Extract the Joint Membership of a pair of Countries across IGOs. — igo_dyadic • igoR</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,10 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Extract the Joint Membership of a pair of Countries across IGOs. — igo_dyadic" />
+<meta property="og:description" content="Dyadic version of the data. The unit of observation is a dyad
+of countries. It provides a summary of the joint memberships of two IGOs
+over time." />
 <meta property="og:image" content="https://dieghernan.github.io/igoR/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dhernangomez" />
@@ -81,7 +84,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -149,110 +152,38 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Extract the Joint Membership of a pair of Countries across IGOs.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dieghernan/igoR/blob/master/R/igo_dyadic.R'><code>R/igo_dyadic.R</code></a></small>
+    <div class="hidden name"><code>igo_dyadic.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Dyadic version of the data. The unit of observation is a dyad
+of countries. It provides a summary of the joint memberships of two IGOs
+over time.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>igo_dyadic</span><span class='op'>(</span><span class='va'>country1</span>, <span class='va'>country2</span>, year <span class='op'>=</span> <span class='fl'>1816</span><span class='op'>:</span><span class='fl'>2014</span>, ioname <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-datasets" class="hasAnchor"><a href="#section-datasets" class="anchor"></a>Datasets</h2>
-          <p class="section-desc"><p>These objects are datasets already included in the package.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="igo_year_format3.html">igo_year_format3</a></code> </p>
-        </td>
-        <td><p>Intergovernmental Organizations (IGO) by year</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="state_year_format3.html">state_year_format3</a></code> </p>
-        </td>
-        <td><p>Country membership to IGO by year</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="states2016.html">states2016</a></code> </p>
-        </td>
-        <td><p>State System Membership (v2016)</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-search-functions" class="hasAnchor"><a href="#section-search-functions" class="anchor"></a>Search functions</h2>
-          <p class="section-desc"><p>Helper function to extract information.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="igo_dyadic.html">igo_dyadic()</a></code> </p>
-        </td>
-        <td><p>Extract the Joint Membership of a pair of Countries across IGOs.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="igo_members.html">igo_members()</a></code> </p>
-        </td>
-        <td><p>Extract Members of an IGO</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="igo_search.html">igo_search()</a></code> </p>
-        </td>
-        <td><p>Search and Find an IGO</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="igo_state_membership.html">igo_state_membership()</a></code> </p>
-        </td>
-        <td><p>Extract Memberships of a State</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-about-the-package" class="hasAnchor"><a href="#section-about-the-package" class="anchor"></a>About the package</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="igoR-package.html">igoR-package</a></code> </p>
-        </td>
-        <td><p>igoR package</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>country1, country2, year, ioname</th>
+      <td><p>XXXXX</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>XXXXX</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>XXXXX</p></div>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
