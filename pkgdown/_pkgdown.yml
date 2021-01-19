@@ -6,8 +6,8 @@ reference:
   - title: "Datasets"
     desc: These objects are datasets already included in the package.
     contents:
-      - cow_country_codes
       - igo_year_format3
+      - state_year_format3
       - states2016
 
   - title: "Search functions"
