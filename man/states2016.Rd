@@ -22,7 +22,7 @@ and the end of each tenure.}
 State System Membership (v2016)}, The Correlates of War Project.
 }
 \description{
-The list of states with COW abbreviations and ID numbers, plus
+Data set containing the COW list of states plus
 the field \code{state} from \code{\link{state_year_format3}}.
 }
 \details{
