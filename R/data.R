@@ -86,7 +86,7 @@ NULL
 #' @title State System Membership (v2016)
 #' @name states2016
 #' @docType data
-#' @description The list of states with COW abbreviations and ID numbers, plus
+#' @description Data set containing the COW list of states plus 
 #' the field \code{state} from \code{\link{state_year_format3}}.
 #' @source \href{https://correlatesofwar.org/data-sets/state-system-membership}{
 #' State System Membership (v2016)}, The Correlates of War Project.
