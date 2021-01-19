@@ -13,7 +13,7 @@ status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](htt
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4442958-blue)](https://doi.org/10.5281/zenodo.4442958)
 <!-- badges: end -->
 
-The goal of `igoR`is to provide access and to extract information from
+The goal of `igoR` is to provide access and to extract information from
 the Intergovernmental Organizations Database (IGOs), version 3, provided
 by the Correlates of War Project <https://correlatesofwar.org/>
 (Pevehouse et al. (2020)).
