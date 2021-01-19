@@ -36,6 +36,8 @@ membership information.
 
 Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
+Additionally, a distribution of the State System Membership (@cow_2017) is included on this package.
+
 ## Installation
 
 You can install developing version from GitHub:
