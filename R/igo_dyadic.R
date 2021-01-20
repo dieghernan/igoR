@@ -30,7 +30,7 @@
 #' to its size.
 #'
 #' The result is a data frame containing the common years of the states
-#' selected via \code{countr1, country2, year} by rows.
+#' selected via \code{country1, country2, year} by rows.
 #'
 #' An additional column \code{dyadid}, computed as \code{(1000*ccode1)+ccode2}
 #' is provided in order to identify relationships.

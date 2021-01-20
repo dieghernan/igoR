@@ -358,7 +358,7 @@ selected_countries <- c("France",
 
 Spain_Selected <- igo_dyadic("Spain", selected_countries)
 
-# Compute number of shared membserhips
+# Compute number of shared memberships
 
 Spain_Selected$values <- rowSums(Spain_Selected == 1)
 
@@ -379,8 +379,23 @@ ggplot(Spain_Selected, aes(x = year, y = values)) +
     limits = c(0, 110),
     labels = as.character(c(0, 20, 40, 60, 80, 100))
   ) +
-  theme_igoR
-
+  theme_igoR +
+  geom_vline(xintercept = 1939, alpha = 0.2) +
+  annotate(
+    "label",
+    x = 1938,
+    y = 60,
+    size = 3,
+    label = "Spanish \nCivil War"
+  ) +
+  geom_vline(xintercept = 1978, alpha = 0.2) +
+  annotate(
+    "label",
+    x = 1970,
+    y = 100,
+    size = 3,
+    label = "Constitution\nof Spain"
+  )
 
 ```
 
