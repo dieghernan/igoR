@@ -74,9 +74,6 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/mapping.html">Mapping IGOs</a>
-    </li>
-    <li>
       <a href="../articles/reference.html">List of IGOs and Countries</a>
     </li>
   </ul>
@@ -435,7 +432,7 @@ Figure 4. IGO membership: five states in Asia, 1865-2014
 
 <span class="va">Spain_Selected</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="st">"Spain"</span>, <span class="va">selected_countries</span><span class="op">)</span>
 
-<span class="co"># Compute number of shared membserhips</span>
+<span class="co"># Compute number of shared memberships</span>
 
 <span class="va">Spain_Selected</span><span class="op">$</span><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">Spain_Selected</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span>
 
@@ -456,7 +453,23 @@ Figure 4. IGO membership: five states in Asia, 1865-2014
     limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">110</span><span class="op">)</span>,
     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">80</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="va">theme_igoR</span></code></pre></div>
+  <span class="va">theme_igoR</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">1939</span>, alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span>
+    <span class="st">"label"</span>,
+    x <span class="op">=</span> <span class="fl">1938</span>,
+    y <span class="op">=</span> <span class="fl">60</span>,
+    size <span class="op">=</span> <span class="fl">3</span>,
+    label <span class="op">=</span> <span class="st">"Spanish \nCivil War"</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">1978</span>, alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span>
+    <span class="st">"label"</span>,
+    x <span class="op">=</span> <span class="fl">1970</span>,
+    y <span class="op">=</span> <span class="fl">100</span>,
+    size <span class="op">=</span> <span class="fl">3</span>,
+    label <span class="op">=</span> <span class="st">"Constitution\nof Spain"</span>
+  <span class="op">)</span></code></pre></div>
 <div class="figure">
 <img src="igoR_files/figure-html/Fig5-1.png" alt="Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014" width="100%" height="60%"><p class="caption">
 Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014
