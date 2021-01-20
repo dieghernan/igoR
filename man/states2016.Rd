@@ -22,7 +22,7 @@ and the end of each tenure.}
 State System Membership (v2016)}, The Correlates of War Project.
 }
 \description{
-Data set containing the COW list of states plus
+The list of states with COW abbreviations and ID numbers, plus
 the field \code{state} from \code{\link{state_year_format3}}.
 }
 \details{
@@ -38,14 +38,14 @@ states and major powers in the international system.
 
 The Correlates of War project includes a state in the international system
 from 1816-2016 for the following criteria:
-\itemize{
-\item{\strong{Prior to 1920 }}{the entity must have had a population
-greater than 500,000 and have had diplomatic missions at or above the
-rank of charge d'affaires with Britain and France.}#'
-\item{\strong{After 1920 }}{the entity must be a member of the League of
-Nations or the United Nations, or have a population greater than 500,000
-and receive diplomatic missions from two major powers.}
-}
+
+\strong{Prior to 1920} the entity must have had a population greater than 500,000
+and have had diplomatic missions at or above the rank of charge
+d'affaires with Britain and France.
+
+\strong{After 1920} the entity must be a member of the League of Nations
+or the United Nations, or have a population greater than 500,000 and
+receive diplomatic missions from two major powers.
 }
 \note{
 \code{state} variable added to original data to help comparison across

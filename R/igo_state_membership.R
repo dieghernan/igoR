@@ -2,7 +2,7 @@
 #' @name igo_state_membership
 #' @description Extract all the memberships of a state on a specific date.
 #' @return A dataframe.
-#' @seealso \code{\link{igo_year_format3}},
+#' @seealso \code{\link{igo_year_format3}}, \code{\link{igo_search_states}},
 #' \code{\link{states2016}}.
 #' @export
 #'
@@ -58,30 +58,7 @@ igo_state_membership <- function(state,
   if (length(state) == 1) {
     ## A. States
     # Search state
-    df_states <- cow_country_codes
-
-
-    # Lookup
-    find_state <- vector(mode = "numeric")
-
-    for (i in seq_len(ncol(df_states))) {
-      find_state <-
-        sort(unique(c(
-          find_state, match(tolower(state), tolower(df_states[, i]))
-        )))
-    }
-
-    find_state <- sort(find_state)[1]
-
-    if (is.na(find_state)) {
-      stop("state not found: ",
-           paste0("'",
-                  state[1],
-                  "'",
-                  collapse = ", "))
-    }
-
-    df_states <- df_states[find_state, ]
+    df_states <- igoR::igo_search_states(state)
 
     # Extract state
     state_names <- as.character(df_states$state)

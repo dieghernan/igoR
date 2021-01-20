@@ -4,6 +4,7 @@
 #' @description Data on IGOs from 1815-2014, at the IGO-year level.
 #' Contains one record per IGO-year (with years listed at 5 year intervals
 #' through 1965, and annually thereafter).
+
 #' @source \href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)},
 #' The Correlates of War Project (IGO Data Stata Files)
 #' @format data frame with 19335 rows. Relevant fields:
@@ -86,7 +87,7 @@ NULL
 #' @title State System Membership (v2016)
 #' @name states2016
 #' @docType data
-#' @description Data set containing the COW list of states plus 
+#' @description The list of states with COW abbreviations and ID numbers, plus
 #' the field \code{state} from \code{\link{state_year_format3}}.
 #' @source \href{https://correlatesofwar.org/data-sets/state-system-membership}{
 #' State System Membership (v2016)}, The Correlates of War Project.
@@ -115,14 +116,14 @@ NULL
 #'
 #' The Correlates of War project includes a state in the international system
 #' from 1816-2016 for the following criteria:
-#' \itemize{
-#'   \item{\strong{Prior to 1920 }}{the entity must have had a population
-#'   greater than 500,000 and have had diplomatic missions at or above the
-#'   rank of charge d'affaires with Britain and France.}#'
-#'  \item{\strong{After 1920 }}{the entity must be a member of the League of
-#'  Nations or the United Nations, or have a population greater than 500,000
-#'  and receive diplomatic missions from two major powers.}
-#' }
+#'
+#' \strong{Prior to 1920} the entity must have had a population greater than 500,000
+#' and have had diplomatic missions at or above the rank of charge
+#' d'affaires with Britain and France.
+#'
+#' \strong{After 1920} the entity must be a member of the League of Nations
+#' or the United Nations, or have a population greater than 500,000 and
+#' receive diplomatic missions from two major powers.
 #'
 #' @note \code{state} variable added to original data to help comparison across
 #' datasets on this package.
@@ -131,4 +132,3 @@ NULL
 #' Correlates of War Project. 2017 "State System Membership List, v2016."
 #' Online, \url{http://correlatesofwar.org}.
 NULL
-#'

@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "igoR",
   "description": "Tools to extract information from the\n    Intergovernmental Organizations ('IGO') Database , version 3, provided\n    by the Correlates of War Project <https://correlatesofwar.org/>. See\n    also Pevehouse, J. C. et al. (2020), <doi:10.1177/0022343319881175>. \n    Version 3 includes information from 1815 to 2014.",
@@ -32,6 +35,10 @@
       "familyName": "Hernangómez",
       "email": "diego.hernangomezherrero@gmail.com",
       "@id": "https://orcid.org/0000-0001-8457-4658"
+    },
+    {
+      "@type": "Organization",
+      "name": "The Correlates of War Project"
     }
   ],
   "funder": {},
@@ -130,10 +137,15 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/igoR/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/igoR/blob/master/README.md",
-  "fileSize": "63723.22KB",
+  "fileSize": "63769.691KB",
   "contIntegration": "https://codecov.io/gh/dieghernan/igoR",
   "developmentStatus": "https://www.tidyverse.org/lifecycle/#experimental",
-  "keywords": ["r-package", "igo", "correlates-of-war", "intergovernmental-organizations"],
+  "keywords": [
+    "r-package",
+    "igo",
+    "correlates-of-war",
+    "intergovernmental-organizations"
+  ],
   "citation": [
     {
       "@type": "SoftwareSourceCode",

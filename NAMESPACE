@@ -3,6 +3,7 @@
 export(igo_dyadic)
 export(igo_members)
 export(igo_search)
+export(igo_search_states)
 export(igo_state_membership)
 importFrom(stats,aggregate)
 importFrom(stats,reshape)

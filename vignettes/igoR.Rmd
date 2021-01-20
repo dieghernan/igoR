@@ -23,11 +23,12 @@ knitr::opts_chunk$set(
 ```
 
 
-This vignette is meant to provide **useRs** with an visual, explorable introduction to the capabilites of the `igoR` package.
+This vignette is meant to provide **useRs** with an visual, explorable introduction to the capabilities of the `igoR` package.
 
-The analysis would be based on those provided on @doi:10.1177/0022343319881175. For more information on the IGO datasets and additional downloads, see [Intergovernmental Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs).
+The analysis would be based on those provided on @doi:10.1177/0022343319881175. For more information on the IGO data sets and additional downloads, see [Intergovernmental Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs).
 
-*Note that the dyadic dataset is not provided in the package, due its size (~500 MB on Stata `.dta` format). However, `igo_dyadic()` function provides similar results.*
+*Note that the dyadic dataset is not provided in the package, due its size (~500 MB on Stata `.dta` format). However,* `igo_dyadic()` *function
+provides similar results.*
 
 ## Definitions
 
@@ -46,7 +47,7 @@ The definition of an Intergovernmental Organization (IGO) on the original datase
 
 ### When does an IGO actually begin?
 
-The datasets begins to code an IGO by identifying the first year in which the
+The data sets begins to code an IGO by identifying the first year in which the
 organization functions. In some cases, individual members are listed by year of
 accession or signature.
 
@@ -145,7 +146,7 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 
 
-### IGO Births and deads
+### IGO Births and deaths
  
  This plot shows how many IGOs were "born" and "died" on each year
 
@@ -341,6 +342,48 @@ ggplot(asia5, aes(x = year, y = values)) +
   theme_igoR
 
 ```
+
+
+### Shared memberships
+
+Number of shared full memberships between Spain and four selected countries:
+
+
+```{r Fig5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014"}
+
+selected_countries <- c("France",
+                        "Morocco",
+                        "China",
+                        "USA")
+
+Spain_Selected <- igo_dyadic("Spain", selected_countries)
+
+# Compute number of shared membserhips
+
+Spain_Selected$values <- rowSums(Spain_Selected == 1)
+
+# Plot
+ggplot(Spain_Selected, aes(x = year, y = values)) +
+  geom_line(size = 0.8, color = "black", aes(linetype = statenme2)) +
+  scale_linetype_manual(values = c("solid", "dashed",
+                                   "dotted", "dotdash")) +
+  guides(linetype = guide_legend(ncol = 2, byrow = TRUE)) +
+  theme(axis.title.y.left = element_text(
+    family = "sans",
+    size = 10,
+    margin =  margin(r = 6)
+  )) +
+  scale_y_continuous(
+    "Shared memberships w\ Spain",
+    breaks = c(0, 20, 40, 60, 80, 100),
+    limits = c(0, 110),
+    labels = as.character(c(0, 20, 40, 60, 80, 100))
+  ) +
+  theme_igoR
+
+
+```
+
 
 
 ## Session Info

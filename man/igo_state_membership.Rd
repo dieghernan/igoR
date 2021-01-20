@@ -58,6 +58,6 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 
 }
 \seealso{
-\code{\link{igo_year_format3}},
+\code{\link{igo_year_format3}}, \code{\link{igo_search_states}},
 \code{\link{states2016}}.
 }
