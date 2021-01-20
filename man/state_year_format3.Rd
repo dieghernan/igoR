@@ -8,7 +8,7 @@
 data frame with 15557 rows. Relevant fields:
 \itemize{
 \item{\strong{ccode}: }{COW country number,
-see \code{\link{cow_country_codes}}}.
+see \code{\link{states2016}}}.
 \item{\strong{year}: }{Calendar Year.}
 \item{\strong{state}: }{Abbreviated state name, identical to variable
 names in \code{\link{igo_year_format3}}}
@@ -44,10 +44,10 @@ Raw data used internally by \pkg{igoR}
 Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
 Jamison. "Tracking Organizations in the World: The Correlates of War
 IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
-(May 2020): 492-503. \url{https://doi.org/10.1177/0022343319881175}.
+(May 2020): 492-503. \doi{10.1177/0022343319881175}.
 }
 \seealso{
 \code{\link{igo_year_format3}},
-\code{\link{cow_country_codes}}. See also \code{\link[countrycode]{countrycode}} to
+\code{\link{states2016}}. See also \code{\link[countrycode]{countrycode}} to
 convert between different country code schemes.
 }

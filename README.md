@@ -9,10 +9,11 @@
 status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/master/graph/badge.svg?token=UH3VLTTTRE)](https://codecov.io/gh/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
+[![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4442958-blue)](https://doi.org/10.5281/zenodo.4442958)
 <!-- badges: end -->
 
-The goal of `igoR`is to provide access and to extract information from
+The goal of `igoR` is to provide access and to extract information from
 the Intergovernmental Organizations Database (IGOs), version 3, provided
 by the Correlates of War Project <https://correlatesofwar.org/>
 (Pevehouse et al. (2020)).
@@ -24,6 +25,9 @@ as well as membership information.
 (v3)](https://correlatesofwar.org/data-sets/IGOs).
 
 Documentation and vignettes on <https://dieghernan.github.io/igoR/>
+
+Additionally, a distribution of the State System Membership (Correlates
+of War Project (2017)) is included on this package.
 
 ## Installation
 
@@ -114,6 +118,13 @@ package version 0.0.0.9000. <https://doi.org/10.5281/zenodo.4442958>.
 ## References
 
 <div id="refs" class="references">
+
+<div id="ref-cow_2017">
+
+Correlates of War Project. 2017. “State System Membership List, V2016.”
+<http://correlatesofwar.org>.
+
+</div>
 
 <div id="ref-doi:10.1177/0022343319881175">
 

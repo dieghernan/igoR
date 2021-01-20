@@ -1,9 +1,9 @@
 ---
-title: "Mapping with igoR"
+title: "Mapping IGOs"
 bibliography: refs_igo.bib
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Mapping with igoR}
+  %\VignetteIndexEntry{Mapping IGOs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,20 +16,8 @@ knitr::opts_chunk$set(
 
 # Install if not already
 
-if (isFALSE(requireNamespace("dplyr", quietly = TRUE))) {
+if (isFALSE(requireNamespace("giscoR", quietly = TRUE))) {
   install.packages("giscoR")
-}
-
-if (isFALSE(requireNamespace("ggplot2", quietly = TRUE))) {
-  install.packages("ggplot2")
-}
-
-if (isFALSE(requireNamespace("countrycode", quietly = TRUE))) {
-  install.packages("countrycode")
-}
-
-if (isFALSE(requireNamespace("sf", quietly = TRUE))) {
-  install.packages("countrycode")
 }
 
 ```
@@ -131,6 +119,16 @@ ggplot(world2) + geom_sf(fill = "#B9B9B9", color = NA) +
   )
 
 ```
+
+## Session Info
+
+<details>
+  <summary><strong>Details</strong></summary>
+```{r session_info, echo=FALSE}
+sessionInfo()
+
+```
+</details>
 
 
 

@@ -1,6 +1,7 @@
 ^doc$
+^docs$
 ^Meta$
-^vignettes/maps.Rmd$
+^vignettes/mapping.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$

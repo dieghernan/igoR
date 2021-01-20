@@ -22,10 +22,11 @@ knitr::opts_chunk$set(
 [![R build status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/master/graph/badge.svg?token=UH3VLTTTRE)](https://codecov.io/gh/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
+[![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4442958-blue)](https://doi.org/10.5281/zenodo.4442958)
 <!-- badges: end -->
 
-The goal of `igoR`is to provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project <https://correlatesofwar.org/> (@doi:10.1177/0022343319881175). 
+The goal of `igoR` is to provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project <https://correlatesofwar.org/> (@doi:10.1177/0022343319881175). 
 
 The dataset (V3) includes information of **`r nrow(igoR::igo_search())`** IGO from `r min(igoR::igo_year_format3$year)` to `r max(igoR::igo_year_format3$year)`, as well as 
 membership information.
@@ -34,6 +35,8 @@ membership information.
 
 
 Documentation and vignettes on <https://dieghernan.github.io/igoR/>
+
+Additionally, a distribution of the State System Membership (@cow_2017) is included on this package.
 
 ## Installation
 
@@ -111,8 +114,3 @@ R package version `r packageVersion("igoR")`. <https://doi.org/10.5281/zenodo.44
 
 
 ## References
-
-
-
-
-

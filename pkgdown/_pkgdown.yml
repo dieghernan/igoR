@@ -6,15 +6,18 @@ reference:
   - title: "Datasets"
     desc: These objects are datasets already included in the package.
     contents:
-      - cow_country_codes
       - igo_year_format3
       - state_year_format3
+      - states2016
 
   - title: "Search functions"
     desc: Helper function to extract information.
     contents:
-      - igo_search
+      - igo_dyadic
       - igo_members
+      - igo_search
+      - igo_search_states
+      - igo_state_membership
 
   - title: "About the package"
     contents:
@@ -26,6 +29,7 @@ figures:
 
 
 template:
+  path: inst/pkgdown/templates
   params:
     ganalytics: G-S61Y539QDX
   opengraph:
@@ -41,3 +45,5 @@ home:
 authors:
   Diego Hernangómez:
     href: https://dieghernan.github.io/
+  The Correlates of War Project:
+    href: https://correlatesofwar.org/

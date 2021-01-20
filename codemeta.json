@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "igoR",
-  "description": "Tools to extract information from the\n    Intergovernmental Organizations ('IGO') Database , version 3, provided\n    by the Correlates of War Project <https://correlatesofwar.org/>. See\n    also Pevehouse, Jon C.W., Timothy Nordstron, Roseanne W McManus, Anne\n    Spencer Jamison, \"Tracking Organizations in the World: The Correlates\n    of War 'IGO' Version 3.0 datasets\", Journal of Peace Research\n    <doi:10.1177/0022343319881175>. Version 3 includes information from\n    1815 to 2014.",
+  "description": "Tools to extract information from the\n    Intergovernmental Organizations ('IGO') Database , version 3, provided\n    by the Correlates of War Project <https://correlatesofwar.org/>. See\n    also Pevehouse, J. C. et al. (2020), <doi:10.1177/0022343319881175>. \n    Version 3 includes information from 1815 to 2014.",
   "name": "igoR: Intergovernmental Organizations Database",
   "codeRepository": "https://github.com/dieghernan/igoR",
   "relatedLink": "https://dieghernan.github.io/igoR/",
@@ -35,6 +35,10 @@
       "familyName": "Hernangómez",
       "email": "diego.hernangomezherrero@gmail.com",
       "@id": "https://orcid.org/0000-0001-8457-4658"
+    },
+    {
+      "@type": "Organization",
+      "name": "The Correlates of War Project"
     }
   ],
   "funder": {},
@@ -52,7 +56,7 @@
       "@type": "SoftwareApplication",
       "identifier": "countrycode",
       "name": "countrycode",
-      "version": ">= 1.0.0",
+      "version": ">= 1.1.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -132,7 +136,16 @@
     }
   ],
   "releaseNotes": "https://github.com/dieghernan/igoR/blob/master/NEWS.md",
-  "fileSize": "61560.25KB",
+  "readme": "https://github.com/dieghernan/igoR/blob/master/README.md",
+  "fileSize": "63769.691KB",
+  "contIntegration": "https://codecov.io/gh/dieghernan/igoR",
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#experimental",
+  "keywords": [
+    "r-package",
+    "igo",
+    "correlates-of-war",
+    "intergovernmental-organizations"
+  ],
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -145,9 +158,11 @@
         }
       ],
       "name": "igoR: ",
+      "identifier": "10.5281/zenodo.4442958",
       "url": "https://dieghernan.github.io/igoR/",
-      "description": "R package version "
+      "description": "R package version ",
+      "@id": "https://doi.org/10.5281/zenodo.4442958",
+      "sameAs": "https://doi.org/10.5281/zenodo.4442958"
     }
-  ],
-  "keywords": ["r-package", "igo", "correlates-of-war", "intergovernmental-organizations"]
+  ]
 }

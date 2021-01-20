@@ -2,6 +2,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
+
+/* Navbar logo */
+
+#navbar-logo {
+  margin-top: -4px;
+  height: 32px;
+  margin-right: 7px;
+}
+
+
 /* ---Theming pkgdown--- */
 
 
@@ -10,13 +20,6 @@
 body {
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
-}
-
-@media only screen and (max-device-width: 768px) {
-  .datatables {
-    font-size: 70%;
-    font-weight: bold;
-  }
 }
 
 a {
@@ -73,6 +76,10 @@ footer div {
 .navbar .navbar-brand .label-default {
   background-color: white;
   color: #0099ff;
+}
+
+.navbar .navbar-brand .label {
+  font-size: 10px;
 }
 
 .navbar-default .navbar-collapse {

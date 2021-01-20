@@ -23,11 +23,12 @@ knitr::opts_chunk$set(
 ```
 
 
-This vignette is meant to provide **useRs** with an visual, explorable introduction to the capabilites of the `igoR` package.
+This vignette is meant to provide **useRs** with an visual, explorable introduction to the capabilities of the `igoR` package.
 
-The analysis would be based on those provided on @doi:10.1177/0022343319881175. For more information on the IGO datasets and additional downloads, see [Intergovernmental Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs).
+The analysis would be based on those provided on @doi:10.1177/0022343319881175. For more information on the IGO data sets and additional downloads, see [Intergovernmental Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs).
 
-*Note that the dyadic dataset is not provided in the package, due its size (~500 MB on Stata `.dta` format).*
+*Note that the dyadic dataset is not provided in the package, due its size (~500 MB on Stata `.dta` format). However,* `igo_dyadic()` *function
+provides similar results.*
 
 ## Definitions
 
@@ -46,7 +47,7 @@ The definition of an Intergovernmental Organization (IGO) on the original datase
 
 ### When does an IGO actually begin?
 
-The datasets begins to code an IGO by identifying the first year in which the
+The data sets begins to code an IGO by identifying the first year in which the
 organization functions. In some cases, individual members are listed by year of
 accession or signature.
 
@@ -74,7 +75,6 @@ This section provides some quick analysis based on the figures of @doi:10.1177/0
 library(igoR)
 
 # Additional libraries
-library(countrycode)
 library(ggplot2)
 library(dplyr)
 ```
@@ -146,7 +146,7 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 
 
-### IGO Births and deads
+### IGO Births and deaths
  
  This plot shows how many IGOs were "born" and "died" on each year
 
@@ -299,41 +299,33 @@ India, China, Pakistan, Indonesia and Bangladesh.
 
 ```{r Fig4, message=FALSE, warning=FALSE, fig.cap="Figure 4. IGO membership: five states in Asia, 1865-2014"}
 
+asia5_cntries <- c("China", "India",
+                   "Pakistan", "Indonesia",
+                   "Bangladesh")
+
 # Five countries of Asia
-asia5_names <-
-  cow_country_codes %>% filter(statenme %in% c("India", "China", 
-                                               "Pakistan", "Indonesia",
-                                               "Bangladesh"))
+asia5_igos <- igo_state_membership(
+  state = asia5_cntries,
+  year = 1865:2014,
+  status = c("Full Membership")
+)
+
+asia5 <- asia5_igos %>%
+  group_by(statenme, year) %>%
+  summarise(values = n(), .groups = "keep")
 
 
-asia5 <-
-  state_year_format3 %>%
-  merge(asia5_names) %>%
-  filter(year >= 1865)
-
-
-## Analyse number of memberships
-numcols <- unlist(lapply(asia5, is.numeric))
-
-# All kinds of Membership
-asia5$values <- rowSums(asia5 == 1, na.rm = TRUE) +
-  rowSums(asia5 == 2, na.rm = TRUE) +
-  rowSums(asia5 == 3, na.rm = TRUE)
-
-
-asia5 <- asia5[, c("year", "ccode", "statenme", "values")]
-
+# Reorder
 asia5$statenme <- factor(asia5$statenme,
-                         levels = c("China", "India",
-                                    "Pakistan", "Indonesia",
-                                    "Bangladesh"))
+                         levels = asia5_cntries)
+
 
 
 # Plot
 ggplot(asia5, aes(x = year, y = values)) +
   geom_line(size = 0.8, color = "black", aes(linetype = statenme)) +
   scale_linetype_manual(values = c("solid", "dashed",
-                                   "dotted", "dotdash", 
+                                   "dotted", "dotdash",
                                    "longdash")) +
   guides(linetype = guide_legend(ncol = 3, byrow = TRUE)) +
   theme(axis.title.y.left = element_text(
@@ -346,10 +338,67 @@ ggplot(asia5, aes(x = year, y = values)) +
     breaks = c(0, 20, 40, 60, 80, 100),
     limits = c(0, 95),
     labels = as.character(c(0, 20, 40, 60, 80, 100))
-  ) + 
-  theme_igoR 
+  ) +
+  theme_igoR
 
 ```
+
+
+### Shared memberships
+
+Number of shared full memberships between Spain and four selected countries:
+
+
+```{r Fig5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014"}
+
+selected_countries <- c("France",
+                        "Morocco",
+                        "China",
+                        "USA")
+
+Spain_Selected <- igo_dyadic("Spain", selected_countries)
+
+# Compute number of shared memberships
+
+Spain_Selected$values <- rowSums(Spain_Selected == 1)
+
+# Plot
+ggplot(Spain_Selected, aes(x = year, y = values)) +
+  geom_line(size = 0.8, color = "black", aes(linetype = statenme2)) +
+  scale_linetype_manual(values = c("solid", "dashed",
+                                   "dotted", "dotdash")) +
+  guides(linetype = guide_legend(ncol = 2, byrow = TRUE)) +
+  theme(axis.title.y.left = element_text(
+    family = "sans",
+    size = 10,
+    margin =  margin(r = 6)
+  )) +
+  scale_y_continuous(
+    "Shared memberships w\ Spain",
+    breaks = c(0, 20, 40, 60, 80, 100),
+    limits = c(0, 110),
+    labels = as.character(c(0, 20, 40, 60, 80, 100))
+  ) +
+  theme_igoR +
+  geom_vline(xintercept = 1939, alpha = 0.2) +
+  annotate(
+    "label",
+    x = 1938,
+    y = 60,
+    size = 3,
+    label = "Spanish \nCivil War"
+  ) +
+  geom_vline(xintercept = 1978, alpha = 0.2) +
+  annotate(
+    "label",
+    x = 1970,
+    y = 100,
+    size = 3,
+    label = "Constitution\nof Spain"
+  )
+
+```
+
 
 
 ## Session Info
