@@ -69,9 +69,6 @@ eec_code <- igo_search("EEC", exact = TRUE)
 
 # Founding
 eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
-
-# Latest date
-eec_end <- igo_members(eec_code$ioname)
 ```
 
 | ioname | ccode | state       | statenme                | year | value | category        | orgname                     |
@@ -84,6 +81,12 @@ eec_end <- igo_members(eec_code$ioname)
 | EEC    |   260 | wgermany    | German Federal Republic | 1958 |     1 | Full Membership | European Economic Community |
 
 EEC, members (1958)
+
+``` r
+
+# Latest date
+eec_end <- igo_members(eec_code$ioname)
+```
 
 | ioname | ccode | state       | statenme       | year | value | category        | orgname                     |
 | :----- | ----: | :---------- | :------------- | ---: | ----: | :-------------- | :-------------------------- |
