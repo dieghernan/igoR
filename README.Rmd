@@ -75,9 +75,6 @@ eec_code <- igo_search("EEC", exact = TRUE)
 # Founding
 eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 
-# Latest date
-eec_end <- igo_members(eec_code$ioname)
-
 ```
 
 ```{r echo=FALSE}
@@ -88,7 +85,17 @@ knitr::kable(eec_init,
       
 ```
 
+```r
+
+# Latest date
+eec_end <- igo_members(eec_code$ioname)
+
+```
+
 ```{r echo=FALSE}
+
+eec_end <- igo_members(eec_code$ioname)
+
 knitr::kable(eec_end,
              caption = paste0("EEC, members (",
                               unique(eec_end$year), ")"))
