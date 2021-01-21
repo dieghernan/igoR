@@ -1,0 +1,268 @@
+---
+title: "Mapping IGOs"
+bibliography: refs_igo.bib
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Mapping IGOs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r knitr_config, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 6, 
+  fig.height = 4,
+  out.width = "100%",
+  out.height = "60%"
+)
+
+# Install if not already
+
+if (isFALSE(requireNamespace("giscoR", quietly = TRUE))) {
+  install.packages("giscoR")
+}
+
+if (isFALSE(requireNamespace("tmap", quietly = TRUE))) {
+  install.packages("tmap")
+}
+
+```
+
+This vignette provides some geospatial visualizations using the IGO datasets (@doi:10.1177/0022343319881175) included in this package.
+
+```{r setup, warning=FALSE}
+
+library(igoR)
+
+# Helper packages
+library(dplyr)
+library(countrycode)
+
+# Geospatial packages
+library(sf)
+library(giscoR)
+library(tmap)
+
+
+```
+
+
+## Evolution of the composition of UN
+
+The following maps shows the evolution of countries that are members of the United
+Nations.
+
+First we should extract the data:
+
+```{r UN}
+# Extract shape and project to Robinson
+
+# See https://epsg.io/54030
+robin <-
+  "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"
+
+world <-
+  gisco_get_countries() %>%
+  st_transform(robin)
+
+un <- igo_search("UN", exact = TRUE)
+
+# Extract three dates - some errors given that ISO doesnt have every COW Code
+# Also join with world sf
+UN1950 <-
+  igo_members("UN", 1950) %>%
+  mutate(ISO3_CODE = countrycode(ccode, 
+                                 "cown", 
+                                 "iso3c", 
+                                 warn = FALSE)) %>%
+  inner_join(world, .)
+
+UN1980 <-
+  igo_members("UN", 1980) %>%
+    mutate(ISO3_CODE = countrycode(ccode, 
+                                 "cown", 
+                                 "iso3c", 
+                                 warn = FALSE)) %>%
+  inner_join(world, .)
+
+UN2010 <-
+  igo_members("UN", 2010) %>%
+  mutate(ISO3_CODE = countrycode(ccode, 
+                                 "cown", 
+                                 "iso3c", 
+                                 warn = FALSE)) %>%
+  inner_join(world, .)
+
+```
+
+Now we are ready to plot with `tmap`:
+
+
+```{r UNMaps, fig.asp=0.5, fig.show='hold'}
+
+
+# UN 1950----
+
+
+tm_shape(world) +
+  tm_graticules(
+    labels.show = FALSE,
+    col = "grey90",
+    x = seq(-180, 180, 20),
+    y = seq(-90, 90, 20)
+  ) +
+  tm_layout(
+    frame = FALSE,
+    earth.boundary = TRUE,
+    earth.boundary.color = "grey90",
+    main.title = "UN Members, 1950",
+    main.title.position = "center",
+    main.title.size = 1
+  ) +
+  tm_polygons(col = "#E0E0E0", 
+              border.col = "white", 
+              lwd = 0.1) +
+  tm_shape(UN1950) +
+  tm_polygons(col = "#74A9CF",
+              border.col = "white",
+              lwd = 0.1)
+
+
+# UN 1980----
+
+
+tm_shape(world) +
+  tm_graticules(
+    labels.show = FALSE,
+    col = "grey90",
+    x = seq(-180, 180, 20),
+    y = seq(-90, 90, 20)
+  ) +
+  tm_layout(
+    frame = FALSE,
+    earth.boundary = TRUE,
+    earth.boundary.color = "grey90",
+    main.title = "UN Members, 1980",
+    main.title.position = "center",
+    main.title.size = 1
+  ) +
+  tm_polygons(col = "#E0E0E0", 
+              border.col = "white", 
+              lwd = 0.1) +
+  tm_shape(UN1980) +
+  tm_polygons(col = "#74A9CF",
+              border.col = "white",
+              lwd = 0.1)
+
+# UN 2010----
+tm_shape(world) +
+  tm_graticules(
+    labels.show = FALSE,
+    col = "grey90",
+    x = seq(-180, 180, 20),
+    y = seq(-90, 90, 20)
+  ) +
+  tm_layout(
+    frame = FALSE,
+    earth.boundary = TRUE,
+    earth.boundary.color = "grey90",
+    main.title = "UN Members, 1980",
+    main.title.position = "center",
+    main.title.size = 1
+  ) +
+  tm_polygons(col = "#E0E0E0", 
+              border.col = "white",
+              lwd = 0.1) +
+  tm_shape(UN2010) +
+  tm_polygons(col = "#74A9CF",
+              border.col = "white",
+              lwd = 0.1)
+
+
+```
+
+
+
+## Number of shared memberships
+
+The following code produces a map showing the number of full memberships shared with Spain for each country on the world:
+
+```{r ESPShared, fig.asp=0.5}
+
+## Number of igos shared - 2014
+
+# Countries alive in 2014
+
+states2014 <- states2016 %>%
+  filter(styear <= 2014 & endyear >= 2014)
+
+
+# Shared memberships with Spain
+
+sharedESP <-
+  igo_dyadic("SPN", as.character(states2014$statenme), year = 2014)
+sharedESP$shared <- rowSums(sharedESP == 1)
+
+# ISO3 Code
+sharedESP$ISO3_CODE <- countrycode(sharedESP$ccode2,
+                                   "cown",
+                                   "iso3c",
+                                   warn = FALSE)
+
+
+# Merge with map
+sharedmap <-
+  world %>% left_join(sharedESP) %>% select(ISO3_CODE, shared)
+
+# Plot with custom palette
+
+pal <- hcl.colors(5, palette = "Blues", rev = TRUE)
+
+tm_shape(sharedmap) +
+  tm_graticules(
+    labels.show = FALSE,
+    col = "grey90",
+    x = seq(-180, 180, 20),
+    y = seq(-90, 90, 20)
+  ) +
+  tm_layout(
+    frame = FALSE,
+    earth.boundary = TRUE,
+    earth.boundary.color = "grey90",
+    main.title = "Shared Full Memberships with Spain (2014)",
+    main.title.position = "center",
+    main.title.size = 1,
+    legend.title.size = 0.8
+  ) +
+  tm_polygons(
+    col = 'shared',
+    title = "number of IGOs",
+    palette = pal,
+    border.col = "white",
+    lwd = 0.1
+  ) +
+  tm_shape(subset(sharedmap, ISO3_CODE == "ESP")) +
+  tm_polygons(col = "black", 
+              border.col = "white",
+              lwd = 0.1)
+```
+
+
+
+## Session Info
+
+<details>
+  <summary><strong>Details</strong></summary>
+```{r session_info, echo=FALSE}
+sessionInfo()
+
+```
+</details>
+
+
+
+## References
