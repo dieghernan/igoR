@@ -185,7 +185,7 @@ tm_shape(world) +
     frame = FALSE,
     earth.boundary = TRUE,
     earth.boundary.color = "grey90",
-    main.title = "UN Members, 1980",
+    main.title = "UN Members, 2010",
     main.title.position = "center",
     main.title.size = 1
   ) +
