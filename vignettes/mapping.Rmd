@@ -253,7 +253,7 @@ tm_shape(sharedmap) +
 
 ## WIP
 
-```{r NAShared, fig.asp=0.9}
+```{r NAShared, fig.asp=0.7}
 
 # Get shapes
 countries.sf <-
