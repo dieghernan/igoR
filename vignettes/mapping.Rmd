@@ -9,6 +9,8 @@ vignette: >
 ---
 
 ```{r knitr_config, include = FALSE}
+
+start_time <- Sys.time()
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -305,6 +307,12 @@ tm_shape(map, bbox = bbox) +
 <details>
   <summary><strong>Details</strong></summary>
 ```{r session_info, echo=FALSE}
+
+end_time <- Sys.time()
+
+print("vignette running time:")
+end_time - start_time
+
 sessionInfo()
 
 ```
