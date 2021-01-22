@@ -288,8 +288,14 @@ bbox <- st_bbox(countries.sf %>% filter(ISO3_CODE != "USA"))
 # Map
 tm_shape(map, bbox = bbox) +
   tm_fill(col = "value", 
-          title= "IGOs", 
+          title = "number of IGOs" 
           palette = "YlGn") +
+  tm_layout(
+    main.title = "Shared Full Memberships on North America (1930-2010)",
+    main.title.position = "center",
+    main.title.size = 1,
+    legend.title.size = 0.8
+  ) +
   tm_facets(by = "year", nrow = 3)
 
 ```
