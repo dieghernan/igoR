@@ -309,11 +309,14 @@ tm_shape(map, bbox = bbox) +
 ```{r session_info, echo=FALSE}
 
 end_time <- Sys.time()
+sessionInfo()
 
-print("vignette running time:")
+cat("***")
+
+cat("vignette running time:")
 end_time - start_time
 
-sessionInfo()
+
 
 ```
 </details>

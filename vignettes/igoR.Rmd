@@ -9,6 +9,9 @@ vignette: >
 ---
 
 ```{r knitropts, include=FALSE}
+
+start_time <- Sys.time()
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -407,6 +410,14 @@ ggplot(Spain_Selected, aes(x = year, y = values)) +
   <summary><strong>Details</strong></summary>
 ```{r session_info, echo=FALSE}
 sessionInfo()
+
+end_time <- Sys.time()
+sessionInfo()
+
+cat("***")
+
+cat("vignette running time:")
+end_time - start_time
 
 ```
  
