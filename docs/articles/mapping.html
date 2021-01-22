@@ -115,7 +115,17 @@
 
     
     
-<p>This vignette provides some geospatial visualizations using the IGO datasets (<span class="citation">Pevehouse et al. (2020)</span>) included in this package.</p>
+<p>Maps are a powerful tool to show data. As the scope of <code>igoR</code> are the InterGovermental Organizations, mapping and IGOs are a perfect match.</p>
+<p>This vignette provides some geospatial visualizations using the IGO datasets (<span class="citation">Pevehouse et al. (2020)</span>) included in this package. Specific packages used for geospatial data:</p>
+<ul>
+<li>
+<code>sf</code> for geospatial operations.</li>
+<li>
+<code>giscoR</code> for extracting the shapefiles of the countries.</li>
+<li>
+<code>tmap</code> for plotting.</li>
+</ul>
+<p>Also <code>countrycode</code> is a very handy package for translating between coding schemes (CoW, ISO3, NUTS, FIPS) and country names.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span>
@@ -141,7 +151,7 @@
   <span class="st">"+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"</span>
 
 <span class="va">world</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="https://dieghernan.github.io/giscoR/reference/gisco_get.html">gisco_get_countries</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dieghernan.github.io/giscoR/reference/gisco_get.html">gisco_get_countries</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span><span class="va">robin</span><span class="op">)</span>
 
 <span class="va">un</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_search.html">igo_search</a></span><span class="op">(</span><span class="st">"UN"</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
@@ -171,6 +181,7 @@
                                  <span class="st">"iso3c"</span>, 
                                  warn <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">.</span><span class="op">)</span></code></pre></div>
+<p>Note that for 1950 and 1980 the map is not completely accurate, as the base shapefile contains the countries that exists on 2010 and some countries (Czechoslovakia, East and West Germany) are not included. See <a href="https://dieghernan.github.io/igoR/articles/reference.html">List of IGOs and Countries</a> for more information.</p>
 <p>Now we are ready to plot with <code>tmap</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
@@ -256,7 +267,8 @@
 <div id="number-of-shared-memberships" class="section level2">
 <h2 class="hasAnchor">
 <a href="#number-of-shared-memberships" class="anchor"></a>Number of shared memberships</h2>
-<p>The following code produces a map showing the number of full memberships shared with Spain for each country on the world:</p>
+<p>Shared memberships are useful for identifying regional patterns.</p>
+<p>The following code produces a map showing the number of full memberships shared with Australia for each country on the world:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co">## Number of igos shared - 2014</span>
@@ -267,14 +279,14 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">styear</span> <span class="op">&lt;=</span> <span class="fl">2014</span> <span class="op">&amp;</span> <span class="va">endyear</span> <span class="op">&gt;=</span> <span class="fl">2014</span><span class="op">)</span>
 
 
-<span class="co"># Shared memberships with Spain</span>
+<span class="co"># Shared memberships with Australia</span>
 
-<span class="va">sharedESP</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="st">"SPN"</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">states2014</span><span class="op">$</span><span class="va">statenme</span><span class="op">)</span>, year <span class="op">=</span> <span class="fl">2014</span><span class="op">)</span>
-<span class="va">sharedESP</span><span class="op">$</span><span class="va">shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">sharedESP</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span>
+<span class="va">shared</span> <span class="op">&lt;-</span>
+  <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="st">"AUL"</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">states2014</span><span class="op">$</span><span class="va">statenme</span><span class="op">)</span>, year <span class="op">=</span> <span class="fl">2014</span><span class="op">)</span>
+<span class="va">shared</span><span class="op">$</span><span class="va">shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">shared</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span>
 
 <span class="co"># ISO3 Code</span>
-<span class="va">sharedESP</span><span class="op">$</span><span class="va">ISO3_CODE</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html">countrycode</a></span><span class="op">(</span><span class="va">sharedESP</span><span class="op">$</span><span class="va">ccode2</span>,
+<span class="va">shared</span><span class="op">$</span><span class="va">ISO3_CODE</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html">countrycode</a></span><span class="op">(</span><span class="va">shared</span><span class="op">$</span><span class="va">ccode2</span>,
                                    <span class="st">"cown"</span>,
                                    <span class="st">"iso3c"</span>,
                                    warn <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
@@ -282,7 +294,7 @@
 
 <span class="co"># Merge with map</span>
 <span class="va">sharedmap</span> <span class="op">&lt;-</span>
-  <span class="va">world</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">sharedESP</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">ISO3_CODE</span>, <span class="va">shared</span><span class="op">)</span>
+  <span class="va">world</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">shared</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">ISO3_CODE</span>, <span class="va">shared</span><span class="op">)</span>
 
 <span class="co"># Plot with custom palette</span>
 
@@ -299,7 +311,7 @@
     frame <span class="op">=</span> <span class="cn">FALSE</span>,
     earth.boundary <span class="op">=</span> <span class="cn">TRUE</span>,
     earth.boundary.color <span class="op">=</span> <span class="st">"grey90"</span>,
-    main.title <span class="op">=</span> <span class="st">"Shared Full Memberships with Spain (2014)"</span>,
+    main.title <span class="op">=</span> <span class="st">"Shared Full Memberships with Australia (2014)"</span>,
     main.title.position <span class="op">=</span> <span class="st">"center"</span>,
     main.title.size <span class="op">=</span> <span class="fl">1</span>,
     legend.title.size <span class="op">=</span> <span class="fl">0.8</span>
@@ -311,15 +323,16 @@
     border.col <span class="op">=</span> <span class="st">"white"</span>,
     lwd <span class="op">=</span> <span class="fl">0.1</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">sharedmap</span>, <span class="va">ISO3_CODE</span> <span class="op">==</span> <span class="st">"ESP"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">sharedmap</span>, <span class="va">ISO3_CODE</span> <span class="op">==</span> <span class="st">"AUS"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_polygons</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"black"</span>, 
               border.col <span class="op">=</span> <span class="st">"white"</span>,
               lwd <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></code></pre></div>
-<p><img src="mapping_files/figure-html/ESPShared-1.png" width="100%" height="60%"></p>
+<p><img src="mapping_files/figure-html/AustShared-1.png" width="100%" height="60%"></p>
 </div>
-<div id="wip" class="section level2">
+<div id="cross-shared-memberships" class="section level2">
 <h2 class="hasAnchor">
-<a href="#wip" class="anchor"></a>WIP</h2>
+<a href="#cross-shared-memberships" class="anchor"></a>Cross-shared memberships</h2>
+<p>The following map shows how the relationships between the countries of North America has flourished on the last 90 years, using a year as representative of each decade.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Get shapes</span>
@@ -393,21 +406,21 @@
 #&gt;  [5] vctrs_0.3.6        generics_0.1.0     htmltools_0.5.1    stars_0.5-0       
 #&gt;  [9] viridisLite_0.3.0  yaml_2.2.1         base64enc_0.1-3    XML_3.99-0.5      
 #&gt; [13] rlang_0.4.10       e1071_1.7-4        pkgdown_1.6.1      pillar_1.4.7      
-#&gt; [17] glue_1.4.2         DBI_1.1.1          sp_1.4-5           RColorBrewer_1.1-2
-#&gt; [21] lifecycle_0.2.0    stringr_1.4.0      raster_3.4-5       ragg_0.4.1        
-#&gt; [25] htmlwidgets_1.5.3  codetools_0.2-16   leafsync_0.1.0     memoise_1.1.0     
-#&gt; [29] evaluate_0.14      knitr_1.30         crosstalk_1.1.1    parallel_4.0.3    
-#&gt; [33] class_7.3-17       leafem_0.1.3       Rcpp_1.0.6         KernSmooth_2.23-17
-#&gt; [37] classInt_0.4-3     lwgeom_0.2-5       desc_1.2.0         leaflet_2.0.4.1   
-#&gt; [41] abind_1.4-5        systemfonts_0.3.2  fs_1.5.0           textshaping_0.2.1 
-#&gt; [45] png_0.1-7          digest_0.6.27      stringi_1.5.3      tmaptools_3.1-1   
-#&gt; [49] grid_4.0.3         rprojroot_2.0.2    tools_4.0.3        magrittr_2.0.1    
-#&gt; [53] tibble_3.0.5       dichromat_2.0-0    crayon_1.3.4       pkgconfig_2.0.3   
-#&gt; [57] ellipsis_0.3.1     assertthat_0.2.1   rmarkdown_2.6      R6_2.5.0          
-#&gt; [61] units_0.6-7        compiler_4.0.3
+#&gt; [17] glue_1.4.2         DBI_1.1.1          geojsonsf_2.0.1    sp_1.4-5          
+#&gt; [21] RColorBrewer_1.1-2 lifecycle_0.2.0    stringr_1.4.0      raster_3.4-5      
+#&gt; [25] ragg_0.4.1         htmlwidgets_1.5.3  codetools_0.2-16   leafsync_0.1.0    
+#&gt; [29] memoise_1.1.0      evaluate_0.14      knitr_1.30         crosstalk_1.1.1   
+#&gt; [33] parallel_4.0.3     class_7.3-17       leafem_0.1.3       Rcpp_1.0.6        
+#&gt; [37] KernSmooth_2.23-17 classInt_0.4-3     lwgeom_0.2-5       desc_1.2.0        
+#&gt; [41] leaflet_2.0.4.1    abind_1.4-5        systemfonts_0.3.2  fs_1.5.0          
+#&gt; [45] textshaping_0.2.1  png_0.1-7          digest_0.6.27      stringi_1.5.3     
+#&gt; [49] tmaptools_3.1-1    grid_4.0.3         rprojroot_2.0.2    tools_4.0.3       
+#&gt; [53] magrittr_2.0.1     tibble_3.0.5       dichromat_2.0-0    crayon_1.3.4      
+#&gt; [57] pkgconfig_2.0.3    ellipsis_0.3.1     assertthat_0.2.1   rmarkdown_2.6     
+#&gt; [61] R6_2.5.0           units_0.6-7        compiler_4.0.3
 #&gt; ***
 #&gt; vignette running time:
-#&gt; Time difference of 49.51874 secs</code></pre>
+#&gt; Time difference of 52.26551 secs</code></pre>
 </details>
 </div>
 <div id="references" class="section level2 unnumbered">
