@@ -262,7 +262,7 @@ tm_shape(sharedmap) +
     border.col = "white",
     lwd = 0.1
   ) +
-  tm_shape(subset(sharedmap, ISO3_CODE == "AUL")) +
+  tm_shape(subset(sharedmap, ISO3_CODE == "AUS")) +
   tm_polygons(col = "black", 
               border.col = "white",
               lwd = 0.1)
