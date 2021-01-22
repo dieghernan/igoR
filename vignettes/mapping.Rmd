@@ -225,7 +225,7 @@ shared <-
 shared$shared <- rowSums(shared == 1)
 
 # ISO3 Code
-shared$ISO3_CODE <- countrycode(sharedESP$ccode2,
+shared$ISO3_CODE <- countrycode(shared$ccode2,
                                    "cown",
                                    "iso3c",
                                    warn = FALSE)
