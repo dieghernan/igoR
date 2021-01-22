@@ -251,7 +251,48 @@ tm_shape(sharedmap) +
               lwd = 0.1)
 ```
 
+## WIP
 
+```{r NAShared, fig.asp=1.2}
+
+# Get shapes
+countries.sf <-
+  gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
+  st_transform(2163)
+
+# Select years
+years <- seq(1930, 2010, 10)
+
+# Shared memberships
+USA <- igo_dyadic("USA", c("MEX", "CAN"), years)
+CAN <- igo_dyadic("CAN", c("USA", "MEX"), years)
+MEX <- igo_dyadic("MEX", c("CAN", "USA"), years)
+
+USA$value <- rowSums(USA == 1)
+CAN$value <- rowSums(CAN == 1)
+MEX$value <- rowSums(MEX == 1)
+
+# Long data
+Final <- USA %>% 
+  rbind(CAN) %>% 
+  rbind(MEX) %>%
+  select(ccode1, year, value) %>%
+  mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c"))
+
+# Create map
+map <- left_join(countries.sf, Final)
+
+# Limits to exclude offshore
+bbox <- st_bbox(countries.sf %>% filter(ISO3_CODE != "USA"))
+
+# Map
+tm_shape(map, bbox = bbox) +
+  tm_fill(col = "value", 
+          title= "IGOs", 
+          palette = "YlGn") +
+  tm_facets(by = "year", nrow = 3)
+
+```
 
 ## Session Info
 
