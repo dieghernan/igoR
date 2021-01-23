@@ -7,6 +7,7 @@
 * Added `igoR::states2016` in replacement of `cow_country_codes`.
 * Add `igo_dyadic()`
 * Add `igo_search_states()`
+* More vignettes on the website
 
 
 # igoR 0.0.0.9000

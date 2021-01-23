@@ -11,7 +11,7 @@
   "relatedLink": "https://dieghernan.github.io/igoR/",
   "issueTracker": "https://github.com/dieghernan/igoR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.0.0.9000",
+  "version": "0.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -137,7 +137,7 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/igoR/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/igoR/blob/master/README.md",
-  "fileSize": "63769.691KB",
+  "fileSize": "62270.981KB",
   "contIntegration": "https://codecov.io/gh/dieghernan/igoR",
   "developmentStatus": "https://www.tidyverse.org/lifecycle/#experimental",
   "keywords": [
