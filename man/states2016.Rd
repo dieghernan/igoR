@@ -53,7 +53,7 @@ datasets on this package.
 }
 \references{
 Correlates of War Project. 2017 "State System Membership List, v2016."
-Online, \url{http://correlatesofwar.org}.
+Online, \url{http://correlatesofwar.org/}.
 }
 \seealso{
 \code{\link{state_year_format3}}, \code{\link{igo_year_format3}}.
