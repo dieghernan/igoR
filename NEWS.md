@@ -1,3 +1,7 @@
+# igoR 0.1.1
+
+* Remove lifecycle badge.
+
 # igoR 0.1.0
 
 * Vectorize `igo_members()`

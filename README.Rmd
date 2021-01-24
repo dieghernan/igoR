@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 # igoR <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
-[![R build status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
+[![Rbuild-status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/master/graph/badge.svg?token=UH3VLTTTRE)](https://codecov.io/gh/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4442958-blue)](https://doi.org/10.5281/zenodo.4442958)

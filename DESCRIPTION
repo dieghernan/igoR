@@ -1,6 +1,6 @@
 Package: igoR
 Title: Intergovernmental Organizations Database
-Version: 0.1.0
+Version: 0.1.1
 Description: Tools to extract information from the
     Intergovernmental Organizations ('IGO') Database , version 3, provided
     by the Correlates of War Project <https://correlatesofwar.org/>. See
