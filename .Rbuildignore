@@ -16,3 +16,4 @@
 ^igoR.*\.tgz$
 ^vignettes/reference.Rmd$
 ^cran-comments\.md$
+^CRAN-RELEASE$
