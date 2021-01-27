@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/igoR)](https://CRAN.R-project.org/package=igoR)
+[![CRAN
+results](https://cranchecks.info/badges/worst/igoR)](https://cran.r-project.org/web/checks/check_results_igoR.html)
 [![Rbuild-status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/master/graph/badge.svg?token=UH3VLTTTRE)](https://codecov.io/gh/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
@@ -29,7 +33,13 @@ of War Project (2017)) is included on this package.
 
 ## Installation
 
-You can install developing version from GitHub:
+Install `igoR` from [**CRAN**](https://CRAN.R-project.org/package=igoR):
+
+``` r
+install.packages("igoR")
+```
+
+You can install the developing version from GitHub:
 
 ``` r
 library(remotes)
