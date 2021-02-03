@@ -71,6 +71,7 @@ footer div {
 .navbar .navbar-brand .navbar-link:hover,
 .navbar .navbar-brand .navbar-link:focus {
   color: #99d6ff;
+  text-decoration: none;
 }
 
 .navbar .navbar-brand .label-default {
