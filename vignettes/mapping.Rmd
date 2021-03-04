@@ -76,7 +76,7 @@ robin <-
   "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"
 
 world <-
-  gisco_get_countries(year = 2010) %>%
+  gisco_get_countries() %>%
   st_transform(robin)
 
 un <- igo_search("UN", exact = TRUE)
@@ -109,9 +109,9 @@ UN2010 <-
 
 ```
 
-Note that for 1950 and 1980 the map 
+Note that the map 
 is not completely accurate, as the base shapefile contains the countries 
-that exists on 2010 and some countries 
+that exists on 2016 and some countries 
 (Czechoslovakia, East and West Germany) are not included. See [List of IGOs and Countries](https://dieghernan.github.io/igoR/articles/reference.html) for more information.
 
 Now we are ready to plot with `tmap`:
