@@ -1,7 +1,7 @@
 ^doc$
 ^docs$
 ^Meta$
-^vignettes/mapping.Rmd$
+^vignettes/mapping.Rmd.orig$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$

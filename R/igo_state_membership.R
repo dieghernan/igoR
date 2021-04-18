@@ -29,23 +29,28 @@
 #' # Extract different status
 #'
 #' igo_state_membership("kosovo",
-#'                      status = c("Associate Membership",
-#'                      "Observer",
-#'                      "Full Membership"))
+#'   status = c(
+#'     "Associate Membership",
+#'     "Observer",
+#'     "Full Membership"
+#'   )
+#' )
 #'
 #' # Vectorized
 #' igo_state_membership(c("usa", "spain"),
-#'                      year = 1870:1871)
+#'   year = 1870:1871
+#' )
 #'
 #' # Use countrycodes package to get additional codes
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   IT <- igo_state_membership("Italy", year = 1880)
-#'   IT$iso3c <- countrycode(IT$ccode, origin = "cown",
-#'                           destination = "iso3c")
+#'   IT$iso3c <- countrycode(IT$ccode,
+#'     origin = "cown",
+#'     destination = "iso3c"
+#'   )
 #'   head(IT)
 #' }
-#'
 igo_state_membership <- function(state,
                                  year = NULL,
                                  status = "Full Membership") {
@@ -73,12 +78,15 @@ igo_state_membership <- function(state,
       year <- interval[2]
     }
     year <- sort(unique(as.integer(year)))
-    yeardf <- data.frame(year = year,
-                         check = NA)
+    yeardf <- data.frame(
+      year = year,
+      check = NA
+    )
 
     yeardf$check <- ifelse(yeardf$year %in% df_mem$year,
-                           TRUE,
-                           FALSE)
+      TRUE,
+      FALSE
+    )
 
 
     df_mem <- df_mem[df_mem$year %in% year, ]
@@ -87,8 +95,10 @@ igo_state_membership <- function(state,
       stop(
         "year(s) ",
         paste0("'",
-               as.character(yeardf[!yeardf$check, ]$year),
-               "'", collapse = ", "),
+          as.character(yeardf[!yeardf$check, ]$year),
+          "'",
+          collapse = ", "
+        ),
         " not valid for ",
         df_states$statenme,
         ". Date should be any year between ",
@@ -174,9 +184,11 @@ igo_state_membership <- function(state,
     # Handle missing results
 
     if (nrow(igosend) == 0) {
-      warning("No memberships for ",
-              df_states$statenme,
-              " on the year(s) selected")
+      warning(
+        "No memberships for ",
+        df_states$statenme,
+        " on the year(s) selected"
+      )
 
       df_null <- igosend[seq_len(length(year)), ]
       df_null$year <- year
@@ -194,7 +206,6 @@ igo_state_membership <- function(state,
     rownames(igosend) <- NULL
 
     return(igosend)
-
   } else {
     # Vectorized
     df <-
@@ -203,8 +214,10 @@ igo_state_membership <- function(state,
 
     for (i in dflen) {
       df <-
-        rbind(df,
-              igo_state_membership(state[i], year = year, status = status))
+        rbind(
+          df,
+          igo_state_membership(state[i], year = year, status = status)
+        )
     }
 
     return(df)

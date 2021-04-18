@@ -1,12 +1,16 @@
-#' @title Intergovernmental Organizations (IGO) by year
+#' #' Intergovernmental Organizations (IGO) by year
+#'
 #' @name igo_year_format3
+#'
 #' @docType data
-#' @description Data on IGOs from 1815-2014, at the IGO-year level.
-#' Contains one record per IGO-year (with years listed at 5 year intervals
-#' through 1965, and annually thereafter).
+#'
+#' @description
+#' Data on IGOs from 1815-2014, at the IGO-year level. Contains one record per
+#' IGO-year (with years listed at 5 year intervals through 1965, and annually
+#' thereafter).
 
-#' @source \href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)},
-#' The Correlates of War Project (IGO Data Stata Files)
+#' @source [Intergovernmental Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs), The Correlates of War Project (IGO Data Stata Files).
+#'
 #' @format data frame with 19335 rows. Relevant fields:
 #' \itemize{
 #'   \item{\strong{ioname}: }{Short abbreviation of the IGO name.}
@@ -33,8 +37,9 @@
 #'
 #' See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
 #' for full reference.
-#' @seealso \code{\link{state_year_format3}}
-#' @note Raw data used internally by \pkg{igoR}
+#' @seealso [state_year_format3()]
+#' @note Raw data used internally by **igoR**.
+#'
 #' @references
 #' Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
 #' Jamison. "Tracking Organizations in the World: The Correlates of War

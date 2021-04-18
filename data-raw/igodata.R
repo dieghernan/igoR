@@ -1,5 +1,5 @@
 # Download
-rm(list = ls() )
+rm(list = ls())
 
 library(dplyr)
 

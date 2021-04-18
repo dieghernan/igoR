@@ -88,8 +88,10 @@ igo_dyadic <- function(country1,
   country2 <- country2[country2 != country1]
 
   if (length(country2) == 0) {
-    stop("Codes selected correspond to the same country: ",
-         country1)
+    stop(
+      "Codes selected correspond to the same country: ",
+      country1
+    )
   }
 
   if (length(country2) == 1) {
@@ -107,10 +109,12 @@ igo_dyadic <- function(country1,
     # Check years
 
     if (nrow(all_igos) == 0) {
-      stop("The value(s) of year are not valid. Years range: ",
-           min,
-           " - ",
-           max)
+      stop(
+        "The value(s) of year are not valid. Years range: ",
+        min,
+        " - ",
+        max
+      )
     }
 
 
@@ -120,13 +124,17 @@ igo_dyadic <- function(country1,
       coligos <- colnames(all_igos)
 
       ioname <- unique(tolower(ioname))
-      colsel <-  match(ioname, coligos)
+      colsel <- match(ioname, coligos)
 
       if (anyNA(colsel)) {
-        warning("ioname(s) ",
-                paste0("'",
-                       ioname[is.na(colsel)], "'", collapse = ","),
-                " not valid")
+        warning(
+          "ioname(s) ",
+          paste0("'",
+            ioname[is.na(colsel)], "'",
+            collapse = ","
+          ),
+          " not valid"
+        )
       }
 
       if (all(is.na(colsel))) {
@@ -142,12 +150,14 @@ igo_dyadic <- function(country1,
     c1 <- igoR::igo_search_states(country1)
     c2 <- igoR::igo_search_states(country2)
 
-    #nocov start
+    # nocov start
     if (c1$ccode == c2$ccode) {
-      stop("Codes selected correspond to the same country: ",
-           c1$statenme)
+      stop(
+        "Codes selected correspond to the same country: ",
+        c1$statenme
+      )
     }
-    #nocov end
+    # nocov end
 
     # Extract igos by country
     c1_igos <- all_igos[all_igos$ccode == c1$ccode, ]
@@ -211,13 +221,12 @@ igo_dyadic <- function(country1,
           finalvalue <- 0
         } else {
           # Safe coding
-          #nocov start
+          # nocov start
           finalvalue <- -9
-          #nocov end
+          # nocov end
         }
 
         end_matrix[r, c] <- finalvalue
-
       }
     }
 
@@ -245,7 +254,6 @@ igo_dyadic <- function(country1,
     rownames(master) <- NULL
 
     return(master)
-
   } else {
     # Vectorized part for country2----
     df <-
@@ -253,7 +261,7 @@ igo_dyadic <- function(country1,
         country1 = country1,
         country2 = country2[1],
         year = year,
-        ioname =  ioname
+        ioname = ioname
       )
 
     dflen <- seq_len(length(country2))[-1]
@@ -266,7 +274,7 @@ igo_dyadic <- function(country1,
             country1 = country1,
             country2 = country2[i],
             year = year,
-            ioname =  ioname
+            ioname = ioname
           )
         )
     }

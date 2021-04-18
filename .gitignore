@@ -10,3 +10,6 @@ CRAN-RELEASE
 cran-comments.md
 inst/doc
 doc
+/doc/
+/Meta/
+/docs/

@@ -29,20 +29,23 @@
 #'
 #' # Vectorized
 #'
-#' igo_members(c("NAFTA","EU"), year = 1993)
+#' igo_members(c("NAFTA", "EU"), year = 1993)
 #'
 #' # Use countrycodes package to get additional codes
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   EU <- igo_members("EU")
-#'   EU$iso3c <- countrycode(EU$ccode, origin = "cown",
-#'                           destination = "iso3c")
-#'   EU$continent <- countrycode(EU$ccode, origin = "cown",
-#'                               destination = "continent")
+#'   EU$iso3c <- countrycode(EU$ccode,
+#'     origin = "cown",
+#'     destination = "iso3c"
+#'   )
+#'   EU$continent <- countrycode(EU$ccode,
+#'     origin = "cown",
+#'     destination = "continent"
+#'   )
 #'
 #'   head(EU)
 #' }
-
 igo_members <- function(ioname,
                         year = NULL,
                         status = "Full Membership") {
@@ -72,12 +75,15 @@ igo_members <- function(ioname,
       year <- interval[2]
     }
     year <- sort(unique(as.integer(year)))
-    yeardf <- data.frame(year = year,
-                         check = NA)
+    yeardf <- data.frame(
+      year = year,
+      check = NA
+    )
 
     yeardf$check <- ifelse(yeardf$year %in% df$year,
-                           TRUE,
-                           FALSE)
+      TRUE,
+      FALSE
+    )
 
 
 
@@ -85,8 +91,10 @@ igo_members <- function(ioname,
       warning(
         "The IGO requested is not available for year(s) ",
         paste0("'",
-               as.character(yeardf[!yeardf$check, ]$year),
-               "'", collapse = ", ")
+          as.character(yeardf[!yeardf$check, ]$year),
+          "'",
+          collapse = ", "
+        )
       )
     }
 
@@ -96,8 +104,10 @@ igo_members <- function(ioname,
       stop(
         "year(s) ",
         paste0("'",
-               as.character(yeardf[!yeardf$check, ]$year),
-               "'", collapse = ", "),
+          as.character(yeardf[!yeardf$check, ]$year),
+          "'",
+          collapse = ", "
+        ),
         " not valid for ",
         ioname,
         " date should be any year between ",
@@ -137,9 +147,11 @@ igo_members <- function(ioname,
     # Extract countries
     cntries <- igoR::state_year_format3
     cntries <-
-      cntries[cntries$year %in% year, tolower(c("ccode", "state",
-                                                "year",
-                                                ioname))]
+      cntries[cntries$year %in% year, tolower(c(
+        "ccode", "state",
+        "year",
+        ioname
+      ))]
 
     colnames(cntries) <- c("ccode", "state", "year", "value")
     cntries$ioname <- as.character(ioname)

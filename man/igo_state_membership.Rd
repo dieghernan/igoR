@@ -39,23 +39,28 @@ igo_state_membership("2", year = 1865)
 # Extract different status
 
 igo_state_membership("kosovo",
-                     status = c("Associate Membership",
-                     "Observer",
-                     "Full Membership"))
+  status = c(
+    "Associate Membership",
+    "Observer",
+    "Full Membership"
+  )
+)
 
 # Vectorized
 igo_state_membership(c("usa", "spain"),
-                     year = 1870:1871)
+  year = 1870:1871
+)
 
 # Use countrycodes package to get additional codes
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   IT <- igo_state_membership("Italy", year = 1880)
-  IT$iso3c <- countrycode(IT$ccode, origin = "cown",
-                          destination = "iso3c")
+  IT$iso3c <- countrycode(IT$ccode,
+    origin = "cown",
+    destination = "iso3c"
+  )
   head(IT)
 }
-
 }
 \seealso{
 \code{\link{igo_year_format3}}, \code{\link{igo_search_states}},

@@ -34,7 +34,7 @@ nrow(all)
 colnames(all)
 
 # Search by pattern
-igo_search("EU")[,1:3]
+igo_search("EU")[, 1:3]
 
 igo_search("EU", exact = TRUE)[, 1:3]
 
@@ -44,11 +44,10 @@ igo_search(10)[, 1:3]
 igo_search(10, exact = TRUE)[, 1:3]
 
 # Several patterns (regex style)
-igo_search("NAFTA|UN|EU")[,1:3]
+igo_search("NAFTA|UN|EU")[, 1:3]
 
 # Several patterns Exact (regex style)
-igo_search("^NAFTA$|^UN$|^EU$")[,1:3]
-
+igo_search("^NAFTA$|^UN$|^EU$")[, 1:3]
 }
 \seealso{
 \code{\link{igo_year_format3}}

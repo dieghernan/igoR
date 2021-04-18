@@ -39,16 +39,20 @@ igo_members("UN", status = "No Membership")
 
 # Vectorized
 
-igo_members(c("NAFTA","EU"), year = 1993)
+igo_members(c("NAFTA", "EU"), year = 1993)
 
 # Use countrycodes package to get additional codes
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")
-  EU$iso3c <- countrycode(EU$ccode, origin = "cown",
-                          destination = "iso3c")
-  EU$continent <- countrycode(EU$ccode, origin = "cown",
-                              destination = "continent")
+  EU$iso3c <- countrycode(EU$ccode,
+    origin = "cown",
+    destination = "iso3c"
+  )
+  EU$continent <- countrycode(EU$ccode,
+    origin = "cown",
+    destination = "continent"
+  )
 
   head(EU)
 }

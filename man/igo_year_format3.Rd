@@ -3,7 +3,7 @@
 \docType{data}
 \name{igo_year_format3}
 \alias{igo_year_format3}
-\title{Intergovernmental Organizations (IGO) by year}
+\title{#' Intergovernmental Organizations (IGO) by year}
 \format{
 data frame with 19335 rows. Relevant fields:
 \itemize{
@@ -33,16 +33,15 @@ See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3
 for full reference.
 }
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)},
-The Correlates of War Project (IGO Data Stata Files)
+\href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)}, The Correlates of War Project (IGO Data Stata Files).
 }
 \description{
-Data on IGOs from 1815-2014, at the IGO-year level.
-Contains one record per IGO-year (with years listed at 5 year intervals
-through 1965, and annually thereafter).
+Data on IGOs from 1815-2014, at the IGO-year level. Contains one record per
+IGO-year (with years listed at 5 year intervals through 1965, and annually
+thereafter).
 }
 \note{
-Raw data used internally by \pkg{igoR}
+Raw data used internally by \strong{igoR}.
 }
 \references{
 Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
@@ -51,5 +50,5 @@ IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
 (May 2020): 492-503. \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\code{\link{state_year_format3}}
+\code{\link[=state_year_format3]{state_year_format3()}}
 }

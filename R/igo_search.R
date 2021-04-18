@@ -22,7 +22,7 @@
 #' colnames(all)
 #'
 #' # Search by pattern
-#' igo_search("EU")[,1:3]
+#' igo_search("EU")[, 1:3]
 #'
 #' igo_search("EU", exact = TRUE)[, 1:3]
 #'
@@ -32,11 +32,10 @@
 #' igo_search(10, exact = TRUE)[, 1:3]
 #'
 #' # Several patterns (regex style)
-#' igo_search("NAFTA|UN|EU")[,1:3]
+#' igo_search("NAFTA|UN|EU")[, 1:3]
 #'
 #' # Several patterns Exact (regex style)
-#' igo_search("^NAFTA$|^UN$|^EU$")[,1:3]
-#'
+#' igo_search("^NAFTA$|^UN$|^EU$")[, 1:3]
 #' @export
 igo_search <- function(pattern = NULL, exact = FALSE) {
   db <- igoR::igo_year_format3
@@ -51,7 +50,7 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
     aggregate(db_last, by = list(db_last$ioname), FUN = max)
   db_lastyear <- db_lastyear[, c("ioname", "year")]
 
-  db_end <-  merge(db_clean, db_lastyear)
+  db_end <- merge(db_clean, db_lastyear)
 
   # Create label column
   db_end$label <- db_end$longorgname

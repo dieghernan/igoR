@@ -38,17 +38,19 @@ igo_search_states <- function(state) {
     find_state <- sort(find_state)[1]
 
     if (is.na(find_state)) {
-      stop("state not found: ",
-           paste0("'",
-                  state[1],
-                  "'",
-                  collapse = ", "))
+      stop(
+        "state not found: ",
+        paste0("'",
+          state[1],
+          "'",
+          collapse = ", "
+        )
+      )
     }
 
     df_states <- df_states[find_state, ]
 
     return(df_states)
-
   } else {
     # Vectorized ----
     df <- igo_search_states(state[1])
@@ -60,6 +62,5 @@ igo_search_states <- function(state) {
     }
 
     return(df)
-
   }
 }

@@ -8,31 +8,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r knitr_config, include = FALSE}
 
-start_time <- Sys.time()
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  warning = FALSE,
-  message = FALSE,
-  fig.width = 6, 
-  fig.height = 4,
-  out.width = "100%",
-  out.height = "60%"
-)
-
-# Install if not already
-
-if (isFALSE(requireNamespace("giscoR", quietly = TRUE))) {
-  install.packages("giscoR")
-}
-
-if (isFALSE(requireNamespace("tmap", quietly = TRUE))) {
-  install.packages("tmap")
-}
-
-```
 
 Maps are a powerful tool to show data. As the scope of `igoR` are the InterGovermental Organizations, mapping and IGOs are a perfect match.
 
@@ -44,7 +20,8 @@ This vignette provides some geospatial visualizations using the IGO datasets (@d
 
 Also `countrycode` is a very handy package for translating between coding schemes (CoW, ISO3, NUTS, FIPS) and country names.
 
-```{r setup, warning=FALSE}
+
+```r
 
 library(igoR)
 
@@ -57,7 +34,6 @@ library(sf)
 library(giscoR)
 library(tmap)
 
-
 ```
 
 
@@ -68,7 +44,8 @@ The following maps shows the evolution of countries that are members of the Unit
 
 First we should extract the data:
 
-```{r UN}
+
+```r
 # Extract shape and project to Robinson
 
 # See https://epsg.io/54030
@@ -76,7 +53,7 @@ robin <-
   "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"
 
 world <-
-  gisco_get_countries() %>%
+  gisco_get_countries(year = "2010") %>%
   st_transform(robin)
 
 un <- igo_search("UN", exact = TRUE)
@@ -85,39 +62,39 @@ un <- igo_search("UN", exact = TRUE)
 # Also join with world sf
 UN1950 <-
   igo_members("UN", 1950) %>%
-  mutate(ISO3_CODE = countrycode(ccode, 
-                                 "cown", 
-                                 "iso3c", 
+  mutate(ISO3_CODE = countrycode(ccode,
+                                 "cown",
+                                 "iso3c",
                                  warn = FALSE)) %>%
   inner_join(world, .)
 
 UN1980 <-
   igo_members("UN", 1980) %>%
-    mutate(ISO3_CODE = countrycode(ccode, 
-                                 "cown", 
-                                 "iso3c", 
+    mutate(ISO3_CODE = countrycode(ccode,
+                                 "cown",
+                                 "iso3c",
                                  warn = FALSE)) %>%
   inner_join(world, .)
 
 UN2010 <-
   igo_members("UN", 2010) %>%
-  mutate(ISO3_CODE = countrycode(ccode, 
-                                 "cown", 
-                                 "iso3c", 
+  mutate(ISO3_CODE = countrycode(ccode,
+                                 "cown",
+                                 "iso3c",
                                  warn = FALSE)) %>%
   inner_join(world, .)
-
 ```
 
-Note that the map 
-is not completely accurate, as the base shapefile contains the countries 
-that exists on 2016 and some countries 
+Note that the map
+is not completely accurate, as the base shapefile contains the countries
+that exists on 2016 and some countries
 (Czechoslovakia, East and West Germany) are not included. See [List of IGOs and Countries](https://dieghernan.github.io/igoR/articles/reference.html) for more information.
 
 Now we are ready to plot with `tmap`:
 
 
-```{r UNMaps, fig.asp=0.5, fig.show='hold'}
+
+```r
 
 
 # UN 1950----
@@ -138,8 +115,8 @@ tm_shape(world) +
     main.title.position = "center",
     main.title.size = 1
   ) +
-  tm_polygons(col = "#E0E0E0", 
-              border.col = "white", 
+  tm_polygons(col = "#E0E0E0",
+              border.col = "white",
               lwd = 0.1) +
   tm_shape(UN1950) +
   tm_polygons(col = "#74A9CF",
@@ -165,8 +142,8 @@ tm_shape(world) +
     main.title.position = "center",
     main.title.size = 1
   ) +
-  tm_polygons(col = "#E0E0E0", 
-              border.col = "white", 
+  tm_polygons(col = "#E0E0E0",
+              border.col = "white",
               lwd = 0.1) +
   tm_shape(UN1980) +
   tm_polygons(col = "#74A9CF",
@@ -189,7 +166,7 @@ tm_shape(world) +
     main.title.position = "center",
     main.title.size = 1
   ) +
-  tm_polygons(col = "#E0E0E0", 
+  tm_polygons(col = "#E0E0E0",
               border.col = "white",
               lwd = 0.1) +
   tm_shape(UN2010) +
@@ -197,18 +174,20 @@ tm_shape(world) +
               border.col = "white",
               lwd = 0.1)
 
-
 ```
+
+<img src="./UNMaps-1.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%" /><img src="./UNMaps-2.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%" /><img src="./UNMaps-3.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%" />
 
 
 
 ## Number of shared memberships
 
-Shared memberships are useful for identifying regional patterns. 
+Shared memberships are useful for identifying regional patterns.
 
 The following code produces a map showing the number of full memberships shared with Australia for each country on the world:
 
-```{r AustShared, fig.asp=0.5}
+
+```r
 
 ## Number of igos shared - 2014
 
@@ -263,17 +242,20 @@ tm_shape(sharedmap) +
     lwd = 0.1
   ) +
   tm_shape(subset(sharedmap, ISO3_CODE == "AUS")) +
-  tm_polygons(col = "black", 
+  tm_polygons(col = "black",
               border.col = "white",
               lwd = 0.1)
 ```
+
+<img src="./AustShared-1.png" title="plot of chunk AustShared" alt="plot of chunk AustShared" width="100%" />
 
 ## Cross-shared memberships
 
 The following map shows how the relationships between the countries of  North America has flourished on the last 90 years, using a year as representative of each decade.
 
 
-```{r NAShared, fig.asp=0.7}
+
+```r
 
 # Get shapes
 countries.sf <-
@@ -293,8 +275,8 @@ CAN$value <- rowSums(CAN == 1)
 MEX$value <- rowSums(MEX == 1)
 
 # Long data
-Final <- USA %>% 
-  rbind(CAN) %>% 
+Final <- USA %>%
+  rbind(CAN) %>%
   rbind(MEX) %>%
   select(ccode1, year, value) %>%
   mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c"))
@@ -307,7 +289,7 @@ bbox <- st_bbox(countries.sf %>% filter(ISO3_CODE != "USA"))
 
 # Map
 tm_shape(map, bbox = bbox) +
-  tm_fill(col = "value", 
+  tm_fill(col = "value",
           title = "number of IGOs",
           palette = "YlGn") +
   tm_layout(
@@ -317,25 +299,65 @@ tm_shape(map, bbox = bbox) +
     legend.title.size = 0.8
   ) +
   tm_facets(by = "year", nrow = 3)
-
 ```
+
+<img src="./NAShared-1.png" title="plot of chunk NAShared" alt="plot of chunk NAShared" width="100%" />
 
 ## Session Info
 
 <details>
   <summary><strong>Details</strong></summary>
-```{r session_info, echo=FALSE}
 
-end_time <- Sys.time()
-sessionInfo()
-
-cat("***")
-
-cat("vignette running time:")
-end_time - start_time
-
-
-
+```
+#> R version 4.0.3 (2020-10-10)
+#> Platform: x86_64-w64-mingw32/x64 (64-bit)
+#> Running under: Windows 10 x64 (build 19042)
+#> 
+#> Matrix products: default
+#> 
+#> locale:
+#> [1] LC_COLLATE=Spanish_Spain.1252  LC_CTYPE=Spanish_Spain.1252   
+#> [3] LC_MONETARY=Spanish_Spain.1252 LC_NUMERIC=C                  
+#> [5] LC_TIME=Spanish_Spain.1252    
+#> 
+#> attached base packages:
+#> [1] stats     graphics  grDevices utils     datasets  methods   base     
+#> 
+#> other attached packages:
+#> [1] tmap_3.3-1        giscoR_0.2.4      sf_0.9-8          countrycode_1.2.0
+#> [5] dplyr_1.0.5       igoR_0.1.1.9000   knitr_1.32       
+#> 
+#> loaded via a namespace (and not attached):
+#>  [1] pkgload_1.2.1      viridisLite_0.4.0  assertthat_0.2.1  
+#>  [4] sp_1.4-5           highr_0.9          remotes_2.3.0     
+#>  [7] sessioninfo_1.1.1  pillar_1.6.0       lattice_0.20-41   
+#> [10] glue_1.4.2         digest_0.6.27      RColorBrewer_1.1-2
+#> [13] htmltools_0.5.1.1  XML_3.99-0.5       pkgconfig_2.0.3   
+#> [16] devtools_2.4.0     raster_3.4-5       stars_0.5-2       
+#> [19] purrr_0.3.4        processx_3.5.1     tibble_3.1.0      
+#> [22] proxy_0.4-25       generics_0.1.0     usethis_2.0.1     
+#> [25] ellipsis_0.3.1     cachem_1.0.4       withr_2.4.1       
+#> [28] leafsync_0.1.0     cli_2.4.0          magrittr_2.0.1    
+#> [31] crayon_1.4.1       memoise_2.0.0      evaluate_0.14     
+#> [34] ps_1.6.0           fs_1.5.0           fansi_0.4.2       
+#> [37] lwgeom_0.2-6       class_7.3-17       geojsonsf_2.0.1   
+#> [40] pkgbuild_1.2.0     textshaping_0.3.3  tools_4.0.3       
+#> [43] prettyunits_1.1.1  lifecycle_1.0.0    stringr_1.4.0     
+#> [46] callr_3.6.0        compiler_4.0.3     e1071_1.7-6       
+#> [49] systemfonts_1.0.1  rlang_0.4.10       classInt_0.4-3    
+#> [52] units_0.7-1        grid_4.0.3         tmaptools_3.1-1   
+#> [55] dichromat_2.0-0    rstudioapi_0.13    htmlwidgets_1.5.3 
+#> [58] crosstalk_1.1.1    leafem_0.1.3       base64enc_0.1-3   
+#> [61] testthat_3.0.2     codetools_0.2-16   abind_1.4-5       
+#> [64] DBI_1.1.1          R6_2.5.0           fastmap_1.1.0     
+#> [67] utf8_1.2.1         rprojroot_2.0.2    ragg_1.1.2        
+#> [70] KernSmooth_2.23-17 desc_1.3.0         stringi_1.5.3     
+#> [73] parallel_4.0.3     Rcpp_1.0.6         vctrs_0.3.7       
+#> [76] png_0.1-7          leaflet_2.0.4.1    tidyselect_1.1.0  
+#> [79] xfun_0.22
+#> ***
+#> vignette running time:
+#> Time difference of 29.24968 secs
 ```
 </details>
 
