@@ -23,6 +23,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/igoR)](https://CRAN.R-project.org/package=igoR)
 [![CRAN results](https://cranchecks.info/badges/worst/igoR)](https://cran.r-project.org/web/checks/check_results_igoR.html)
+[![r-universe](https://dieghernan.r-universe.dev/badges/igoR)](https://dieghernan.r-universe.dev/)
 [![Rbuild-status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/master/graph/badge.svg?token=UH3VLTTTRE)](https://codecov.io/gh/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
@@ -57,6 +58,19 @@ library(remotes)
 install_github("dieghernan/igoR")
 ```
 
+Alternatively, you can install `igoR` using the
+[r-universe](https://dieghernan.r-universe.dev/ui#builds):
+
+``` r
+# Enable this universe
+options(repos = c(
+    dieghernan = 'https://dieghernan.r-universe.dev',
+    CRAN = 'https://cloud.r-project.org'))
+
+
+install.packages('igoR')
+```
+
 ## Basic usage
 
 ### Search an IGO by name:
@@ -67,7 +81,6 @@ Search all IGOs related with sugar:
 library(igoR)
 
 result_sugar <- igo_search("Sugar")
-
 ```
 
 ```{r echo=FALSE}
@@ -84,15 +97,15 @@ eec_code <- igo_search("EEC", exact = TRUE)
 
 # Founding
 eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
-
 ```
 
 ```{r echo=FALSE}
 knitr::kable(eec_init,
-             caption = paste0("EEC, members (",
-                              unique(eec_init$year), ")"))
-  
-      
+  caption = paste0(
+    "EEC, members (",
+    unique(eec_init$year), ")"
+  )
+)
 ```
 
 ```r
@@ -107,9 +120,11 @@ eec_end <- igo_members(eec_code$ioname)
 eec_end <- igo_members(eec_code$ioname)
 
 knitr::kable(eec_end,
-             caption = paste0("EEC, members (",
-                              unique(eec_end$year), ")"))
-             
+  caption = paste0(
+    "EEC, members (",
+    unique(eec_end$year), ")"
+  )
+)
 ```
 
 

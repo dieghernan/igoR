@@ -1,1 +1,2 @@
-data-raw/analysis-jpr.do -linguist-detectable
+*.html linguist-detectable=false
+*.css linguist-detectable=false

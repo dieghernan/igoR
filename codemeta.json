@@ -5,10 +5,13 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "igoR",
-  "description": "Tools to extract information from the\n    Intergovernmental Organizations ('IGO') Database , version 3, provided\n    by the Correlates of War Project <https://correlatesofwar.org/>. See\n    also Pevehouse, J. C. et al. (2020), <doi:10.1177/0022343319881175>. \n    Version 3 includes information from 1815 to 2014.",
+  "description": "Tools to extract information from the Intergovernmental\n    Organizations ('IGO') Database , version 3, provided by the Correlates\n    of War Project <https://correlatesofwar.org/>. See also Pevehouse, J.\n    C. et al. (2020), <doi:10.1177/0022343319881175>.  Version 3 includes\n    information from 1815 to 2014.",
   "name": "igoR: Intergovernmental Organizations Database",
   "codeRepository": "https://github.com/dieghernan/igoR",
-  "relatedLink": ["https://dieghernan.github.io/igoR/", "https://CRAN.R-project.org/package=igoR"],
+  "relatedLink": [
+    "https://dieghernan.github.io/igoR/",
+    "https://CRAN.R-project.org/package=igoR"
+  ],
   "issueTracker": "https://github.com/dieghernan/igoR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
   "version": "0.1.1.9000",
@@ -80,18 +83,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "tinytest",
-      "name": "tinytest",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=tinytest"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
       "provider": {
@@ -125,6 +116,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "tinytest",
+      "name": "tinytest",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tinytest"
     }
   ],
   "softwareRequirements": [

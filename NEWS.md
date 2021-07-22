@@ -1,6 +1,7 @@
 # igoR (development version)
 
 -   "Mapping IGOs" article compiled to vignette.
+-   Update docs.
 
 # igoR 0.1.1
 

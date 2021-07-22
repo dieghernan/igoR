@@ -17,12 +17,11 @@ knitr::opts_chunk$set(
   comment = "#>",
   warning = FALSE,
   message = FALSE,
-  fig.width = 6, 
+  fig.width = 6,
   fig.height = 4,
   out.width = "100%",
   out.height = "60%"
 )
-
 ```
 
 
@@ -108,9 +107,6 @@ theme_igoR <- theme(
   panel.border = element_rect(fill = NA, colour = "grey90"),
   panel.grid.major.y = element_line("grey90")
 )
-
-
-
 ```
 </details>
 
@@ -121,11 +117,13 @@ The following code extracts the number of IGOs and states included on this packa
 ```{r Fig1, message=FALSE, warning=FALSE, fig.cap="Figure 1. IGOs and states in the world system, 1816-2014"}
 
 # Summarize
-igos_by_year <- igo_year_format3 %>% group_by(year) %>%
+igos_by_year <- igo_year_format3 %>%
+  group_by(year) %>%
   summarise(value = n(), .groups = "keep") %>%
   mutate(variable = "Total IGOs")
 
-countries_by_year <- state_year_format3 %>% group_by(year) %>%
+countries_by_year <- state_year_format3 %>%
+  group_by(year) %>%
   summarise(value = n(), .groups = "keep") %>%
   mutate(variable = "Number of COW states")
 
@@ -134,17 +132,16 @@ all_by_year <- rbind(igos_by_year, countries_by_year) %>%
 
 # Reverse values
 all_by_year$variable <- factor(all_by_year$variable,
-                               levels = rev(levels(all_by_year$variable)))
+  levels = rev(levels(all_by_year$variable))
+)
 
 # Plot
 ggplot(all_by_year, aes(x = year, y = value)) +
   geom_line(size = 0.8, color = "black", aes(linetype = variable)) +
   scale_linetype_manual(values = c("solid", "dashed")) +
   geom_vline(xintercept = c(1945, 1989)) +
-  ylim(0, 400) + 
+  ylim(0, 400) +
   theme_igoR
-
-
 ```
 
 
@@ -159,12 +156,16 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 df <- igo_search()
 
-births <- df %>% mutate(year = sdate) %>%
-  group_by(year) %>% summarise(value = n(), .groups = "keep") %>%
+births <- df %>%
+  mutate(year = sdate) %>%
+  group_by(year) %>%
+  summarise(value = n(), .groups = "keep") %>%
   mutate(variable = "IGO Births")
 
-deads <- df %>% mutate(year = deaddate) %>%
-  group_by(year) %>% summarise(value = n(), .groups = "keep") %>%
+deads <- df %>%
+  mutate(year = deaddate) %>%
+  group_by(year) %>%
+  summarise(value = n(), .groups = "keep") %>%
   mutate(variable = "IGO Deaths")
 
 
@@ -192,49 +193,54 @@ the original definition by @doi:10.1177/0022343319881175
 
 # crossreg and universal codes not included
 
-Asia <- c( 550, 560, 570, 580, 590, 600, 610,	 640,	 650,	 660,
-           670, 725, 750, 825, 1030, 1345, 1400, 1530, 1532, 2300,
-           2770, 3185, 3330, 3560, 3930, 4115, 4150, 4160, 4170,
-           4190, 4200, 4220, 4265, 4440
-           )
+Asia <- c(
+  550, 560, 570, 580, 590, 600, 610, 640, 650, 660,
+  670, 725, 750, 825, 1030, 1345, 1400, 1530, 1532, 2300,
+  2770, 3185, 3330, 3560, 3930, 4115, 4150, 4160, 4170,
+  4190, 4200, 4220, 4265, 4440
+)
 
-MiddleEast <- c( 370, 380, 390, 400, 410, 420, 430, 440, 450, 460,
-                 470, 490, 500, 510, 520, 1110, 1410, 1990, 2000, 
-                 2220, 3450, 3800, 4140, 4270, 4380
-                 )
+MiddleEast <- c(
+  370, 380, 390, 400, 410, 420, 430, 440, 450, 460,
+  470, 490, 500, 510, 520, 1110, 1410, 1990, 2000,
+  2220, 3450, 3800, 4140, 4270, 4380
+)
 
-Europe <- c( 20, 300, 780, 800, 832, 840, 860, 1020, 1050, 1070, 1080, 
-             1125, 1140, 1390, 1420, 1440, 1563, 1565, 1580, 1585, 1590,
-             1600, 1610, 1620, 1630, 1640, 1645, 1653, 1660, 1670, 1675, 
-             1680,1690, 1700, 1710, 1715, 1720, 1730, 1740, 1750, 1760,
-             1770, 1780, 1790, 1800, 1810, 1820, 1830, 1930, 1970, 1980,
-             2310, 2325, 2345, 2440, 2450, 2550, 2575, 2610, 2650, 2705,
-             2890, 2972, 3010, 3095, 3230, 3290, 3360, 3485, 3505, 3585,
-             3590, 3600, 3610, 3620, 3630, 3640, 3650, 3655, 3660, 3665,
-             3762, 3810, 3855, 3860, 3910, 4000, 4350, 4450, 4460, 4510,
-             4520, 4540
-             )
+Europe <- c(
+  20, 300, 780, 800, 832, 840, 860, 1020, 1050, 1070, 1080,
+  1125, 1140, 1390, 1420, 1440, 1563, 1565, 1580, 1585, 1590,
+  1600, 1610, 1620, 1630, 1640, 1645, 1653, 1660, 1670, 1675,
+  1680, 1690, 1700, 1710, 1715, 1720, 1730, 1740, 1750, 1760,
+  1770, 1780, 1790, 1800, 1810, 1820, 1830, 1930, 1970, 1980,
+  2310, 2325, 2345, 2440, 2450, 2550, 2575, 2610, 2650, 2705,
+  2890, 2972, 3010, 3095, 3230, 3290, 3360, 3485, 3505, 3585,
+  3590, 3600, 3610, 3620, 3630, 3640, 3650, 3655, 3660, 3665,
+  3762, 3810, 3855, 3860, 3910, 4000, 4350, 4450, 4460, 4510,
+  4520, 4540
+)
 
-Africa <- c( 30, 40, 50, 60, 80, 90, 100, 110, 115, 120, 125, 130, 140,
-             150, 155, 160, 170, 180, 190, 200, 210, 225, 240, 250, 260, 280,
-             290, 690, 700, 710, 940, 1060, 1150, 1170, 1260, 1290, 1310, 
-             1320, 1330, 1340, 1355, 1430, 1450, 1460, 1470, 1475, 1480, 
-             1500, 1510, 1520, 1870, 2080, 2090, 2230, 2330, 2795, 3300, 
-             3310, 3470, 3480, 3510, 3520, 3570, 3740, 3760, 3761, 3790, 
-             3820, 3875, 3905, 3970, 4010, 4030, 4050, 4055, 4080, 4110, 
-             4120, 4130, 4230, 4240, 4250, 4251, 4340, 4365, 4480, 4485,
-             4490, 4500, 4501, 4503
-             )
+Africa <- c(
+  30, 40, 50, 60, 80, 90, 100, 110, 115, 120, 125, 130, 140,
+  150, 155, 160, 170, 180, 190, 200, 210, 225, 240, 250, 260, 280,
+  290, 690, 700, 710, 940, 1060, 1150, 1170, 1260, 1290, 1310,
+  1320, 1330, 1340, 1355, 1430, 1450, 1460, 1470, 1475, 1480,
+  1500, 1510, 1520, 1870, 2080, 2090, 2230, 2330, 2795, 3300,
+  3310, 3470, 3480, 3510, 3520, 3570, 3740, 3760, 3761, 3790,
+  3820, 3875, 3905, 3970, 4010, 4030, 4050, 4055, 4080, 4110,
+  4120, 4130, 4230, 4240, 4250, 4251, 4340, 4365, 4480, 4485,
+  4490, 4500, 4501, 4503
+)
 
-Americas <- c( 310, 320, 330, 340, 720, 760, 815, 875, 880, 890, 900,
-               910, 912, 913, 920, 950, 970, 980, 990, 1000, 1010, 1095,
-               1130, 1486, 1489, 1490, 1860, 1890, 1920, 1950, 2070, 2110,
-               2120, 2130, 2140, 2150, 2160, 2170, 2175, 2180, 2190, 2200,
-               2203, 2206, 2210, 2260, 2340, 2490, 2560, 2980, 3060,
-               3340, 3370, 3380, 3390, 3400, 3410, 3420, 3428, 3430, 3670,
-               3680, 3812, 3830, 3880, 3890, 3900, 3925, 3980, 4070, 4100, 
-               4260, 4280, 4370
-               )
+Americas <- c(
+  310, 320, 330, 340, 720, 760, 815, 875, 880, 890, 900,
+  910, 912, 913, 920, 950, 970, 980, 990, 1000, 1010, 1095,
+  1130, 1486, 1489, 1490, 1860, 1890, 1920, 1950, 2070, 2110,
+  2120, 2130, 2140, 2150, 2160, 2170, 2175, 2180, 2190, 2200,
+  2203, 2206, 2210, 2260, 2340, 2490, 2560, 2980, 3060,
+  3340, 3370, 3380, 3390, 3400, 3410, 3420, 3428, 3430, 3670,
+  3680, 3812, 3830, 3880, 3890, 3900, 3925, 3980, 4070, 4100,
+  4260, 4280, 4370
+)
 
 regions <- igo_search()
 
@@ -256,7 +262,6 @@ regions$region <-
 
 regions$region <-
   ifelse(regions$ionum %in% MiddleEast, "Middle East", regions$region)
-
 ```
 
 </details>
@@ -274,24 +279,29 @@ classify the IGOs by region.
 alligos <- igo_year_format3[, c("year", "ionum")]
 
 regionsum <- merge(alligos, regions) %>%
-  group_by(year, region) %>% summarise(value = n(), .groups = "keep") %>%
+  group_by(year, region) %>%
+  summarise(value = n(), .groups = "keep") %>%
   filter(!is.na(region))
 
 # Order
 regionsum$region <- factor(regionsum$region,
-                           levels = c("Asia", "Europe", 
-                                      "Africa", "Americas", 
-                                      "Middle East"))
+  levels = c(
+    "Asia", "Europe",
+    "Africa", "Americas",
+    "Middle East"
+  )
+)
 
 # Plot
 ggplot(regionsum, aes(x = year, y = value)) +
   geom_line(size = 0.8, color = "black", aes(linetype = region)) +
-  scale_linetype_manual(values = c("solid", "dashed", 
-                                   "dotted", "dotdash", "longdash")) +
+  scale_linetype_manual(values = c(
+    "solid", "dashed",
+    "dotted", "dotdash", "longdash"
+  )) +
   guides(linetype = guide_legend(ncol = 2, byrow = TRUE)) +
   ylim(0, 80) +
   theme_igoR
-
 ```
 
 
@@ -302,9 +312,11 @@ India, China, Pakistan, Indonesia and Bangladesh.
 
 ```{r Fig4, message=FALSE, warning=FALSE, fig.cap="Figure 4. IGO membership: five states in Asia, 1865-2014"}
 
-asia5_cntries <- c("China", "India",
-                   "Pakistan", "Indonesia",
-                   "Bangladesh")
+asia5_cntries <- c(
+  "China", "India",
+  "Pakistan", "Indonesia",
+  "Bangladesh"
+)
 
 # Five countries of Asia
 asia5_igos <- igo_state_membership(
@@ -320,21 +332,24 @@ asia5 <- asia5_igos %>%
 
 # Reorder
 asia5$statenme <- factor(asia5$statenme,
-                         levels = asia5_cntries)
+  levels = asia5_cntries
+)
 
 
 
 # Plot
 ggplot(asia5, aes(x = year, y = values)) +
   geom_line(size = 0.8, color = "black", aes(linetype = statenme)) +
-  scale_linetype_manual(values = c("solid", "dashed",
-                                   "dotted", "dotdash",
-                                   "longdash")) +
+  scale_linetype_manual(values = c(
+    "solid", "dashed",
+    "dotted", "dotdash",
+    "longdash"
+  )) +
   guides(linetype = guide_legend(ncol = 3, byrow = TRUE)) +
   theme(axis.title.y.left = element_text(
     family = "sans",
     size = 12,
-    margin =  margin(r = 6)
+    margin = margin(r = 6)
   )) +
   scale_y_continuous(
     "Number of memberships",
@@ -343,7 +358,6 @@ ggplot(asia5, aes(x = year, y = values)) +
     labels = as.character(c(0, 20, 40, 60, 80, 100))
   ) +
   theme_igoR
-
 ```
 
 
@@ -354,10 +368,12 @@ Number of shared full memberships between Spain and four selected countries:
 
 ```{r Fig5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014"}
 
-selected_countries <- c("France",
-                        "Morocco",
-                        "China",
-                        "USA")
+selected_countries <- c(
+  "France",
+  "Morocco",
+  "China",
+  "USA"
+)
 
 Spain_Selected <- igo_dyadic("Spain", selected_countries)
 
@@ -368,13 +384,15 @@ Spain_Selected$values <- rowSums(Spain_Selected == 1)
 # Plot
 ggplot(Spain_Selected, aes(x = year, y = values)) +
   geom_line(size = 0.8, color = "black", aes(linetype = statenme2)) +
-  scale_linetype_manual(values = c("solid", "dashed",
-                                   "dotted", "dotdash")) +
+  scale_linetype_manual(values = c(
+    "solid", "dashed",
+    "dotted", "dotdash"
+  )) +
   guides(linetype = guide_legend(ncol = 2, byrow = TRUE)) +
   theme(axis.title.y.left = element_text(
     family = "sans",
     size = 10,
-    margin =  margin(r = 6)
+    margin = margin(r = 6)
   )) +
   scale_y_continuous(
     "Shared memberships w\ Spain",
@@ -399,7 +417,6 @@ ggplot(Spain_Selected, aes(x = year, y = values)) +
     size = 3,
     label = "Constitution\nof Spain"
   )
-
 ```
 
 
@@ -418,7 +435,6 @@ cat("***")
 
 cat("vignette running time:")
 end_time - start_time
-
 ```
  
 </details>
@@ -426,4 +442,3 @@ end_time - start_time
 
 
 ## References
-

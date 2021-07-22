@@ -9,6 +9,7 @@
 status](https://www.r-pkg.org/badges/version/igoR)](https://CRAN.R-project.org/package=igoR)
 [![CRAN
 results](https://cranchecks.info/badges/worst/igoR)](https://cran.r-project.org/web/checks/check_results_igoR.html)
+[![r-universe](https://dieghernan.r-universe.dev/badges/igoR)](https://dieghernan.r-universe.dev/)
 [![Rbuild-status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/master/graph/badge.svg?token=UH3VLTTTRE)](https://codecov.io/gh/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
@@ -44,6 +45,19 @@ You can install the developing version from GitHub:
 ``` r
 library(remotes)
 install_github("dieghernan/igoR")
+```
+
+Alternatively, you can install `igoR` using the
+[r-universe](https://dieghernan.r-universe.dev/ui#builds):
+
+``` r
+# Enable this universe
+options(repos = c(
+    dieghernan = 'https://dieghernan.r-universe.dev',
+    CRAN = 'https://cloud.r-project.org'))
+
+
+install.packages('igoR')
 ```
 
 ## Basic usage
@@ -122,7 +136,7 @@ EEC, members (1992)
 To cite the `igoR` package in publications use:
 
 D. Hernangómez (2021). igoR: Intergovernmental Organizations Database. R
-package version 0.1.1. <https://doi.org/10.5281/zenodo.4442958>.
+package version 0.1.1.9000. <https://doi.org/10.5281/zenodo.4442958>.
 
 ## References
 
