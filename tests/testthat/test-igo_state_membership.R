@@ -1,4 +1,4 @@
-library(tinytest)
+test_that("Testing state members", {
 
 expect_error(igo_state_membership())
 expect_error(igo_state_membership("Error"))
@@ -17,3 +17,5 @@ expect_warning(igo_state_membership(c("Spain"), year = 1820))
 expect_silent(igo_state_membership("domrepublic"))
 expect_silent(igo_state_membership("united kingdom"))
 expect_silent(igo_state_membership("SPAIN"))
+
+})

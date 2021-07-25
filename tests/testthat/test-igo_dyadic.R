@@ -1,4 +1,4 @@
-library(tinytest)
+test_that("Testing dyadic", {
 
 
 expect_error(igo_dyadic("USA", "Cuba", 1900))
@@ -23,3 +23,5 @@ n2 <- igo_dyadic("Kosovo", "Cuba")
 n3 <- igo_dyadic("Kosovo", "Cuba", ioname = "UN")
 expect_true(ncol(n1) == ncol(n2))
 expect_false(ncol(n2) == ncol(n3))
+
+})
