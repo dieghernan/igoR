@@ -17,6 +17,7 @@ jobs:
         run: |
           install.packages('remotes')
           install.packages('devtools')
+          install.packages('styler')
           install.packages('pkgdown')
           install.packages('roxygen2')
           
@@ -25,7 +26,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Cache R packages
-        uses: actions/cache@v2
+        uses: actions/cache@v2.1.6
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
@@ -33,6 +34,9 @@ jobs:
           
       - name: Install package
         run: R CMD INSTALL .
+        
+      - name: Style
+        run: Rscript -e 'styler::style_pkg()'
 
       - name: Roxygenise
         run: Rscript -e 'roxygen2::roxygenise()'
