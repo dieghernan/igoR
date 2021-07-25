@@ -1,17 +1,15 @@
 test_that("Testing members", {
-
-expect_error(igo_members())
-expect_error(igo_members("Error"))
-expect_error(igo_members("EU", year = 1900))
-expect_error(igo_members("EU", status = "Error"))
-expect_warning(igo_members("EU", status = c("Full Membership", "Error")))
-expect_warning(igo_members("EU", year = c(1990:1995)))
-expect_error(igo_members("EU", status = "Observer"))
-expect_silent(igo_members("EU"))
-expect_silent(igo_members("EU", year = 2000))
-expect_false(nrow(igo_members("EU", year = 2000)) ==
-               nrow(igo_members("EU", year = 1993)))
-expect_silent(igo_members(c("NAFTA", "EU"), year = 1993))
-expect_silent(igo_members(c("nafta", "un", "eu"), year = 1993))
-
+  expect_error(igo_members())
+  expect_error(igo_members("Error"))
+  expect_error(igo_members("EU", year = 1900))
+  expect_error(igo_members("EU", status = "Error"))
+  expect_warning(igo_members("EU", status = c("Full Membership", "Error")))
+  expect_warning(igo_members("EU", year = c(1990:1995)))
+  expect_error(igo_members("EU", status = "Observer"))
+  expect_silent(igo_members("EU"))
+  expect_silent(igo_members("EU", year = 2000))
+  expect_false(nrow(igo_members("EU", year = 2000)) ==
+    nrow(igo_members("EU", year = 1993)))
+  expect_silent(igo_members(c("NAFTA", "EU"), year = 1993))
+  expect_silent(igo_members(c("nafta", "un", "eu"), year = 1993))
 })
