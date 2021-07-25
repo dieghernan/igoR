@@ -16,10 +16,12 @@ jobs:
       - name: Query dependencies
         run: |
           install.packages('remotes')
-          install.packages('devtools')
           install.packages('styler')
-          install.packages('pkgdown')
           install.packages('roxygen2')
+          install.packages('codemetar')
+          install.packages('jsonld')
+          install.packages('ragg')
+          install.packages('usethis')
           
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
@@ -35,6 +37,9 @@ jobs:
       - name: Install package
         run: R CMD INSTALL .
         
+      - name: Description
+        run: Rscript -e 'usethis::use_tidy_description()'
+        
       - name: Style
         run: Rscript -e 'styler::style_pkg()'
 
@@ -44,11 +49,10 @@ jobs:
       - name: Render README
         run: Rscript -e 'devtools::build_readme()'
         
-      - name: Deploy package
+      - name: Codemetar
         run: |
-          Rscript -e 'pkgdown::clean_site()'
-          Rscript -e 'pkgdown::build_site(new_process = FALSE)'
-
+          Rscript -e 'codemetar::write_codemeta(write_minimeta = TRUE)'
+          
       - name: Commit results
         run: |
           git config --local user.email "actions@github.com"

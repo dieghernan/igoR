@@ -119,15 +119,16 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "tinytest",
-      "name": "tinytest",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=tinytest"
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
     }
   ],
   "softwareRequirements": [
@@ -140,13 +141,15 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/igoR/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/igoR/blob/master/README.md",
-  "fileSize": "0KB",
+  "fileSize": "1249.521KB",
   "contIntegration": "https://codecov.io/gh/dieghernan/igoR",
   "keywords": [
     "r-package",
     "igo",
     "correlates-of-war",
-    "intergovernmental-organizations"
+    "intergovernmental-organizations",
+    "r",
+    "rstats"
   ],
   "citation": [
     {
