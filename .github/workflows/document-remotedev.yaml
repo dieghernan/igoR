@@ -21,6 +21,7 @@ jobs:
           install.packages('codemetar')
           install.packages('jsonld')
           install.packages('ragg')
+          install.packages('usethis')
           
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
@@ -35,6 +36,9 @@ jobs:
           
       - name: Install package
         run: R CMD INSTALL .
+        
+      - name: Description
+        run: Rscript -e 'usethis::use_tidy_description()'
         
       - name: Style
         run: Rscript -e 'styler::style_pkg()'
