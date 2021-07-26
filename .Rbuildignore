@@ -5,6 +5,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^LICENSE$
 ^dev$
 ^.github$
 ^pkgdown$
