@@ -1,8 +1,8 @@
 test_that("Testing members", {
   expect_error(igo_members())
   expect_error(igo_members("Error"))
-  expect_error(igo_members("EU", year = 1900))
-  expect_error(igo_members("EU", status = "Error"))
+  expect_warning(expect_error(igo_members("EU", year = 1900)))
+  expect_warning(expect_error(igo_members("EU", status = "Error")))
   expect_warning(igo_members("EU", status = c("Full Membership", "Error")))
   expect_warning(igo_members("EU", year = c(1990:1995)))
   expect_error(igo_members("EU", status = "Observer"))

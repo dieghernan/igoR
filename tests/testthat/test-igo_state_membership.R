@@ -2,7 +2,9 @@ test_that("Testing state members", {
   expect_error(igo_state_membership())
   expect_error(igo_state_membership("Error"))
   expect_error(igo_state_membership("Kosovo", year = 1900))
-  expect_error(igo_state_membership("Spain", status = "Error"))
+  expect_warning(expect_error(igo_state_membership("Spain",
+    status = "Error"
+  )))
   expect_warning(igo_state_membership("Spain",
     status = c("Full Membership", "Error")
   ))
