@@ -14,7 +14,10 @@ test_that("Testing dyadic", {
   expect_silent(igo_dyadic("USA", c("Spain", "France"), 1995, c("un", "WTo")))
 
   expect_warning(igo_dyadic("USA", "Spain", 1990, c("un", "random")))
-  expect_error(igo_dyadic("USA", "Spain", 1990, c("xxx", "random")))
+  expect_warning(expect_error(igo_dyadic(
+    "USA", "Spain",
+    1990, c("xxx", "random")
+  )))
 
   n1 <- igo_dyadic("USA", "Cuba", 1905)
   n2 <- igo_dyadic("Kosovo", "Cuba")

@@ -7,21 +7,15 @@ name: docs-remotedev
 jobs:
   docs-remotedev:
     name: Update docs
-    runs-on: macOS-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@v1
-      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-pandoc@master
       
       - name: Query dependencies
         run: |
-          install.packages('remotes')
-          install.packages('styler')
-          install.packages('roxygen2')
-          install.packages('codemetar')
-          install.packages('jsonld')
-          install.packages('ragg')
-          install.packages('usethis')
+          install.packages(c('remotes', 'devtools', 'urlchecker', 'styler', 'roxygen2', 'codemetar', 'jsonld', 'ragg', 'usethis'))
           
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
@@ -35,7 +29,10 @@ jobs:
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
           
       - name: Install package
-        run: R CMD INSTALL .
+        run: Rscript -e 'devtools::install()'
+        
+      - name: Url checker
+        run: Rscript -e 'urlchecker::url_update()'
         
       - name: Description
         run: Rscript -e 'usethis::use_tidy_description()'

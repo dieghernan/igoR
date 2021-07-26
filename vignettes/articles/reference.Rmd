@@ -1,13 +1,6 @@
 ---
 title: "List of IGOs and Countries"
 bibliography: refs_igo.bib
-output: 
-  rmarkdown::html_vignette:
-    toc: true
-vignette: >
-  %\VignetteIndexEntry{List of IGOs and Countries}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r knitropts, include=FALSE}
