@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   warning = FALSE,
   message = FALSE,
-  fig.width = 6, 
+  fig.width = 6,
   fig.height = 4,
   out.width = "100%",
   out.height = "60%"
@@ -20,7 +20,6 @@ knitr::opts_chunk$set(
 if (isFALSE(requireNamespace("reactable", quietly = TRUE))) {
   install.packages("reactable")
 }
-
 ```
 
 
@@ -37,13 +36,12 @@ library(reactable)
 
 igo <- igo_search()
 reactable(igo[, 1:7],
-          filterable = TRUE,
-          searchable = TRUE,
-          showPageSizeOptions = TRUE,
-          striped = TRUE,
-          paginationType = "jump"
-          )
-
+  filterable = TRUE,
+  searchable = TRUE,
+  showPageSizeOptions = TRUE,
+  striped = TRUE,
+  paginationType = "jump"
+)
 ```
 
 
@@ -54,13 +52,12 @@ reactable(igo[, 1:7],
 
 cc <- states2016
 reactable(cc,
-          filterable = TRUE,
-          searchable = TRUE,
-          showPageSizeOptions = TRUE,
-          striped = TRUE,
-          paginationType = "jump"
-          )
-
+  filterable = TRUE,
+  searchable = TRUE,
+  showPageSizeOptions = TRUE,
+  striped = TRUE,
+  paginationType = "jump"
+)
 ```
 
 ## Session Info
@@ -77,7 +74,6 @@ cat("***")
 
 cat("vignette running time:")
 end_time - start_time
-
 ```
 </details>
 
