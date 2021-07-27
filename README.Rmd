@@ -47,13 +47,13 @@ Additionally, a distribution of the State System Membership (@cow_2017) is inclu
 Install `igoR` from
 [**CRAN**](https://CRAN.R-project.org/package=igoR):
 
-``` r
+```{r, eval=FALSE}
 install.packages("igoR")
 ```
 
 You can install the developing version from GitHub:
 
-``` r
+```{r, eval=FALSE}
 library(remotes)
 install_github("dieghernan/igoR")
 ```
@@ -61,7 +61,7 @@ install_github("dieghernan/igoR")
 Alternatively, you can install `igoR` using the
 [r-universe](https://dieghernan.r-universe.dev/ui#builds):
 
-``` r
+```{r, eval=FALSE}
 # Enable this universe
 options(repos = c(
     dieghernan = 'https://dieghernan.r-universe.dev',
