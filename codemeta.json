@@ -141,7 +141,7 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/igoR/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/igoR/blob/master/README.md",
-  "fileSize": "1250.918KB",
+  "fileSize": "1250.915KB",
   "contIntegration": ["https://github.com/dieghernan/igoR/actions", "https://codecov.io/gh/dieghernan/igoR"],
   "keywords": [
     "r-package",
