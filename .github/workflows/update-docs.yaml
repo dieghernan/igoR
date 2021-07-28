@@ -4,7 +4,7 @@ on:
       - main
       - master
   workflow_dispatch:
-  
+
 name: update-docs
 
 jobs:
@@ -43,15 +43,17 @@ jobs:
           devtools::install_github('dieghernan/pkgdev', dependencies = TRUE)
         shell: Rscript {0}
 
-     - name: Install package
+      - name: Install package
         run: |
           devtools::install()
+
         shell: Rscript {0}
 
       - name: Update docs
         run: |
           
           pkgdev::update_docs()
+
         shell: Rscript {0}
 
       - name: Commit results
@@ -61,6 +63,7 @@ jobs:
           git add -A
           git commit -m 'Update docs with pkgdev' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
+
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
