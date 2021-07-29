@@ -8,7 +8,7 @@ igo_search_states(state)
 }
 \arguments{
 \item{state}{Any valid name or code of a state as specified on
-\code{\link{states2016}}. It could be also an array of states.}
+\code{\link[=states2016]{states2016()}}. It could be also an array of states.}
 }
 \value{
 A dataframe.
@@ -28,5 +28,5 @@ igo_search_states(c("Germany", "papal states"))
 igo_search_states(c("FRN", "United Kingdom", 240, "italy"))
 }
 \seealso{
-\code{\link{states2016}}.
+\code{\link[=states2016]{states2016()}}.
 }

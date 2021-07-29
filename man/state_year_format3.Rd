@@ -8,10 +8,10 @@
 data frame with 15557 rows. Relevant fields:
 \itemize{
 \item{\strong{ccode}: }{COW country number,
-see \code{\link{states2016}}}.
+see \code{\link[=states2016]{states2016()}}}.
 \item{\strong{year}: }{Calendar Year.}
 \item{\strong{state}: }{Abbreviated state name, identical to variable
-names in \code{\link{igo_year_format3}}}
+names in \code{\link[=igo_year_format3]{igo_year_format3()}}}
 \item{\strong{aaaid...wassen}: }{IGO variables containing information on
 state membership status:
 \tabular{cc}{
@@ -47,7 +47,7 @@ IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
 (May 2020): 492-503. \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\code{\link{igo_year_format3}},
-\code{\link{states2016}}. See also \code{\link[countrycode]{countrycode}} to
+\code{\link[=igo_year_format3]{igo_year_format3()}},
+\code{\link[=states2016]{states2016()}}. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} to
 convert between different country code schemes.
 }

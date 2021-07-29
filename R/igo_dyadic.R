@@ -6,40 +6,40 @@
 #'
 #' @return A coded data frame representing the years and country dyad (rows)
 #' and the IGOs selected (columns). See Details
-#' @seealso \code{\link{state_year_format3}},  \code{\link{states2016}},
-#' \code{\link{igo_search}}.
-#' @source \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}} for full reference.
+#' @seealso [state_year_format3()],  [states2016()],
+#' [igo_search()].
+#' @source [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs) for full reference.
 #' @references
 #' Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
 #' Jamison. "Tracking Organizations in the World: The Correlates of War
-#' IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
+#' IGO Version 3.0 Datasets." *Journal of Peace Research* 57, no. 3
 #' (May 2020): 492-503. \doi{10.1177/0022343319881175}.
 #'
 #' @param country1 A single state, used as a base of comparison. It could be
-#' any valid name or code of a state as specified on \code{\link{states2016}}.
+#' any valid name or code of a state as specified on [states2016()].
 #' @param country2 A state of vector of states to be compared with
-#' \code{country1}.
+#' `country1`.
 #' @param year Year to be assessed, an integer or an array of year.
-#' @param ioname Optional. \code{ioname} or vector of \code{ioname}
-#' corresponding to the IGOs to be assessed. If \code{NULL} (the default),
-#' all IGOs would be extracted. See codes on \code{\link{igo_search}}.
+#' @param ioname Optional. `ioname` or vector of `ioname`
+#' corresponding to the IGOs to be assessed. If `NULL` (the default),
+#' all IGOs would be extracted. See codes on [igo_search()].
 #' @details
 #' This function tries to replicate the information contained in the original
 #' file distributed by The Correlates of War Project
-#' (\code{dyadic_format3.dta}). That file is not included in this package due
+#' (`dyadic_format3.dta`). That file is not included in this package due
 #' to its size.
 #'
 #' The result is a data frame containing the common years of the states
-#' selected via \code{country1, country2, year} by rows.
+#' selected via `country1, country2, year` by rows.
 #'
-#' An additional column \code{dyadid}, computed as \code{(1000*ccode1)+ccode2}
+#' An additional column `dyadid`, computed as `(1000*ccode1)+ccode2`
 #' is provided in order to identify relationships.
 #'
-#' For each IGO selected via \code{ioname} (or all if the default
-#' option has been used) a column (using lowercase \code{ioname} as
+#' For each IGO selected via `ioname` (or all if the default
+#' option has been used) a column (using lowercase `ioname` as
 #' identifier) is provided with the following code system:
 #' \tabular{cc}{
-#'   \strong{Category} \tab \strong{Numerical Value}\cr
+#'   **Category** \tab **Numerical Value**\cr
 #'     No Joint Membership \tab 0 \cr
 #'     Joint Full Membership \tab 1 \cr
 #'     Missing data \tab -9 \cr
@@ -48,14 +48,14 @@
 #' If one state in an IGO is a full member but the other is an associate
 #' member or observer, that IGO is not coded as a joint membership.
 #'
-#'  \strong{Differences with the original dataset}
+#'  **Differences with the original dataset**
 #'
 #'  There are some differences on the results provided by this function and the
 #'  original dataset on some IGOs regarding the "Missing Data" (-9) and
 #'  "State Not System Member" (-1). However it is not clear how to fully
 #'  replicate those values.
 #'
-#' See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
+#' See [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs)
 #'
 #'
 #' @export

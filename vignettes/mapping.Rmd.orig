@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   dev = "ragg_png",
+  tidy = "styler",
   fig.width = 6,
   fig.height = 4,
   dpi = 180,
@@ -33,7 +34,6 @@ if (isFALSE(requireNamespace("giscoR", quietly = TRUE))) {
 if (isFALSE(requireNamespace("tmap", quietly = TRUE))) {
   install.packages("tmap")
 }
-
 ```
 
 Maps are a powerful tool to show data. As the scope of `igoR` are the InterGovermental Organizations, mapping and IGOs are a perfect match.
@@ -58,8 +58,6 @@ library(countrycode)
 library(sf)
 library(giscoR)
 library(tmap)
-
-
 ```
 
 
@@ -88,27 +86,29 @@ un <- igo_search("UN", exact = TRUE)
 UN1950 <-
   igo_members("UN", 1950) %>%
   mutate(ISO3_CODE = countrycode(ccode,
-                                 "cown",
-                                 "iso3c",
-                                 warn = FALSE)) %>%
+    "cown",
+    "iso3c",
+    warn = FALSE
+  )) %>%
   inner_join(world, .)
 
 UN1980 <-
   igo_members("UN", 1980) %>%
-    mutate(ISO3_CODE = countrycode(ccode,
-                                 "cown",
-                                 "iso3c",
-                                 warn = FALSE)) %>%
+  mutate(ISO3_CODE = countrycode(ccode,
+    "cown",
+    "iso3c",
+    warn = FALSE
+  )) %>%
   inner_join(world, .)
 
 UN2010 <-
   igo_members("UN", 2010) %>%
   mutate(ISO3_CODE = countrycode(ccode,
-                                 "cown",
-                                 "iso3c",
-                                 warn = FALSE)) %>%
+    "cown",
+    "iso3c",
+    warn = FALSE
+  )) %>%
   inner_join(world, .)
-
 ```
 
 Note that the map
@@ -140,13 +140,17 @@ tm_shape(world) +
     main.title.position = "center",
     main.title.size = 1
   ) +
-  tm_polygons(col = "#E0E0E0",
-              border.col = "white",
-              lwd = 0.1) +
+  tm_polygons(
+    col = "#E0E0E0",
+    border.col = "white",
+    lwd = 0.1
+  ) +
   tm_shape(UN1950) +
-  tm_polygons(col = "#74A9CF",
-              border.col = "white",
-              lwd = 0.1)
+  tm_polygons(
+    col = "#74A9CF",
+    border.col = "white",
+    lwd = 0.1
+  )
 
 
 # UN 1980----
@@ -167,13 +171,17 @@ tm_shape(world) +
     main.title.position = "center",
     main.title.size = 1
   ) +
-  tm_polygons(col = "#E0E0E0",
-              border.col = "white",
-              lwd = 0.1) +
+  tm_polygons(
+    col = "#E0E0E0",
+    border.col = "white",
+    lwd = 0.1
+  ) +
   tm_shape(UN1980) +
-  tm_polygons(col = "#74A9CF",
-              border.col = "white",
-              lwd = 0.1)
+  tm_polygons(
+    col = "#74A9CF",
+    border.col = "white",
+    lwd = 0.1
+  )
 
 # UN 2010----
 tm_shape(world) +
@@ -191,15 +199,17 @@ tm_shape(world) +
     main.title.position = "center",
     main.title.size = 1
   ) +
-  tm_polygons(col = "#E0E0E0",
-              border.col = "white",
-              lwd = 0.1) +
+  tm_polygons(
+    col = "#E0E0E0",
+    border.col = "white",
+    lwd = 0.1
+  ) +
   tm_shape(UN2010) +
-  tm_polygons(col = "#74A9CF",
-              border.col = "white",
-              lwd = 0.1)
-
-
+  tm_polygons(
+    col = "#74A9CF",
+    border.col = "white",
+    lwd = 0.1
+  )
 ```
 
 
@@ -228,14 +238,17 @@ shared$shared <- rowSums(shared == 1)
 
 # ISO3 Code
 shared$ISO3_CODE <- countrycode(shared$ccode2,
-                                   "cown",
-                                   "iso3c",
-                                   warn = FALSE)
+  "cown",
+  "iso3c",
+  warn = FALSE
+)
 
 
 # Merge with map
 sharedmap <-
-  world %>% left_join(shared) %>% select(ISO3_CODE, shared)
+  world %>%
+  left_join(shared) %>%
+  select(ISO3_CODE, shared)
 
 # Plot with custom palette
 
@@ -258,16 +271,18 @@ tm_shape(sharedmap) +
     legend.title.size = 0.8
   ) +
   tm_polygons(
-    col = 'shared',
+    col = "shared",
     title = "number of IGOs",
     palette = pal,
     border.col = "white",
     lwd = 0.1
   ) +
   tm_shape(subset(sharedmap, ISO3_CODE == "AUS")) +
-  tm_polygons(col = "black",
-              border.col = "white",
-              lwd = 0.1)
+  tm_polygons(
+    col = "black",
+    border.col = "white",
+    lwd = 0.1
+  )
 ```
 
 ## Cross-shared memberships
@@ -309,9 +324,11 @@ bbox <- st_bbox(countries.sf %>% filter(ISO3_CODE != "USA"))
 
 # Map
 tm_shape(map, bbox = bbox) +
-  tm_fill(col = "value",
-          title = "number of IGOs",
-          palette = "YlGn") +
+  tm_fill(
+    col = "value",
+    title = "number of IGOs",
+    palette = "YlGn"
+  ) +
   tm_layout(
     main.title = "Shared Full Memberships on North America (1930-2010)",
     main.title.position = "center",
@@ -319,7 +336,6 @@ tm_shape(map, bbox = bbox) +
     legend.title.size = 0.8
   ) +
   tm_facets(by = "year", nrow = 3)
-
 ```
 
 ## Session Info
@@ -335,9 +351,6 @@ cat("***")
 
 cat("vignette running time:")
 end_time - start_time
-
-
-
 ```
 </details>
 

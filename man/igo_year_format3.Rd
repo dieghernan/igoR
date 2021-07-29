@@ -3,7 +3,7 @@
 \docType{data}
 \name{igo_year_format3}
 \alias{igo_year_format3}
-\title{#' Intergovernmental Organizations (IGO) by year}
+\title{Intergovernmental Organizations (IGO) by year}
 \format{
 data frame with 19335 rows. Relevant fields:
 \itemize{

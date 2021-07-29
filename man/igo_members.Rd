@@ -8,7 +8,7 @@ igo_members(ioname, year = NULL, status = "Full Membership")
 }
 \arguments{
 \item{ioname}{Any valid \code{ioname} of an IGO as specified on
-\code{\link{igo_year_format3}}. It could be also a vector of IGOs.}
+\code{\link[=igo_year_format3]{igo_year_format3()}}. It could be also a vector of IGOs.}
 
 \item{year}{Year to be assessed, an integer or an array of year.
 If \code{NULL} the latest year available
@@ -16,7 +16,7 @@ of the IGO would be extracted.}
 
 \item{status}{Character or vector with the membership status to be
 extracted. See Details
-on \code{\link{state_year_format3}}.}
+on \code{\link[=state_year_format3]{state_year_format3()}}.}
 }
 \value{
 A dataframe.
@@ -58,6 +58,6 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 }
 }
 \seealso{
-\code{\link{igo_year_format3}},
-\code{\link{igo_search}}, \code{\link{state_year_format3}}.
+\code{\link[=igo_year_format3]{igo_year_format3()}},
+\code{\link[=igo_search]{igo_search()}}, \code{\link[=state_year_format3]{state_year_format3()}}.
 }

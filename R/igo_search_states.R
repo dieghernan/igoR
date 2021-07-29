@@ -2,10 +2,10 @@
 #' @name igo_search_states
 #' @description Extract all the memberships of a state on a specific date.
 #' @return A dataframe.
-#' @seealso \code{\link{states2016}}.
+#' @seealso [states2016()].
 #'
 #' @param state Any valid name or code of a state as specified on
-#' \code{\link{states2016}}. It could be also an array of states.
+#' [states2016()]. It could be also an array of states.
 #'
 #' @examples
 #' igo_search_states("Spain")

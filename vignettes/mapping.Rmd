@@ -33,7 +33,6 @@ library(countrycode)
 library(sf)
 library(giscoR)
 library(tmap)
-
 ```
 
 
@@ -63,25 +62,28 @@ un <- igo_search("UN", exact = TRUE)
 UN1950 <-
   igo_members("UN", 1950) %>%
   mutate(ISO3_CODE = countrycode(ccode,
-                                 "cown",
-                                 "iso3c",
-                                 warn = FALSE)) %>%
+    "cown",
+    "iso3c",
+    warn = FALSE
+  )) %>%
   inner_join(world, .)
 
 UN1980 <-
   igo_members("UN", 1980) %>%
-    mutate(ISO3_CODE = countrycode(ccode,
-                                 "cown",
-                                 "iso3c",
-                                 warn = FALSE)) %>%
+  mutate(ISO3_CODE = countrycode(ccode,
+    "cown",
+    "iso3c",
+    warn = FALSE
+  )) %>%
   inner_join(world, .)
 
 UN2010 <-
   igo_members("UN", 2010) %>%
   mutate(ISO3_CODE = countrycode(ccode,
-                                 "cown",
-                                 "iso3c",
-                                 warn = FALSE)) %>%
+    "cown",
+    "iso3c",
+    warn = FALSE
+  )) %>%
   inner_join(world, .)
 ```
 
@@ -115,13 +117,17 @@ tm_shape(world) +
     main.title.position = "center",
     main.title.size = 1
   ) +
-  tm_polygons(col = "#E0E0E0",
-              border.col = "white",
-              lwd = 0.1) +
+  tm_polygons(
+    col = "#E0E0E0",
+    border.col = "white",
+    lwd = 0.1
+  ) +
   tm_shape(UN1950) +
-  tm_polygons(col = "#74A9CF",
-              border.col = "white",
-              lwd = 0.1)
+  tm_polygons(
+    col = "#74A9CF",
+    border.col = "white",
+    lwd = 0.1
+  )
 
 
 # UN 1980----
@@ -142,13 +148,17 @@ tm_shape(world) +
     main.title.position = "center",
     main.title.size = 1
   ) +
-  tm_polygons(col = "#E0E0E0",
-              border.col = "white",
-              lwd = 0.1) +
+  tm_polygons(
+    col = "#E0E0E0",
+    border.col = "white",
+    lwd = 0.1
+  ) +
   tm_shape(UN1980) +
-  tm_polygons(col = "#74A9CF",
-              border.col = "white",
-              lwd = 0.1)
+  tm_polygons(
+    col = "#74A9CF",
+    border.col = "white",
+    lwd = 0.1
+  )
 
 # UN 2010----
 tm_shape(world) +
@@ -166,14 +176,17 @@ tm_shape(world) +
     main.title.position = "center",
     main.title.size = 1
   ) +
-  tm_polygons(col = "#E0E0E0",
-              border.col = "white",
-              lwd = 0.1) +
+  tm_polygons(
+    col = "#E0E0E0",
+    border.col = "white",
+    lwd = 0.1
+  ) +
   tm_shape(UN2010) +
-  tm_polygons(col = "#74A9CF",
-              border.col = "white",
-              lwd = 0.1)
-
+  tm_polygons(
+    col = "#74A9CF",
+    border.col = "white",
+    lwd = 0.1
+  )
 ```
 
 <img src="./UNMaps-1.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%" /><img src="./UNMaps-2.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%" /><img src="./UNMaps-3.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%" />
@@ -205,14 +218,17 @@ shared$shared <- rowSums(shared == 1)
 
 # ISO3 Code
 shared$ISO3_CODE <- countrycode(shared$ccode2,
-                                   "cown",
-                                   "iso3c",
-                                   warn = FALSE)
+  "cown",
+  "iso3c",
+  warn = FALSE
+)
 
 
 # Merge with map
 sharedmap <-
-  world %>% left_join(shared) %>% select(ISO3_CODE, shared)
+  world %>%
+  left_join(shared) %>%
+  select(ISO3_CODE, shared)
 
 # Plot with custom palette
 
@@ -235,16 +251,18 @@ tm_shape(sharedmap) +
     legend.title.size = 0.8
   ) +
   tm_polygons(
-    col = 'shared',
+    col = "shared",
     title = "number of IGOs",
     palette = pal,
     border.col = "white",
     lwd = 0.1
   ) +
   tm_shape(subset(sharedmap, ISO3_CODE == "AUS")) +
-  tm_polygons(col = "black",
-              border.col = "white",
-              lwd = 0.1)
+  tm_polygons(
+    col = "black",
+    border.col = "white",
+    lwd = 0.1
+  )
 ```
 
 <img src="./AustShared-1.png" title="plot of chunk AustShared" alt="plot of chunk AustShared" width="100%" />
@@ -289,9 +307,11 @@ bbox <- st_bbox(countries.sf %>% filter(ISO3_CODE != "USA"))
 
 # Map
 tm_shape(map, bbox = bbox) +
-  tm_fill(col = "value",
-          title = "number of IGOs",
-          palette = "YlGn") +
+  tm_fill(
+    col = "value",
+    title = "number of IGOs",
+    palette = "YlGn"
+  ) +
   tm_layout(
     main.title = "Shared Full Memberships on North America (1930-2010)",
     main.title.position = "center",
@@ -324,49 +344,42 @@ tm_shape(map, bbox = bbox) +
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] tmap_3.3-2        giscoR_0.2.4.9000 sf_1.0-2          dplyr_1.0.7      
-#> [5] igoR_0.1.1.9000   countrycode_1.3.0 testthat_3.0.4   
+#> [1] igoR_0.1.1.9000   tmap_3.3-2        giscoR_0.2.4.9000 sf_1.0-2         
+#> [5] countrycode_1.3.0 dplyr_1.0.7      
 #> 
 #> loaded via a namespace (and not attached):
-#>   [1] backports_1.2.1      systemfonts_1.0.2    lwgeom_0.2-6         lazyeval_0.2.2      
-#>   [5] sp_1.4-5             crosstalk_1.1.1      leaflet_2.0.4.1      usethis_2.0.1       
-#>   [9] crancache_0.0.0.9001 urltools_1.7.3       digest_0.6.27        htmltools_0.5.1.1   
-#>  [13] fansi_0.5.0          magrittr_2.0.1       memoise_2.0.0        geojsonsf_2.0.1     
-#>  [17] covr_3.5.1           codemetar_0.3.2      gert_1.3.1           remotes_2.4.0       
-#>  [21] credentials_1.3.1    R.utils_2.10.1       askpass_1.1          pkgdown_1.6.1       
-#>  [25] prettyunits_1.1.1    blob_1.2.2           rappdirs_0.3.3       gitcreds_0.1.1      
-#>  [29] textshaping_0.3.5    xfun_0.24            leafem_0.1.6         callr_3.7.0         
-#>  [33] crayon_1.4.1         jsonlite_1.7.2       roxygen2_7.1.1       glue_1.4.2          
-#>  [37] stars_0.5-3          xmlparsedata_1.0.5   V8_3.4.2             R.cache_0.15.0      
-#>  [41] pkgbuild_1.2.0       abind_1.4-5          pingr_2.0.1          DBI_1.1.1           
-#>  [45] Rcpp_1.0.7           viridisLite_0.4.0    units_0.7-2          parsedate_1.2.1     
-#>  [49] bit_4.0.4            proxy_0.4-26         praise_1.0.0         clisymbols_1.2.0    
-#>  [53] xopen_1.0.0          htmlwidgets_1.5.3    rex_1.2.0            httr_1.4.2          
-#>  [57] RColorBrewer_1.1-2   wk_0.5.0             ellipsis_0.3.2       urlchecker_1.0.0    
-#>  [61] pkgconfig_2.0.3      XML_3.99-0.6         R.methodsS3_1.8.1    sass_0.4.0          
-#>  [65] utf8_1.2.2           crul_1.1.0           tidyselect_1.1.1     rlang_0.4.11        
-#>  [69] tmaptools_3.1-1      tools_4.1.0          cachem_1.0.5         cli_3.0.1           
-#>  [73] generics_0.1.0       RSQLite_2.2.7        devtools_2.4.2       evaluate_0.14       
-#>  [77] stringr_1.4.0        fastmap_1.1.0        ragg_1.1.3           yaml_2.2.1          
-#>  [81] sys_3.4              rematch2_2.1.2       processx_3.5.2       leafsync_0.1.0      
-#>  [85] knitr_1.33           bit64_4.0.5          fs_1.5.0             jsonld_2.2          
-#>  [89] s2_1.0.6             purrr_0.3.4          gh_1.3.0             whisker_0.4         
-#>  [93] R.oo_1.24.0          xml2_1.3.2           debugme_1.1.0        compiler_4.1.0      
-#>  [97] rstudioapi_0.13      curl_4.3.2           png_0.1-7            e1071_1.7-7         
-#> [101] tibble_3.1.3         bslib_0.2.5.1        stringi_1.7.3        highr_0.9           
-#> [105] cyclocomp_1.1.0      ps_1.6.0             desc_1.3.0           lattice_0.20-44     
-#> [109] whoami_1.3.0         classInt_0.4-3       commonmark_1.7       styler_1.5.1        
-#> [113] goodpractice_1.0.2   vctrs_0.3.8          pillar_1.6.1         lifecycle_1.0.0     
-#> [117] triebeard_0.3.0      jquerylib_0.1.4      data.table_1.14.0    rcmdcheck_1.3.3     
-#> [121] raster_3.4-13        R6_2.5.0             autotest_0.0.2.132   KernSmooth_2.23-20  
-#> [125] codetools_0.2-18     sessioninfo_1.1.1    dichromat_2.0-0      assertthat_0.2.1    
-#> [129] pkgload_1.2.1        openssl_1.4.4        rprojroot_2.0.2      withr_2.4.2         
-#> [133] httpcode_0.3.0       parallel_4.1.0       lintr_2.0.1          grid_4.1.0          
-#> [137] cranlike_1.0.2       waldo_0.2.5          class_7.3-19         rmarkdown_2.9       
-#> [141] downlit_0.2.1        base64enc_0.1-3
+#>   [1] leafem_0.1.6       ellipsis_0.3.2     class_7.3-19       gitcreds_0.1.1    
+#>   [5] leaflet_2.0.4.1    rprojroot_2.0.2    base64enc_0.1-3    fs_1.5.0          
+#>   [9] dichromat_2.0-0    httpcode_0.3.0     rstudioapi_0.13    proxy_0.4-26      
+#>  [13] roxygen2_7.1.1     urltools_1.7.3     remotes_2.4.0      gh_1.3.0          
+#>  [17] fansi_0.5.0        pkgdev_0.0.1.9000  xml2_1.3.2         codetools_0.2-18  
+#>  [21] R.methodsS3_1.8.1  cachem_1.0.5       knitr_1.33         pkgload_1.2.1     
+#>  [25] jsonlite_1.7.2     tmaptools_3.1-1    png_0.1-7          R.oo_1.24.0       
+#>  [29] compiler_4.1.0     httr_1.4.2         backports_1.2.1    assertthat_0.2.1  
+#>  [33] fastmap_1.1.0      cli_3.0.1          s2_1.0.6           htmltools_0.5.1.1 
+#>  [37] prettyunits_1.1.1  tools_4.1.0        glue_1.4.2         wk_0.5.0          
+#>  [41] V8_3.4.2           Rcpp_1.0.7         styler_1.5.1       raster_3.4-13     
+#>  [45] xopen_1.0.0        vctrs_0.3.8        crul_1.1.0         leafsync_0.1.0    
+#>  [49] crosstalk_1.1.1    lwgeom_0.2-7       xfun_0.24          stringr_1.4.0     
+#>  [53] ps_1.6.0           testthat_3.0.4     lifecycle_1.0.0    sys_3.4           
+#>  [57] devtools_2.4.2     XML_3.99-0.6       jsonld_2.2         ragg_1.1.3        
+#>  [61] credentials_1.3.1  parallel_4.1.0     rematch2_2.1.2     RColorBrewer_1.1-2
+#>  [65] gert_1.3.1         yaml_2.2.1         curl_4.3.2         memoise_2.0.0     
+#>  [69] rcmdcheck_1.3.3    triebeard_0.3.0    stringi_1.7.3      highr_0.9         
+#>  [73] desc_1.3.0         e1071_1.7-8        pingr_2.0.1        pkgbuild_1.2.0    
+#>  [77] systemfonts_1.0.2  rlang_0.4.11       pkgconfig_2.0.3    commonmark_1.7    
+#>  [81] lattice_0.20-44    evaluate_0.14      purrr_0.3.4        htmlwidgets_1.5.3 
+#>  [85] processx_3.5.2     tidyselect_1.1.1   geojsonsf_2.0.1    magrittr_2.0.1    
+#>  [89] R6_2.5.0           generics_0.1.0     DBI_1.1.1          pillar_1.6.2      
+#>  [93] withr_2.4.2        units_0.7-2        stars_0.5-3        sp_1.4-5          
+#>  [97] abind_1.4-5        tibble_3.1.3       crayon_1.4.1       KernSmooth_2.23-20
+#> [101] utf8_1.2.2         rmarkdown_2.9      urlchecker_1.0.0   usethis_2.0.1     
+#> [105] grid_4.1.0         codemetar_0.3.2    callr_3.7.0        digest_0.6.27     
+#> [109] classInt_0.4-3     R.cache_0.15.0     textshaping_0.3.5  R.utils_2.10.1    
+#> [113] openssl_1.4.4      viridisLite_0.4.0  sessioninfo_1.1.1  askpass_1.1
 #> ***
 #> vignette running time:
-#> Time difference of 22.49923 secs
+#> Time difference of 18.38552 secs
 ```
 </details>
 
