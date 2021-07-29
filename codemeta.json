@@ -141,7 +141,7 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/igoR/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/igoR/blob/master/README.md",
-  "fileSize": "1256.719KB",
+  "fileSize": "1250.316KB",
   "contIntegration": ["https://github.com/dieghernan/igoR/actions", "https://codecov.io/gh/dieghernan/igoR"],
   "keywords": [
     "r-package",
@@ -176,5 +176,6 @@
     "@type": "Organization",
     "name": "Comprehensive R Archive Network (CRAN)",
     "url": "https://cran.r-project.org"
-  }
+  },
+  "developmentStatus": "https://lifecycle.r-lib.org/articles/stages.html#stable"
 }
