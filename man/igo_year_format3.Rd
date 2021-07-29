@@ -50,5 +50,5 @@ IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
 (May 2020): 492-503. \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\code{\link[=state_year_format3]{state_year_format3()}}
+\link{state_year_format3}
 }

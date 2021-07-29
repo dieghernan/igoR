@@ -11,7 +11,7 @@ igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 }
 \arguments{
 \item{country1}{A single state, used as a base of comparison. It could be
-any valid name or code of a state as specified on \code{\link[=states2016]{states2016()}}.}
+any valid name or code of a state as specified on \link{states2016}.}
 
 \item{country2}{A state of vector of states to be compared with
 \code{country1}.}
@@ -86,6 +86,6 @@ IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
 (May 2020): 492-503. \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\code{\link[=state_year_format3]{state_year_format3()}},  \code{\link[=states2016]{states2016()}},
+\link{state_year_format3},  \link{states2016},
 \code{\link[=igo_search]{igo_search()}}.
 }

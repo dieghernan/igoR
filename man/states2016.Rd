@@ -14,7 +14,7 @@ data frame with 243 rows:
 and the end of each tenure.}
 \item{\strong{version}: }{Data file version number.}
 \item{\strong{state}: }{Abbreviated state name as appear in
-\code{\link[=state_year_format3]{state_year_format3()}}.}
+\link{state_year_format3}.}
 }
 }
 \source{
@@ -22,7 +22,7 @@ and the end of each tenure.}
 }
 \description{
 The list of states with COW abbreviations and ID numbers, plus
-the field \code{state} from \code{\link[=state_year_format3]{state_year_format3()}}.
+the field \code{state} from \link{state_year_format3}.
 }
 \details{
 This data set contains the list of states in the international
@@ -57,5 +57,5 @@ Correlates of War Project. 2017 "State System Membership List, v2016."
 Online, \url{https://correlatesofwar.org/}.
 }
 \seealso{
-\code{\link[=state_year_format3]{state_year_format3()}}, \code{\link[=igo_year_format3]{igo_year_format3()}}.
+\link{state_year_format3}, \link{igo_year_format3}.
 }

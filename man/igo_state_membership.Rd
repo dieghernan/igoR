@@ -8,7 +8,7 @@ igo_state_membership(state, year = NULL, status = "Full Membership")
 }
 \arguments{
 \item{state}{Any valid name or code of a state as specified on
-\code{\link[=states2016]{states2016()}}. It could be also a vector of states}
+\link{states2016}. It could be also a vector of states}
 
 \item{year}{Year to be assessed, an integer or an array of year.
 If \code{NULL} the latest year available
@@ -16,7 +16,7 @@ of the state would be extracted.}
 
 \item{status}{Character or vector with the membership status to be
 extracted. See Details
-on \code{\link[=igo_year_format3]{igo_year_format3()}}.}
+on \link{igo_year_format3}.}
 }
 \value{
 A dataframe.
@@ -63,6 +63,6 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 }
 }
 \seealso{
-\code{\link[=igo_year_format3]{igo_year_format3()}}, \code{\link[=igo_search_states]{igo_search_states()}},
-\code{\link[=states2016]{states2016()}}.
+\link{igo_year_format3}, \code{\link[=igo_search_states]{igo_search_states()}},
+\link{states2016}.
 }
