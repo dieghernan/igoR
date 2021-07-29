@@ -3,18 +3,18 @@
 #' @description Extract all the countries belonging to an IGO on a specific
 #' date.
 #' @return A dataframe.
-#' @seealso [igo_year_format3()],
-#' [igo_search()], [state_year_format3()].
+#' @seealso [igo_year_format3],
+#' [igo_search()], [state_year_format3].
 #' @export
 #'
 #' @param ioname Any valid `ioname` of an IGO as specified on
-#' [igo_year_format3()]. It could be also a vector of IGOs.
+#' [igo_year_format3]. It could be also a vector of IGOs.
 #' @param year Year to be assessed, an integer or an array of year.
 #' If `NULL` the latest year available
 #' of the IGO would be extracted.
 #' @param status Character or vector with the membership status to be
 #' extracted. See Details
-#' on [state_year_format3()].
+#' on [state_year_format3].
 #' @examples
 #' # Composition on two different dates
 #' igo_members("EU", year = 1993)

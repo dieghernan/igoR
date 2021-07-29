@@ -6,7 +6,7 @@
 #'
 #' @return A coded data frame representing the years and country dyad (rows)
 #' and the IGOs selected (columns). See Details
-#' @seealso [state_year_format3()],  [states2016()],
+#' @seealso [state_year_format3],  [states2016],
 #' [igo_search()].
 #' @source [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs) for full reference.
 #' @references
@@ -16,7 +16,7 @@
 #' (May 2020): 492-503. \doi{10.1177/0022343319881175}.
 #'
 #' @param country1 A single state, used as a base of comparison. It could be
-#' any valid name or code of a state as specified on [states2016()].
+#' any valid name or code of a state as specified on [states2016].
 #' @param country2 A state of vector of states to be compared with
 #' `country1`.
 #' @param year Year to be assessed, an integer or an array of year.

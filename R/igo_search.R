@@ -2,15 +2,15 @@
 #' @name igo_search
 #' @description Search any IGO by name or string pattern.
 #' @return A dataframe.
-#' @seealso [igo_year_format3()]
+#' @seealso [igo_year_format3]
 #'
 #'
 #' @param pattern regex pattern. If `NULL` the function returns a dataset
-#' with all the IGOs on [igo_year_format3()]. Integer values are
+#' with all the IGOs on [igo_year_format3]. Integer values are
 #' accepted.
 #' @param exact Logical. When `TRUE` only exact matches are returned.
 #' @details The information of each IGO is retrieved based on the last year
-#' available on [igo_year_format3()].
+#' available on [igo_year_format3].
 #'
 #' An additional column `label` is provided. This column is a clean
 #' version of `longorgname`

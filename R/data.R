@@ -37,7 +37,7 @@
 #'
 #' See [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs)
 #' for full reference.
-#' @seealso [state_year_format3()]
+#' @seealso [state_year_format3]
 #' @note Raw data used internally by **igoR**.
 #'
 #' @references
@@ -58,10 +58,10 @@ NULL
 #' @format data frame with 15557 rows. Relevant fields:
 #' \itemize{
 #'   \item{**ccode**: }{COW country number,
-#'   see [states2016()]}.
+#'   see [states2016]}.
 #'   \item{**year**: }{Calendar Year.}
 #'   \item{**state**: }{Abbreviated state name, identical to variable
-#'   names in [igo_year_format3()]}
+#'   names in [igo_year_format3]}
 #'   \item{**aaaid...wassen**: }{IGO variables containing information on
 #'   state membership status:
 #'   \tabular{cc}{
@@ -77,8 +77,8 @@ NULL
 #' }
 #'
 #' See [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs)
-#' @seealso [igo_year_format3()],
-#' [states2016()]. See also [countrycode::countrycode()] to
+#' @seealso [igo_year_format3],
+#' [states2016]. See also [countrycode::countrycode()] to
 #' convert between different country code schemes.
 #' @note Raw data used internally by \pkg{igoR}
 #' @references
@@ -93,7 +93,7 @@ NULL
 #' @name states2016
 #' @docType data
 #' @description The list of states with COW abbreviations and ID numbers, plus
-#' the field `state` from [state_year_format3()].
+#' the field `state` from [state_year_format3].
 #' @source [
 #' State System Membership (v2016)](https://correlatesofwar.org/data-sets/state-system-membership), The Correlates of War Project.
 #' @format data frame with 243 rows:
@@ -105,10 +105,10 @@ NULL
 #'   and the end of each tenure.}
 #'   \item{**version**: }{Data file version number.}
 #'   \item{**state**: }{Abbreviated state name as appear in
-#'   [state_year_format3()].}
+#'   [state_year_format3].}
 #'  }
 #'
-#' @seealso [state_year_format3()], [igo_year_format3()].
+#' @seealso [state_year_format3], [igo_year_format3].
 #' @details This data set contains the list of states in the international
 #' system as updated and distributed by the Correlates of War Project.
 #'

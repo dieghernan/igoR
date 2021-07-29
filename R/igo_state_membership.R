@@ -2,18 +2,18 @@
 #' @name igo_state_membership
 #' @description Extract all the memberships of a state on a specific date.
 #' @return A dataframe.
-#' @seealso [igo_year_format3()], [igo_search_states()],
-#' [states2016()].
+#' @seealso [igo_year_format3], [igo_search_states()],
+#' [states2016].
 #' @export
 #'
 #' @param state Any valid name or code of a state as specified on
-#' [states2016()]. It could be also a vector of states
+#' [states2016]. It could be also a vector of states
 #' @param year Year to be assessed, an integer or an array of year.
 #' If `NULL` the latest year available
 #' of the state would be extracted.
 #' @param status Character or vector with the membership status to be
 #' extracted. See Details
-#' on [igo_year_format3()].
+#' on [igo_year_format3].
 #' @examples
 #' # Memberships on two different dates
 #' igo_state_membership("Spain", year = 1850)
