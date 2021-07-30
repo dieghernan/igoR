@@ -55,7 +55,8 @@
 #'  "State Not System Member" (-1). However it is not clear how to fully
 #'  replicate those values.
 #'
-#' See [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs)
+#' See
+#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs)
 #'
 #'
 #' @export

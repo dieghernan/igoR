@@ -7,23 +7,12 @@
 \format{
 data frame with 15557 rows. Relevant fields:
 \itemize{
-\item{\strong{ccode}: }{COW country number,
-see \link{states2016}}.
-\item{\strong{year}: }{Calendar Year.}
-\item{\strong{state}: }{Abbreviated state name, identical to variable
-names in \link{igo_year_format3}}
-\item{\strong{aaaid...wassen}: }{IGO variables containing information on
-state membership status:
-\tabular{cc}{
-\strong{Category} \tab \strong{Numerical Value}\cr
-No Membership \tab 0 \cr
-Full Membership \tab 1 \cr
-Associate Membership \tab 2 \cr
-Observer \tab 3\cr
-Missing data \tab -9 \cr
-IGO Not In Existence \tab -1 \cr
-}
-}
+\item \strong{ccode}: COW country number, see \link{states2016}.
+\item \strong{year}: Calendar Year.
+\item \strong{state}: Abbreviated state name, identical to variable names in
+\link{igo_year_format3}.
+\item \strong{aaaid...wassen}: IGO variables containing information on state
+membership status. See Details.
 }
 
 See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
@@ -37,8 +26,19 @@ Data on IGOs from 1815-2014, at the country-year level.
 Contains one record per country-year (with years listed at 5 year
 intervals through 1965, and annually thereafter).
 }
+\details{
+Possible value of the status of that state in the IGO are:\tabular{lr}{
+   Category \tab Numerical value \cr
+   No Membership \tab 0 \cr
+   Full Membership \tab 1 \cr
+   Associate Membership \tab 2 \cr
+   Observer \tab 3 \cr
+   Missing data \tab -9 \cr
+   IGO Not In Existence \tab -1 \cr
+}
+}
 \note{
-Raw data used internally by \pkg{igoR}
+Raw data used internally by \strong{igoR}.
 }
 \references{
 Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
@@ -47,7 +47,7 @@ IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
 (May 2020): 492-503. \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\link{igo_year_format3},
-\link{states2016}. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} to
-convert between different country code schemes.
+\link{igo_year_format3}, \link{states2016}. See also
+\code{\link[countrycode:countrycode]{countrycode::countrycode()}} to convert between different country code
+schemes.
 }

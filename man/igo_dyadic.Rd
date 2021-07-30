@@ -63,7 +63,8 @@ original dataset on some IGOs regarding the "Missing Data" (-9) and
 "State Not System Member" (-1). However it is not clear how to fully
 replicate those values.
 
-See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
+See
+\href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
 }
 \examples{
 USA_CAN <- igo_dyadic("USA", "Spain")
