@@ -150,7 +150,7 @@ package version 0.1.1.9010. <https://doi.org/10.5281/zenodo.4442958>.
 
 <div id="ref-cow_2017">
 
-Correlates of War Project. 2017. “State System Membership List, V2016.”
+Correlates of War Project. 2017. “State System Membership List, v2016.”
 <https://correlatesofwar.org/>.
 
 </div>
