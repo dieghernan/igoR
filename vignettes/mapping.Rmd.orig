@@ -335,22 +335,4 @@ tm_shape(map, bbox = bbox) +
   tm_facets(by = "year", nrow = 3)
 ```
 
-## Session Info
-
-<details>
-  <summary><strong>Details</strong></summary>
-```{r session_info, echo=FALSE}
-
-end_time <- Sys.time()
-sessionInfo()
-
-cat("***")
-
-cat("vignette running time:")
-end_time - start_time
-```
-</details>
-
-
-
 ## References
