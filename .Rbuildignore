@@ -22,3 +22,4 @@
 ^_pkgdown\.yaml$
 ^_pkgdown\.yml$
 ^vignettes/mapping\.Rmd\.orig$
+^vignettes/figs-mapping\.R$

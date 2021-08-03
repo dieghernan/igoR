@@ -18,8 +18,6 @@ knitr::opts_chunk$set(
   message = FALSE,
   dev = "ragg_png",
   tidy = "styler",
-  fig.path = "./",
-  dpi = 300,
   out.width = "100%"
 )
 
@@ -111,9 +109,8 @@ UN2010 <-
 UN_all <- bind_rows(UN1950, UN1980, UN2010)
 ```
 
-Note that the map
-is not completely accurate, as the base shapefile contains the countries
-that exists on 2016 and some countries
+Note that the map is not completely accurate, as the base shapefile contains
+the countries that exists on 2016 and some countries
 (Czechoslovakia, East and West Germany) are not included. See
 [List of IGOs and Countries](https://dieghernan.github.io/igoR/articles/reference.html) for more information.
 

@@ -1,0 +1,152 @@
+library(igoR)
+
+# Helper packages
+library(dplyr)
+library(ggplot2)
+library(countrycode)
+
+# Geospatial packages
+library(giscoR)
+
+
+
+
+
+ggplot(UN_all) +
+  geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
+  # Robinson
+  coord_sf(crs = "ESRI:54030") +
+  facet_wrap(vars(year),
+             ncol = 1,
+             strip.position = "left"
+  ) +
+  scale_fill_manual(
+    values = "#74A9CF",
+    na.value = "#E0E0E0"
+  ) +
+  theme_void() +
+  labs(
+    title = "UN Members",
+    caption = gisco_attributions()
+  ) +
+  theme(plot.caption = element_text(face = "italic"))
+
+ggsave("vignettes/UNMaps.png", width = 5, height = 5*1.5, dpi = 120)
+
+# AUS ----
+
+# Plot with custom palette
+
+pal <- hcl.colors(10, palette = "Lajolla")
+
+# Plot
+
+ggplot(sharedmap) +
+  geom_sf(aes(fill = shared), color = NA) +
+  # Australia
+  geom_sf(
+    data = sharedmap %>% filter(ISO3_CODE == "AUS"),
+    fill = "black",
+    color = NA,
+  ) +
+  # Robinson
+  coord_sf(crs = "ESRI:54030") +
+  scale_fill_gradientn(
+    colours = pal,
+    n.breaks = 10,
+    guide = "legend"
+  ) +
+  guides(fill = guide_legend(
+    direction = "horizontal",
+    title.position = "top",
+    label.position = "bottom",
+    nrow = 1,
+    keyheight = 0.5,
+    keywidth = 1.5
+  )) +
+  labs(
+    title = "Shared Full Memberships with Australia (2014)",
+    fill = "Number of IGOs shared",
+    caption = gisco_attributions()
+  ) +
+  theme_void() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.caption = element_text(
+      face = "italic",
+      size=8,
+      hjust = 0.05
+    ),
+    legend.title = element_text(size=7),
+    legend.text = element_text(size=8)
+  )
+
+ggsave("vignettes/AusShared.png", width = 5, height = 5*0.8, dpi = 120)
+
+
+# North America ----
+
+# Get shapes
+countries.sf <- gisco_get_countries(country = c("USA", "MEX", "CAN"))
+
+# Select years
+years <- seq(1930, 2010, 10)
+
+# Shared memberships
+USA <- igo_dyadic("USA", c("MEX", "CAN"), years)
+CAN <- igo_dyadic("CAN", c("USA", "MEX"), years)
+MEX <- igo_dyadic("MEX", c("CAN", "USA"), years)
+
+USA$value <- rowSums(USA == 1)
+CAN$value <- rowSums(CAN == 1)
+MEX$value <- rowSums(MEX == 1)
+
+# Long data
+Final <- USA %>%
+  rbind(CAN) %>%
+  rbind(MEX) %>%
+  select(ccode1, year, value) %>%
+  mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c"))
+
+# Create map
+map <- left_join(countries.sf, Final)
+
+
+# Map
+ggplot(map) +
+  geom_sf(aes(fill = value), color = NA) +
+  coord_sf(
+    crs = 2163,
+    xlim = c(-3200000, 3333018)
+  ) +
+  facet_wrap(vars(year),
+             ncol = 3
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "YlGn", rev = TRUE),
+    breaks = seq(0, 100, 10),
+    guide = "legend"
+  ) +
+  guides(fill = guide_legend(keyheight = 1.5)) +
+  labs(
+    title = "Shared Full Memberships on North America",
+    subtitle = "(1930-2010)",
+    fill = "shared IGOs",
+    caption = gisco_attributions(),
+  ) +
+  theme_void() +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(margin = margin(t=3, b=10)),
+    plot.caption = element_text(
+      face = "italic",
+      hjust = 0.05
+    ),
+    legend.box.margin = margin(l=20),
+    legend.title = element_text(size=8),
+    strip.background = element_rect(fill = "grey90", colour = NA)
+  )
+
+
+ggsave("vignettes/NAShared.png", width = 5, height = 5, dpi = 120)

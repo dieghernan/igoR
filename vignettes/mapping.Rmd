@@ -8,52 +8,56 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r knitr_config, include = FALSE}
 
+start_time <- Sys.time()
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  out.width = "100%"
+)
+```
 
 Maps are a powerful tool to show data. As the scope of `igoR` are the InterGovermental Organizations, mapping and IGOs are a perfect match.
 
-This vignette provides some geospatial visualizations using the IGO datasets (@doi:10.1177/0022343319881175) included in this package. Specific packages used for geospatial data:
+This vignette provides some geospatial visualizations using the IGO datasets (@doi:10.1177/0022343319881175) included in this package. Specific packages
+used for geospatial data:
 
-* `sf` for geospatial operations.
 * `giscoR` for extracting the shapefiles of the countries.
-* `tmap` for plotting.
+* `ggplot2` for plotting.
 
-Also `countrycode` is a very handy package for translating between coding schemes (CoW, ISO3, NUTS, FIPS) and country names.
+Also `countrycode` is a very handy package for translating between coding
+schemes (CoW, ISO3, NUTS, FIPS) and country names.
 
-
-```r
+```{r libs, eval=FALSE}
 
 library(igoR)
 
 # Helper packages
 library(dplyr)
+library(ggplot2)
 library(countrycode)
 
 # Geospatial packages
-library(sf)
 library(giscoR)
-library(tmap)
+
 ```
 
 
 ## Evolution of the composition of UN
 
-The following maps shows the evolution of countries that are members of the United Nations.
+The following maps shows the evolution of countries that are members of the
+United Nations.
 
 
 First we should extract the data:
 
+```{r UN, eval=FALSE}
+# Extract shapes
 
-```r
-# Extract shape and project to Robinson
-
-# See https://epsg.io/54030
-robin <-
-  "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"
-
-world <-
-  gisco_get_countries(year = "2010") %>%
-  st_transform(robin)
+world <- gisco_get_countries(year = "2010")
 
 un <- igo_search("UN", exact = TRUE)
 
@@ -66,7 +70,9 @@ UN1950 <-
     "iso3c",
     warn = FALSE
   )) %>%
-  inner_join(world, .)
+  left_join(world, .) %>%
+  mutate(year = 1950) %>%
+  select(year, orgname)
 
 UN1980 <-
   igo_members("UN", 1980) %>%
@@ -75,7 +81,9 @@ UN1980 <-
     "iso3c",
     warn = FALSE
   )) %>%
-  inner_join(world, .)
+  left_join(world, .) %>%
+  mutate(year = 1980) %>%
+  select(year, orgname)
 
 UN2010 <-
   igo_members("UN", 2010) %>%
@@ -84,123 +92,57 @@ UN2010 <-
     "iso3c",
     warn = FALSE
   )) %>%
-  inner_join(world, .)
+  left_join(world, .) %>%
+  mutate(year = 2010) %>%
+  select(year, orgname)
+
+# Join all
+
+UN_all <- bind_rows(UN1950, UN1980, UN2010)
 ```
 
-Note that the map
-is not completely accurate, as the base shapefile contains the countries
-that exists on 2016 and some countries
-(Czechoslovakia, East and West Germany) are not included. See [List of IGOs and Countries](https://dieghernan.github.io/igoR/articles/reference.html) for more information.
+Note that the map is not completely accurate, as the base shapefile contains 
+the countries that exists on 2016. Some countries, as Czechoslovakia, East 
+or West Germany are not included. 
 
-Now we are ready to plot with `tmap`:
-
+Now we are ready to plot with `ggplot2`:
 
 
-```r
+```{r UNMaps, eval=FALSE}
 
-
-# UN 1950----
-
-
-tm_shape(world) +
-  tm_graticules(
-    labels.show = FALSE,
-    col = "grey90",
-    x = seq(-180, 180, 20),
-    y = seq(-90, 90, 20)
+ggplot(UN_all) +
+  geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
+  # Robinson
+  coord_sf(crs = "ESRI:54030") +
+  facet_wrap(vars(year),
+    ncol = 1,
+    strip.position = "left"
   ) +
-  tm_layout(
-    frame = FALSE,
-    earth.boundary = TRUE,
-    earth.boundary.color = "grey90",
-    main.title = "UN Members, 1950",
-    main.title.position = "center",
-    main.title.size = 1
+  scale_fill_manual(
+    values = "#74A9CF",
+    na.value = "#E0E0E0"
   ) +
-  tm_polygons(
-    col = "#E0E0E0",
-    border.col = "white",
-    lwd = 0.1
+  theme_void() +
+  labs(
+    title = "UN Members",
+    caption = gisco_attributions()
   ) +
-  tm_shape(UN1950) +
-  tm_polygons(
-    col = "#74A9CF",
-    border.col = "white",
-    lwd = 0.1
-  )
-
-
-# UN 1980----
-
-
-tm_shape(world) +
-  tm_graticules(
-    labels.show = FALSE,
-    col = "grey90",
-    x = seq(-180, 180, 20),
-    y = seq(-90, 90, 20)
-  ) +
-  tm_layout(
-    frame = FALSE,
-    earth.boundary = TRUE,
-    earth.boundary.color = "grey90",
-    main.title = "UN Members, 1980",
-    main.title.position = "center",
-    main.title.size = 1
-  ) +
-  tm_polygons(
-    col = "#E0E0E0",
-    border.col = "white",
-    lwd = 0.1
-  ) +
-  tm_shape(UN1980) +
-  tm_polygons(
-    col = "#74A9CF",
-    border.col = "white",
-    lwd = 0.1
-  )
-
-# UN 2010----
-tm_shape(world) +
-  tm_graticules(
-    labels.show = FALSE,
-    col = "grey90",
-    x = seq(-180, 180, 20),
-    y = seq(-90, 90, 20)
-  ) +
-  tm_layout(
-    frame = FALSE,
-    earth.boundary = TRUE,
-    earth.boundary.color = "grey90",
-    main.title = "UN Members, 2010",
-    main.title.position = "center",
-    main.title.size = 1
-  ) +
-  tm_polygons(
-    col = "#E0E0E0",
-    border.col = "white",
-    lwd = 0.1
-  ) +
-  tm_shape(UN2010) +
-  tm_polygons(
-    col = "#74A9CF",
-    border.col = "white",
-    lwd = 0.1
-  )
+  theme(plot.caption = element_text(face = "italic"))
 ```
 
-<img src="UNMaps-1.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%" /><img src="UNMaps-2.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%" /><img src="UNMaps-3.png" title="plot of chunk UNMaps" alt="plot of chunk UNMaps" width="100%" />
+```{r echo=FALSE, out.width="100%"}
 
-
+knitr::include_graphics("UNMaps.png")
+```
 
 ## Number of shared memberships
 
 Shared memberships are useful for identifying regional patterns.
 
-The following code produces a map showing the number of full memberships shared with Australia for each country on the world:
+The following code produces a map showing the number of full memberships
+shared with Australia for each country on the world:
 
-
-```r
+```{r AustShared, fig.asp=0.8, eval=FALSE}
 
 ## Number of igos shared - 2014
 
@@ -212,8 +154,10 @@ states2014 <- states2016 %>%
 
 # Shared memberships with Australia
 
-shared <-
-  igo_dyadic("AUL", as.character(states2014$statenme), year = 2014)
+shared <- igo_dyadic("AUL",
+  as.character(states2014$statenme),
+  year = 2014
+)
 shared$shared <- rowSums(shared == 1)
 
 # ISO3 Code
@@ -232,53 +176,68 @@ sharedmap <-
 
 # Plot with custom palette
 
-pal <- hcl.colors(5, palette = "Blues", rev = TRUE)
+pal <- hcl.colors(10, palette = "Lajolla")
 
-tm_shape(sharedmap) +
-  tm_graticules(
-    labels.show = FALSE,
-    col = "grey90",
-    x = seq(-180, 180, 20),
-    y = seq(-90, 90, 20)
+# Plot
+
+ggplot(sharedmap) +
+  geom_sf(aes(fill = shared), color = NA) +
+  # Australia
+  geom_sf(
+    data = sharedmap %>% filter(ISO3_CODE == "AUS"),
+    fill = "black",
+    color = NA,
   ) +
-  tm_layout(
-    frame = FALSE,
-    earth.boundary = TRUE,
-    earth.boundary.color = "grey90",
-    main.title = "Shared Full Memberships with Australia (2014)",
-    main.title.position = "center",
-    main.title.size = 1,
-    legend.title.size = 0.8
+  # Robinson
+  coord_sf(crs = "ESRI:54030") +
+  scale_fill_gradientn(
+    colours = pal,
+    n.breaks = 10,
+    guide = "legend"
   ) +
-  tm_polygons(
-    col = "shared",
-    title = "number of IGOs",
-    palette = pal,
-    border.col = "white",
-    lwd = 0.1
+  guides(fill = guide_legend(
+    direction = "horizontal",
+    title.position = "top",
+    label.position = "bottom",
+    nrow = 1,
+    keyheight = 0.5,
+    keywidth = 1.5
+  )) +
+  labs(
+    title = "Shared Full Memberships with Australia (2014)",
+    fill = "Number of IGOs shared",
+    caption = gisco_attributions()
   ) +
-  tm_shape(subset(sharedmap, ISO3_CODE == "AUS")) +
-  tm_polygons(
-    col = "black",
-    border.col = "white",
-    lwd = 0.1
+  theme_void() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.caption = element_text(
+      face = "italic",
+      size = 8,
+      hjust = 0.05
+    ),
+    legend.title = element_text(size = 7),
+    legend.text = element_text(size = 8)
   )
 ```
+```{r echo=FALSE, out.width="100%"}
 
-<img src="AustShared-1.png" title="plot of chunk AustShared" alt="plot of chunk AustShared" width="100%" />
+knitr::include_graphics("AusShared.png")
+```
+
 
 ## Cross-shared memberships
 
-The following map shows how the relationships between the countries of  North America has flourished on the last 90 years, using a year as representative of each decade.
+The following map shows how the relationships between the countries of
+North America has flourished on the last 90 years, using a year as
+representative of each decade.
 
 
-
-```r
+```{r NAShared, eval=FALSE}
 
 # Get shapes
-countries.sf <-
-  gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
-  st_transform(2163)
+countries.sf <- gisco_get_countries(country = c("USA", "MEX", "CAN"))
 
 # Select years
 years <- seq(1930, 2010, 10)
@@ -302,25 +261,49 @@ Final <- USA %>%
 # Create map
 map <- left_join(countries.sf, Final)
 
-# Limits to exclude offshore
-bbox <- st_bbox(countries.sf %>% filter(ISO3_CODE != "USA"))
 
 # Map
-tm_shape(map, bbox = bbox) +
-  tm_fill(
-    col = "value",
-    title = "number of IGOs",
-    palette = "YlGn"
+ggplot(map) +
+  geom_sf(aes(fill = value), color = NA) +
+  coord_sf(
+    crs = 2163,
+    xlim = c(-3200000, 3333018)
   ) +
-  tm_layout(
-    main.title = "Shared Full Memberships on North America (1930-2010)",
-    main.title.position = "center",
-    main.title.size = 1,
-    legend.title.size = 0.8
+  facet_wrap(vars(year),
+    ncol = 3
   ) +
-  tm_facets(by = "year", nrow = 3)
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "YlGn", rev = TRUE),
+    breaks = seq(0, 100, 10),
+    guide = "legend"
+  ) +
+  guides(fill = guide_legend(keyheight = 1.5)) +
+  labs(
+    title = "Shared Full Memberships on North America",
+    subtitle = "(1930-2010)",
+    fill = "shared IGOs",
+    caption = gisco_attributions(),
+  ) +
+  theme_void() +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(margin = margin(t = 3, b = 10)),
+    plot.caption = element_text(
+      face = "italic",
+      hjust = 0.05
+    ),
+    legend.box.margin = margin(l = 20),
+    legend.title = element_text(size = 8),
+    strip.background = element_rect(fill = "grey90", colour = NA)
+  )
 ```
 
-<img src="NAShared-1.png" title="plot of chunk NAShared" alt="plot of chunk NAShared" width="100%" />
+
+```{r echo=FALSE, out.width="100%"}
+
+knitr::include_graphics("NAShared.png")
+```
+
+
 
 ## References

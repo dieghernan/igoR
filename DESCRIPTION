@@ -1,6 +1,6 @@
 Package: igoR
 Title: Intergovernmental Organizations Database
-Version: 0.1.1.9011
+Version: 0.1.1.9012
 Authors@R: 
     c(person(given = "Diego",
              family = "Hernangómez",

@@ -140,7 +140,7 @@ EEC, members (1992)
 To cite the `igoR` package in publications use:
 
 D. Hernangómez (2021). igoR: Intergovernmental Organizations Database. R
-package version 0.1.1.9011. <https://doi.org/10.5281/zenodo.4442958>.
+package version 0.1.1.9012. <https://doi.org/10.5281/zenodo.4442958>.
 
 ## References
 
