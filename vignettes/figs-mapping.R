@@ -17,8 +17,8 @@ ggplot(UN_all) +
   # Robinson
   coord_sf(crs = "ESRI:54030") +
   facet_wrap(vars(year),
-             ncol = 1,
-             strip.position = "left"
+    ncol = 1,
+    strip.position = "left"
   ) +
   scale_fill_manual(
     values = "#74A9CF",
@@ -31,7 +31,7 @@ ggplot(UN_all) +
   ) +
   theme(plot.caption = element_text(face = "italic"))
 
-ggsave("vignettes/UNMaps.png", width = 5, height = 5*1.5, dpi = 120)
+ggsave("vignettes/UNMaps.png", width = 5, height = 5 * 1.5, dpi = 120)
 
 # AUS ----
 
@@ -75,14 +75,14 @@ ggplot(sharedmap) +
     plot.title = element_text(face = "bold", hjust = 0.5),
     plot.caption = element_text(
       face = "italic",
-      size=8,
+      size = 8,
       hjust = 0.05
     ),
-    legend.title = element_text(size=7),
-    legend.text = element_text(size=8)
+    legend.title = element_text(size = 7),
+    legend.text = element_text(size = 8)
   )
 
-ggsave("vignettes/AusShared.png", width = 5, height = 5*0.8, dpi = 120)
+ggsave("vignettes/AusShared.png", width = 5, height = 5 * 0.8, dpi = 120)
 
 
 # North America ----
@@ -121,7 +121,7 @@ ggplot(map) +
     xlim = c(-3200000, 3333018)
   ) +
   facet_wrap(vars(year),
-             ncol = 3
+    ncol = 3
   ) +
   scale_fill_gradientn(
     colors = hcl.colors(10, "YlGn", rev = TRUE),
@@ -138,13 +138,13 @@ ggplot(map) +
   theme_void() +
   theme(
     plot.title = element_text(face = "bold"),
-    plot.subtitle = element_text(margin = margin(t=3, b=10)),
+    plot.subtitle = element_text(margin = margin(t = 3, b = 10)),
     plot.caption = element_text(
       face = "italic",
       hjust = 0.05
     ),
-    legend.box.margin = margin(l=20),
-    legend.title = element_text(size=8),
+    legend.box.margin = margin(l = 20),
+    legend.title = element_text(size = 8),
     strip.background = element_rect(fill = "grey90", colour = NA)
   )
 
