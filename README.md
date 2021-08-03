@@ -144,6 +144,35 @@ To cite the `igoR` package in publications use:
 D. Hernangómez (2021). igoR: Intergovernmental Organizations Database. R
 package version 0.1.1.9012. <https://doi.org/10.5281/zenodo.4442958>.
 
+You can also use:
+
+``` r
+citation("igoR")
+#> 
+#> To cite the 'igoR' package in publications use:
+#> 
+#>   Hernangómez, D (2021). igoR: Intergovernmental Organizations
+#>   Database. R package version 0.1.1.9012.
+#>   http://doi.org/10.5281/zenodo.4442958
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {igoR: Intergovernmental Organizations Database},
+#>     author = {Diego Hernangómez},
+#>     year = {2021},
+#>     note = {R package version 0.1.1.9012},
+#>     url = {https://dieghernan.github.io/igoR/},
+#>     doi = {10.5281/zenodo.4442958},
+#>   }
+#> 
+#> Please also cite:
+#> 
+#> Pevehouse, J. C. et al. (2020) 'Tracking organizations in the world:
+#> The Correlates of War IGO Version 3.0 datasets', Journal of Peace
+#> Research, 57(3), pp. 492–503. doi: 10.1177/0022343319881175.
+```
+
 ## References
 
 <div id="refs" class="references">
