@@ -42,7 +42,6 @@ library(countrycode)
 
 # Geospatial packages
 library(giscoR)
-
 ```
 
 
