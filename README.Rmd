@@ -146,6 +146,12 @@ D. Hernangómez (`r format(Sys.time(), "%Y")`).
 igoR: Intergovernmental Organizations Database. 
 R package version `r packageVersion("igoR")`. <https://doi.org/10.5281/zenodo.4442958>.
 
+You can also use:
+
+```{r}
+citation("igoR")
+```
+
 
 
 ## References
