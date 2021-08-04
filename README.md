@@ -17,6 +17,8 @@ results](https://cranchecks.info/badges/worst/igoR)](https://cran.r-project.org/
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4442958-blue)](https://doi.org/10.5281/zenodo.4442958)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![status](https://tinyverse.netlify.com/badge/igoR)](https://CRAN.R-project.org/package=igoR)
+
 <!-- badges: end -->
 
 The goal of `igoR` is to provide access and to extract information from
