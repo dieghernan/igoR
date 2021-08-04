@@ -27,3 +27,4 @@ vignettes/*.pdf
 *.knit.md
 .Renviron
 docs/
+revdep
