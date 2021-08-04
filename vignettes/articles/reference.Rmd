@@ -40,7 +40,8 @@ reactable(igo[, 1:7],
   searchable = TRUE,
   showPageSizeOptions = TRUE,
   striped = TRUE,
-  paginationType = "jump"
+  paginationType = "jump",
+  elementId = "igos"
 )
 ```
 
@@ -56,26 +57,11 @@ reactable(cc,
   searchable = TRUE,
   showPageSizeOptions = TRUE,
   striped = TRUE,
-  paginationType = "jump"
+  paginationType = "jump",
+  elementId = "countries"
 )
 ```
 
-## Session Info
-
-<details>
-  <summary><strong>Details</strong></summary>
-```{r session_info, echo=FALSE}
-sessionInfo()
-
-end_time <- Sys.time()
-sessionInfo()
-
-cat("***")
-
-cat("vignette running time:")
-end_time - start_time
-```
-</details>
 
 ## References
 
