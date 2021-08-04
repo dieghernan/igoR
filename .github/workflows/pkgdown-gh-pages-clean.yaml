@@ -34,7 +34,7 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("pkgdown", dependencies = TRUE)
-          remotes::install_cran("giscoR", dependencies = TRUE)
+          remotes::install_cran("giscoR", dependencies = TRUE, type="binary")
         shell: Rscript {0}
 
       - name: Install package

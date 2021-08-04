@@ -23,6 +23,7 @@ jobs:
         run: |
           install.packages('remotes')
           remotes::install_cran(c("devtools", "rcmdcheck", "pkgdown"))
+          remotes::install_cran("giscoR", dependencies = TRUE, type="binary")
 
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
