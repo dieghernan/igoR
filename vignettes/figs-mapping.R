@@ -8,7 +8,52 @@ library(countrycode)
 # Geospatial packages
 library(giscoR)
 
+# UN ----
 
+# Extract shapes
+
+world <- gisco_get_countries(year = "2010")
+
+un <- igo_search("UN", exact = TRUE)
+
+# Extract three dates - some errors given that ISO doesnt have every COW Code
+# Also join with world sf
+UN1950 <-
+  igo_members("UN", 1950) %>%
+  mutate(ISO3_CODE = countrycode(ccode,
+    "cown",
+    "iso3c",
+    warn = FALSE
+  )) %>%
+  left_join(world, .) %>%
+  mutate(year = 1950) %>%
+  select(year, orgname)
+
+UN1980 <-
+  igo_members("UN", 1980) %>%
+  mutate(ISO3_CODE = countrycode(ccode,
+    "cown",
+    "iso3c",
+    warn = FALSE
+  )) %>%
+  left_join(world, .) %>%
+  mutate(year = 1980) %>%
+  select(year, orgname)
+
+UN2010 <-
+  igo_members("UN", 2010) %>%
+  mutate(ISO3_CODE = countrycode(ccode,
+    "cown",
+    "iso3c",
+    warn = FALSE
+  )) %>%
+  left_join(world, .) %>%
+  mutate(year = 2010) %>%
+  select(year, orgname)
+
+# Join all
+
+UN_all <- bind_rows(UN1950, UN1980, UN2010)
 
 
 
@@ -34,6 +79,36 @@ ggplot(UN_all) +
 ggsave("vignettes/UNMaps.png", width = 5, height = 5 * 1.5, dpi = 120)
 
 # AUS ----
+
+## Number of igos shared - 2014
+
+# Countries alive in 2014
+
+states2014 <- states2016 %>%
+  filter(styear <= 2014 & endyear >= 2014)
+
+
+# Shared memberships with Australia
+
+shared <- igo_dyadic("AUL",
+  as.character(states2014$statenme),
+  year = 2014
+)
+shared$shared <- rowSums(shared == 1)
+
+# ISO3 Code
+shared$ISO3_CODE <- countrycode(shared$ccode2,
+  "cown",
+  "iso3c",
+  warn = FALSE
+)
+
+
+# Merge with map
+sharedmap <-
+  world %>%
+  left_join(shared) %>%
+  select(ISO3_CODE, shared)
 
 # Plot with custom palette
 

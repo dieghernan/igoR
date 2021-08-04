@@ -2,6 +2,7 @@
 
 -   "Mapping IGOs" article compiled to vignette.
 -   Update docs. Now in markdown format using `roxygen2md::roxygen2md()`.
+-   Moved tests to `testthat`.
 
 # igoR 0.1.1
 
