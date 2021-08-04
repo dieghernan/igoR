@@ -14,7 +14,7 @@
   ],
   "issueTracker": "https://github.com/dieghernan/igoR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.1.9012",
+  "version": "0.1.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -141,7 +141,7 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/igoR/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/igoR/blob/master/README.md",
-  "fileSize": "888.224KB",
+  "fileSize": "888.276KB",
   "contIntegration": ["https://github.com/dieghernan/igoR/actions", "https://codecov.io/gh/dieghernan/igoR"],
   "keywords": [
     "r-package",

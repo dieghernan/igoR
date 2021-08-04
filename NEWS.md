@@ -1,4 +1,4 @@
-# igoR (development version)
+# igoR 0.1.2
 
 -   "Mapping IGOs" article compiled to vignette.
 -   Update docs. Now in markdown format using `roxygen2md::roxygen2md()`.
