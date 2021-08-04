@@ -419,26 +419,4 @@ ggplot(Spain_Selected, aes(x = year, y = values)) +
   )
 ```
 
-
-
-## Session Info
-
-<details>
-  <summary><strong>Details</strong></summary>
-```{r session_info, echo=FALSE}
-sessionInfo()
-
-end_time <- Sys.time()
-sessionInfo()
-
-cat("***")
-
-cat("vignette running time:")
-end_time - start_time
-```
- 
-</details>
-
-
-
 ## References
