@@ -23,3 +23,4 @@
 ^_pkgdown\.yml$
 ^vignettes/mapping\.Rmd\.orig$
 ^vignettes/figs-mapping\.R$
+^revdep$
