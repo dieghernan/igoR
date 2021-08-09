@@ -138,7 +138,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "61806.68KB",
+  "fileSize": "61804.084KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -153,7 +153,6 @@
       "name": "igoR: ",
       "identifier": "10.5281/zenodo.4442958",
       "url": "https://dieghernan.github.io/igoR/",
-      "description": "R package version ",
       "@id": "https://doi.org/10.5281/zenodo.4442958",
       "sameAs": "https://doi.org/10.5281/zenodo.4442958"
     }
