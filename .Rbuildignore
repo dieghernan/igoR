@@ -24,3 +24,4 @@
 ^vignettes/mapping\.Rmd\.orig$
 ^vignettes/figs-mapping\.R$
 ^revdep$
+^CITATION\.cff$
