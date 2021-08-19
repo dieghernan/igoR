@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: "To cite package 'igoR' in publications use:"
 authors:
 - family-names: "Hernangómez"
   given-names: "Diego"
@@ -13,7 +13,7 @@ abstract: "Tools to extract information from the Intergovernmental Organizations
 references:
   - type: article
     scope: Please also cite this article.
-    title: "Tracking organizations in the world: The Correlates of War {IGO} Version 3.0 datasets."
+    title: "Tracking organizations in the world: The Correlates of War IGO Version 3.0 datasets."
     authors:
     - family-names: Pevehouse
       name-particle: CW
