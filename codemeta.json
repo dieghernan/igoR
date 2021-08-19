@@ -138,7 +138,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "61805.174KB",
+  "fileSize": "61805.423KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -150,7 +150,7 @@
           "familyName": "Hernangómez"
         }
       ],
-      "name": "igoR: ",
+      "name": "igoR: Tools to extract information from the Intergovernmental Organizations Database v3",
       "identifier": "10.5281/zenodo.4442958",
       "url": "https://dieghernan.github.io/igoR/",
       "@id": "https://doi.org/10.5281/zenodo.4442958",

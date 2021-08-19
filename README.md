@@ -153,13 +153,14 @@ citation("igoR")
 #> 
 #> To cite the 'igoR' package in publications use:
 #> 
-#>   Hernangómez, D (2021). igoR: Intergovernmental Organizations
-#>   Database. http://doi.org/10.5281/zenodo.4442958
+#>   Hernangómez, D. (2021). igoR: Tools to extract information from the
+#>   Intergovernmental Organizations Database v3. R package.
+#>   http://doi.org/10.5281/zenodo.4442958
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
-#>     title = {igoR: Intergovernmental Organizations Database},
+#>     title = {igoR: Tools to extract information from the Intergovernmental Organizations Database v3},
 #>     author = {Diego Hernangómez},
 #>     year = {2021},
 #>     url = {https://dieghernan.github.io/igoR/},
