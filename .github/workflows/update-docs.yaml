@@ -29,6 +29,7 @@ jobs:
             rcmdcheck
             pkgdown
             reactable
+            giscoR
             dieghernan/pkgdev
           needs: website
 
