@@ -24,20 +24,12 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
           extra-packages: |
-            remotes
             devtools
             rcmdcheck
             pkgdown
             reactable
-            giscoR
             dieghernan/pkgdev
           needs: website
-
-      - name: Install package
-        run: |
-          devtools::install()
-
-        shell: Rscript {0}
 
       - name: Update docs
         run: |

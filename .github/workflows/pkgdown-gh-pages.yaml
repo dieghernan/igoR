@@ -26,9 +26,7 @@ jobs:
         with:
           extra-packages: |
             pkgdown
-            remotes
             devtools
-            giscoR
             reactable
           needs: website
 
