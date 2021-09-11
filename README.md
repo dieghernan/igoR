@@ -148,7 +148,7 @@ package version 0.1.2. <https://doi.org/10.5281/zenodo.4442958>.
 You can also use:
 
 ``` r
-citation("igoR")
+print(citation("igoR"), bibtex = TRUE)
 #> 
 #> To cite the 'igoR' package in publications use this entry, along with
 #> Pevehouse, Jon CW, et al:
@@ -157,14 +157,37 @@ citation("igoR")
 #>   Database. R package version 0.1.2.
 #>   http://doi.org/10.5281/zenodo.4442958
 #> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {igoR: Intergovernmental Organizations Database},
+#>     author = {Diego Hernangómez},
+#>     year = {2021},
+#>     note = {R package version 0.1.2},
+#>     url = {https://dieghernan.github.io/igoR/},
+#>     doi = {10.5281/zenodo.4442958},
+#>   }
+#> 
 #>   Pevehouse JC, Nordstrom T, McManus RW, Jamison AS. Tracking
 #>   organizations in the world: The Correlates of War IGO Version 3.0
 #>   datasets. Journal of Peace Research. 2020;57(3):492-503.
 #>   doi:10.1177/0022343319881175
 #> 
-#> To see these entries in BibTeX format, use 'print(<citation>,
-#> bibtex=TRUE)', 'toBibtex(.)', or set
-#> 'options(citation.bibtex.max=999)'.
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Article{,
+#>     author = {Jon CW Pevehouse and Timothy Nordstrom and Roseanne W McManus and Anne Spencer Jamison},
+#>     title = {Tracking organizations in the world: The Correlates of War IGO Version 3.0 datasets},
+#>     journal = {Journal of Peace Research},
+#>     volume = {57},
+#>     number = {3},
+#>     pages = {492-503},
+#>     year = {2020},
+#>     doi = {10.1177/0022343319881175},
+#>     url = {https://doi.org/10.1177/0022343319881175},
+#>     eprint = {https://doi.org/10.1177/0022343319881175},
+#>     abstract = {This article summarizes the Correlates of War Intergovernmental Organizations (IGO) Version 3.0 datasets. The new datasets include information about the population of IGOs in the international system and state participation in those formal international institutions from 1816 to 2014. Consistent with Versions 2.0 and 2.3, Version 3.0 of the IGO data comes in three forms: country-year, IGO-year, and joint dyadic membership.},
+#>   }
 ```
 
 ## References
