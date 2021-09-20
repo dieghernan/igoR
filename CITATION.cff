@@ -1,3 +1,8 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.0.1.9003
+# See also: https://dieghernan.github.io/cffr/
+# -----------------------------------------------------------
+ 
 cff-version: 1.2.0
 message: 'To cite package "igoR" in publications use:'
 type: software
@@ -15,6 +20,7 @@ authors:
   email: diego.hernangomezherrero@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
 preferred-citation:
+  type: manual
   title: 'igoR: Intergovernmental Organizations Database'
   authors:
   - family-names: Hernangómez
@@ -22,7 +28,7 @@ preferred-citation:
   year: '2021'
   url: https://dieghernan.github.io/igoR/
   doi: 10.5281/zenodo.4442958
-  type: manual
+repository: https://cran.r-project.org/package=igoR
 repository-code: https://github.com/dieghernan/igoR
 url: https://dieghernan.github.io/igoR/
 contact:
@@ -31,7 +37,10 @@ contact:
   email: diego.hernangomezherrero@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
 references:
-- authors:
+- type: article
+  title: 'Tracking organizations in the world: The Correlates of War IGO Version 3.0
+    datasets'
+  authors:
   - family-names: Pevehouse
     given-names: Jon CW
   - family-names: Nordstrom
@@ -40,12 +49,9 @@ references:
     given-names: Roseanne W
   - family-names: Jamison
     given-names: Anne Spencer
-  title: 'Tracking organizations in the world: The Correlates of War IGO Version 3.0
-    datasets'
   journal: Journal of Peace Research
   volume: '57'
   number: '3'
-  pages: 492-503
   year: '2020'
   doi: 10.1177/0022343319881175
   url: https://doi.org/10.1177/0022343319881175
@@ -55,7 +61,3 @@ references:
     institutions from 1816 to 2014. Consistent with Versions 2.0 and 2.3, Version
     3.0 of the IGO data comes in three forms: country-year, IGO-year, and joint dyadic
     membership.'
-  type: article
-identifiers:
-- type: doi
-  value: 10.5281/zenodo.4442958
