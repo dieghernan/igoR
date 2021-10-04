@@ -92,6 +92,7 @@ Community](https://en.wikipedia.org/wiki/European_Economic_Community)
 over time:
 
 ``` r
+
 eec_code <- igo_search("EEC", exact = TRUE)
 
 # Founding
