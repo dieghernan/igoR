@@ -79,7 +79,7 @@ result_sugar <- igo_search("Sugar")
 ```
 
 | ionum | ioname  | orgname                                    | longorgname                                                     | label                                                           | sdate | deaddate | dead | integrated | replaced | igocode | version | accuracyofpre1965membershipdates                      | sourcesandnotes | imputed | political | social | economic |
-|------:|:--------|:-------------------------------------------|:----------------------------------------------------------------|:----------------------------------------------------------------|------:|---------:|-----:|-----------:|---------:|--------:|--------:|:------------------------------------------------------|:----------------|--------:|----------:|-------:|---------:|
+| ----: | :------ | :----------------------------------------- | :-------------------------------------------------------------- | :-------------------------------------------------------------- | ----: | -------: | ---: | ---------: | -------: | ------: | ------: | :---------------------------------------------------- | :-------------- | ------: | --------: | -----: | -------: |
 |    40 | AMSC    | African/Malgasy Sugar Council              | African and Malagasy Sugar Council                              | African and Malagasy Sugar Council                              |  1966 |     1977 |    1 |          0 |        0 |      NA |     2.1 | Not applicable - created 1965 or later                |                 |       0 |         0 |      0 |        1 |
 |  1920 | GLACSEC | Group of L/A & Carib. Sugar Exp. Countries | Group of Latin American and Caribbean Sugar Exporting Countries | Group of Latin American and Caribbean Sugar Exporting Countries |  1974 |     2001 |    1 |          0 |        0 |      NA |     2.3 | Not applicable - created 1965 or later                |                 |       0 |         1 |      0 |        0 |
 |  3130 | ISuC    | Intl Sugar Council                         | International Sugar Council                                     | International Sugar Council                                     |  1937 |     1967 |    1 |          0 |        0 |      91 |     3.0 | Within 5 years                                        |                 |       0 |         0 |      1 |        0 |
@@ -100,7 +100,7 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 ```
 
 | ioname | ccode | state       | statenme                | year | value | category        | orgname                     |
-|:-------|------:|:------------|:------------------------|-----:|------:|:----------------|:----------------------------|
+| :----- | ----: | :---------- | :---------------------- | ---: | ----: | :-------------- | :-------------------------- |
 | EEC    |   211 | belgium     | Belgium                 | 1958 |     1 | Full Membership | European Economic Community |
 | EEC    |   220 | france      | France                  | 1958 |     1 | Full Membership | European Economic Community |
 | EEC    |   325 | italy       | Italy                   | 1958 |     1 | Full Membership | European Economic Community |
@@ -111,12 +111,13 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 EEC, members (1958)
 
 ``` r
+
 # Latest date
 eec_end <- igo_members(eec_code$ioname)
 ```
 
 | ioname | ccode | state       | statenme       | year | value | category        | orgname                     |
-|:-------|------:|:------------|:---------------|-----:|------:|:----------------|:----------------------------|
+| :----- | ----: | :---------- | :------------- | ---: | ----: | :-------------- | :-------------------------- |
 | EEC    |   211 | belgium     | Belgium        | 1992 |     1 | Full Membership | European Economic Community |
 | EEC    |   390 | denmark     | Denmark        | 1992 |     1 | Full Membership | European Economic Community |
 | EEC    |   220 | france      | France         | 1992 |     1 | Full Membership | European Economic Community |
@@ -134,9 +135,9 @@ EEC, members (1992)
 
 ## Recommended packages
 
--   `countrycode` for converting country names and codes across
+  - `countrycode` for converting country names and codes across
     different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
--   `dplyr` for data manipulation.
+  - `dplyr` for data manipulation.
 
 ## Citation
 
@@ -193,16 +194,16 @@ print(citation("igoR"), bibtex = TRUE)
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references">
 
-<div id="ref-cow_2017" class="csl-entry">
+<div id="ref-cow_2017">
 
-Correlates of War Project. 2017. “State System Membership List, <span
-class="nocase">v2016</span>.” <https://correlatesofwar.org/>.
+Correlates of War Project. 2017. “State System Membership List, v2016.”
+<https://correlatesofwar.org/>.
 
 </div>
 
-<div id="ref-doi:10.1177/0022343319881175" class="csl-entry">
+<div id="ref-doi:10.1177/0022343319881175">
 
 Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
 Spencer Jamison. 2020. “Tracking Organizations in the World: The
