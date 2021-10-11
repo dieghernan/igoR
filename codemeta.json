@@ -4,8 +4,8 @@
   "identifier": "igoR",
   "description": "Tools to extract information from the Intergovernmental Organizations ('IGO') Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020), <doi:10.1177/0022343319881175>. Version 3 includes information from 1815 to 2014.",
   "name": "igoR: Intergovernmental Organizations Database",
-  "codeRepository": "https://github.com/dieghernan/igoR",
   "relatedLink": "https://dieghernan.github.io/igoR/",
+  "codeRepository": "https://github.com/dieghernan/igoR",
   "issueTracker": "https://github.com/dieghernan/igoR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
   "version": "0.1.2",
@@ -138,7 +138,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "824.437KB",
+  "fileSize": "824.445KB",
   "citation": [
     {
       "@type": "CreativeWork",
