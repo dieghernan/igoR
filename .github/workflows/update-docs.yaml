@@ -35,6 +35,7 @@ jobs:
             pkgdown
             dieghernan/pkgdev
             giscoR
+            reactable
           needs: website
 
       - name: Update docs

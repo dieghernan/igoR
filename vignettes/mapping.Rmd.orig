@@ -111,7 +111,7 @@ or West Germany are not included.
 Now we are ready to plot with `ggplot2`:
 
 
-```{r UNMaps}
+```{r UNMaps, fig.asp=1.5}
 
 ggplot(UN_all) +
   geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
