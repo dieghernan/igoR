@@ -73,7 +73,7 @@ UN2010 <-
 UN_all <- bind_rows(UN1950, UN1980, UN2010)
 
 
-## ----UNMaps-------------------------------------------------------------------
+## ----UNMaps, fig.asp=1.5------------------------------------------------------
 
 ggplot(UN_all) +
   geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
