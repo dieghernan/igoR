@@ -37,10 +37,6 @@
       "familyName": "Hernangómez",
       "email": "diego.hernangomezherrero@gmail.com",
       "@id": "https://orcid.org/0000-0001-8457-4658"
-    },
-    {
-      "@type": "Organization",
-      "name": "The Correlates of War Project"
     }
   ],
   "maintainer": [
@@ -139,7 +135,7 @@
     "SystemRequirements": null
   },
   "keywords": ["R", "IGO", "CorrelatesofWar", "IntergovernmentalOrganisations"],
-  "fileSize": "712.096KB",
+  "fileSize": "714.773KB",
   "citation": [
     {
       "@type": "CreativeWork",

@@ -1,12 +1,9 @@
 Package: igoR
 Title: Intergovernmental Organizations Database
 Version: 0.1.3
-Authors@R: c(
+Authors@R: 
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
-           comment = c(ORCID = "0000-0001-8457-4658")),
-    person("The Correlates of War Project", role = "cph",
-           comment = "for the data set")
-  )
+           comment = c(ORCID = "0000-0001-8457-4658"))
 Description: Tools to extract information from the Intergovernmental
     Organizations ('IGO') Database , version 3, provided by the Correlates
     of War Project <https://correlatesofwar.org/>. See also Pevehouse, J.
