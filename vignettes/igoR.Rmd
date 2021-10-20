@@ -25,28 +25,33 @@ knitr::opts_chunk$set(
 )
 ```
 
+This vignette is meant to provide **useRs** with an visual, explorable
+introduction to the capabilities of the `igoR` package.
 
-This vignette is meant to provide **useRs** with an visual, explorable introduction to the capabilities of the `igoR` package.
+The analysis would be based on those provided on
+@doi:10.1177/0022343319881175>. For more information on the IGO data sets and
+additional downloads, see [Intergovernmental Organizations
+(v3)](https://correlatesofwar.org/data-sets/IGOs).
 
-The analysis would be based on those provided on @doi:10.1177/0022343319881175. For more information on the IGO data sets and additional downloads, see [Intergovernmental Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs).
-
-*Note that the dyadic dataset is not provided in the package, due its size (~500 MB on Stata `.dta` format). However,* `igo_dyadic()` *function
-provides similar results.*
+*Note that the dyadic dataset is not provided in the package, due its size
+(\~500 MB on Stata `.dta` format). However,* `igo_dyadic()` *function provides
+similar results.*
 
 ## Definitions
 
 From @codebook_igo_2019:
 
-
 ### What is an IGO?
 
-The definition of an Intergovernmental Organization (IGO) on the original dataset is based on the following criteria:
+The definition of an Intergovernmental Organization (IGO) on the original
+dataset is based on the following criteria:
 
-  1. An IGO must consist of at least three members of the [COW-defined state system](https://correlatesofwar.org/data-sets/cow-country-codes).
-  
-  2. An IGO must hold regular plenary sessions at least once every ten years
-  
-  3. An IGO must possess a permanent secretariat and corresponding headquarters.
+1.  An IGO must consist of at least three members of the [COW-defined state
+    system](https://correlatesofwar.org/data-sets/cow-country-codes).
+
+2.  An IGO must hold regular plenary sessions at least once every ten years
+
+3.  An IGO must possess a permanent secretariat and corresponding headquarters.
 
 ### When does an IGO actually begin?
 
@@ -58,18 +63,20 @@ accession or signature.
 
 Version 3.0 of the IGO data set uses the following criteria:
 
-- An organization is considered terminated when the following words 
-were used to describe the context of the organization: 
-  - Replaced;
-  - Succeeded; 
-  - Superseded; 
-  - Integrated; 
-  - Merged; 
-  - Dies.
+-   An organization is considered terminated when the following words were used
+    to describe the context of the organization:
+
+    -   Replaced;
+    -   Succeeded;
+    -   Superseded;
+    -   Integrated;
+    -   Merged;
+    -   Dies.
 
 ## Analysis
 
-This section provides some quick analysis based on the figures of @doi:10.1177/0022343319881175.
+This section provides some quick analysis based on the figures of
+@doi:10.1177/0022343319881175>.
 
 ### Initial Setup
 
@@ -82,9 +89,13 @@ library(ggplot2)
 library(dplyr)
 ```
 
-
 <details>
-  <summary><strong>Custom <code>ggplot2</code> theme</strong>: <code>theme_igoR</code></summary>
+
+<summary>
+
+<strong>Custom <code>ggplot2</code> theme</strong>: <code>theme_igoR</code>
+
+</summary>
 
 ```{r custom_theme}
 
@@ -109,11 +120,13 @@ theme_igoR <- theme(
   panel.grid.major.y = element_line("grey90")
 )
 ```
+
 </details>
 
 ### IGOs overview
 
-The following code extracts the number of IGOs and states included on this package. The years available are 1816 to 2014.
+The following code extracts the number of IGOs and states included on this
+package. The years available are 1816 to 2014.
 
 ```{r Fig1, message=FALSE, warning=FALSE, fig.cap="Figure 1. IGOs and states in the world system, 1816-2014"}
 
@@ -145,11 +158,9 @@ ggplot(all_by_year, aes(x = year, y = value)) +
   theme_igoR
 ```
 
-
-
 ### IGO Births and deaths
- 
- This plot shows how many IGOs were "born" and "died" on each year
+
+This plot shows how many IGOs were "born" and "died" on each year
 
 ```{r Fig2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Birth and death rates of IGOs, 1816-2014"}
 
@@ -184,11 +195,16 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
 ### IGOs across regions
 
 A plot with the number of IGOs by region. The definition of region is based on
-the original definition by @doi:10.1177/0022343319881175
-
+the original definition by @doi:10.1177/0022343319881175>
 
 <details>
-  <summary><strong>Regions definition</strong></summary>
+
+<summary>
+
+<strong>Regions definition</strong>
+
+</summary>
+
 ```{r regions_code}
 # Extracted from analysis-jpr.do - See https://www.prio.org/JPR/Datasets/
 
@@ -267,10 +283,8 @@ regions$region <-
 
 </details>
 
-After we have created a data frame with the regions, we can 
-classify the IGOs by region.
-
-
+After we have created a data frame with the regions, we can classify the IGOs by
+region.
 
 ```{r Fig3, message=FALSE, warning=FALSE, fig.cap="Figure 3. IGO counts across regions, 1816-2014"}
 
@@ -305,10 +319,9 @@ ggplot(regionsum, aes(x = year, y = value)) +
   theme_igoR
 ```
 
-
 ### Selected Countries: Asia
 
-Number of memberships of a country. We select here five countries on Asia: 
+Number of memberships of a country. We select here five countries on Asia:
 India, China, Pakistan, Indonesia and Bangladesh.
 
 ```{r Fig4, message=FALSE, warning=FALSE, fig.cap="Figure 4. IGO membership: five states in Asia, 1865-2014"}
@@ -361,11 +374,9 @@ ggplot(asia5, aes(x = year, y = values)) +
   theme_igoR
 ```
 
-
 ### Shared memberships
 
 Number of shared full memberships between Spain and four selected countries:
-
 
 ```{r Fig5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014"}
 

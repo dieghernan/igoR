@@ -13,7 +13,7 @@ bibentry("Misc",
   textVersion = paste0(
     "Hernangómez, D (", year, "). igoR: ",
     meta$Title, ". ", vers, ".
-                       http://doi.org/10.5281/zenodo.4442958"
+                       https://doi.org/10.5281/zenodo.4442958"
   )
 )
 

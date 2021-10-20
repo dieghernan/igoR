@@ -18,7 +18,8 @@ and the end of each tenure.
 }
 }
 \source{
-\href{https://correlatesofwar.org/data-sets/state-system-membership}{ State System Membership (v2016)}, The Correlates of War Project.
+\href{https://correlatesofwar.org/data-sets/state-system-membership}{State System Membership (v2016)},
+The Correlates of War Project.
 }
 \description{
 The list of states with COW abbreviations and ID numbers, plus
@@ -55,5 +56,8 @@ Correlates of War Project. 2017 "State System Membership List, v2016."
 Online, \url{https://correlatesofwar.org/}.
 }
 \seealso{
-\link{state_year_format3}, \link{igo_year_format3}.
+Other datasets: 
+\code{\link{igo_year_format3}},
+\code{\link{state_year_format3}}
 }
+\concept{datasets}

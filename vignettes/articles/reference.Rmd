@@ -18,10 +18,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-Annex with the list of IGOs (@doi:10.1177/0022343319881175) and 
-countries (@cow_2017) included on this package.
-
+Annex with the list of IGOs (@doi:10.1177/0022343319881175>) and countries
+(@cow_2017) included on this package.
 
 ## List of IGOs
 
@@ -41,9 +39,7 @@ reactable(igo[, 1:7],
 )
 ```
 
-
-
-## List of Countries 
+## List of Countries
 
 ```{r countries, echo=FALSE}
 
@@ -58,6 +54,4 @@ reactable(cc,
 )
 ```
 
-
 ## References
-

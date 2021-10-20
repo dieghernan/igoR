@@ -1,8 +1,4 @@
 on:
-  push:
-    branches:
-      - main
-      - master
   workflow_dispatch:
 
 name: update-docs
@@ -14,13 +10,13 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
-      
+
       - uses: r-lib/actions/setup-pandoc@v1
 
       - uses: r-lib/actions/setup-r@v1
         with:
           use-public-rspm: true
-          
+
       # This is needed for workflows running on
       # ubuntu-20.04 or later
       - name: Install V8

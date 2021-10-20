@@ -1,4 +1,4 @@
-## ----knitr_config, include = FALSE--------------------------------------------
+## ----knitr_config, include = FALSE----------------------------------------------------
 
 start_time <- Sys.time()
 knitr::opts_chunk$set(
@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 
 
-## ----libs---------------------------------------------------------------------
+## ----libs-----------------------------------------------------------------------------
 
 library(igoR)
 
@@ -26,7 +26,7 @@ library(countrycode)
 library(giscoR)
 
 
-## ----UN-----------------------------------------------------------------------
+## ----UN-------------------------------------------------------------------------------
 # Extract shapes
 
 world <- gisco_get_countries(year = "2010")
@@ -73,7 +73,7 @@ UN2010 <-
 UN_all <- bind_rows(UN1950, UN1980, UN2010)
 
 
-## ----UNMaps, fig.asp=1.5------------------------------------------------------
+## ----UNMaps, fig.asp=1.5--------------------------------------------------------------
 
 ggplot(UN_all) +
   geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
@@ -95,7 +95,7 @@ ggplot(UN_all) +
   theme(plot.caption = element_text(face = "italic"))
 
 
-## ----AustShared, fig.asp=0.8--------------------------------------------------
+## ----AustShared, fig.asp=0.8----------------------------------------------------------
 
 ## Number of igos shared - 2014
 
@@ -175,7 +175,7 @@ ggplot(sharedmap) +
   )
 
 
-## ----NAShared-----------------------------------------------------------------
+## ----NAShared-------------------------------------------------------------------------
 
 # Get shapes
 countries.sf <- gisco_get_countries(country = c("USA", "MEX", "CAN"))

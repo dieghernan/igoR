@@ -18,38 +18,46 @@ knitr::opts_chunk$set(
 )
 ```
 
-# igoR <img src="man/figures/logo.png" align="right" width="120" />
+# igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" align="right" height="139"/></a>
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/igoR)](https://CRAN.R-project.org/package=igoR)
-[![CRAN results](https://cranchecks.info/badges/worst/igoR)](https://cran.r-project.org/web/checks/check_results_igoR.html)
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/igoR)](https://CRAN.R-project.org/package=igoR)
+[![CRAN
+results](https://cranchecks.info/badges/worst/igoR)](https://cran.r-project.org/web/checks/check_results_igoR.html)
 [![CRAN-Downloads](http://cranlogs.r-pkg.org/badges/grand-total/igoR)](https://cran.r-project.org/package=igoR)
 [![r-universe](https://dieghernan.r-universe.dev/badges/igoR)](https://dieghernan.r-universe.dev/)
 [![Rbuild-status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/main/graph/badge.svg?token=UH3VLTTTRE)](https://app.codecov.io/gh/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4442958-blue)](https://doi.org/10.5281/zenodo.4442958)
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.4442958-blue)](https://doi.org/10.5281/zenodo.4442958)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![status](https://tinyverse.netlify.com/badge/igoR)](https://CRAN.R-project.org/package=igoR)
 
 <!-- badges: end -->
 
-The goal of `igoR` is to provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project <https://correlatesofwar.org/> (@doi:10.1177/0022343319881175). 
+The goal of `igoR` is to provide access and to extract information from the
+Intergovernmental Organizations Database (IGOs), version 3, provided by the
+Correlates of War Project <https://correlatesofwar.org/>
+(@doi:10.1177/0022343319881175>).
 
-The dataset (V3) includes information of **`r nrow(igoR::igo_search())`** IGO from `r min(igoR::igo_year_format3$year)` to `r max(igoR::igo_year_format3$year)`, as well as 
-membership information.
+The dataset (V3) includes information of **`r nrow(igoR::igo_search())`** IGO
+from `r min(igoR::igo_year_format3$year)` to
+`r max(igoR::igo_year_format3$year)`, as well as membership information.
 
-**Source**: [Intergovernmental Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs).
+**Source**: [Intergovernmental Organizations
+(v3)](https://correlatesofwar.org/data-sets/IGOs).
 
+Documentation and vignettes on <https://dieghernan.github.io/igoR//>
 
-Documentation and vignettes on <https://dieghernan.github.io/igoR/>
-
-Additionally, a distribution of the State System Membership (@cow_2017) is included on this package.
+Additionally, a distribution of the State System Membership (@cow_2017) is
+included on this package.
 
 ## Installation
 
-Install `igoR` from
-[**CRAN**](https://CRAN.R-project.org/package=igoR):
+Install `igoR` from [**CRAN**](https://CRAN.R-project.org/package=igoR):
 
 ```{r, eval=FALSE}
 install.packages("igoR")
@@ -80,7 +88,7 @@ install.packages("igoR")
 
 ### Search an IGO by name:
 
-Search all IGOs related with sugar: 
+Search all IGOs related with sugar:
 
 ```{r search}
 library(igoR)
@@ -94,7 +102,8 @@ knitr::kable(result_sugar)
 
 ### IGO members:
 
-Composition of the [European Economic Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time:
+Composition of the [European Economic
+Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time:
 
 ```{r eec}
 
@@ -113,11 +122,9 @@ knitr::kable(eec_init,
 )
 ```
 
-```r
-
+``` r
 # Latest date
 eec_end <- igo_members(eec_code$ioname)
-
 ```
 
 ```{r echo=FALSE}
@@ -132,28 +139,22 @@ knitr::kable(eec_end,
 )
 ```
 
-
-
 ## Recommended packages
 
-- `countrycode` for converting country names and codes across different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
-- `dplyr` for data manipulation.
-
+-   `countrycode` for converting country names and codes across different
+    systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
+-   `dplyr` for data manipulation.
 
 ## Citation
 
-To cite the `igoR` package in publications use:
-
-D. Hernangómez (`r format(Sys.time(), "%Y")`). 
-igoR: Intergovernmental Organizations Database. 
-R package version `r packageVersion("igoR")`. <https://doi.org/10.5281/zenodo.4442958>.
+```{r cit, echo=FALSE, results='asis'}
+print(citation("igoR")[1], bibtex = FALSE)
+```
 
 You can also use:
 
 ```{r}
 print(citation("igoR"), bibtex = TRUE)
 ```
-
-
 
 ## References

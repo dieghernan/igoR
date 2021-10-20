@@ -20,7 +20,8 @@ names)
 \item \strong{version}: COW version number.
 }
 
-See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
+See
+\href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
 for full reference.
 }
 \source{
@@ -53,5 +54,8 @@ IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
 (May 2020): 492-503. \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\link{state_year_format3}
+Other datasets: 
+\code{\link{state_year_format3}},
+\code{\link{states2016}}
 }
+\concept{datasets}

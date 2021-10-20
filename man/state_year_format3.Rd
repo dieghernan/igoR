@@ -15,7 +15,8 @@ data frame with 15557 rows. Relevant fields:
 membership status. See Details.
 }
 
-See \href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
+See
+\href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
 }
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)},
@@ -47,7 +48,11 @@ IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
 (May 2020): 492-503. \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\link{igo_year_format3}, \link{states2016}. See also
-\code{\link[countrycode:countrycode]{countrycode::countrycode()}} to convert between different country code
-schemes.
+\code{\link[countrycode:countrycode]{countrycode::countrycode()}} to convert between different country
+code schemes.
+
+Other datasets: 
+\code{\link{igo_year_format3}},
+\code{\link{states2016}}
 }
+\concept{datasets}

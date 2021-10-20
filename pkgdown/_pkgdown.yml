@@ -44,9 +44,9 @@ home:
   title: igoR | R package for Intergovernmental Organizations (IGOs)
   description: This package provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project.
 
+repo:
+  branch: main
 
 authors:
   Diego Hernangómez:
     href: https://dieghernan.github.io/
-  The Correlates of War Project:
-    href: https://correlatesofwar.org/

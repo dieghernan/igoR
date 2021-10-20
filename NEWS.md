@@ -1,3 +1,7 @@
+# igoR 0.1.3
+
+-   Update docs.
+
 # igoR 0.1.2
 
 -   "Mapping IGOs" article compiled to vignette.
