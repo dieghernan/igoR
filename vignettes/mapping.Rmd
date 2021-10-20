@@ -2,9 +2,7 @@
 title: "Mapping IGOs"
 author: "Diego Hernangómez"
 bibliography: refs_igo.bib
-output: 
-  rmarkdown::html_vignette:
-    code_folding: hide
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Mapping IGOs}
   %\VignetteEngine{knitr::rmarkdown}
@@ -291,4 +289,4 @@ ggplot(map) +
 
 <img src="NAShared-1.png" title="plot of chunk NAShared" alt="plot of chunk NAShared" width="100%" />
 
-## References
+#

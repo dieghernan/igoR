@@ -2,9 +2,7 @@
 title: "Mapping IGOs"
 author: "Diego Hernangómez"
 bibliography: refs_igo.bib
-output: 
-  rmarkdown::html_vignette:
-    code_folding: hide
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Mapping IGOs}
   %\VignetteEngine{knitr::rmarkdown}
@@ -16,11 +14,12 @@ vignette: >
 start_time <- Sys.time()
 knitr::opts_chunk$set(
   collapse = TRUE,
-  fig.path = "./",
   comment = "#>",
-  tidy = "styler",
   warning = FALSE,
   message = FALSE,
+  tidy = "styler",
+  dpi = 150,
+  fig.path = "./",
   out.width = "100%"
 )
 ```
