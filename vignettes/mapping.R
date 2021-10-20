@@ -3,11 +3,12 @@
 start_time <- Sys.time()
 knitr::opts_chunk$set(
   collapse = TRUE,
-  fig.path = "./",
   comment = "#>",
-  tidy = "styler",
   warning = FALSE,
   message = FALSE,
+  tidy = "styler",
+  dpi = 150,
+  fig.path = "./",
   out.width = "100%"
 )
 
