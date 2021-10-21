@@ -32,7 +32,7 @@ as well as membership information.
 **Source**: [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs).
 
-Documentation and vignettes on <https://dieghernan.github.io/igoR//>
+Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
 Additionally, a distribution of the State System Membership (Correlates
 of War Project 2017) is included on this package.

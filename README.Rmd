@@ -49,7 +49,7 @@ from `r min(igoR::igo_year_format3$year)` to
 **Source**: [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs).
 
-Documentation and vignettes on <https://dieghernan.github.io/igoR//>
+Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
 Additionally, a distribution of the State System Membership [@cow_2017] is
 included on this package.
