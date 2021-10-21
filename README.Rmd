@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 status](https://www.r-pkg.org/badges/version/igoR)](https://CRAN.R-project.org/package=igoR)
 [![CRAN
 results](https://cranchecks.info/badges/worst/igoR)](https://cran.r-project.org/web/checks/check_results_igoR.html)
-[![CRAN-Downloads](http://cranlogs.r-pkg.org/badges/grand-total/igoR)](https://cran.r-project.org/package=igoR)
+[![CRAN-Downloads](https://cranlogs.r-pkg.org/badges/grand-total/igoR)](https://cran.r-project.org/package=igoR)
 [![r-universe](https://dieghernan.r-universe.dev/badges/igoR)](https://dieghernan.r-universe.dev/)
 [![Rbuild-status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/main/graph/badge.svg?token=UH3VLTTTRE)](https://app.codecov.io/gh/dieghernan/igoR)
@@ -40,8 +40,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 The goal of `igoR` is to provide access and to extract information from the
 Intergovernmental Organizations Database (IGOs), version 3, provided by the
-Correlates of War Project <https://correlatesofwar.org/>
-(@doi:10.1177/0022343319881175>).
+Correlates of War Project <https://correlatesofwar.org/> [@igo_2020].
 
 The dataset (V3) includes information of **`r nrow(igoR::igo_search())`** IGO
 from `r min(igoR::igo_year_format3$year)` to
@@ -52,7 +51,7 @@ from `r min(igoR::igo_year_format3$year)` to
 
 Documentation and vignettes on <https://dieghernan.github.io/igoR//>
 
-Additionally, a distribution of the State System Membership (@cow_2017) is
+Additionally, a distribution of the State System Membership [@cow_2017] is
 included on this package.
 
 ## Installation

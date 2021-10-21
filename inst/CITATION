@@ -9,12 +9,7 @@ bibentry("Misc",
   year = year,
   note = vers,
   url = url,
-  doi = "10.5281/zenodo.4442958",
-  textVersion = paste0(
-    "Hernangómez, D (", year, "). igoR: ",
-    meta$Title, ". ", vers, ".
-                       https://doi.org/10.5281/zenodo.4442958"
-  )
+  doi = "10.5281/zenodo.4442958"
 )
 
 
@@ -45,4 +40,3 @@ bibentry("Article",
   ),
   textVersion = "Pevehouse JC, Nordstrom T, McManus RW, Jamison AS. Tracking organizations in the world: The Correlates of War IGO Version 3.0 datasets. Journal of Peace Research. 2020;57(3):492-503. doi:10.1177/0022343319881175"
 )
-
