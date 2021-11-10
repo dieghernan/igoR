@@ -28,9 +28,9 @@ knitr::opts_chunk$set(
 This vignette is meant to provide **useRs** with an visual, explorable
 introduction to the capabilities of the `igoR` package.
 
-The analysis would be based on those provided on
-@igo_2020. For more information on the IGO data sets and
-additional downloads, see [Intergovernmental Organizations
+The analysis would be based on those provided on [@pevehouse2020]. For more
+information on the IGO data sets and additional downloads, see
+[Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs).
 
 *Note that the dyadic dataset is not provided in the package, due its size
@@ -39,7 +39,7 @@ similar results.*
 
 ## Definitions
 
-From @codebook_igo_2019:
+From @pevehouse2019:
 
 ### What is an IGO?
 
@@ -75,8 +75,8 @@ Version 3.0 of the IGO data set uses the following criteria:
 
 ## Analysis
 
-This section provides some quick analysis based on the figures of 
-@igo_2020.
+This section provides some quick analysis based on the figures of
+@pevehouse2020.
 
 ### Initial Setup
 
@@ -89,7 +89,13 @@ library(ggplot2)
 library(dplyr)
 ```
 
-<details><summary><strong>Custom <code>ggplot2</code> theme</strong>: <code>theme_igoR</code></summary>
+<details>
+
+<summary>
+
+<strong>Custom <code>ggplot2</code> theme</strong>: <code>theme_igoR</code>
+
+</summary>
 
 ```{r custom_theme}
 
@@ -189,10 +195,14 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
 ### IGOs across regions
 
 A plot with the number of IGOs by region. The definition of region is based on
-the original definition by @igo_2020.
+the original definition by @pevehouse2020.
 
-<details><summary>
+<details>
+
+<summary>
+
 <strong>Regions definition</strong>
+
 </summary>
 
 ```{r regions_code}

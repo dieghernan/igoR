@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Annex with the list of IGOs [@igo_2020] and countries [@cow_2017] included on
+Annex with the list of IGOs [@pevehouse2020] and countries [@correlatesofwarproject2017] included on
 this package.
 
 ## List of IGOs

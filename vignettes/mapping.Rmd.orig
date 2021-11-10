@@ -28,7 +28,7 @@ Maps are a powerful tool to show data. As the scope of `igoR` are the
 InterGovermental Organizations, mapping and IGOs are a perfect match.
 
 This vignette provides some geospatial visualizations using the IGO datasets
-[@igo_2020] included in this package. Specific packages used for geospatial
+[@pevehouse2020] included in this package. Specific packages used for geospatial
 data:
 
 -   `giscoR` for extracting the shapefiles of the countries.

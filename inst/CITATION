@@ -29,14 +29,5 @@ bibentry("Article",
   number = 3,
   pages = "492-503",
   year = 2020,
-  doi = "10.1177/0022343319881175",
-  url = "https://doi.org/10.1177/0022343319881175",
-  eprint = "https://doi.org/10.1177/0022343319881175",
-  abstract = paste(
-    "This article summarizes the Correlates of War Intergovernmental Organizations (IGO) Version 3.0 datasets.",
-    "The new datasets include information about the population of IGOs in the international system and state participation",
-    "in those formal international institutions from 1816 to 2014. Consistent with Versions 2.0 and 2.3, Version 3.0 of the IGO",
-    "data comes in three forms: country-year, IGO-year, and joint dyadic membership."
-  ),
-  textVersion = "Pevehouse JC, Nordstrom T, McManus RW, Jamison AS. Tracking organizations in the world: The Correlates of War IGO Version 3.0 datasets. Journal of Peace Research. 2020;57(3):492-503. doi:10.1177/0022343319881175"
+  doi = "10.1177/0022343319881175"
 )

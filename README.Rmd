@@ -40,7 +40,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 The goal of `igoR` is to provide access and to extract information from the
 Intergovernmental Organizations Database (IGOs), version 3, provided by the
-Correlates of War Project <https://correlatesofwar.org/> [@igo_2020].
+Correlates of War Project [@pevehouse2020].
 
 The dataset (V3) includes information of **`r nrow(igoR::igo_search())`** IGO
 from `r min(igoR::igo_year_format3$year)` to
@@ -51,8 +51,8 @@ from `r min(igoR::igo_year_format3$year)` to
 
 Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
-Additionally, a distribution of the State System Membership [@cow_2017] is
-included on this package.
+Additionally, a distribution of the State System Membership
+[@correlatesofwarproject2017] is included on this package.
 
 ## Installation
 
