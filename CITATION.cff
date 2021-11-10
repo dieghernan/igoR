@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.1.0
+# CITATION file created with {cffr} R package, v0.1.1
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -41,6 +41,13 @@ keywords:
 - IGO
 - Correlates of War
 - Intergovernmental Organisations
+- correlates-of-war
+- cran
+- igo
+- intergovernmental-organizations
+- r
+- r-package
+- rstats
 references:
 - type: article
   title: 'Tracking organizations in the world: The Correlates of War IGO Version 3.0
@@ -57,6 +64,7 @@ references:
   journal: Journal of Peace Research
   volume: '57'
   number: '3'
+  pages: 492-503
   year: '2020'
   doi: 10.1177/0022343319881175
   url: https://doi.org/10.1177/0022343319881175
