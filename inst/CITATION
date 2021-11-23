@@ -1,15 +1,14 @@
 year <- format(Sys.time(), "%Y")
-vers <- paste("R package version", meta$Version)
-url <- "https://dieghernan.github.io/igoR/"
 
 bibentry("Misc",
   header = "To cite the 'igoR' package in publications use this entry:",
   title = paste("igoR:", meta$Title),
   author = person("Diego", "Hernangómez"),
   year = year,
-  note = vers,
-  url = url,
-  doi = "10.5281/zenodo.4442958"
+  version = meta$Version,
+  doi = "10.5281/zenodo.4442958",
+  url = unlist(strsplit(meta$URL, ","))[1],
+  abstract = meta$Description
 )
 
 
