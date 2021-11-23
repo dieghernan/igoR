@@ -1,4 +1,5 @@
 year <- format(Sys.time(), "%Y")
+abs <- trimws(gsub("\\s+", " ", meta$Description))
 
 bibentry("Misc",
   header = "To cite the 'igoR' package in publications use this entry:",
@@ -8,7 +9,7 @@ bibentry("Misc",
   version = meta$Version,
   doi = "10.5281/zenodo.4442958",
   url = unlist(strsplit(meta$URL, ","))[1],
-  abstract = gsub("[\r\n]", "", meta$Description)
+  abstract = abs
 )
 
 
