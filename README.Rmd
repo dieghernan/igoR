@@ -153,7 +153,7 @@ print(citation("igoR")[1], bibtex = FALSE)
 A BibTeX entry for LaTeX users:
 
 ```{r, echo=FALSE}
-print(citation("igoR")[1], bibtex = TRUE)
+toBibtex(citation("igoR")[1])
 ```
 
 ## References
