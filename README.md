@@ -143,8 +143,8 @@ To cite the ‘igoR’ package in publications use this entry:
 
 Hernangómez D (2021). “igoR: Intergovernmental Organizations Database.”
 doi: 10.5281/zenodo.4442958 (URL:
-<https://doi.org/10.5281/zenodo.4442958>), R package version 0.1.3,
-\<URL: <https://dieghernan.github.io/igoR/>\>.
+<https://doi.org/10.5281/zenodo.4442958>), \<URL:
+<https://dieghernan.github.io/igoR/>\>.
 
 You can also use:
 
@@ -155,7 +155,7 @@ print(citation("igoR"), bibtex = TRUE)
 #> 
 #> Hernangómez D (2021). "igoR: Intergovernmental Organizations Database."
 #> doi: 10.5281/zenodo.4442958 (URL:
-#> https://doi.org/10.5281/zenodo.4442958), R package version 0.1.3, <URL:
+#> https://doi.org/10.5281/zenodo.4442958), <URL:
 #> https://dieghernan.github.io/igoR/>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -164,9 +164,14 @@ print(citation("igoR"), bibtex = TRUE)
 #>     title = {igoR: Intergovernmental Organizations Database},
 #>     author = {Diego Hernangómez},
 #>     year = {2021},
-#>     note = {R package version 0.1.3},
-#>     url = {https://dieghernan.github.io/igoR/},
+#>     version = {0.1.3},
 #>     doi = {10.5281/zenodo.4442958},
+#>     url = {https://dieghernan.github.io/igoR/},
+#>     abstract = {Tools to extract information from the Intergovernmental
+#>     Organizations ('IGO') Database , version 3, provided by the Correlates
+#>     of War Project <https://correlatesofwar.org/>. See also Pevehouse, J.
+#>     C. et al. (2020), <doi:10.1177/0022343319881175>.  Version 3 includes
+#>     information from 1815 to 2014.},
 #>   }
 #> 
 #> Please cite also:
