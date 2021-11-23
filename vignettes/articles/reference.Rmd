@@ -1,5 +1,7 @@
 ---
 title: "List of IGOs and Countries"
+description: >
+  Interactive exploration of the data included on the package.
 bibliography: refs_igo.bib
 ---
 

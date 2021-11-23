@@ -1,6 +1,8 @@
 ---
 title: "Get started with the igoR package"
 author: "Diego Hernangómez"
+description: >
+  Introduction to the capabilities of the package.
 bibliography: refs_igo.bib
 output: rmarkdown::html_vignette
 vignette: >

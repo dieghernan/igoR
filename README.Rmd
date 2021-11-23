@@ -150,10 +150,10 @@ knitr::kable(eec_end,
 print(citation("igoR")[1], bibtex = FALSE)
 ```
 
-You can also use:
+A BibTeX entry for LaTeX users:
 
-```{r}
-print(citation("igoR"), bibtex = TRUE)
+```{r, echo=FALSE}
+print(citation("igoR")[1], bibtex = TRUE)
 ```
 
 ## References

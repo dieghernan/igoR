@@ -1,6 +1,8 @@
 ---
 title: "Mapping IGOs"
 author: "Diego Hernangómez"
+description: >
+  Integrating IGOs on mapping projects.
 bibliography: refs_igo.bib
 output: rmarkdown::html_vignette
 vignette: >
