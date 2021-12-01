@@ -1,6 +1,7 @@
 ---
 output: github_document
 bibliography: vignettes/refs_igo.bib
+link-citations: yes
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
