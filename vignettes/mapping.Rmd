@@ -4,6 +4,7 @@ author: "Diego Hernangómez"
 description: >
   Integrating IGOs on mapping projects.
 bibliography: refs_igo.bib
+link-citations: yes
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Mapping IGOs}

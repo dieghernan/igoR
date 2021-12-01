@@ -23,7 +23,8 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 The goal of `igoR` is to provide access and to extract information from
 the Intergovernmental Organizations Database (IGOs), version 3, provided
-by the Correlates of War Project (Pevehouse et al. 2020).
+by the Correlates of War Project (Pevehouse et al.
+[2020](#ref-pevehouse2020)).
 
 The dataset (V3) includes information of **534** IGO from 1816 to 2014,
 as well as membership information.
@@ -34,7 +35,8 @@ as well as membership information.
 Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
 Additionally, a distribution of the State System Membership (Correlates
-of War Project 2017) is included on this package.
+of War Project [2017](#ref-correlatesofwarproject2017)) is included on
+this package.
 
 ## Installation
 
@@ -148,15 +150,15 @@ doi: 10.5281/zenodo.4442958 (URL:
 
 A BibTeX entry for LaTeX users:
 
-    #> @Misc{,
-    #>   title = {igoR: Intergovernmental Organizations Database},
-    #>   author = {Diego Hernangómez},
-    #>   year = {2021},
-    #>   version = {0.1.3},
-    #>   doi = {10.5281/zenodo.4442958},
-    #>   url = {https://dieghernan.github.io/igoR/},
-    #>   abstract = {Tools to extract information from the Intergovernmental Organizations ('IGO') Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
-    #> }
+    @Misc{,
+      title = {igoR: Intergovernmental Organizations Database},
+      author = {Diego Hernangómez},
+      year = {2021},
+      version = {0.1.3},
+      doi = {10.5281/zenodo.4442958},
+      url = {https://dieghernan.github.io/igoR/},
+      abstract = {Tools to extract information from the Intergovernmental Organizations ('IGO') Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
+    }
 
 ## References
 
