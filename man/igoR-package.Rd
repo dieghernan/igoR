@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Tools to extract information from the Intergovernmental Organizations ('IGO') Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020), <doi:10.1177/0022343319881175>. Version 3 includes information from 1815 to 2014.
+Tools to extract information from the Intergovernmental Organizations ('IGO') Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.
 }
 \seealso{
 Useful links:
