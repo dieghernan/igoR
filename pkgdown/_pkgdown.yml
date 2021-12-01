@@ -38,6 +38,7 @@ template:
   bslib:
     base_font: {google: "IBM Plex Sans"}
     headings-color: "#343a40"
+    primary: "#0099ff"
     
 
 home:

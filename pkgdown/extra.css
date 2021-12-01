@@ -11,6 +11,13 @@
   margin-right: 7px;
 }
 
+.navbar .text-muted {
+  color: #e9ecef !important;
+}
+
+.navbar .text-danger {
+  color: #fd7e14 !important;
+}
 
 /* ---Theming pkgdown--- */
 footer {
@@ -20,18 +27,18 @@ footer {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background-color: #2fa4e7 !important;
+  background-color: ##0099ff !important;
   color: white;
   margin-bottom: 0;
 }
 
 footer a {
-  color: #bfc4db;
+  color: #e9ecef;
 }
 
 footer a:hover,
 footer a:focus {
-  color: white;
+  color: #f8f9fa;
 }
 
 footer .pkgdown-footer-right {
