@@ -1,0 +1,90 @@
+/* Import fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
+
+/* Navbar logo */
+
+#navbar-logo {
+  margin-top: -4px;
+  height: 32px;
+  margin-right: 7px;
+}
+
+
+/* ---Theming pkgdown--- */
+footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #0099ff !important;
+  color: white;
+  margin-bottom: 0;
+}
+
+footer a {
+  color: #bfc4db;
+}
+
+footer a:hover,
+footer a:focus {
+  color: white;
+}
+
+footer .pkgdown-footer-right {
+  margin-right: auto;
+  padding-right: 1.25rem;
+}
+
+footer .pkgdown-footer-left {
+  margin-left: auto;
+  padding-left: 1.25rem;
+}
+
+@media screen and (max-width: 576px) {
+  footer .pkgdown-footer-right,
+  footer .pkgdown-footer-left {
+    margin-right: .75rem;
+    margin-left: .75rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width:768px) and (min-width:576px) {
+  footer .pkgdown-footer-right,
+  footer .pkgdown-footer-left {
+    max-width: 270px;
+  }
+}
+
+@media (max-width: 992px) and (min-width:768px) {
+  footer .pkgdown-footer-right,
+  footer .pkgdown-footer-left {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 1200px) and (min-width:992px) {
+  footer .pkgdown-footer-right,
+  footer .pkgdown-footer-left {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 1400px) and (min-width:1200px) {
+  footer .pkgdown-footer-right,
+  footer .pkgdown-footer-left {
+    max-width: 570px;
+  }
+}
+
+@media (min-width:1400px) {
+  footer .pkgdown-footer-right,
+  footer .pkgdown-footer-left {
+    max-width: 660px;
+  }
+}
