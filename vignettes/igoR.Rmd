@@ -4,6 +4,7 @@ author: "Diego Hernangómez"
 description: >
   Introduction to the capabilities of the package.
 bibliography: refs_igo.bib
+link-citations: yes
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Get started with the igoR package}
@@ -74,6 +75,9 @@ Version 3.0 of the IGO data set uses the following criteria:
     -   Integrated;
     -   Merged;
     -   Dies.
+
+
+<div id=“refs”></div>
 
 ## Analysis
 
