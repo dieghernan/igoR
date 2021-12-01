@@ -76,9 +76,6 @@ Version 3.0 of the IGO data set uses the following criteria:
     -   Merged;
     -   Dies.
 
-
-<div id="refs"></div>
-
 ## Analysis
 
 This section provides some quick analysis based on the figures of
