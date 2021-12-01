@@ -29,16 +29,10 @@ figures:
 
 
 template:
+  bootstrap: 5
   path: inst/pkgdown/templates
   params:
     ganalytics: G-S61Y539QDX
-    docsearch:
-      api_key: 72598c244fc1a0e1ed23b3a8b4e3c9c0
-      index_name: igoR
-  opengraph:
-    twitter:
-      creator: "@dhernangomez"
-      card: summary_large_image
 
 home:
   title: igoR | R package for Intergovernmental Organizations (IGOs)
