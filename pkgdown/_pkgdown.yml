@@ -30,7 +30,6 @@ figures:
 
 template:
   bootstrap: 5
-  path: inst/pkgdown/templates
   params:
     ganalytics: G-S61Y539QDX
 
