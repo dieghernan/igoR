@@ -177,7 +177,7 @@ Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
 Spencer Jamison. 2020. “Tracking Organizations in the World: The
 Correlates of War Igo Version 3.0 Datasets.” *Journal of Peace Research*
 57 (3): 492–503.
-<http://journals.sagepub.com/doi/10.1177/0022343319881175>.
+<https://journals.sagepub.com/doi/10.1177/0022343319881175>.
 
 </div>
 
