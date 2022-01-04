@@ -4,7 +4,7 @@
   "identifier": "igoR",
   "description": "Tools to extract information from the Intergovernmental Organizations ('IGO') Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.",
   "name": "igoR: Intergovernmental Organizations Database",
-  "relatedLink": "https://dieghernan.github.io/igoR/",
+  "relatedLink": ["https://dieghernan.github.io/igoR/", "https://CRAN.R-project.org/package=igoR"],
   "codeRepository": "https://github.com/dieghernan/igoR",
   "issueTracker": "https://github.com/dieghernan/igoR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
@@ -134,12 +134,12 @@
     },
     "SystemRequirements": null
   },
-  "keywords": ["R", "IGO", "CorrelatesofWar", "IntergovernmentalOrganisations"],
-  "fileSize": "718.918KB",
+  "keywords": ["R", "IGO", "CorrelatesofWar", "IntergovernmentalOrganisations", "r-package", "igo", "correlates-of-war", "intergovernmental-organizations", "r", "rstats", "cran"],
+  "fileSize": "720.281KB",
   "citation": [
     {
       "@type": "CreativeWork",
-      "datePublished": "2021",
+      "datePublished": "2022",
       "author": [
         {
           "@type": "Person",
@@ -194,5 +194,8 @@
         }
       }
     }
-  ]
+  ],
+  "readme": "https://github.com/dieghernan/igoR/blob/main/README.md",
+  "contIntegration": ["https://github.com/dieghernan/igoR/actions", "https://app.codecov.io/gh/dieghernan/igoR"],
+  "developmentStatus": "https://lifecycle.r-lib.org/articles/stages.html#stable"
 }

@@ -143,7 +143,7 @@ EEC, members (1992)
 
 To cite the ‘igoR’ package in publications use this entry:
 
-Hernangómez D (2021). “igoR: Intergovernmental Organizations Database.”
+Hernangómez D (2022). “igoR: Intergovernmental Organizations Database.”
 doi: 10.5281/zenodo.4442958 (URL:
 <https://doi.org/10.5281/zenodo.4442958>), \<URL:
 <https://dieghernan.github.io/igoR/>\>.
@@ -153,7 +153,7 @@ A BibTeX entry for LaTeX users:
     @Misc{,
       title = {igoR: Intergovernmental Organizations Database},
       author = {Diego Hernangómez},
-      year = {2021},
+      year = {2022},
       version = {0.1.3},
       doi = {10.5281/zenodo.4442958},
       url = {https://dieghernan.github.io/igoR/},
