@@ -25,3 +25,4 @@
 ^vignettes/figs-mapping\.R$
 ^revdep$
 ^CITATION\.cff$
+^CRAN-SUBMISSION$
