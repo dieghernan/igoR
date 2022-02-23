@@ -21,10 +21,11 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: |
+            local::.
             any::pkgdown
-            any::rcmdcheck
             any::giscoR
             any::reactable
+            any::rcmdcheck
             dieghernan/pkgdev
           needs: website
 
