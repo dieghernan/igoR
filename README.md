@@ -140,22 +140,22 @@ EEC, members (1992)
 
 ## Citation
 
-To cite the ‘igoR’ package in publications use this entry:
+To cite ‘igoR’ in publications use:
 
-Hernangómez D (2022). “igoR: Intergovernmental Organizations Database.”
-<doi:10.5281/zenodo.4442958> <https://doi.org/10.5281/zenodo.4442958>,
-<https://dieghernan.github.io/igoR/>.
+Hernangomez D (2022). igoR: Intergovernmental Organizations Database.
+<https://doi.org/10.5281/zenodo.4442958>,
+<https://dieghernan.github.io/igoR/>
 
 A BibTeX entry for LaTeX users:
 
-    @Misc{,
-      title = {igoR: Intergovernmental Organizations Database},
+    @Manual{R-igoR,
+      title = {{igoR}: Intergovernmental Organizations Database},
+      doi = {10.5281/zenodo.4442958},
       author = {Diego Hernangómez},
       year = {2022},
-      version = {0.1.3},
-      doi = {10.5281/zenodo.4442958},
+      version = {0.1.4},
       url = {https://dieghernan.github.io/igoR/},
-      abstract = {Tools to extract information from the Intergovernmental Organizations ('IGO') Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
+      abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
     }
 
 ## References

@@ -1,17 +1,25 @@
 year <- format(Sys.time(), "%Y")
 abs <- trimws(gsub("\\s+", " ", meta$Description))
+abs <- gsub("'", "", abs)
+doi <- "10.5281/zenodo.4442958"
 
-bibentry("Misc",
-  header = "To cite the 'igoR' package in publications use this entry:",
-  title = paste("igoR:", meta$Title),
-  author = person("Diego", "Hernangómez"),
+bibentry(
+  "Manual",
+  header = paste0("To cite '", meta$Package, "' in publications use:"),
+  title = paste("{igoR}:", gsub("'", "", meta$Title)),
+  doi = doi,
+  author = c(person("Diego", "Hernangómez")),
   year = year,
   version = meta$Version,
-  doi = "10.5281/zenodo.4442958",
   url = unlist(strsplit(meta$URL, ","))[1],
-  abstract = abs
+  abstract = abs,
+  key = "R-igoR",
+  textVersion = paste0(
+    "Hernangomez D (", year, "). igoR: ",
+    gsub("'", "", meta$Title), ". <https://doi.org/", doi, ">, <",
+    unlist(strsplit(meta$URL, ","))[1], ">"
+  )
 )
-
 
 # Pevehouse, Jon CW, et al.
 

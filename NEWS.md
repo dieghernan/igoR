@@ -1,3 +1,7 @@
+# igoR 0.1.4
+
+-   Update docs due to CRAN notice.
+
 # igoR 0.1.3
 
 -   Update docs.
