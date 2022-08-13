@@ -36,6 +36,5 @@ bibentry("Article",
   volume = 57,
   number = 3,
   pages = "492-503",
-  year = 2020,
-  doi = "10.1177/0022343319881175"
+  year = 2020
 )
