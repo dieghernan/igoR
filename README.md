@@ -30,7 +30,7 @@ The dataset (V3) includes information of **534** IGO from 1816 to 2014,
 as well as membership information.
 
 **Source**: [Intergovernmental Organizations
-(v3)](https://correlatesofwar.org/data-sets/IGOs).
+(v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
 Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
@@ -93,6 +93,7 @@ Community](https://en.wikipedia.org/wiki/European_Economic_Community)
 over time:
 
 ``` r
+
 eec_code <- igo_search("EEC", exact = TRUE)
 
 # Founding
@@ -134,9 +135,9 @@ EEC, members (1992)
 
 ## Recommended packages
 
--   `countrycode` for converting country names and codes across
-    different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
--   `dplyr` for data manipulation.
+- `countrycode` for converting country names and codes across different
+  systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
+- `dplyr` for data manipulation.
 
 ## Citation
 
