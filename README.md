@@ -8,7 +8,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/igoR)](https://CRAN.R-project.org/package=igoR)
 [![CRAN
-results](https://badges.cranchecks.info/worst/igoR)](https://cran.r-project.org/web/checks/check_results_igoR.html)
+results](https://badges.cranchecks.info/worst/igoR.svg)](https://cran.r-project.org/web/checks/check_results_igoR.html)
 [![CRAN-Downloads](https://cranlogs.r-pkg.org/badges/grand-total/igoR)](https://cran.r-project.org/package=igoR)
 [![r-universe](https://dieghernan.r-universe.dev/badges/igoR)](https://dieghernan.r-universe.dev/)
 [![Rbuild-status](https://github.com/dieghernan/igoR/workflows/R-CMD-check/badge.svg)](https://github.com/dieghernan/igoR/actions)
@@ -166,7 +166,7 @@ A BibTeX entry for LaTeX users:
 <div id="ref-correlatesofwarproject2017" class="csl-entry">
 
 Correlates of War Project. 2017. “State System Membership List, V2016.”
-<https://correlatesofwar.org/data-sets/state-system-membership>.
+<https://correlatesofwar.org/data-sets/state-system-membership/>.
 
 </div>
 

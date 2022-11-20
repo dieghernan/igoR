@@ -64,7 +64,7 @@ original dataset on some IGOs regarding the "Missing Data" (-9) and
 replicate those values.
 
 See
-\href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
+\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}
 }
 \examples{
 USA_CAN <- igo_dyadic("USA", "Spain")

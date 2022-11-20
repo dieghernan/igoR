@@ -16,10 +16,10 @@ membership status. See Details.
 }
 
 See
-\href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}}
+\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}
 }
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs}{Intergovernmental Organizations (v3)},
+\href{https://correlatesofwar.org/data-sets/IGOs/}{Intergovernmental Organizations (v3)},
 The Correlates of War Project (IGO Data Stata Files)
 }
 \description{

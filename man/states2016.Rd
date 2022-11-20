@@ -18,7 +18,7 @@ and the end of each tenure.
 }
 }
 \source{
-\href{https://correlatesofwar.org/data-sets/state-system-membership}{State System Membership (v2016)},
+\href{https://correlatesofwar.org/data-sets/state-system-membership/}{State System Membership (v2016)},
 The Correlates of War Project.
 }
 \description{
