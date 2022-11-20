@@ -57,7 +57,7 @@
 #'  replicate those values.
 #'
 #' See
-#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs)
+#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs/)
 #'
 #'
 #' @export

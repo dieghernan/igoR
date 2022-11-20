@@ -11,7 +11,7 @@
 #'
 #' @source
 #' [Intergovernmental Organizations
-#' (v3)](https://correlatesofwar.org/data-sets/IGOs),
+#' (v3)](https://correlatesofwar.org/data-sets/IGOs/),
 #' The Correlates of War Project (IGO Data Stata Files).
 #'
 #' @details
@@ -44,7 +44,7 @@
 #'   * **version**: COW version number.
 #'
 #' See
-#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs)
+#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs/)
 #' for full reference.
 #'
 #' @family datasets
@@ -70,7 +70,7 @@ NULL
 #'
 #' @source
 #' [Intergovernmental Organizations
-#' (v3)](https://correlatesofwar.org/data-sets/IGOs),
+#' (v3)](https://correlatesofwar.org/data-sets/IGOs/),
 #' The Correlates of War Project (IGO Data Stata Files)
 #'
 #' @details
@@ -97,7 +97,7 @@ NULL
 #'     membership status. See Details.
 #'
 #' See
-#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs)
+#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs/)
 #'
 #' @seealso [countrycode::countrycode()] to convert between different country
 #' code schemes.
@@ -120,7 +120,7 @@ NULL
 #' the field `state` from [state_year_format3].
 #' @source
 #' [State System Membership
-#' (v2016)](https://correlatesofwar.org/data-sets/state-system-membership),
+#' (v2016)](https://correlatesofwar.org/data-sets/state-system-membership/),
 #' The Correlates of War Project.
 #' @format data frame with 243 rows:
 #' * **ccode**: COW country number.
