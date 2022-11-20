@@ -9,7 +9,7 @@
 #' @seealso [state_year_format3],  [states2016],
 #' [igo_search()].
 #' @source [**Codebook Version 3
-#' IGO Data**](https://correlatesofwar.org/data-sets/IGOs) for full reference.
+#' IGO Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 #' @references
 #' Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
 #' Jamison. "Tracking Organizations in the World: The Correlates of War

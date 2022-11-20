@@ -4,7 +4,7 @@
 \alias{igo_dyadic}
 \title{Extract the Joint Membership of a pair of Countries across IGOs.}
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs}{\strong{Codebook Version 3 IGO Data}} for full reference.
+\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }
 \usage{
 igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
