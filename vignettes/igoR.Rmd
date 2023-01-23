@@ -13,7 +13,6 @@ vignette: >
 ---
 
 ```{r knitropts, include=FALSE}
-
 start_time <- Sys.time()
 
 knitr::opts_chunk$set(
@@ -84,7 +83,6 @@ This section provides some quick analysis based on the figures of
 ### Initial Setup
 
 ```{r setup}
-
 library(igoR)
 
 # Additional libraries
@@ -101,7 +99,6 @@ library(dplyr)
 </summary>
 
 ```{r custom_theme}
-
 theme_igoR <- theme(
   axis.title = element_blank(),
   axis.line.x.bottom = element_line("black"),
@@ -132,7 +129,6 @@ The following code extracts the number of IGOs and states included on this
 package. The years available are 1816 to 2014.
 
 ```{r Fig1, message=FALSE, warning=FALSE, fig.cap="Figure 1. IGOs and states in the world system, 1816-2014"}
-
 # Summarize
 igos_by_year <- igo_year_format3 %>%
   group_by(year) %>%
@@ -166,7 +162,6 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 This plot shows how many IGOs were "born" and "died" on each year
 
 ```{r Fig2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Birth and death rates of IGOs, 1816-2014"}
-
 # Births and deads by year
 
 df <- igo_search()
@@ -290,7 +285,6 @@ After we have created a data frame with the regions, we can classify the IGOs by
 region.
 
 ```{r Fig3, message=FALSE, warning=FALSE, fig.cap="Figure 3. IGO counts across regions, 1816-2014"}
-
 # regions dataset created on previous chunk
 
 # All IGOs
@@ -328,7 +322,6 @@ Number of memberships of a country. We select here five countries on Asia:
 India, China, Pakistan, Indonesia and Bangladesh.
 
 ```{r Fig4, message=FALSE, warning=FALSE, fig.cap="Figure 4. IGO membership: five states in Asia, 1865-2014"}
-
 asia5_cntries <- c(
   "China", "India",
   "Pakistan", "Indonesia",
@@ -382,7 +375,6 @@ ggplot(asia5, aes(x = year, y = values)) +
 Number of shared full memberships between Spain and four selected countries:
 
 ```{r Fig5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014"}
-
 selected_countries <- c(
   "France",
   "Morocco",

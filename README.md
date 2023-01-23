@@ -93,7 +93,6 @@ Community](https://en.wikipedia.org/wiki/European_Economic_Community)
 over time:
 
 ``` r
-
 eec_code <- igo_search("EEC", exact = TRUE)
 
 # Founding
@@ -143,7 +142,7 @@ EEC, members (1992)
 
 To cite ‘igoR’ in publications use:
 
-Hernangomez D (2022). igoR: Intergovernmental Organizations Database.
+Hernangomez D (2023). igoR: Intergovernmental Organizations Database.
 <https://doi.org/10.5281/zenodo.4442958>,
 <https://dieghernan.github.io/igoR/>
 
@@ -153,7 +152,7 @@ A BibTeX entry for LaTeX users:
       title = {{igoR}: Intergovernmental Organizations Database},
       doi = {10.5281/zenodo.4442958},
       author = {Diego Hernangómez},
-      year = {2022},
+      year = {2023},
       version = {0.1.4},
       url = {https://dieghernan.github.io/igoR/},
       abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},

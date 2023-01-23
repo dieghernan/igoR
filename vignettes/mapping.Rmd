@@ -29,7 +29,6 @@ schemes (CoW, ISO3, NUTS, FIPS) and country names.
 
 
 ```r
-
 library(igoR)
 
 # Helper packages
@@ -104,7 +103,6 @@ Now we are ready to plot with `ggplot2`:
 
 
 ```r
-
 ggplot(UN_all) +
   geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
   # Robinson
@@ -136,7 +134,6 @@ with Australia for each country on the world:
 
 
 ```r
-
 ## Number of igos shared - 2014
 
 # Countries alive in 2014
@@ -225,7 +222,6 @@ each decade.
 
 
 ```r
-
 # Get shapes
 countries.sf <- gisco_get_countries(country = c("USA", "MEX", "CAN"))
 

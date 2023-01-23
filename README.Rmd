@@ -106,7 +106,6 @@ Composition of the [European Economic
 Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time:
 
 ```{r eec}
-
 eec_code <- igo_search("EEC", exact = TRUE)
 
 # Founding
@@ -128,7 +127,6 @@ eec_end <- igo_members(eec_code$ioname)
 ```
 
 ```{r echo=FALSE}
-
 eec_end <- igo_members(eec_code$ioname)
 
 knitr::kable(eec_end,

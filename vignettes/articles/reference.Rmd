@@ -7,7 +7,6 @@ link-citations: yes
 ---
 
 ```{r knitropts, include=FALSE}
-
 start_time <- Sys.time()
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -27,7 +26,6 @@ this package.
 ## List of IGOs
 
 ```{r igo, echo=FALSE}
-
 library(igoR)
 library(reactable)
 
@@ -45,7 +43,6 @@ reactable(igo[, 1:7],
 ## List of Countries
 
 ```{r countries, echo=FALSE}
-
 cc <- states2016
 reactable(cc,
   filterable = TRUE,
