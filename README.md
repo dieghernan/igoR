@@ -54,7 +54,7 @@ install_github("dieghernan/igoR")
 ```
 
 Alternatively, you can install `igoR` using the
-[r-universe](https://dieghernan.r-universe.dev/ui#builds):
+[r-universe](http://dieghernan.r-universe.dev/ui/):
 
 ``` r
 # Enable this universe
