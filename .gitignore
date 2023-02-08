@@ -27,7 +27,7 @@ vignettes/*.pdf
 *.knit.md
 .Renviron
 docs/
-revdep
 dev
 CRAN-SUBMISSION
 .github/pkg.lock
+.Rdata
