@@ -46,9 +46,7 @@
 #'
 #'   head(EU)
 #' }
-igo_members <- function(ioname,
-                        year = NULL,
-                        status = "Full Membership") {
+igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Checks
 
   if (missing(ioname)) {

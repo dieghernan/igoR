@@ -67,18 +67,23 @@ See
 \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}
 }
 \examples{
-USA_CAN <- igo_dyadic("USA", "Spain")
-nrow(USA_CAN)
-ncol(USA_CAN)
+usa_esp <- igo_dyadic("USA", "Spain")
+nrow(usa_esp)
+ncol(usa_esp)
+
+dplyr::tibble(usa_esp)
 
 # Using custom parameters
-igo_dyadic(
+custom <- igo_dyadic(
   country1 = "France",
   country2 =
     c("Sweden", "Austria"),
   year = 1992:1995,
   ioname = "EU"
 )
+
+dplyr::tibble(custom)
+
 }
 \references{
 Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer

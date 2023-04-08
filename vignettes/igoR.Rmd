@@ -92,11 +92,8 @@ library(dplyr)
 
 <details>
 
-<summary>
-
-<strong>Custom <code>ggplot2</code> theme</strong>: <code>theme_igoR</code>
-
-</summary>
+<summary><strong>Custom <code>ggplot2</code> theme</strong>:
+<code>theme_igoR</code></summary>
 
 ```{r custom_theme}
 theme_igoR <- theme(
@@ -197,11 +194,7 @@ the original definition by @pevehouse2020.
 
 <details>
 
-<summary>
-
-<strong>Regions definition</strong>
-
-</summary>
+<summary><strong>Regions definition</strong></summary>
 
 ```{r regions_code}
 # Extracted from analysis-jpr.do - See https://www.prio.org/JPR/Datasets/

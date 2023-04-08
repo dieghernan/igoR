@@ -1,4 +1,5 @@
 AMSC
+CMD
 CoW
 CodeFactor
 Codebook
@@ -6,6 +7,7 @@ DOI
 Eurostat
 GEC
 GLACSEC
+Hernangomez
 IGO
 IGOs
 ISuC
@@ -19,7 +21,6 @@ Nordstrom
 ORCID
 Pevehouse
 Pre
-Rbuild
 Roseanne
 Stata
 SugU
@@ -32,12 +33,9 @@ begining
 belgium
 ccode
 codecov
-correlatesofwar
 d'affaires
 deaddate
 denmark
-dieghernan
-doi
 dyad
 endday
 et
@@ -45,14 +43,10 @@ explorable
 france
 geospatial
 germany
-ggplot
-github
 greece
-https
 igo
 igoR’
 igocode
-io
 ioname
 ionum
 ireland
@@ -74,5 +68,4 @@ uk
 useRs
 wassen
 wgermany
-zenodo
 zimbabwe

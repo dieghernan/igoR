@@ -21,6 +21,8 @@
 #' nrow(all)
 #' colnames(all)
 #'
+#' dplyr::tibble(all)
+#'
 #' # Search by pattern
 #' igo_search("EU")[, 1:3]
 #'

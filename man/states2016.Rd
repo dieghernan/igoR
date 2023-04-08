@@ -5,7 +5,9 @@
 \alias{states2016}
 \title{State System Membership (v2016)}
 \format{
-data frame with 243 rows:
+data frame with
+243 rows.
+Relevant fields:
 \itemize{
 \item \strong{ccode}: COW country number.
 \item \strong{stateabb}: COW state abbreviation (3 characters).
@@ -50,6 +52,11 @@ receive diplomatic missions from two major powers.
 \note{
 \code{state} variable added to original data to help comparison across
 datasets on this package.
+}
+\examples{
+# example code
+data("states2016")
+dplyr::tibble(states2016)
 }
 \references{
 Correlates of War Project. 2017 "State System Membership List, v2016."

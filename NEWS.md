@@ -1,3 +1,7 @@
+# igoR (development version)
+
+-   Update docs and examples.
+
 # igoR 0.1.4
 
 -   Update docs due to CRAN notice.

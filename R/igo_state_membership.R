@@ -51,8 +51,7 @@
 #'   )
 #'   head(IT)
 #' }
-igo_state_membership <- function(state,
-                                 year = NULL,
+igo_state_membership <- function(state, year = NULL,
                                  status = "Full Membership") {
   # Checks
 

@@ -62,22 +62,24 @@
 #'
 #' @export
 #' @examples
-#' USA_CAN <- igo_dyadic("USA", "Spain")
-#' nrow(USA_CAN)
-#' ncol(USA_CAN)
+#' usa_esp <- igo_dyadic("USA", "Spain")
+#' nrow(usa_esp)
+#' ncol(usa_esp)
+#'
+#' dplyr::tibble(usa_esp)
 #'
 #' # Using custom parameters
-#' igo_dyadic(
+#' custom <- igo_dyadic(
 #'   country1 = "France",
 #'   country2 =
 #'     c("Sweden", "Austria"),
 #'   year = 1992:1995,
 #'   ioname = "EU"
 #' )
-igo_dyadic <- function(country1,
-                       country2,
-                       year = 1816:2014,
-                       ioname = NULL) {
+#'
+#' dplyr::tibble(custom)
+#'
+igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   # Check countries
   if (length(country1) != 1) {
     stop("country1 should be a single value")

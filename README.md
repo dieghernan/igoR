@@ -54,7 +54,7 @@ install_github("dieghernan/igoR")
 ```
 
 Alternatively, you can install `igoR` using the
-[r-universe](http://dieghernan.r-universe.dev/ui/):
+[r-universe](https://dieghernan.r-universe.dev/igoR):
 
 ``` r
 # Enable this universe
@@ -153,7 +153,7 @@ A BibTeX entry for LaTeX users:
       doi = {10.5281/zenodo.4442958},
       author = {Diego Hernangómez},
       year = {2023},
-      version = {0.1.4},
+      version = {0.1.4.9000},
       url = {https://dieghernan.github.io/igoR/},
       abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
     }
