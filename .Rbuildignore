@@ -27,3 +27,5 @@
 ^CITATION\.cff$
 ^CRAN-SUBMISSION$
 ^\.imgbotconfig$
+^pkgdown\.yaml$
+^pkgdown\.yml$

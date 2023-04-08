@@ -33,7 +33,7 @@ introduction to the capabilities of the `igoR` package.
 The analysis would be based on those provided on [@pevehouse2020]. For more
 information on the IGO data sets and additional downloads, see
 [Intergovernmental Organizations
-(v3)](https://correlatesofwar.org/data-sets/IGOs).
+(v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
 *Note that the dyadic dataset is not provided in the package, due its size
 (\~500 MB on Stata `.dta` format). However,* `igo_dyadic()` *function provides
@@ -49,7 +49,7 @@ The definition of an Intergovernmental Organization (IGO) on the original
 dataset is based on the following criteria:
 
 1.  An IGO must consist of at least three members of the [COW-defined state
-    system](https://correlatesofwar.org/data-sets/cow-country-codes).
+    system](https://correlatesofwar.org/data-sets/cow-country-codes/).
 
 2.  An IGO must hold regular plenary sessions at least once every ten years
 
