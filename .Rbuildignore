@@ -29,3 +29,4 @@
 ^\.imgbotconfig$
 ^pkgdown\.yaml$
 ^pkgdown\.yml$
+^vignettes/igoR\.Rmd\.orig$
