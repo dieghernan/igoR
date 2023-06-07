@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.0 (2023-04-21)",
+  "runtimePlatform": "R version 4.3.0 (2023-04-21 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -135,7 +135,7 @@
     "SystemRequirements": null
   },
   "keywords": ["R", "IGO", "CorrelatesofWar", "IntergovernmentalOrganisations", "r-package", "igo", "correlates-of-war", "intergovernmental-organizations", "r", "rstats", "cran"],
-  "fileSize": "1152.806KB",
+  "fileSize": "1990.181KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -179,7 +179,10 @@
         }
       ],
       "name": "Tracking organizations in the world: The Correlates of War {IGO} Version 3.0 datasets",
+      "identifier": "10.1177/0022343319881175",
       "pagination": "492-503",
+      "@id": "https://doi.org/10.1177/0022343319881175",
+      "sameAs": "https://doi.org/10.1177/0022343319881175",
       "isPartOf": {
         "@type": "PublicationIssue",
         "issueNumber": "3",

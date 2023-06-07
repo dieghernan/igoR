@@ -12,12 +12,10 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
 Maps are a powerful tool to show data. As the scope of `igoR` are the
-InterGovermental Organizations, mapping and IGOs are a perfect match.
+Intergovernmental Organizations, mapping and IGOs are a perfect match.
 
-This vignette provides some geospatial visualizations using the IGO datasets
+This vignette provides some geospatial visualizations using the IGO data sets
 [@pevehouse2020] included in this package. Specific packages used for geospatial
 data:
 
@@ -27,8 +25,7 @@ data:
 Also `countrycode` is a very handy package for translating between coding
 schemes (CoW, ISO3, NUTS, FIPS) and country names.
 
-
-```r
+``` r
 library(igoR)
 
 # Helper packages
@@ -47,8 +44,7 @@ United Nations.
 
 First we should extract the data:
 
-
-```r
+``` r
 # Extract shapes
 
 world <- gisco_get_countries(year = "2010")
@@ -101,8 +97,7 @@ Germany are not included.
 
 Now we are ready to plot with `ggplot2`:
 
-
-```r
+``` r
 ggplot(UN_all) +
   geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
   # Robinson
@@ -123,10 +118,15 @@ ggplot(UN_all) +
   theme(plot.caption = element_text(face = "italic"))
 ```
 
-<div class="figure">
-<img src="./UNMaps-1.png" alt="plot of chunk UNMaps" width="100%" />
-<p class="caption">plot of chunk UNMaps</p>
-</div>
+::: figure
+<img src="./UNMaps-1.png" alt="Evolution of the composition of members of the UN" width="100%"/>
+
+<p class="caption">
+
+Evolution of the composition of members of the UN
+
+</p>
+:::
 
 ## Number of shared memberships
 
@@ -135,8 +135,7 @@ Shared memberships are useful for identifying regional patterns.
 The following code produces a map showing the number of full memberships shared
 with Australia for each country on the world:
 
-
-```r
+``` r
 ## Number of igos shared - 2014
 
 # Countries alive in 2014
@@ -215,10 +214,15 @@ ggplot(sharedmap) +
   )
 ```
 
-<div class="figure">
-<img src="./AustShared-1.png" alt="plot of chunk AustShared" width="100%" />
-<p class="caption">plot of chunk AustShared</p>
-</div>
+::: figure
+<img src="./AustShared-1.png" alt="Australia and the World: Shared memberships on IGOs (2014)" width="100%"/>
+
+<p class="caption">
+
+Australia and the World: Shared memberships on IGOs (2014)
+
+</p>
+:::
 
 ## Cross-shared memberships
 
@@ -226,8 +230,7 @@ The following map shows how the relationships between the countries of North
 America has flourished on the last 90 years, using a year as representative of
 each decade.
 
-
-```r
+``` r
 # Get shapes
 countries.sf <- gisco_get_countries(country = c("USA", "MEX", "CAN"))
 
@@ -290,9 +293,14 @@ ggplot(map) +
   )
 ```
 
-<div class="figure">
-<img src="./NAShared-1.png" alt="plot of chunk NAShared" width="100%" />
-<p class="caption">plot of chunk NAShared</p>
-</div>
+::: figure
+<img src="./NAShared-1.png" alt="Evolution of shared memberships between countries of North America (1930 - 2010)" width="100%"/>
+
+<p class="caption">
+
+Evolution of shared memberships between countries of North America (1930 - 2010)
+
+</p>
+:::
 
 ## References
