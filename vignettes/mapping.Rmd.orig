@@ -114,7 +114,7 @@ Germany are not included.
 
 Now we are ready to plot with `ggplot2`:
 
-```{r UNMaps, fig.asp=1.5, fig.cap="Evolution of the composition of members of the UN"}
+```{r UNMaps, fig.asp=1.5, fig.cap="UN Members"}
 
 ggplot(UN_all) +
   geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
@@ -143,7 +143,7 @@ Shared memberships are useful for identifying regional patterns.
 The following code produces a map showing the number of full memberships shared
 with Australia for each country on the world:
 
-```{r AustShared, fig.asp=0.8, fig.cap="Australia and the World: Shared memberships on IGOs (2014)"}
+```{r AustShared, fig.asp=0.8, fig.cap="Shared Full Memberships with Australia (2014)"}
 
 ## Number of igos shared - 2014
 
@@ -229,7 +229,7 @@ The following map shows how the relationships between the countries of North
 America has flourished on the last 90 years, using a year as representative of
 each decade.
 
-```{r NAShared, fig.cap="Evolution of shared memberships between countries of North America (1930 - 2010)"}
+```{r NAShared, fig.cap="Shared Full Memberships on North America (1930 - 2010)"}
 
 # Get shapes
 countries.sf <- gisco_get_countries(country = c("USA", "MEX", "CAN"))

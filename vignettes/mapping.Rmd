@@ -119,11 +119,11 @@ ggplot(UN_all) +
 ```
 
 ::: figure
-<img src="./UNMaps-1.png" alt="Evolution of the composition of members of the UN" width="100%"/>
+<img src="./UNMaps-1.png" alt="UN Members" width="100%"/>
 
 <p class="caption">
 
-Evolution of the composition of members of the UN
+UN Members
 
 </p>
 :::
@@ -215,11 +215,11 @@ ggplot(sharedmap) +
 ```
 
 ::: figure
-<img src="./AustShared-1.png" alt="Australia and the World: Shared memberships on IGOs (2014)" width="100%"/>
+<img src="./AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%"/>
 
 <p class="caption">
 
-Australia and the World: Shared memberships on IGOs (2014)
+Shared Full Memberships with Australia (2014)
 
 </p>
 :::
@@ -294,11 +294,11 @@ ggplot(map) +
 ```
 
 ::: figure
-<img src="./NAShared-1.png" alt="Evolution of shared memberships between countries of North America (1930 - 2010)" width="100%"/>
+<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%"/>
 
 <p class="caption">
 
-Evolution of shared memberships between countries of North America (1930 - 2010)
+Shared Full Memberships on North America (1930 - 2010)
 
 </p>
 :::
