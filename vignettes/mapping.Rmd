@@ -123,7 +123,10 @@ ggplot(UN_all) +
   theme(plot.caption = element_text(face = "italic"))
 ```
 
+<div class="figure">
 <img src="./UNMaps-1.png" alt="plot of chunk UNMaps" width="100%" />
+<p class="caption">plot of chunk UNMaps</p>
+</div>
 
 ## Number of shared memberships
 
@@ -212,7 +215,10 @@ ggplot(sharedmap) +
   )
 ```
 
+<div class="figure">
 <img src="./AustShared-1.png" alt="plot of chunk AustShared" width="100%" />
+<p class="caption">plot of chunk AustShared</p>
+</div>
 
 ## Cross-shared memberships
 
@@ -284,6 +290,9 @@ ggplot(map) +
   )
 ```
 
+<div class="figure">
 <img src="./NAShared-1.png" alt="plot of chunk NAShared" width="100%" />
+<p class="caption">plot of chunk NAShared</p>
+</div>
 
 ## References
