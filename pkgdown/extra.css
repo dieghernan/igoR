@@ -95,3 +95,9 @@ footer .pkgdown-footer-left {
     max-width: 660px;
   }
 }
+
+/* ---Caption figure--- */
+.figure {
+    font-size: 0.85rem;
+    font-style: italic;
+}
