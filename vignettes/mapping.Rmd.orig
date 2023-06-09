@@ -52,6 +52,7 @@ library(countrycode)
 
 # Geospatial packages
 library(giscoR)
+library(sf)
 ```
 
 ## Evolution of the composition of UN
