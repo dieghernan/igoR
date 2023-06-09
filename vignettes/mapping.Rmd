@@ -12,6 +12,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
+
 Maps are a powerful tool to show data. As the scope of `igoR` are the
 Intergovernmental Organizations, mapping and IGOs are a perfect match.
 
@@ -25,7 +27,8 @@ data:
 Also `countrycode` is a very handy package for translating between coding
 schemes (CoW, ISO3, NUTS, FIPS) and country names.
 
-``` r
+
+```r
 library(igoR)
 
 # Helper packages
@@ -44,10 +47,12 @@ United Nations.
 
 First we should extract the data:
 
-``` r
+
+```r
 # Extract shapes
 
 world <- gisco_get_countries(year = "2010")
+#> Error in gsc_api_cache(api_entry, filename, cache_dir, update_cache, verbose): Download failed
 
 un <- igo_search("UN", exact = TRUE)
 
@@ -63,6 +68,7 @@ UN1950 <-
   left_join(world, .) %>%
   mutate(year = 1950) %>%
   select(year, orgname)
+#> Error: object 'world' not found
 
 UN1980 <-
   igo_members("UN", 1980) %>%
@@ -74,6 +80,7 @@ UN1980 <-
   left_join(world, .) %>%
   mutate(year = 1980) %>%
   select(year, orgname)
+#> Error: object 'world' not found
 
 UN2010 <-
   igo_members("UN", 2010) %>%
@@ -85,10 +92,12 @@ UN2010 <-
   left_join(world, .) %>%
   mutate(year = 2010) %>%
   select(year, orgname)
+#> Error: object 'world' not found
 
 # Join all
 
 UN_all <- bind_rows(UN1950, UN1980, UN2010)
+#> Error in eval(expr, envir, enclos): object 'UN1950' not found
 ```
 
 Note that the map is not completely accurate, as the base shapefile contains the
@@ -97,7 +106,8 @@ Germany are not included.
 
 Now we are ready to plot with `ggplot2`:
 
-``` r
+
+```r
 ggplot(UN_all) +
   geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
   # Robinson
@@ -116,17 +126,8 @@ ggplot(UN_all) +
     caption = gisco_attributions()
   ) +
   theme(plot.caption = element_text(face = "italic"))
+#> Error in eval(expr, envir, enclos): object 'UN_all' not found
 ```
-
-::: figure
-<img src="./UNMaps-1.png" alt="UN Members" width="100%"/>
-
-<p class="caption">
-
-UN Members
-
-</p>
-:::
 
 ## Number of shared memberships
 
@@ -135,7 +136,8 @@ Shared memberships are useful for identifying regional patterns.
 The following code produces a map showing the number of full memberships shared
 with Australia for each country on the world:
 
-``` r
+
+```r
 ## Number of igos shared - 2014
 
 # Countries alive in 2014
@@ -165,6 +167,7 @@ sharedmap <-
   world %>%
   left_join(shared) %>%
   select(ISO3_CODE, shared)
+#> Error in eval(expr, envir, enclos): object 'world' not found
 
 # Plot with custom palette
 
@@ -212,17 +215,8 @@ ggplot(sharedmap) +
     legend.title = element_text(size = 7),
     legend.text = element_text(size = 8)
   )
+#> Error in eval(expr, envir, enclos): object 'sharedmap' not found
 ```
-
-::: figure
-<img src="./AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%"/>
-
-<p class="caption">
-
-Shared Full Memberships with Australia (2014)
-
-</p>
-:::
 
 ## Cross-shared memberships
 
@@ -230,7 +224,8 @@ The following map shows how the relationships between the countries of North
 America has flourished on the last 90 years, using a year as representative of
 each decade.
 
-``` r
+
+```r
 # Get shapes
 countries.sf <- gisco_get_countries(country = c("USA", "MEX", "CAN"))
 
@@ -291,16 +286,8 @@ ggplot(map) +
     legend.title = element_text(size = 8),
     strip.background = element_rect(fill = "grey90", colour = NA)
   )
+#> Error in st_geometry.sf(x): attr(obj, "sf_column") does not point to a geometry column.
+#> Did you rename it, without setting st_geometry(obj) <- "newname"?
 ```
-
-::: figure
-<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%"/>
-
-<p class="caption">
-
-Shared Full Memberships on North America (1930 - 2010)
-
-</p>
-:::
 
 ## References
