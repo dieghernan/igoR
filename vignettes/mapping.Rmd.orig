@@ -64,7 +64,7 @@ First we should extract the data:
 ```{r UN}
 # Extract shapes
 
-world <- gisco_get_countries(year = "2010")
+world <- gisco_get_countries()
 
 un <- igo_search("UN", exact = TRUE)
 
