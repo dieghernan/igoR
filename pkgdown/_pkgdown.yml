@@ -31,15 +31,9 @@ navbar:
   type: dark
 
 template:
-  bootstrap: 5
-  bootswatch: cerulean
+  package: gitdevr
   params:
-    ganalytics: G-S61Y539QDX
-  bslib:
-    base_font: {google: "IBM Plex Sans"}
-    headings-color: "#343a40"
-    primary: "#0099ff"
-    
+    ganalytics: G-S61Y539QDX    
 
 home:
   title: igoR | R package for Intergovernmental Organizations (IGOs)

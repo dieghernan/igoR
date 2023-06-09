@@ -22,7 +22,6 @@ jobs:
           extra-packages:
             local::.
             any::pkgdown
-            any::reactable
           needs: website
 
       - name: Deploy package

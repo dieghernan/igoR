@@ -23,8 +23,6 @@ jobs:
           extra-packages: |
             local::.
             any::pkgdown
-            any::giscoR
-            any::reactable
             any::rcmdcheck
             dieghernan/pkgdev
           needs: website

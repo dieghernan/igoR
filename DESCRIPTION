@@ -26,6 +26,7 @@ VignetteBuilder:
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Copyright: © 2000-2021 by the Correlates of War
+Config/Needs/website: dieghernan/gitdevr, reactable, giscoR
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
