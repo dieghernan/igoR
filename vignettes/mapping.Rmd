@@ -38,6 +38,7 @@ library(countrycode)
 
 # Geospatial packages
 library(giscoR)
+library(sf)
 ```
 
 ## Evolution of the composition of UN
@@ -51,8 +52,7 @@ First we should extract the data:
 ```r
 # Extract shapes
 
-world <- gisco_get_countries(year = "2010")
-#> Error in gsc_api_cache(api_entry, filename, cache_dir, update_cache, verbose): Download failed
+world <- gisco_get_countries()
 
 un <- igo_search("UN", exact = TRUE)
 
@@ -68,7 +68,6 @@ UN1950 <-
   left_join(world, .) %>%
   mutate(year = 1950) %>%
   select(year, orgname)
-#> Error: object 'world' not found
 
 UN1980 <-
   igo_members("UN", 1980) %>%
@@ -80,7 +79,6 @@ UN1980 <-
   left_join(world, .) %>%
   mutate(year = 1980) %>%
   select(year, orgname)
-#> Error: object 'world' not found
 
 UN2010 <-
   igo_members("UN", 2010) %>%
@@ -92,12 +90,10 @@ UN2010 <-
   left_join(world, .) %>%
   mutate(year = 2010) %>%
   select(year, orgname)
-#> Error: object 'world' not found
 
 # Join all
 
 UN_all <- bind_rows(UN1950, UN1980, UN2010)
-#> Error in eval(expr, envir, enclos): object 'UN1950' not found
 ```
 
 Note that the map is not completely accurate, as the base shapefile contains the
@@ -126,8 +122,12 @@ ggplot(UN_all) +
     caption = gisco_attributions()
   ) +
   theme(plot.caption = element_text(face = "italic"))
-#> Error in eval(expr, envir, enclos): object 'UN_all' not found
 ```
+
+<div class="figure">
+<img src="./UNMaps-1.png" alt="UN Members" width="100%" />
+<p class="caption">UN Members</p>
+</div>
 
 ## Number of shared memberships
 
@@ -167,7 +167,6 @@ sharedmap <-
   world %>%
   left_join(shared) %>%
   select(ISO3_CODE, shared)
-#> Error in eval(expr, envir, enclos): object 'world' not found
 
 # Plot with custom palette
 
@@ -215,8 +214,12 @@ ggplot(sharedmap) +
     legend.title = element_text(size = 7),
     legend.text = element_text(size = 8)
   )
-#> Error in eval(expr, envir, enclos): object 'sharedmap' not found
 ```
+
+<div class="figure">
+<img src="./AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%" />
+<p class="caption">Shared Full Memberships with Australia (2014)</p>
+</div>
 
 ## Cross-shared memberships
 
@@ -286,8 +289,11 @@ ggplot(map) +
     legend.title = element_text(size = 8),
     strip.background = element_rect(fill = "grey90", colour = NA)
   )
-#> Error in st_geometry.sf(x): attr(obj, "sf_column") does not point to a geometry column.
-#> Did you rename it, without setting st_geometry(obj) <- "newname"?
 ```
+
+<div class="figure">
+<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%" />
+<p class="caption">Shared Full Memberships on North America (1930 - 2010)</p>
+</div>
 
 ## References
