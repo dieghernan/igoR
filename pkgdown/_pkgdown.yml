@@ -1,6 +1,7 @@
 url: https://dieghernan.github.io/igoR
 
-
+development:
+  mode: auto
 
 reference:
   - title: "Datasets"
