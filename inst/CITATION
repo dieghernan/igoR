@@ -13,12 +13,7 @@ bibentry(
   version = meta$Version,
   url = unlist(strsplit(meta$URL, ","))[1],
   abstract = abs,
-  key = "R-igoR",
-  textVersion = paste0(
-    "Hernangomez D (", year, "). igoR: ",
-    gsub("'", "", meta$Title), ". <https://doi.org/", doi, ">, <",
-    unlist(strsplit(meta$URL, ","))[1], ">"
-  )
+  key = "R-igoR"
 )
 
 # Pevehouse, Jon CW, et al.
