@@ -142,9 +142,9 @@ EEC, members (1992)
 
 To cite ‘igoR’ in publications use:
 
-Hernangomez D (2023). igoR: Intergovernmental Organizations Database.
-<https://doi.org/10.5281/zenodo.4442958>,
-<https://dieghernan.github.io/igoR/>
+Hernangómez D (2023). *igoR: Intergovernmental Organizations Database*.
+<doi:10.5281/zenodo.4442958> <https://doi.org/10.5281/zenodo.4442958>,
+<https://dieghernan.github.io/igoR/>.
 
 A BibTeX entry for LaTeX users:
 
