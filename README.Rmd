@@ -146,7 +146,7 @@ knitr::kable(eec_end,
 ## Citation
 
 ```{r cit, echo=FALSE, results='asis'}
-print(citation("igoR")[1], bibtex = FALSE)
+print(citation("igoR")[1], style = "html")
 ```
 
 A BibTeX entry for LaTeX users:
