@@ -31,3 +31,5 @@
 ^pkgdown\.yml$
 ^vignettes/igoR\.Rmd\.orig$
 ^\.lintr$
+^CODE_OF_CONDUCT\.md$
+^CONTRIBUTING\.md$
