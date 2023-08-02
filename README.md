@@ -153,7 +153,7 @@ A BibTeX entry for LaTeX users:
       year = {2023},
       version = {0.1.5},
       url = {https://dieghernan.github.io/igoR/},
-      abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>. Version 3 includes information from 1815 to 2014.},
+      abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
     }
 
 ## References
