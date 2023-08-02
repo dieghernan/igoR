@@ -43,37 +43,38 @@ similar results.*
 
 From @pevehouse2019:
 
-### What is an IGO?
-
-The definition of an Intergovernmental Organization (IGO) on the original
-dataset is based on the following criteria:
-
-1.  An IGO must consist of at least three members of the [COW-defined state
-    system](https://correlatesofwar.org/data-sets/cow-country-codes/).
-
-2.  An IGO must hold regular plenary sessions at least once every ten years
-
-3.  An IGO must possess a permanent secretariat and corresponding headquarters.
-
-### When does an IGO actually begin?
-
-The data sets begins to code an IGO by identifying the first year in which the
-organization functions. In some cases, individual members are listed by year of
-accession or signature.
-
-### When does an IGO die?
-
-Version 3.0 of the IGO data set uses the following criteria:
-
--   An organization is considered terminated when the following words were used
-    to describe the context of the organization:
-
-    -   Replaced;
-    -   Succeeded;
-    -   Superseded;
-    -   Integrated;
-    -   Merged;
-    -   Dies.
+> ### What is an IGO?
+>
+> The definition of an Intergovernmental Organization (IGO) on the original
+> dataset is based on the following criteria:
+>
+> 1.  An IGO must consist of at least three members of the [COW-defined state
+>     system](https://correlatesofwar.org/data-sets/cow-country-codes/).
+>
+> 2.  An IGO must hold regular plenary sessions at least once every ten years
+>
+> 3.  An IGO must possess a permanent secretariat and corresponding
+>     headquarters.
+>
+> ### When does an IGO actually begin?
+>
+> The data sets begins to code an IGO by identifying the first year in which the
+> organization functions. In some cases, individual members are listed by year
+> of accession or signature.
+>
+> ### When does an IGO die?
+>
+> Version 3.0 of the IGO data set uses the following criteria:
+>
+> -   An organization is considered terminated when the following words were
+>     used to describe the context of the organization:
+>
+>     -   Replaced;
+>     -   Succeeded;
+>     -   Superseded;
+>     -   Integrated;
+>     -   Merged;
+>     -   Dies.
 
 ## Analysis
 
@@ -90,10 +91,8 @@ library(ggplot2)
 library(dplyr)
 ```
 
-<details>
-
-<summary><strong>Custom <code>ggplot2</code> theme</strong>:
-<code>theme_igor</code></summary>
+In first place, we create a custom `ggplot2::theme()` named `theme_igor`, that
+we would apply to all our figures:
 
 ```{r custom_theme}
 theme_igor <- theme(
@@ -101,12 +100,12 @@ theme_igor <- theme(
   axis.line.x.bottom = element_line("black"),
   axis.line.y.left = element_line("black"),
   axis.text = element_text(color = "black", family = "sans"),
-  axis.text.y.left = element_text(angle = 90),
+  axis.text.y.left = element_text(angle = 90, hjust = 0.5),
   legend.position = "bottom",
   legend.title = element_blank(),
   legend.key = element_blank(),
   legend.key.width = unit(2, "cm"),
-  legend.text = element_text(family = "sans", size = 13),
+  legend.text = element_text(family = "sans", size = 11.5),
   legend.box.background = element_rect(color = "black", linewidth = 1),
   legend.spacing = unit(1.2 / 100, "npc"),
   plot.background = element_rect("grey90"),
@@ -117,8 +116,6 @@ theme_igor <- theme(
   panel.grid.major.y = element_line("grey90")
 )
 ```
-
-</details>
 
 ### IGOs overview
 
@@ -148,6 +145,7 @@ all_by_year$variable <- factor(all_by_year$variable,
 # Plot
 ggplot(all_by_year, aes(x = year, y = value)) +
   geom_line(color = "black", aes(linetype = variable)) +
+  scale_x_continuous(limits = c(1800, 2014)) +
   scale_linetype_manual(values = c("solid", "dashed")) +
   geom_vline(xintercept = c(1945, 1989)) +
   ylim(0, 400) +
@@ -183,6 +181,10 @@ births_and_deads <- rbind(births, deads) %>% filter(!is.na(year))
 ggplot(births_and_deads, aes(x = year, y = value)) +
   geom_line(color = "black", aes(linetype = variable)) +
   scale_linetype_manual(values = c("solid", "dashed")) +
+  scale_x_continuous(
+    limits = c(1815, 2015),
+    breaks = seq(1815, 2015, by = 25)
+  ) +
   ylim(0, 15) +
   theme_igor
 ```
@@ -190,15 +192,10 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
 ### IGOs across regions
 
 A plot with the number of IGOs by region. The definition of region is based on
-the original definition by @pevehouse2020.
-
-<details>
-
-<summary><strong>Regions definition</strong></summary>
+the original definition by @pevehouse2020, as provided in the complementary
+replication data set [@priorep]:
 
 ```{r regions_code}
-# Extracted from analysis-jpr.do - See https://www.prio.org/JPR/Datasets/
-
 # crossreg and universal codes not included
 
 asia <- c(
@@ -263,8 +260,6 @@ regions <- regions %>%
   ))
 ```
 
-</details>
-
 After we have created a data frame with the regions, we can classify the IGOs by
 region.
 
@@ -297,6 +292,10 @@ ggplot(regionsum, aes(x = year, y = value)) +
   )) +
   guides(linetype = guide_legend(ncol = 2, byrow = TRUE)) +
   ylim(0, 80) +
+  scale_x_continuous(
+    limits = c(1815, 2015),
+    breaks = seq(1815, 2015, by = 25)
+  ) +
   theme_igor
 ```
 
@@ -335,10 +334,13 @@ ggplot(asia5, aes(x = year, y = values)) +
     family = "sans", size = 12,
     margin = margin(r = 6)
   )) +
+  scale_x_continuous(
+    limits = c(1865, 2015),
+    breaks = seq(1865, 2015, by = 25)
+  ) +
   scale_y_continuous("Number of memberships",
-    breaks = c(0, 20, 40, 60, 80, 100),
-    limits = c(0, 95),
-    labels = as.character(c(0, 20, 40, 60, 80, 100))
+    breaks = seq(0, 100, 20),
+    limits = c(0, 100)
   ) +
   theme_igor
 ```
@@ -365,10 +367,13 @@ ggplot(spain_selected, aes(x = year, y = values)) +
     family = "sans", size = 10,
     margin = margin(r = 6)
   )) +
-  scale_y_continuous("Shared memberships w\ Spain",
-    breaks = c(0, 20, 40, 60, 80, 100),
-    limits = c(0, 110),
-    labels = as.character(c(0, 20, 40, 60, 80, 100))
+  scale_x_continuous(
+    limits = c(1815, 2015),
+    breaks = seq(1815, 2015, by = 25)
+  ) +
+  scale_y_continuous("Number of memberships",
+    breaks = seq(0, 110, 20),
+    limits = c(0, 110)
   ) +
   theme_igor +
   geom_vline(xintercept = 1939, alpha = 0.2) +

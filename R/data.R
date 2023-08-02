@@ -18,16 +18,17 @@
 #' Possible value of the status of that state in the IGO are:
 #'
 #' ```{r, echo=FALSE}
-#' t <- tibble::tribble(
-#'   ~Category, ~"Numerical value",
-#'   "No Membership", 0 ,
-#'   "Full Membership ", 1 ,
-#'   "Associate Membership ", 2 ,
-#'   "Observer ", 3,
-#'   "Missing data ", -9 ,
-#'   "State Not System Member ", -1 )
 #'
-#' knitr::kable(t)
+#' tb <- data.frame(
+#'   "Category" = c(
+#'     "No Membership", "Full Membership", "Associate Membership",
+#'     "Observer", "Missing data", "State Not System Member"
+#'   ),
+#'   "Numerical" = c(0, 1, 2, 3, -9, -1)
+#' )
+#'
+#' knitr::kable(tb, col.names = c("**Category**", "**Numerical Value**"))
+#'
 #' ```
 #'
 #' @format data frame with
@@ -83,17 +84,19 @@ NULL
 #' Possible value of the status of that state in the IGO are:
 #'
 #' ```{r, echo=FALSE}
-#' t <- tibble::tribble(
-#'   ~Category, ~"Numerical value",
-#'   "No Membership", 0 ,
-#'   "Full Membership ", 1 ,
-#'   "Associate Membership ", 2 ,
-#'   "Observer ", 3,
-#'   "Missing data ", -9 ,
-#'   "IGO Not In Existence", -1 )
 #'
-#'  knitr::kable(t)
+#' tb <- data.frame(
+#'   "Category" = c(
+#'     "No Membership", "Full Membership", "Associate Membership",
+#'     "Observer", "Missing data", "IGO Not In Existence"
+#'   ),
+#'   "Numerical" = c(0, 1, 2, 3, -9, -1)
+#' )
+#'
+#' knitr::kable(tb, col.names = c("**Category**", "**Numerical Value**"))
+#'
 #' ```
+#'
 #' @format data frame with
 #' `r prettyNum(nrow(igoR::state_year_format3), big.mark=",")` rows.
 #' Relevant fields:

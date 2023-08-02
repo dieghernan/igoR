@@ -31,7 +31,7 @@ intervals through 1965, and annually thereafter).
 }
 \details{
 Possible value of the status of that state in the IGO are:\tabular{lr}{
-   Category \tab Numerical value \cr
+   \strong{Category} \tab \strong{Numerical Value} \cr
    No Membership \tab 0 \cr
    Full Membership \tab 1 \cr
    Associate Membership \tab 2 \cr
