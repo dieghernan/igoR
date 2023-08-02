@@ -54,10 +54,10 @@ data("igo_year_format3")
 dplyr::tibble(igo_year_format3)
 }
 \references{
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
-Jamison. "Tracking Organizations in the World: The Correlates of War
-IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
-(May 2020): 492-503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version 3.0
+datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+\doi{10.1177/0022343319881175}.
 }
 \seealso{
 Other datasets: 

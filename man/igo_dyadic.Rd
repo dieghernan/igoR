@@ -45,14 +45,15 @@ is provided in order to identify relationships.
 
 For each IGO selected via \code{ioname} (or all if the default
 option has been used) a column (using lowercase \code{ioname} as
-identifier) is provided with the following code system:
-\tabular{cc}{
-\strong{Category} \tab \strong{Numerical Value}\cr
-No Joint Membership \tab 0 \cr
-Joint Full Membership \tab 1 \cr
-Missing data \tab -9 \cr
-State Not System Member \tab -1 \cr
+identifier) is provided with the following code system:\tabular{lr}{
+   \strong{Category} \tab \strong{Numerical Value} \cr
+   No Joint Membership \tab 0 \cr
+   Joint Full Membership \tab 1 \cr
+   Missing data \tab -9 \cr
+   State Not System Member \tab -1 \cr
 }
+
+
 If one state in an IGO is a full member but the other is an associate
 member or observer, that IGO is not coded as a joint membership.
 
@@ -86,10 +87,10 @@ dplyr::tibble(custom)
 
 }
 \references{
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
-Jamison. "Tracking Organizations in the World: The Correlates of War
-IGO Version 3.0 Datasets." \emph{Journal of Peace Research} 57, no. 3
-(May 2020): 492-503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version 3.0
+datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+\doi{10.1177/0022343319881175}.
 }
 \seealso{
 \link{state_year_format3},  \link{states2016},

@@ -74,14 +74,11 @@ Alternatively, you can install `igoR` using the
 [r-universe](https://dieghernan.r-universe.dev/igoR):
 
 ```{r, eval=FALSE}
-# Enable this universe
-options(repos = c(
-  dieghernan = "https://dieghernan.r-universe.dev",
-  CRAN = "https://cloud.r-project.org"
+# Install igoR in R:
+install.packages("igoR", repos = c(
+  "https://dieghernan.r-universe.dev",
+  "https://cloud.r-project.org"
 ))
-
-
-install.packages("igoR")
 ```
 
 ## Basic usage
@@ -113,22 +110,18 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 ```
 
 ```{r echo=FALSE}
-knitr::kable(eec_init,
-  caption = paste0(
-    "EEC, members (",
-    unique(eec_init$year), ")"
-  )
-)
+knitr::kable(eec_init, caption = paste0(
+  "EEC, members (",
+  unique(eec_init$year), ")"
+))
 ```
 
-``` r
+```{r eec_end}
 # Latest date
 eec_end <- igo_members(eec_code$ioname)
 ```
 
 ```{r echo=FALSE}
-eec_end <- igo_members(eec_code$ioname)
-
 knitr::kable(eec_end,
   caption = paste0(
     "EEC, members (",

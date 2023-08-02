@@ -46,7 +46,8 @@
 #'   * **version**: COW version number.
 #'
 #' See
-#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs/)
+#' [**Codebook Version 3 IGO
+#'  Data**](https://correlatesofwar.org/data-sets/IGOs/)
 #' for full reference.
 #'
 #' @family datasets
@@ -54,10 +55,10 @@
 #' @note Raw data used internally by **igoR**.
 #'
 #' @references
-#' Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
-#' Jamison. "Tracking Organizations in the World: The Correlates of War
-#' IGO Version 3.0 Datasets." *Journal of Peace Research* 57, no. 3
-#' (May 2020): 492-503.
+#' Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+#' Tracking organizations in the world: The Correlates of War IGO Version 3.0
+#' datasets. *Journal of Peace Research, 57*(3), 492–503.
+#' \doi{10.1177/0022343319881175}.
 #' @examples
 #' data("igo_year_format3")
 #' dplyr::tibble(igo_year_format3)
@@ -104,7 +105,8 @@ NULL
 #'     membership status. See Details.
 #'
 #' See
-#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs/)
+#' [**Codebook Version 3 IGO
+#'  Data**](https://correlatesofwar.org/data-sets/IGOs/)
 #'
 #' @seealso [countrycode::countrycode()] to convert between different country
 #' code schemes.
@@ -113,10 +115,10 @@ NULL
 #'
 #' @note Raw data used internally by **igoR**.
 #' @references
-#' Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
-#' Jamison. "Tracking Organizations in the World: The Correlates of War
-#' IGO Version 3.0 Datasets." *Journal of Peace Research* 57, no. 3
-#' (May 2020): 492-503.
+#' Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+#' Tracking organizations in the world: The Correlates of War IGO Version 3.0
+#' datasets. *Journal of Peace Research, 57*(3), 492–503.
+#' \doi{10.1177/0022343319881175}.
 #'
 #' @examples
 #' data("state_year_format3")

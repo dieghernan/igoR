@@ -10,11 +10,12 @@
 #' [igo_search()].
 #' @source [**Codebook Version 3
 #' IGO Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
+#'
 #' @references
-#' Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer
-#' Jamison. "Tracking Organizations in the World: The Correlates of War
-#' IGO Version 3.0 Datasets." *Journal of Peace Research* 57, no. 3
-#' (May 2020): 492-503.
+#' Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+#' Tracking organizations in the world: The Correlates of War IGO Version 3.0
+#' datasets. *Journal of Peace Research, 57*(3), 492–503.
+#' \doi{10.1177/0022343319881175}.
 #'
 #' @param country1 A single state, used as a base of comparison. It could be
 #' any valid name or code of a state as specified on [states2016].
@@ -39,13 +40,20 @@
 #' For each IGO selected via `ioname` (or all if the default
 #' option has been used) a column (using lowercase `ioname` as
 #' identifier) is provided with the following code system:
-#' \tabular{cc}{
-#'   **Category** \tab **Numerical Value**\cr
-#'     No Joint Membership \tab 0 \cr
-#'     Joint Full Membership \tab 1 \cr
-#'     Missing data \tab -9 \cr
-#'     State Not System Member \tab -1 \cr
-#'     }
+#'
+#' ```{r, echo=FALSE}
+#'
+#' tb <- data.frame(
+#'   "Category" = c(
+#'     "No Joint Membership", "Joint Full Membership",
+#'     "Missing data", "State Not System Member"
+#'   ),
+#'   "Numerical" = c(0, 1, -9, -1)
+#' )
+#'
+#' knitr::kable(tb, col.names = c("**Category**", "**Numerical Value**"))
+#'
+#' ```
 #' If one state in an IGO is a full member but the other is an associate
 #' member or observer, that IGO is not coded as a joint membership.
 #'
@@ -57,7 +65,8 @@
 #'  replicate those values.
 #'
 #' See
-#' [**Codebook Version 3 IGO Data**](https://correlatesofwar.org/data-sets/IGOs/)
+#' [**Codebook Version 3
+#'  IGO Data**](https://correlatesofwar.org/data-sets/IGOs/)
 #'
 #'
 #' @export
@@ -92,38 +101,28 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   country2 <- country2[country2 != country1]
 
   if (length(country2) == 0) {
-    stop(
-      "Codes selected correspond to the same country: ",
-      country1
-    )
+    stop("Codes selected correspond to the same country: ", country1)
   }
 
   if (length(country2) == 1) {
     # Get IGO info
-
     all_igos <- igoR::state_year_format3
 
     min <- min(all_igos$year)
     max <- max(all_igos$year)
 
     # Filter by years
-
     all_igos <- all_igos[all_igos$year %in% year, ]
 
     # Check years
-
     if (nrow(all_igos) == 0) {
       stop(
-        "The value(s) of year are not valid. Years range: ",
-        min,
-        " - ",
+        "The value(s) of year are not valid. Years range: ", min, " - ",
         max
       )
     }
 
-
     # Check ionames if selected
-
     if (!is.null(ioname)) {
       coligos <- colnames(all_igos)
 
@@ -133,10 +132,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
       if (anyNA(colsel)) {
         warning(
           "ioname(s) ",
-          paste0("'",
-            ioname[is.na(colsel)], "'",
-            collapse = ","
-          ),
+          paste0("'", ioname[is.na(colsel)], "'", collapse = ","),
           " not valid"
         )
       }
@@ -150,7 +146,6 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
     }
 
     # Extract countries
-
     c1 <- igoR::igo_search_states(country1)
     c2 <- igoR::igo_search_states(country2)
 
@@ -189,9 +184,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
 
     # Refilter country tables
     c1_igos <- c1_igos[c1_igos$year %in% master$year, ]
-
     c2_igos <- c2_igos[c2_igos$year %in% master$year, ]
-
 
     # Recode table
     igos_colnames <- colnames(c1_igos)
@@ -206,8 +199,8 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
         nrow = nrow(c1_matrix),
         ncol = ncol(c1_matrix)
       )
-    colnames(end_matrix) <- igos_colnames
 
+    colnames(end_matrix) <- igos_colnames
     dims <- dim(end_matrix)
 
     # Create coding
@@ -249,7 +242,6 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
     master <- merge(master, end_igos)
 
     # Reorder rows and cols
-
     colorder <-
       unique(c("dyadid", colnames(c1), colnames(c2), colnames(master)))
     master <- master[, colorder]
@@ -269,18 +261,14 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
       )
 
     dflen <- seq_len(length(country2))[-1]
-
     for (i in dflen) {
-      df <-
-        rbind(
-          df,
-          igo_dyadic(
-            country1 = country1,
-            country2 = country2[i],
-            year = year,
-            ioname = ioname
-          )
+      df <- rbind(
+        df,
+        igo_dyadic(
+          country1 = country1, country2 = country2[i],
+          year = year, ioname = ioname
         )
+      )
     }
 
     return(df)

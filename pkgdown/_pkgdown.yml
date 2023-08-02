@@ -28,13 +28,10 @@ reference:
 figures:
   fig.retina: 2
 
-navbar:
-  type: dark
-
 template:
   package: gitdevr
   params:
-    ganalytics: G-S61Y539QDX    
+    ganalytics: G-S61Y539QDX
 
 home:
   title: igoR | R package for Intergovernmental Organizations (IGOs)

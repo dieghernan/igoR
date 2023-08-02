@@ -29,10 +29,10 @@ igo_search_states <- function(state) {
     find_state <- vector(mode = "numeric")
 
     for (i in seq_len(ncol(df_states))) {
-      find_state <-
-        sort(unique(c(
-          find_state, match(tolower(state), tolower(df_states[, i]))
-        )))
+      find_state <- sort(unique(c(find_state, match(
+        tolower(state),
+        tolower(df_states[, i])
+      ))))
     }
 
     find_state <- sort(find_state)[1]
@@ -57,8 +57,7 @@ igo_search_states <- function(state) {
     dflen <- seq_len(length(state))[-1]
 
     for (i in dflen) {
-      df <-
-        rbind(df, igo_search_states(state[i]))
+      df <- rbind(df, igo_search_states(state[i]))
     }
 
     return(df)

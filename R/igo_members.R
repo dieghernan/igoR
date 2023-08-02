@@ -48,7 +48,6 @@
 #' }
 igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Checks
-
   if (missing(ioname)) {
     stop("You must enter a value on 'ioname'")
   }
@@ -56,14 +55,11 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   if (length(ioname) == 1) {
     df <- igoR::igo_year_format3
 
-
-
     if (!(tolower(ioname) %in% tolower(df$ioname))) {
       stop(ioname, " is not a valid ioname. See igoR::igo_year_format3")
     }
 
     ioname <- df[tolower(df$ioname) == tolower(ioname), "ioname"]
-
     ioname <- unique(ioname)
 
     df <- df[df$ioname == ioname, ]
@@ -73,17 +69,9 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
       year <- interval[2]
     }
     year <- sort(unique(as.integer(year)))
-    yeardf <- data.frame(
-      year = year,
-      check = NA
-    )
+    yeardf <- data.frame(year = year, check = NA)
 
-    yeardf$check <- ifelse(yeardf$year %in% df$year,
-      TRUE,
-      FALSE
-    )
-
-
+    yeardf$check <- ifelse(yeardf$year %in% df$year, TRUE, FALSE)
 
     if (isFALSE(all(yeardf$check))) {
       warning(
@@ -115,9 +103,7 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
       )
     }
 
-
     # End checks
-
     helpdf <- data.frame(
       category = c(
         "No Membership",
@@ -163,11 +149,7 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
 
     # Rearrange columns
     rearcol <- unique(c(
-      "ioname",
-      "ccode",
-      "state",
-      "statenme",
-      "year",
+      "ioname", "ccode", "state", "statenme", "year",
       colnames(cntriesend)
     ))
 
@@ -189,8 +171,7 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
     dflen <- seq_len(length(ioname))[-1]
 
     for (i in dflen) {
-      df <-
-        rbind(df, igo_members(ioname[i], year = year, status = status))
+      df <- rbind(df, igo_members(ioname[i], year = year, status = status))
     }
 
     return(df)

@@ -13,8 +13,6 @@ vignette: >
 ---
 
 ```{r knitr_config, include = FALSE}
-
-start_time <- Sys.time()
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -42,7 +40,6 @@ Also `countrycode` is a very handy package for translating between coding
 schemes (CoW, ISO3, NUTS, FIPS) and country names.
 
 ```{r libs}
-
 library(igoR)
 
 # Helper packages
@@ -64,49 +61,31 @@ First we should extract the data:
 
 ```{r UN}
 # Extract shapes
-
 world <- gisco_get_countries()
-
 un <- igo_search("UN", exact = TRUE)
 
 # Extract three dates - some errors given that ISO doesnt have every COW Code
 # Also join with world sf
-UN1950 <-
-  igo_members("UN", 1950) %>%
-  mutate(ISO3_CODE = countrycode(ccode,
-    "cown",
-    "iso3c",
-    warn = FALSE
-  )) %>%
+un_1950 <- igo_members("UN", 1950) %>%
+  mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
   left_join(world, .) %>%
   mutate(year = 1950) %>%
   select(year, orgname)
 
-UN1980 <-
-  igo_members("UN", 1980) %>%
-  mutate(ISO3_CODE = countrycode(ccode,
-    "cown",
-    "iso3c",
-    warn = FALSE
-  )) %>%
+un_1989 <- igo_members("UN", 1980) %>%
+  mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
   left_join(world, .) %>%
   mutate(year = 1980) %>%
   select(year, orgname)
 
-UN2010 <-
-  igo_members("UN", 2010) %>%
-  mutate(ISO3_CODE = countrycode(ccode,
-    "cown",
-    "iso3c",
-    warn = FALSE
-  )) %>%
+un_2010 <- igo_members("UN", 2010) %>%
+  mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
   left_join(world, .) %>%
   mutate(year = 2010) %>%
   select(year, orgname)
 
 # Join all
-
-UN_all <- bind_rows(UN1950, UN1980, UN2010)
+un_all <- bind_rows(un_1950, un_1989, un_2010)
 ```
 
 Note that the map is not completely accurate, as the base shapefile contains the
@@ -116,24 +95,14 @@ Germany are not included.
 Now we are ready to plot with `ggplot2`:
 
 ```{r UNMaps, fig.asp=1.5, fig.cap="UN Members"}
-
-ggplot(UN_all) +
+ggplot(un_all) +
   geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
   # Robinson
   coord_sf(crs = "ESRI:54030") +
-  facet_wrap(vars(year),
-    ncol = 1,
-    strip.position = "left"
-  ) +
-  scale_fill_manual(
-    values = "#74A9CF",
-    na.value = "#E0E0E0"
-  ) +
+  facet_wrap(~year, ncol = 1, strip.position = "left") +
+  scale_fill_manual(values = "#74A9CF", na.value = "#E0E0E0") +
   theme_void() +
-  labs(
-    title = "UN Members",
-    caption = gisco_attributions()
-  ) +
+  labs(title = "UN Members", caption = gisco_attributions()) +
   theme(plot.caption = element_text(face = "italic"))
 ```
 
@@ -145,9 +114,7 @@ The following code produces a map showing the number of full memberships shared
 with Australia for each country on the world:
 
 ```{r AustShared, fig.asp=0.8, fig.cap="Shared Full Memberships with Australia (2014)"}
-
 ## Number of igos shared - 2014
-
 # Countries alive in 2014
 
 states2014 <- states2016 %>%
@@ -163,16 +130,10 @@ shared <- igo_dyadic("AUL",
 shared$shared <- rowSums(shared == 1)
 
 # ISO3 Code
-shared$ISO3_CODE <- countrycode(shared$ccode2,
-  "cown",
-  "iso3c",
-  warn = FALSE
-)
-
+shared$ISO3_CODE <- countrycode(shared$ccode2, "cown", "iso3c", warn = FALSE)
 
 # Merge with map
-sharedmap <-
-  world %>%
+sharedmap <- world %>%
   left_join(shared) %>%
   select(ISO3_CODE, shared)
 
@@ -181,22 +142,16 @@ sharedmap <-
 pal <- hcl.colors(10, palette = "Lajolla")
 
 # Plot
-
 ggplot(sharedmap) +
   geom_sf(aes(fill = shared), color = NA) +
   # Australia
   geom_sf(
-    data = sharedmap %>% filter(ISO3_CODE == "AUS"),
-    fill = "black",
+    data = sharedmap %>% filter(ISO3_CODE == "AUS"), fill = "black",
     color = NA,
   ) +
   # Robinson
   coord_sf(crs = "ESRI:54030") +
-  scale_fill_gradientn(
-    colours = pal,
-    n.breaks = 10,
-    guide = "legend"
-  ) +
+  scale_fill_gradientn(colours = pal, n.breaks = 10) +
   guides(fill = guide_legend(
     direction = "horizontal",
     title.position = "top",
@@ -231,49 +186,41 @@ America has flourished on the last 90 years, using a year as representative of
 each decade.
 
 ```{r NAShared, fig.cap="Shared Full Memberships on North America (1930 - 2010)"}
-
-# Get shapes
-countries.sf <- gisco_get_countries(country = c("USA", "MEX", "CAN"))
-
 # Select years
 years <- seq(1930, 2010, 10)
 
 # Shared memberships
-USA <- igo_dyadic("USA", c("MEX", "CAN"), years)
-CAN <- igo_dyadic("CAN", c("USA", "MEX"), years)
-MEX <- igo_dyadic("MEX", c("CAN", "USA"), years)
+usa <- igo_dyadic("USA", c("MEX", "CAN"), years)
+can <- igo_dyadic("CAN", c("USA", "MEX"), years)
+mex <- igo_dyadic("MEX", c("CAN", "USA"), years)
 
-USA$value <- rowSums(USA == 1)
-CAN$value <- rowSums(CAN == 1)
-MEX$value <- rowSums(MEX == 1)
+usa$value <- rowSums(usa == 1)
+can$value <- rowSums(can == 1)
+mex$value <- rowSums(mex == 1)
 
 # Long data
-Final <- USA %>%
-  rbind(CAN) %>%
-  rbind(MEX) %>%
+final_na <- usa %>%
+  bind_rows(can, mex) %>%
   select(ccode1, year, value) %>%
   mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c"))
 
 # Create map
-map <- left_join(countries.sf, Final)
+# Get shapes
+countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
+  left_join(final_na)
+
 
 
 # Map
-ggplot(map) +
+ggplot(countries_sf) +
   geom_sf(aes(fill = value), color = NA) +
-  coord_sf(
-    crs = 2163,
-    xlim = c(-3200000, 3333018)
-  ) +
-  facet_wrap(vars(year),
-    ncol = 3
-  ) +
+  coord_sf(crs = 2163, xlim = c(-3200000, 3333018)) +
+  facet_wrap(~year, ncol = 3) +
   scale_fill_gradientn(
     colors = hcl.colors(10, "YlGn", rev = TRUE),
-    breaks = seq(0, 100, 10),
-    guide = "legend"
+    breaks = seq(0, 100, 10)
   ) +
-  guides(fill = guide_legend(keyheight = 1.5)) +
+  guides(fill = guide_legend(keyheight = 1.5, reverse = TRUE)) +
   labs(
     title = "Shared Full Memberships on North America",
     subtitle = "(1930-2010)",
@@ -292,7 +239,6 @@ ggplot(map) +
     legend.title = element_text(size = 8),
     strip.background = element_rect(fill = "grey90", colour = NA)
   )
-
 ```
 
 ## References

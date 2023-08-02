@@ -54,7 +54,6 @@
 igo_state_membership <- function(state, year = NULL,
                                  status = "Full Membership") {
   # Checks
-
   if (missing(state)) {
     stop("You must enter a value on 'state'")
   }
@@ -82,11 +81,7 @@ igo_state_membership <- function(state, year = NULL,
       check = NA
     )
 
-    yeardf$check <- ifelse(yeardf$year %in% df_mem$year,
-      TRUE,
-      FALSE
-    )
-
+    yeardf$check <- ifelse(yeardf$year %in% df_mem$year, TRUE, FALSE)
 
     df_mem <- df_mem[df_mem$year %in% year, ]
 
@@ -107,9 +102,7 @@ igo_state_membership <- function(state, year = NULL,
       )
     }
 
-
     ## Memberships
-
     helpdf <- data.frame(
       category = c(
         "No Membership",
@@ -139,8 +132,6 @@ igo_state_membership <- function(state, year = NULL,
       stop("status values not valid")
     }
 
-
-
     # Extract igoS
     igos <- igoR::igo_year_format3
     igos <-
@@ -168,20 +159,15 @@ igo_state_membership <- function(state, year = NULL,
     igosend <- merge(igosend, df_states)
 
     # Rearrange columns
-    rearcol <-
-      unique(c(
-        colnames(df_states),
-        "year",
-        "ioname",
-        "category",
-        colnames(igosend)
-      ))
+    rearcol <- unique(c(
+      colnames(df_states), "year", "ioname", "category",
+      colnames(igosend)
+    ))
 
     rearcol <- rearcol[-match("value", rearcol)]
     igosend <- igosend[, rearcol]
 
     # Handle missing results
-
     if (nrow(igosend) == 0) {
       warning(
         "No memberships for ",
@@ -195,7 +181,6 @@ igo_state_membership <- function(state, year = NULL,
       df_null$stateabb <- df_states$stateabb
       df_null$statenme <- df_states$statenme
       df_null$state <- df_states$state
-
 
       igosend <- df_null
     }
