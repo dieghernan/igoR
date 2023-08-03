@@ -3,10 +3,13 @@ on:
 
 name: update-docs
 
+permissions:
+  contents: write
+  actions: write
+  
 jobs:
   update-docs:
     runs-on: ubuntu-latest
-    permissions: read-all|write-all
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
