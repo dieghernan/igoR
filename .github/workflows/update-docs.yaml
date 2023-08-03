@@ -3,6 +3,8 @@ on:
 
 name: update-docs
 
+permissions: read-all|write-all
+
 jobs:
   update-docs:
     runs-on: ubuntu-latest
