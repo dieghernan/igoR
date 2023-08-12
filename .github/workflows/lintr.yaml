@@ -22,7 +22,7 @@ on:
       - main
       - master
   schedule:
-    - cron: '56 11 * * 5'
+    - cron: '56 06 * * 5'
 
 permissions:
   contents: read
@@ -53,7 +53,7 @@ jobs:
             any::lintr
 
       - name: Run lintr
-        run: | 
+        run: |
           # Lintr package
           out <- lintr::lint_package()
           # Create SARIF report
@@ -68,4 +68,4 @@ jobs:
         with:
           sarif_file: lintr-results.sarif
           wait-for-processing: true
- 
+
