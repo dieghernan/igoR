@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   tidy = "styler",
   dev = "ragg_png",
-  dpi = 300,
+  dpi = 90,
   fig.path = "./",
   out.width = "100%"
 )
