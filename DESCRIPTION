@@ -30,6 +30,6 @@ Copyright: © 2000-2021 by the Correlates of War
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.0
+RoxygenNote: 7.3.1
 X-schema.org-keywords: R, IGO, Correlates of War, Intergovernmental
     Organisations

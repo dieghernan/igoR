@@ -12,6 +12,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+<!-- mapping.Rmd is generated from mapping.Rmd.orig. Please edit that file -->
+
 
 
 Maps are a powerful tool to show data. As the scope of `igoR` are the
