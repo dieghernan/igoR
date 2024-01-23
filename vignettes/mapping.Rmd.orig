@@ -12,6 +12,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+<!-- mapping.Rmd is generated from mapping.Rmd.orig. Please edit that file -->
+
 ```{r knitr_config, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -20,7 +22,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   tidy = "styler",
   dev = "ragg_png",
-  dpi = 90,
+  dpi = 300,
   fig.path = "./",
   out.width = "100%"
 )
