@@ -43,13 +43,56 @@ Possible value of the status of that state in the IGO are:\tabular{lr}{
    Missing data \tab -9 \cr
    State Not System Member \tab -1 \cr
 }
+
+
+See \strong{Examples} section for an easy way to recode the numerical values into
+\link[base:factor]{factors}.
 }
 \note{
 Raw data used internally by \CRANpkg{igoR}.
 }
 \examples{
+
 data("igo_year_format3")
-dplyr::tibble(igo_year_format3)
+
+# Show a glimpse
+library(dplyr)
+
+igo_year_format3 \%>\%
+  select(ioname:angola) \%>\%
+  glimpse()
+
+# Recode numerical to factors with a small function
+recode_category <- function(x) {
+  r <- dplyr::case_when(
+    x == 0 ~ "No Membership",
+    x == 1 ~ "Full Membership", x == 2 ~ "Associate Membership",
+    x == 3 ~ "Observer", x == -9 ~ "Missing Data",
+    x == -1 ~ "IGO Not In Existence", TRUE ~ NA
+  )
+
+  factor(r,
+    levels = c(
+      "No Membership", "Full Membership", "Associate Membership", "Observer",
+      "Missing Data", "IGO Not In Existence", NA
+    ),
+    exclude = NULL
+  )
+}
+
+# Take a sample
+
+sample_igo_year <- igo_year_format3 \%>\%
+  as_tibble() \%>\%
+  select(ioname:belgium)
+
+sample_igo_year \%>\% glimpse()
+
+# Recode
+sample_igo_year_recoded <- sample_igo_year \%>\%
+  mutate(across(-c(ioname:year), recode_category))
+
+sample_igo_year_recoded \%>\% glimpse()
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).

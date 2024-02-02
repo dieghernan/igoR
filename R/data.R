@@ -31,6 +31,9 @@
 #'
 #' ```
 #'
+#' See **Examples** section for an easy way to recode the numerical values into
+#' [factors][base::factor].
+#'
 #' @format
 #' [`data.frame`][data.frame()] with
 #' `r prettyNum(nrow(igoR::igo_year_format3), big.mark=",")` rows. Relevant
@@ -60,8 +63,47 @@
 #' datasets. *Journal of Peace Research, 57*(3), 492–503.
 #' \doi{10.1177/0022343319881175}.
 #' @examples
+#'
 #' data("igo_year_format3")
-#' dplyr::tibble(igo_year_format3)
+#'
+#' # Show a glimpse
+#' library(dplyr)
+#'
+#' igo_year_format3 %>%
+#'   select(ioname:angola) %>%
+#'   glimpse()
+#'
+#' # Recode numerical to factors with a small function
+#' recode_category <- function(x) {
+#'   r <- dplyr::case_when(
+#'     x == 0 ~ "No Membership",
+#'     x == 1 ~ "Full Membership", x == 2 ~ "Associate Membership",
+#'     x == 3 ~ "Observer", x == -9 ~ "Missing Data",
+#'     x == -1 ~ "IGO Not In Existence", TRUE ~ NA
+#'   )
+#'
+#'   factor(r,
+#'     levels = c(
+#'       "No Membership", "Full Membership", "Associate Membership", "Observer",
+#'       "Missing Data", "IGO Not In Existence", NA
+#'     ),
+#'     exclude = NULL
+#'   )
+#' }
+#'
+#' # Take a sample
+#'
+#' sample_igo_year <- igo_year_format3 %>%
+#'   as_tibble() %>%
+#'   select(ioname:belgium)
+#'
+#' sample_igo_year %>% glimpse()
+#'
+#' # Recode
+#' sample_igo_year_recoded <- sample_igo_year %>%
+#'   mutate(across(-c(ioname:year), recode_category))
+#'
+#' sample_igo_year_recoded %>% glimpse()
 NULL
 
 #' @title Country membership to IGO by year
@@ -190,5 +232,5 @@ NULL
 #' @examples
 #' # example code
 #' data("states2016")
-#' dplyr::tibble(states2016)
+#' dplyr::glimpse(states2016)
 NULL
