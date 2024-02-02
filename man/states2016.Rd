@@ -5,18 +5,16 @@
 \alias{states2016}
 \title{State System Membership (v2016)}
 \format{
-data frame with
-243 rows.
-Relevant fields:
+\code{\link[=data.frame]{data.frame}} with
+243 rows. Relevant fields:
 \itemize{
 \item \strong{ccode}: COW country number.
 \item \strong{stateabb}: COW state abbreviation (3 characters).
 \item \strong{statenme}: COW state name.
-\item \strong{styear...endday}: Fields to identify the begining
-and the end of each tenure.
+\item \strong{styear...endday}: Fields to identify the beginning and the end of each
+tenure.
 \item \strong{version}: Data file version number.
-\item \strong{state}: Abbreviated state name as appear in
-\link{state_year_format3}.
+\item \strong{state}: Abbreviated state name as appear in \link{state_year_format3}.
 }
 }
 \source{
@@ -24,19 +22,17 @@ and the end of each tenure.
 The Correlates of War Project.
 }
 \description{
-The list of states with COW abbreviations and ID numbers, plus
-the field \code{state} from \link{state_year_format3}.
+The list of states with COW abbreviations and ID numbers, plus the field
+\code{state} from \link{state_year_format3}.
 }
 \details{
-This data set contains the list of states in the international
-system as updated and distributed by the Correlates of War Project.
-
 This data set contains the list of states in the international system as
 updated and distributed by the Correlates of War Project.
-These data sets identify states, their standard Correlates of War
-"country code" or state number (used throughout the Correlates of War
-project data sets), state abbreviations, and dates of membership as
-states and major powers in the international system.
+
+These data sets identify states, their standard Correlates of War "country
+code" or state number (used throughout the Correlates of War project data
+sets), state abbreviations, and dates of membership as states and major
+powers in the international system.
 
 The Correlates of War project includes a state in the international system
 from 1816-2016 for the following criteria:
@@ -44,14 +40,14 @@ from 1816-2016 for the following criteria:
 \item \strong{Prior to 1920} the entity must have had a population greater than
 500,000 and have had diplomatic missions at or above the rank of charge
 d'affaires with Britain and France.
-\item \strong{After 1920} the entity must be a member of the League of Nations
-or the United Nations, or have a population greater than 500,000 and
-receive diplomatic missions from two major powers.
+\item \strong{After 1920} the entity must be a member of the League of Nations or the
+United Nations, or have a population greater than 500,000 and receive
+diplomatic missions from two major powers.
 }
 }
 \note{
-\code{state} variable added to original data to help comparison across
-datasets on this package.
+\code{state} variable added to original data to help comparison across datasets
+on this package.
 }
 \examples{
 # example code

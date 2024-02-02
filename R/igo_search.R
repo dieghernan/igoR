@@ -1,19 +1,27 @@
 #' @title Search and Find an IGO
+#'
 #' @name igo_search
-#' @description Search any IGO by name or string pattern.
-#' @return A dataframe.
+#'
+#' @description
+#' Search any IGO by name or string pattern.
+#'
+#' @return
+#' A [`data.frame`][data.frame()].
+#'
 #' @seealso [igo_year_format3]
 #'
-#'
-#' @param pattern regex pattern. If `NULL` the function returns a dataset
-#' with all the IGOs on [igo_year_format3]. Integer values are
-#' accepted.
+#' @param pattern [regex][base::regex] pattern. If `NULL` the function returns
+#'   a dataset with all the IGOs on [igo_year_format3]. Integer values are
+#'   accepted.
 #' @param exact Logical. When `TRUE` only exact matches are returned.
-#' @details The information of each IGO is retrieved based on the last year
-#' available on [igo_year_format3].
 #'
-#' An additional column `label` is provided. This column is a clean
-#' version of `longorgname`
+#' @details
+#' The information of each IGO is retrieved based on the last year available on
+#' [igo_year_format3].
+#'
+#' An additional column `label` is provided. This column is a clean version of
+#' `longorgname`
+#'
 #' @examples
 #' # All values
 #' all <- igo_search()
@@ -48,8 +56,7 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
 
   # Extract last date
   db_last <- db_clean[, c("ioname", "year")]
-  db_lastyear <-
-    aggregate(db_last, by = list(db_last$ioname), FUN = max)
+  db_lastyear <- aggregate(db_last, by = list(db_last$ioname), FUN = max)
   db_lastyear <- db_lastyear[, c("ioname", "year")]
 
   db_end <- merge(db_clean, db_lastyear)
@@ -62,10 +69,9 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
   db_end$label <- gsub("  ", " ", db_end$label)
 
   # Reorder col
-  cols <- unique(c(
-    "ionum", "ioname", "orgname", "longorgname", "label",
-    colnames(db_end)
-  ))
+  cols <- unique(
+    c("ionum", "ioname", "orgname", "longorgname", "label", colnames(db_end))
+  )
 
   cols <- cols[cols != "year"]
   db_end <- db_end[, cols]

@@ -8,7 +8,7 @@ message: 'To cite package "igoR" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'igoR: Intergovernmental Organizations Database'
-version: 0.1.5
+version: 0.1.5.9000
 doi: 10.5281/zenodo.4442958
 abstract: Tools to extract information from the Intergovernmental Organizations ('IGO')
   Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>.
@@ -29,7 +29,7 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
   doi: 10.5281/zenodo.4442958
   year: '2024'
-  version: 0.1.5
+  version: 0.1.5.9000
   url: https://dieghernan.github.io/igoR/
   abstract: Tools to extract information from the Intergovernmental Organizations
     (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>.

@@ -1,20 +1,24 @@
 #' @title Extract Members of an IGO
+#'
 #' @name igo_members
-#' @description Extract all the countries belonging to an IGO on a specific
-#' date.
-#' @return A dataframe.
-#' @seealso [igo_year_format3],
-#' [igo_search()], [state_year_format3].
+#'
+#' @description
+#' Extract all the countries belonging to an IGO on a specific date.
+#'
+#' @return A [`data.frame`][data.frame()].
+#'
+#' @seealso
+#' [igo_year_format3], [igo_search()], [state_year_format3].
+#'
 #' @export
 #'
 #' @param ioname Any valid `ioname` of an IGO as specified on
-#' [igo_year_format3]. It could be also a vector of IGOs.
-#' @param year Year to be assessed, an integer or an array of year.
-#' If `NULL` the latest year available
-#' of the IGO would be extracted.
-#' @param status Character or vector with the membership status to be
-#' extracted. See Details
-#' on [state_year_format3].
+#'   [igo_year_format3]. It could be also a vector of IGOs.
+#' @param year Year to be assessed, an integer or an array of year. If `NULL`
+#'   the latest year available of the IGO would be extracted.
+#' @param status Character or vector with the membership status to be extracted.
+#'   See **Details** on [state_year_format3].
+#'
 #' @examples
 #' # Composition on two different dates
 #' igo_members("EU", year = 1993)
@@ -28,17 +32,14 @@
 #' igo_members("UN", status = "No Membership")
 #'
 #' # Vectorized
-#'
 #' igo_members(c("NAFTA", "EU"), year = 1993)
 #'
 #' # Use countrycodes package to get additional codes
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   EU <- igo_members("EU")
-#'   EU$iso3c <- countrycode(EU$ccode,
-#'     origin = "cown",
-#'     destination = "iso3c"
-#'   )
+#'   EU$iso3c <- countrycode(EU$ccode, origin = "cown", destination = "iso3c")
+#'
 #'   EU$continent <- countrycode(EU$ccode,
 #'     origin = "cown",
 #'     destination = "continent"
@@ -76,9 +77,7 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
     if (isFALSE(all(yeardf$check))) {
       warning(
         "The IGO requested is not available for year(s) ",
-        paste0("'",
-          as.character(yeardf[!yeardf$check, ]$year),
-          "'",
+        paste0("'", as.character(yeardf[!yeardf$check, ]$year), "'",
           collapse = ", "
         )
       )
@@ -89,29 +88,20 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
     if (nrow(df) == 0) {
       stop(
         "year(s) ",
-        paste0("'",
-          as.character(yeardf[!yeardf$check, ]$year),
-          "'",
+        paste0("'", as.character(yeardf[!yeardf$check, ]$year), "'",
           collapse = ", "
         ),
-        " not valid for ",
-        ioname,
-        " date should be any year between ",
-        interval[1],
-        " and ",
-        interval[2]
+        " not valid for ", ioname, " date should be any year between ",
+        interval[1], " and ", interval[2]
       )
     }
 
     # End checks
     helpdf <- data.frame(
       category = c(
-        "No Membership",
-        "Full Membership",
-        "Associate Membership",
-        "Observer",
-        "Missing Data",
-        "IGO Not In Existence"
+        "No Membership", "Full Membership",
+        "Associate Membership", "Observer",
+        "Missing Data", "IGO Not In Existence"
       ),
       value = c(0, 1, 2, 3, -9, -1),
       stringsAsFactors = FALSE
@@ -123,19 +113,16 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
         "status ",
         paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
         " not valid. Valid values are ",
-        paste0("'", helpdf$category, collapse = "', "),
-        "'"
+        paste0("'", helpdf$category, collapse = "', "), "'"
       )
     }
 
     # Extract countries
     cntries <- igoR::state_year_format3
-    cntries <-
-      cntries[cntries$year %in% year, tolower(c(
-        "ccode", "state",
-        "year",
-        ioname
-      ))]
+    cntries <- cntries[
+      cntries$year %in% year,
+      tolower(c("ccode", "state", "year", ioname))
+    ]
 
     colnames(cntries) <- c("ccode", "state", "year", "value")
     cntries$ioname <- as.character(ioname)

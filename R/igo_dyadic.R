@@ -1,14 +1,20 @@
 #' @title Extract the Joint Membership of a pair of Countries across IGOs.
-#' @name igo_dyadic
-#' @description Dyadic version of the data. The unit of observation is a dyad
-#' of countries. It provides a summary of the joint memberships of two IGOs
-#' over time.
 #'
-#' @return A coded data frame representing the years and country dyad (rows)
-#' and the IGOs selected (columns). See Details
-#' @seealso [state_year_format3],  [states2016],
-#' [igo_search()].
-#' @source [**Codebook Version 3
+#' @name igo_dyadic
+#'
+#' @description
+#' Dyadic version of the data. The unit of observation is a dyad of countries.
+#' It provides a summary of the joint memberships of two IGOs over time.
+#'
+#' @return
+#' A coded [`data.frame`][data.frame()] representing the years and country dyad
+#' (rows) and the IGOs selected (columns). See **Details**.
+#'
+#' @seealso
+#' [state_year_format3],  [states2016], [igo_search()].
+#'
+#' @source
+#' [**Codebook Version 3
 #' IGO Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 #'
 #' @references
@@ -18,28 +24,28 @@
 #' \doi{10.1177/0022343319881175}.
 #'
 #' @param country1 A single state, used as a base of comparison. It could be
-#' any valid name or code of a state as specified on [states2016].
+#'   any valid name or code of a state as specified on [states2016].
 #' @param country2 A state of vector of states to be compared with
-#' `country1`.
+#'   `country1`.
 #' @param year Year to be assessed, an integer or an array of year.
-#' @param ioname Optional. `ioname` or vector of `ioname`
-#' corresponding to the IGOs to be assessed. If `NULL` (the default),
-#' all IGOs would be extracted. See codes on [igo_search()].
+#' @param ioname Optional. `ioname` or vector of `ioname` corresponding to the
+#'   IGOs to be assessed. If `NULL` (the default), all IGOs would be extracted.
+#'   See codes on [igo_search()].
+#'
 #' @details
 #' This function tries to replicate the information contained in the original
-#' file distributed by The Correlates of War Project
-#' (`dyadic_format3.dta`). That file is not included in this package due
-#' to its size.
+#' file distributed by The Correlates of War Project (`dyadic_format3.dta`).
+#' That file is not included in this package due to its size.
 #'
-#' The result is a data frame containing the common years of the states
-#' selected via `country1, country2, year` by rows.
+#' The result is a [`data.frame`][data.frame()] containing the common years of
+#' the states selected via `country1, country2, year` by rows.
 #'
-#' An additional column `dyadid`, computed as `(1000*ccode1)+ccode2`
-#' is provided in order to identify relationships.
+#' An additional column `dyadid`, computed as `(1000*ccode1)+ccode2` is provided
+#' in order to identify relationships.
 #'
-#' For each IGO selected via `ioname` (or all if the default
-#' option has been used) a column (using lowercase `ioname` as
-#' identifier) is provided with the following code system:
+#' For each IGO selected via `ioname` (or all if the default option has been
+#' used) a column (using lowercase `ioname` as identifier) is provided with the
+#' following code system:
 #'
 #' ```{r, echo=FALSE}
 #'
@@ -54,22 +60,21 @@
 #' knitr::kable(tb, col.names = c("**Category**", "**Numerical Value**"))
 #'
 #' ```
-#' If one state in an IGO is a full member but the other is an associate
-#' member or observer, that IGO is not coded as a joint membership.
+#' If one state in an IGO is a full member but the other is an associate member
+#' or observer, that IGO is not coded as a joint membership.
 #'
-#'  **Differences with the original dataset**
+#'  # Differences with the original dataset
 #'
 #'  There are some differences on the results provided by this function and the
-#'  original dataset on some IGOs regarding the "Missing Data" (-9) and
-#'  "State Not System Member" (-1). However it is not clear how to fully
+#'  original dataset on some IGOs regarding the "Missing Data" (`-9`) and
+#'  "State Not System Member" (`-1`). However it is not clear how to fully
 #'  replicate those values.
 #'
-#' See
-#' [**Codebook Version 3
-#'  IGO Data**](https://correlatesofwar.org/data-sets/IGOs/)
-#'
+#' See [**Codebook Version 3
+#' IGO Data**](https://correlatesofwar.org/data-sets/IGOs/)
 #'
 #' @export
+#'
 #' @examples
 #' usa_esp <- igo_dyadic("USA", "Spain")
 #' nrow(usa_esp)
@@ -79,11 +84,8 @@
 #'
 #' # Using custom parameters
 #' custom <- igo_dyadic(
-#'   country1 = "France",
-#'   country2 =
-#'     c("Sweden", "Austria"),
-#'   year = 1992:1995,
-#'   ioname = "EU"
+#'   country1 = "France", country2 = c("Sweden", "Austria"),
+#'   year = 1992:1995, ioname = "EU"
 #' )
 #'
 #' dplyr::tibble(custom)
@@ -116,10 +118,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
 
     # Check years
     if (nrow(all_igos) == 0) {
-      stop(
-        "The value(s) of year are not valid. Years range: ", min, " - ",
-        max
-      )
+      stop("The value(s) of year are not valid. Years range: ", min, " - ", max)
     }
 
     # Check ionames if selected
@@ -151,10 +150,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
 
     # nocov start
     if (c1$ccode == c2$ccode) {
-      stop(
-        "Codes selected correspond to the same country: ",
-        c1$statenme
-      )
+      stop("Codes selected correspond to the same country: ", c1$statenme)
     }
     # nocov end
 
@@ -175,10 +171,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
       stop(
         "No common records on the years selected. ",
         "One country (or both) does not exist on that range.",
-        "Countries selected: ",
-        c1$statenme,
-        ", ",
-        c2$statenme
+        "Countries selected: ", c1$statenme, ", ", c2$statenme
       )
     }
 
@@ -188,17 +181,17 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
 
     # Recode table
     igos_colnames <- colnames(c1_igos)
-    igos_colnames <-
-      igos_colnames[!igos_colnames %in% c("ccode1", "year", "state1")]
+    igos_colnames <- igos_colnames[!igos_colnames %in% c(
+      "ccode1", "year",
+      "state1"
+    )]
 
     c1_matrix <- as.matrix(c1_igos[, igos_colnames])
     c2_matrix <- as.matrix(c2_igos[, igos_colnames])
-    end_matrix <-
-      matrix(
-        data = NA,
-        nrow = nrow(c1_matrix),
-        ncol = ncol(c1_matrix)
-      )
+    end_matrix <- matrix(
+      data = NA, nrow = nrow(c1_matrix),
+      ncol = ncol(c1_matrix)
+    )
 
     colnames(end_matrix) <- igos_colnames
     dims <- dim(end_matrix)
@@ -242,8 +235,10 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
     master <- merge(master, end_igos)
 
     # Reorder rows and cols
-    colorder <-
-      unique(c("dyadid", colnames(c1), colnames(c2), colnames(master)))
+    colorder <- unique(c(
+      "dyadid", colnames(c1), colnames(c2),
+      colnames(master)
+    ))
     master <- master[, colorder]
     master <- master[order(master$year), ]
 
@@ -252,23 +247,17 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
     return(master)
   } else {
     # Vectorized part for country2----
-    df <-
-      igo_dyadic(
-        country1 = country1,
-        country2 = country2[1],
-        year = year,
-        ioname = ioname
-      )
+    df <- igo_dyadic(
+      country1 = country1, country2 = country2[1], year = year,
+      ioname = ioname
+    )
 
     dflen <- seq_len(length(country2))[-1]
     for (i in dflen) {
-      df <- rbind(
-        df,
-        igo_dyadic(
-          country1 = country1, country2 = country2[i],
-          year = year, ioname = ioname
-        )
-      )
+      df <- rbind(df, igo_dyadic(
+        country1 = country1, country2 = country2[i], year = year,
+        ioname = ioname
+      ))
     }
 
     return(df)

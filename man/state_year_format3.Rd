@@ -5,29 +5,28 @@
 \alias{state_year_format3}
 \title{Country membership to IGO by year}
 \format{
-data frame with
-15,557 rows.
-Relevant fields:
+\code{\link[=data.frame]{data.frame}} with
+15,557 rows. Relevant
+fields:
 \itemize{
 \item \strong{ccode}: COW country number, see \link{states2016}.
 \item \strong{year}: Calendar Year.
 \item \strong{state}: Abbreviated state name, identical to variable names in
 \link{igo_year_format3}.
 \item \strong{aaaid...wassen}: IGO variables containing information on state
-membership status. See Details.
+membership status. See \strong{Details}.
 }
 
-See
-\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}
+See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}
 }
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs/}{Intergovernmental Organizations (v3)},
-The Correlates of War Project (IGO Data Stata Files)
+\href{https://correlatesofwar.org/data-sets/IGOs/}{Intergovernmental Organizations (v3)}, The Correlates of War
+Project (IGO Data Stata Files)
 }
 \description{
-Data on IGOs from 1815-2014, at the country-year level.
-Contains one record per country-year (with years listed at 5 year
-intervals through 1965, and annually thereafter).
+Data on IGOs from 1815-2014, at the country-year level. Contains one record
+per country-year (with years listed at 5 year intervals through 1965, and
+annually thereafter).
 }
 \details{
 Possible value of the status of that state in the IGO are:\tabular{lr}{
@@ -41,7 +40,7 @@ Possible value of the status of that state in the IGO are:\tabular{lr}{
 }
 }
 \note{
-Raw data used internally by \strong{igoR}.
+Raw data used internally by \CRANpkg{igoR}.
 }
 \examples{
 data("state_year_format3")
@@ -55,8 +54,8 @@ datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\code{\link[countrycode:countrycode]{countrycode::countrycode()}} to convert between different country
-code schemes.
+\code{\link[countrycode:countrycode]{countrycode::countrycode()}} to convert between different country code
+schemes.
 
 Other datasets: 
 \code{\link{igo_year_format3}},

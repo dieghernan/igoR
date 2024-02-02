@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 ```
 
 This vignette is meant to provide **useRs** with an visual, explorable
-introduction to the capabilities of the `igoR` package.
+introduction to the capabilities of the **igoR** package.
 
 The analysis would be based on those provided on [@pevehouse2020]. For more
 information on the IGO data sets and additional downloads, see
@@ -50,9 +50,7 @@ From @pevehouse2019:
 >
 > 1.  An IGO must consist of at least three members of the [COW-defined state
 >     system](https://correlatesofwar.org/data-sets/cow-country-codes/).
->
 > 2.  An IGO must hold regular plenary sessions at least once every ten years
->
 > 3.  An IGO must possess a permanent secretariat and corresponding
 >     headquarters.
 >
@@ -68,7 +66,6 @@ From @pevehouse2019:
 >
 > -   An organization is considered terminated when the following words were
 >     used to describe the context of the organization:
->
 >     -   Replaced;
 >     -   Succeeded;
 >     -   Superseded;
@@ -277,19 +274,17 @@ regionsum <- merge(alligos, regions) %>%
 # Order
 regionsum$region <- factor(regionsum$region,
   levels = c(
-    "Asia", "Europe",
-    "Africa", "Americas",
-    "Middle East"
+    "Asia", "Europe", "Africa",
+    "Americas", "Middle East"
   )
 )
 
 # Plot
 ggplot(regionsum, aes(x = year, y = value)) +
   geom_line(color = "black", aes(linetype = region)) +
-  scale_linetype_manual(values = c(
-    "solid", "dashed",
-    "dotted", "dotdash", "longdash"
-  )) +
+  scale_linetype_manual(
+    values = c("solid", "dashed", "dotted", "dotdash", "longdash")
+  ) +
   guides(linetype = guide_legend(ncol = 2, byrow = TRUE)) +
   ylim(0, 80) +
   scale_x_continuous(
@@ -324,11 +319,9 @@ asia5$statenme <- factor(asia5$statenme, levels = asia5_cntries)
 # Plot
 ggplot(asia5, aes(x = year, y = values)) +
   geom_line(color = "black", aes(linetype = statenme)) +
-  scale_linetype_manual(values = c(
-    "solid", "dashed",
-    "dotted", "dotdash",
-    "longdash"
-  )) +
+  scale_linetype_manual(
+    values = c("solid", "dashed", "dotted", "dotdash", "longdash")
+  ) +
   guides(linetype = guide_legend(ncol = 3, byrow = TRUE)) +
   theme(axis.title.y.left = element_text(
     family = "sans", size = 12,
@@ -377,10 +370,7 @@ ggplot(spain_selected, aes(x = year, y = values)) +
   ) +
   theme_igor +
   geom_vline(xintercept = 1939, alpha = 0.2) +
-  annotate("label",
-    x = 1938, y = 60, size = 3,
-    label = "Spanish \nCivil War"
-  ) +
+  annotate("label", x = 1938, y = 60, size = 3, label = "Spanish \nCivil War") +
   geom_vline(xintercept = 1978, alpha = 0.2) +
   annotate("label",
     x = 1970, y = 100, size = 3,

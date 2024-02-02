@@ -8,18 +8,16 @@ igo_state_membership(state, year = NULL, status = "Full Membership")
 }
 \arguments{
 \item{state}{Any valid name or code of a state as specified on
-\link{states2016}. It could be also a vector of states}
+\code{\link[=states2016]{states2016()}}. It could be also an array of states.}
 
-\item{year}{Year to be assessed, an integer or an array of year.
-If \code{NULL} the latest year available
-of the state would be extracted.}
+\item{year}{Year to be assessed, an integer or an array of year. If \code{NULL}
+the latest year available of the state would be extracted.}
 
-\item{status}{Character or vector with the membership status to be
-extracted. See Details
-on \link{igo_year_format3}.}
+\item{status}{Character or vector with the membership status to be extracted.
+See \strong{Details} on \link{igo_year_format3}.}
 }
 \value{
-A dataframe.
+A \code{\link[=data.frame]{data.frame}}.
 }
 \description{
 Extract all the memberships of a state on a specific date.
@@ -37,32 +35,22 @@ igo_state_membership("ZAN")[, 1:7]
 igo_state_membership("2", year = 1865)
 
 # Extract different status
-
-igo_state_membership("kosovo",
-  status = c(
-    "Associate Membership",
-    "Observer",
-    "Full Membership"
-  )
-)
+igo_state_membership("kosovo", status = c(
+  "Associate Membership", "Observer",
+  "Full Membership"
+))
 
 # Vectorized
-igo_state_membership(c("usa", "spain"),
-  year = 1870:1871
-)
+igo_state_membership(c("usa", "spain"), year = 1870:1871)
 
 # Use countrycodes package to get additional codes
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   IT <- igo_state_membership("Italy", year = 1880)
-  IT$iso3c <- countrycode(IT$ccode,
-    origin = "cown",
-    destination = "iso3c"
-  )
+  IT$iso3c <- countrycode(IT$ccode, origin = "cown", destination = "iso3c")
   head(IT)
 }
 }
 \seealso{
-\link{igo_year_format3}, \code{\link[=igo_search_states]{igo_search_states()}},
-\link{states2016}.
+\link{igo_year_format3}, \code{\link[=igo_search_states]{igo_search_states()}}, \link{states2016}.
 }

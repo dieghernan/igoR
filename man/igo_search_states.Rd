@@ -11,7 +11,7 @@ igo_search_states(state)
 \code{\link[=states2016]{states2016()}}. It could be also an array of states.}
 }
 \value{
-A dataframe.
+A \code{\link[=data.frame]{data.frame}}.
 }
 \description{
 Extract all the memberships of a state on a specific date.

@@ -1,19 +1,25 @@
 #' @title Extract Memberships of a State
+#'
 #' @name igo_state_membership
-#' @description Extract all the memberships of a state on a specific date.
-#' @return A dataframe.
-#' @seealso [igo_year_format3], [igo_search_states()],
-#' [states2016].
+#'
+#' @description
+#' Extract all the memberships of a state on a specific date.
+#'
+#' @return
+#' A [`data.frame`][data.frame()].
+#'
+#' @seealso
+#' [igo_year_format3], [igo_search_states()], [states2016].
+#'
 #' @export
 #'
-#' @param state Any valid name or code of a state as specified on
-#' [states2016]. It could be also a vector of states
-#' @param year Year to be assessed, an integer or an array of year.
-#' If `NULL` the latest year available
-#' of the state would be extracted.
-#' @param status Character or vector with the membership status to be
-#' extracted. See Details
-#' on [igo_year_format3].
+#' @inheritParams igo_search_states
+#'
+#' @param year Year to be assessed, an integer or an array of year. If `NULL`
+#'   the latest year available of the state would be extracted.
+#' @param status Character or vector with the membership status to be extracted.
+#' See **Details** on [igo_year_format3].
+#'
 #' @examples
 #' # Memberships on two different dates
 #' igo_state_membership("Spain", year = 1850)
@@ -27,28 +33,19 @@
 #' igo_state_membership("2", year = 1865)
 #'
 #' # Extract different status
-#'
-#' igo_state_membership("kosovo",
-#'   status = c(
-#'     "Associate Membership",
-#'     "Observer",
-#'     "Full Membership"
-#'   )
-#' )
+#' igo_state_membership("kosovo", status = c(
+#'   "Associate Membership", "Observer",
+#'   "Full Membership"
+#' ))
 #'
 #' # Vectorized
-#' igo_state_membership(c("usa", "spain"),
-#'   year = 1870:1871
-#' )
+#' igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #'
 #' # Use countrycodes package to get additional codes
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   IT <- igo_state_membership("Italy", year = 1880)
-#'   IT$iso3c <- countrycode(IT$ccode,
-#'     origin = "cown",
-#'     destination = "iso3c"
-#'   )
+#'   IT$iso3c <- countrycode(IT$ccode, origin = "cown", destination = "iso3c")
 #'   head(IT)
 #' }
 igo_state_membership <- function(state, year = NULL,
@@ -76,10 +73,7 @@ igo_state_membership <- function(state, year = NULL,
       year <- interval[2]
     }
     year <- sort(unique(as.integer(year)))
-    yeardf <- data.frame(
-      year = year,
-      check = NA
-    )
+    yeardf <- data.frame(year = year, check = NA)
 
     yeardf$check <- ifelse(yeardf$year %in% df_mem$year, TRUE, FALSE)
 
@@ -88,29 +82,20 @@ igo_state_membership <- function(state, year = NULL,
     if (nrow(df_mem) == 0) {
       stop(
         "year(s) ",
-        paste0("'",
-          as.character(yeardf[!yeardf$check, ]$year),
-          "'",
+        paste0("'", as.character(yeardf[!yeardf$check, ]$year), "'",
           collapse = ", "
         ),
-        " not valid for ",
-        df_states$statenme,
-        ". Date should be any year between ",
-        interval[1],
-        " and ",
-        interval[2]
+        " not valid for ", df_states$statenme,
+        ". Date should be any year between ", interval[1], " and ", interval[2]
       )
     }
 
     ## Memberships
     helpdf <- data.frame(
       category = c(
-        "No Membership",
-        "Full Membership",
-        "Associate Membership",
-        "Observer",
-        "Missing Data",
-        "State Not System Member"
+        "No Membership", "Full Membership",
+        "Associate Membership", "Observer",
+        "Missing Data", "State Not System Member"
       ),
       value = c(0, 1, 2, 3, -9, -1),
       stringsAsFactors = FALSE
@@ -123,8 +108,7 @@ igo_state_membership <- function(state, year = NULL,
         "status ",
         paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
         " not valid. Valid values are ",
-        paste0("'", helpdf$category, collapse = "', "),
-        "'"
+        paste0("'", helpdf$category, collapse = "', "), "'"
       )
     }
 
@@ -135,18 +119,13 @@ igo_state_membership <- function(state, year = NULL,
     # Extract igoS
     igos <- igoR::igo_year_format3
     igos <-
-      igos[igos$year %in% year, tolower(
-        c(
-          "ioname",
-          "orgname",
-          "year",
-          "longorgname",
-          "political",
-          "social",
-          "economic",
-          state_names
-        )
-      )]
+      igos[
+        igos$year %in% year,
+        tolower(c(
+          "ioname", "orgname", "year", "longorgname", "political",
+          "social", "economic", state_names
+        ))
+      ]
 
     colnames(igos)[8] <- "value"
 
@@ -170,8 +149,7 @@ igo_state_membership <- function(state, year = NULL,
     # Handle missing results
     if (nrow(igosend) == 0) {
       warning(
-        "No memberships for ",
-        df_states$statenme,
+        "No memberships for ", df_states$statenme,
         " on the year(s) selected"
       )
 
@@ -192,16 +170,14 @@ igo_state_membership <- function(state, year = NULL,
     return(igosend)
   } else {
     # Vectorized
-    df <-
-      igo_state_membership(state[1], year = year, status = status)
+    df <- igo_state_membership(state[1], year = year, status = status)
     dflen <- seq_len(length(state))[-1]
 
     for (i in dflen) {
-      df <-
-        rbind(
-          df,
-          igo_state_membership(state[i], year = year, status = status)
-        )
+      df <- rbind(
+        df,
+        igo_state_membership(state[i], year = year, status = status)
+      )
     }
 
     return(df)

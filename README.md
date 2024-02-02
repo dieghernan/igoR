@@ -21,9 +21,9 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-The goal of `igoR` is to provide access and to extract information from
-the Intergovernmental Organizations Database (IGOs), version 3, provided
-by the Correlates of War Project ([Pevehouse et al.
+The goal of **igoR** is to provide access and to extract information
+from the Intergovernmental Organizations Database (IGOs), version 3,
+provided by the Correlates of War Project ([Pevehouse et al.
 2020](#ref-pevehouse2020)).
 
 The dataset (V3) includes information of **534** IGO from 1816 to 2014,
@@ -40,7 +40,8 @@ this package.
 
 ## Installation
 
-Install `igoR` from [**CRAN**](https://CRAN.R-project.org/package=igoR):
+Install **igoR** from
+[**CRAN**](https://CRAN.R-project.org/package=igoR):
 
 ``` r
 install.packages("igoR")
@@ -53,7 +54,7 @@ library(remotes)
 install_github("dieghernan/igoR")
 ```
 
-Alternatively, you can install `igoR` using the
+Alternatively, you can install **igoR** using the
 [r-universe](https://dieghernan.r-universe.dev/igoR):
 
 ``` r
@@ -131,9 +132,9 @@ EEC, members (1992)
 
 ## Recommended packages
 
-- `countrycode` for converting country names and codes across different
-  systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
-- `dplyr` for data manipulation.
+- **countrycode** for converting country names and codes across
+  different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
+- **dplyr** for data manipulation.
 
 ## Citation
 
@@ -151,7 +152,7 @@ A BibTeX entry for LaTeX users:
       doi = {10.5281/zenodo.4442958},
       author = {Diego Hernangómez},
       year = {2024},
-      version = {0.1.5},
+      version = {0.1.5.9000},
       url = {https://dieghernan.github.io/igoR/},
       abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
     }

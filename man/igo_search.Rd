@@ -7,24 +7,24 @@
 igo_search(pattern = NULL, exact = FALSE)
 }
 \arguments{
-\item{pattern}{regex pattern. If \code{NULL} the function returns a dataset
-with all the IGOs on \link{igo_year_format3}. Integer values are
+\item{pattern}{\link[base:regex]{regex} pattern. If \code{NULL} the function returns
+a dataset with all the IGOs on \link{igo_year_format3}. Integer values are
 accepted.}
 
 \item{exact}{Logical. When \code{TRUE} only exact matches are returned.}
 }
 \value{
-A dataframe.
+A \code{\link[=data.frame]{data.frame}}.
 }
 \description{
 Search any IGO by name or string pattern.
 }
 \details{
-The information of each IGO is retrieved based on the last year
-available on \link{igo_year_format3}.
+The information of each IGO is retrieved based on the last year available on
+\link{igo_year_format3}.
 
-An additional column \code{label} is provided. This column is a clean
-version of \code{longorgname}
+An additional column \code{label} is provided. This column is a clean version of
+\code{longorgname}
 }
 \examples{
 # All values

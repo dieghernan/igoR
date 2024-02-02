@@ -39,7 +39,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-The goal of `igoR` is to provide access and to extract information from the
+The goal of **igoR** is to provide access and to extract information from the
 Intergovernmental Organizations Database (IGOs), version 3, provided by the
 Correlates of War Project [@pevehouse2020].
 
@@ -57,7 +57,7 @@ Additionally, a distribution of the State System Membership
 
 ## Installation
 
-Install `igoR` from [**CRAN**](https://CRAN.R-project.org/package=igoR):
+Install **igoR** from [**CRAN**](https://CRAN.R-project.org/package=igoR):
 
 ```{r, eval=FALSE}
 install.packages("igoR")
@@ -70,7 +70,7 @@ library(remotes)
 install_github("dieghernan/igoR")
 ```
 
-Alternatively, you can install `igoR` using the
+Alternatively, you can install **igoR** using the
 [r-universe](https://dieghernan.r-universe.dev/igoR):
 
 ```{r, eval=FALSE}
@@ -110,10 +110,8 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 ```
 
 ```{r echo=FALSE}
-knitr::kable(eec_init, caption = paste0(
-  "EEC, members (",
-  unique(eec_init$year), ")"
-))
+knitr::kable(eec_init, caption = paste0("EEC, members
+                                        (", unique(eec_init$year), ")"))
 ```
 
 ```{r eec_end}
@@ -122,19 +120,17 @@ eec_end <- igo_members(eec_code$ioname)
 ```
 
 ```{r echo=FALSE}
-knitr::kable(eec_end,
-  caption = paste0(
-    "EEC, members (",
-    unique(eec_end$year), ")"
-  )
-)
+knitr::kable(eec_end, caption = paste0(
+  "EEC, members (",
+  unique(eec_end$year), ")"
+))
 ```
 
 ## Recommended packages
 
--   `countrycode` for converting country names and codes across different
+-   **countrycode** for converting country names and codes across different
     systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
--   `dplyr` for data manipulation.
+-   **dplyr** for data manipulation.
 
 ## Citation
 

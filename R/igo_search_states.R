@@ -1,11 +1,16 @@
 #' @title Finds codes and names of a state
+#'
 #' @name igo_search_states
-#' @description Extract all the memberships of a state on a specific date.
-#' @return A dataframe.
+#'
+#' @description
+#' Extract all the memberships of a state on a specific date.
+#'
+#' @return A [`data.frame`][data.frame()].
+#'
 #' @seealso [states2016()].
 #'
 #' @param state Any valid name or code of a state as specified on
-#' [states2016()]. It could be also an array of states.
+#'   [states2016()]. It could be also an array of states.
 #'
 #' @examples
 #' igo_search_states("Spain")
@@ -29,23 +34,16 @@ igo_search_states <- function(state) {
     find_state <- vector(mode = "numeric")
 
     for (i in seq_len(ncol(df_states))) {
-      find_state <- sort(unique(c(find_state, match(
-        tolower(state),
-        tolower(df_states[, i])
-      ))))
+      find_state <- sort(unique(c(
+        find_state,
+        match(tolower(state), tolower(df_states[, i]))
+      )))
     }
 
     find_state <- sort(find_state)[1]
 
     if (is.na(find_state)) {
-      stop(
-        "state not found: ",
-        paste0("'",
-          state[1],
-          "'",
-          collapse = ", "
-        )
-      )
+      stop("state not found: ", paste0("'", state[1], "'", collapse = ", "))
     }
 
     df_states <- df_states[find_state, ]

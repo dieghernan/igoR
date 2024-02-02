@@ -1,3 +1,7 @@
+# igoR (development version)
+
+-   Update docs and basic package maintenance.
+
 # igoR 0.1.5
 
 -   Update docs and examples.
