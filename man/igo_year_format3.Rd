@@ -45,54 +45,36 @@ Possible value of the status of that state in the IGO are:\tabular{lr}{
 }
 
 
-See \strong{Examples} section for an easy way to recode the numerical values into
-\link[base:factor]{factors}.
+See \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} section for an easy way to recode the numerical
+values into \link[base:factor]{factors}.
 }
 \note{
 Raw data used internally by \CRANpkg{igoR}.
 }
 \examples{
-
-data("igo_year_format3")
+data("state_year_format3")
 
 # Show a glimpse
 library(dplyr)
-
-igo_year_format3 \%>\%
-  select(ioname:angola) \%>\%
+names(state_year_format3)
+state_year_format3 \%>\%
+  select(ccode:afgec) \%>\%
+  filter(year > 1990) \%>\%
   glimpse()
 
-# Recode numerical to factors with a small function
-recode_category <- function(x) {
-  r <- dplyr::case_when(
-    x == 0 ~ "No Membership",
-    x == 1 ~ "Full Membership", x == 2 ~ "Associate Membership",
-    x == 3 ~ "Observer", x == -9 ~ "Missing Data",
-    x == -1 ~ "IGO Not In Existence", TRUE ~ NA
-  )
-
-  factor(r,
-    levels = c(
-      "No Membership", "Full Membership", "Associate Membership", "Observer",
-      "Missing Data", "IGO Not In Existence", NA
-    ),
-    exclude = NULL
-  )
-}
-
-# Take a sample
-
-sample_igo_year <- igo_year_format3 \%>\%
+# Recode numerical to factors: with a sample
+sample_state_year <- state_year_format3 \%>\%
   as_tibble() \%>\%
-  select(ioname:belgium)
+  select(ccode:afgec) \%>\%
+  filter(year == 1990)
 
-sample_igo_year \%>\% glimpse()
+sample_state_year \%>\% glimpse()
 
 # Recode
-sample_igo_year_recoded <- sample_igo_year \%>\%
-  mutate(across(-c(ioname:year), recode_category))
+sample_state_year_recoded <- sample_state_year \%>\%
+  mutate(across(-c(ccode:state), igo_recode_stateyear))
 
-sample_igo_year_recoded \%>\% glimpse()
+sample_state_year_recoded \%>\% glimpse()
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
@@ -102,6 +84,7 @@ datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
 }
 \seealso{
 Other datasets: 
+\code{\link{igo_recode_igoyear}()},
 \code{\link{state_year_format3}},
 \code{\link{states2016}}
 }

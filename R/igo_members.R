@@ -20,19 +20,23 @@
 #'   See **Details** on [state_year_format3].
 #'
 #' @examples
-#' # Composition on two different dates
-#' igo_members("EU", year = 1993)
-#' igo_members("EU")
-#' igo_members("NAFTA", year = c(1995:1998))
+#' library(dplyr)
+#' igo_members("EU", year = 1993) %>% as_tibble()
+#' igo_members("EU") %>% as_tibble()
+#' igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
 #'
 #' # Extract different status
-#' igo_members("ACCT", status = c("Associate Membership", "Observer"))
+#' igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
+#'   as_tibble()
 #'
 #' # States no members of the UN
-#' igo_members("UN", status = "No Membership")
+#' igo_members("UN", status = "No Membership") %>%
+#'   as_tibble()
 #'
 #' # Vectorized
-#' igo_members(c("NAFTA", "EU"), year = 1993)
+#' igo_members(c("NAFTA", "EU"), year = 1993) %>%
+#'   as_tibble() %>%
+#'   arrange(state)
 #'
 #' # Use countrycodes package to get additional codes
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
@@ -45,7 +49,7 @@
 #'     destination = "continent"
 #'   )
 #'
-#'   head(EU)
+#'   tibble(EU)
 #' }
 igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Checks
@@ -97,23 +101,15 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
     }
 
     # End checks
-    helpdf <- data.frame(
-      category = c(
-        "No Membership", "Full Membership",
-        "Associate Membership", "Observer",
-        "Missing Data", "IGO Not In Existence"
-      ),
-      value = c(0, 1, 2, 3, -9, -1),
-      stringsAsFactors = FALSE
-    )
-
-    checkstatus <- match(status, helpdf$category)
+    levls <- levels(igo_recode_stateyear(1))
+    levls <- levls[!is.na(levls)]
+    checkstatus <- match(status, levls)
     if (isTRUE(anyNA(checkstatus))) {
       warning(
         "status ",
         paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
         " not valid. Valid values are ",
-        paste0("'", helpdf$category, collapse = "', "), "'"
+        paste0("'", levls, collapse = "', "), "'"
       )
     }
 
@@ -126,8 +122,8 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
 
     colnames(cntries) <- c("ccode", "state", "year", "value")
     cntries$ioname <- as.character(ioname)
-    codestatus <- helpdf[helpdf$category %in% status, ]
-    cntriesend <- merge(cntries, codestatus)
+    cntries$category <- igo_recode_stateyear(cntries$value)
+    cntriesend <- cntries[cntries$category %in% status, ]
     cntriesend <- merge(cntriesend, df)
 
     # Names

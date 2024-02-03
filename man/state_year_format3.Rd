@@ -38,6 +38,10 @@ Possible value of the status of that state in the IGO are:\tabular{lr}{
    Missing data \tab -9 \cr
    IGO Not In Existence \tab -1 \cr
 }
+
+
+See \code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} section for an easy way to recode the numerical
+values into \link[base:factor]{factors}.
 }
 \note{
 Raw data used internally by \CRANpkg{igoR}.
@@ -58,6 +62,7 @@ datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
 schemes.
 
 Other datasets: 
+\code{\link{igo_recode_igoyear}()},
 \code{\link{igo_year_format3}},
 \code{\link{states2016}}
 }

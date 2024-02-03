@@ -96,8 +96,8 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
     stop("country1 should be a single value")
   }
 
-  country1 <- igoR::igo_search_states(country1)$stateabb
-  country2 <- unique(igoR::igo_search_states(country2)$stateabb)
+  country1 <- igo_search_states(country1)$stateabb
+  country2 <- unique(igo_search_states(country2)$stateabb)
 
   # Initial clean up
   country2 <- country2[country2 != country1]
@@ -145,8 +145,8 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
     }
 
     # Extract countries
-    c1 <- igoR::igo_search_states(country1)
-    c2 <- igoR::igo_search_states(country2)
+    c1 <- igo_search_states(country1)
+    c2 <- igo_search_states(country2)
 
     # nocov start
     if (c1$ccode == c2$ccode) {

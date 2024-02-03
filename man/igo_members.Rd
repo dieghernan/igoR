@@ -23,19 +23,23 @@ A \code{\link[=data.frame]{data.frame}}.
 Extract all the countries belonging to an IGO on a specific date.
 }
 \examples{
-# Composition on two different dates
-igo_members("EU", year = 1993)
-igo_members("EU")
-igo_members("NAFTA", year = c(1995:1998))
+library(dplyr)
+igo_members("EU", year = 1993) \%>\% as_tibble()
+igo_members("EU") \%>\% as_tibble()
+igo_members("NAFTA", year = c(1995:1998)) \%>\% as_tibble()
 
 # Extract different status
-igo_members("ACCT", status = c("Associate Membership", "Observer"))
+igo_members("ACCT", status = c("Associate Membership", "Observer")) \%>\%
+  as_tibble()
 
 # States no members of the UN
-igo_members("UN", status = "No Membership")
+igo_members("UN", status = "No Membership") \%>\%
+  as_tibble()
 
 # Vectorized
-igo_members(c("NAFTA", "EU"), year = 1993)
+igo_members(c("NAFTA", "EU"), year = 1993) \%>\%
+  as_tibble() \%>\%
+  arrange(state)
 
 # Use countrycodes package to get additional codes
 if (requireNamespace("countrycode", quietly = TRUE)) {
@@ -48,7 +52,7 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
     destination = "continent"
   )
 
-  head(EU)
+  tibble(EU)
 }
 }
 \seealso{

@@ -2,6 +2,8 @@
 
 export(igo_dyadic)
 export(igo_members)
+export(igo_recode_igoyear)
+export(igo_recode_stateyear)
 export(igo_search)
 export(igo_search_states)
 export(igo_state_membership)

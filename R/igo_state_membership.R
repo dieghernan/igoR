@@ -91,24 +91,15 @@ igo_state_membership <- function(state, year = NULL,
     }
 
     ## Memberships
-    helpdf <- data.frame(
-      category = c(
-        "No Membership", "Full Membership",
-        "Associate Membership", "Observer",
-        "Missing Data", "State Not System Member"
-      ),
-      value = c(0, 1, 2, 3, -9, -1),
-      stringsAsFactors = FALSE
-    )
-
-
-    checkstatus <- match(status, helpdf$category)
+    levls <- levels(igo_recode_igoyear(1))
+    levls <- levls[!is.na(levls)]
+    checkstatus <- match(status, levls)
     if (isTRUE(anyNA(checkstatus))) {
       warning(
         "status ",
         paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
         " not valid. Valid values are ",
-        paste0("'", helpdf$category, collapse = "', "), "'"
+        paste0("'", levls, collapse = "', "), "'"
       )
     }
 
@@ -130,11 +121,9 @@ igo_state_membership <- function(state, year = NULL,
     colnames(igos)[8] <- "value"
 
     igos$state <- as.character(state_names)
+    igos$category <- igo_recode_igoyear(igos$value)
 
-    codestatus <- helpdf[helpdf$category %in% status, ]
-
-
-    igosend <- merge(igos, codestatus)
+    igosend <- igos[igos$category %in% status, ]
     igosend <- merge(igosend, df_states)
 
     # Rearrange columns

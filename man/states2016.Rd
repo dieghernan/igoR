@@ -60,6 +60,7 @@ Online, \url{https://correlatesofwar.org/}.
 }
 \seealso{
 Other datasets: 
+\code{\link{igo_recode_igoyear}()},
 \code{\link{igo_year_format3}},
 \code{\link{state_year_format3}}
 }
