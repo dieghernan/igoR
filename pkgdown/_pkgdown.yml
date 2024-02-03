@@ -7,9 +7,7 @@ reference:
   - title: "Datasets"
     desc: These objects are datasets already included in the package.
     contents:
-      - igo_year_format3
-      - state_year_format3
-      - states2016
+      - has_concept("datasets")
 
   - title: "Search functions"
     desc: Helper function to extract information.
