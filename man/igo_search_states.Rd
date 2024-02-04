@@ -17,15 +17,17 @@ A \code{\link[=data.frame]{data.frame}}.
 Extract all the memberships of a state on a specific date.
 }
 \examples{
-igo_search_states("Spain")
+library(dplyr)
 
-igo_search_states(c(20, 150))
+igo_search_states("Spain") \%>\% as_tibble()
 
-igo_search_states("congo")
+igo_search_states(c(20, 150)) \%>\% as_tibble()
 
-igo_search_states(c("Germany", "papal states"))
+igo_search_states("congo") \%>\% as_tibble()
 
-igo_search_states(c("FRN", "United Kingdom", 240, "italy"))
+igo_search_states(c("Germany", "papal states")) \%>\% as_tibble()
+
+igo_search_states(c("FRN", "United Kingdom", 240, "italy")) \%>\% as_tibble()
 }
 \seealso{
 \code{\link[=states2016]{states2016()}}.

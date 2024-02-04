@@ -83,6 +83,7 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   }
 
   end <- do.call("rbind", clean)
+  rownames(end) <- NULL
   end
 }
 

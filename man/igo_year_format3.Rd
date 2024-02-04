@@ -56,7 +56,7 @@ data("state_year_format3")
 
 # Show a glimpse
 library(dplyr)
-names(state_year_format3)
+
 state_year_format3 \%>\%
   select(ccode:afgec) \%>\%
   filter(year > 1990) \%>\%
