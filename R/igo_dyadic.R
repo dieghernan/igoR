@@ -59,6 +59,10 @@
 #' knitr::kable(tb, col.names = c("**Category**", "**Numerical Value**"))
 #'
 #' ```
+#'
+#' See [igo_recode_dyadic()] section for an easy way to recode the numerical
+#' values into [factors][base::factor].
+#'
 #' If one state in an IGO is a full member but the other is an associate member
 #' or observer, that IGO is not coded as a joint membership.
 #'

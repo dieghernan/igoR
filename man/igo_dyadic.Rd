@@ -50,6 +50,9 @@ following code system:\tabular{lr}{
 }
 
 
+See \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} section for an easy way to recode the numerical
+values into \link[base:factor]{factors}.
+
 If one state in an IGO is a full member but the other is an associate member
 or observer, that IGO is not coded as a joint membership.
 }
