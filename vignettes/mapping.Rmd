@@ -52,36 +52,30 @@ United Nations. First we should extract the data:
 ```r
 # Extract shapes
 world <- gisco_get_countries()
-un <- igo_search("UN", exact = TRUE)
 
 # Extract three dates - some errors given that ISO doesnt have every COW Code
-# Also join with world sf
-un_1950 <- igo_members("UN", 1950) %>%
-  mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c",
-    warn = FALSE
-  )) %>%
-  left_join(world, .) %>%
-  mutate(year = 1950) %>%
-  select(year, orgname)
+un_all <- igo_members("UN", c(1950, 1980, 2010),
+  status = c("Full Membership", "No Membership")
+) %>%
+  # Add ISO3 Code
+  mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
+  select(year, orgname, ISO3_CODE, category)
 
-un_1989 <- igo_members("UN", 1980) %>%
-  mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c",
-    warn = FALSE
-  )) %>%
-  left_join(world, .) %>%
-  mutate(year = 1980) %>%
-  select(year, orgname)
+# Auxiliar data.frame to collect every ISO3-year pairs
 
-un_2010 <- igo_members("UN", 2010) %>%
-  mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c",
-    warn = FALSE
-  )) %>%
-  left_join(world, .) %>%
-  mutate(year = 2010) %>%
-  select(year, orgname)
+base_df <- expand.grid(
+  ISO3_CODE = unique(world$ISO3_CODE),
+  year = unique(un_all$year),
+  stringsAsFactors = FALSE
+) %>%
+  as_tibble()
 
-# Join all
-un_all <- bind_rows(un_1950, un_1989, un_2010)
+# Merge everything with the spatial object
+un_all_sf <- world %>%
+  # Expand to all cases
+  left_join(base_df, by = "ISO3_CODE") %>%
+  # Add info
+  left_join(un_all, by = c("ISO3_CODE", "year"))
 ```
 
 Note that the map is not completely accurate, as the base shapefile contains the
@@ -92,14 +86,24 @@ Now we are ready to plot with **ggplot2**:
 
 
 ```r
-ggplot(un_all) +
-  geom_sf(aes(fill = orgname), color = NA, show.legend = FALSE) +
+ggplot(un_all_sf) +
+  geom_sf(aes(fill = category), color = NA) +
   # Robinson
   coord_sf(crs = "ESRI:54030") +
   facet_wrap(~year, ncol = 1, strip.position = "left") +
-  scale_fill_manual(values = "#74A9CF", na.value = "#E0E0E0") +
-  theme_void() +
-  labs(title = "UN Members", caption = gisco_attributions()) +
+  scale_fill_manual(
+    values = c("Full Membership" = "#74A9CF", "No Membership" = "#FF7F7F"),
+    na.value = "#E0E0E0",
+    # Reorder legend
+    limits = c("Full Membership", "No Membership", NA),
+    # Relabel legend
+    labels = c("Full Membership", "No Membership", "N/A")
+  ) +
+  labs(
+    title = "UN Members", caption = gisco_attributions(),
+    fill = "Membership"
+  ) +
+  theme_minimal() +
   theme(plot.caption = element_text(face = "italic"))
 ```
 

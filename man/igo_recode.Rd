@@ -3,11 +3,14 @@
 \name{igo_recode_igoyear}
 \alias{igo_recode_igoyear}
 \alias{igo_recode_stateyear}
+\alias{igo_recode_dyadic}
 \title{Helper functions to recode categories}
 \usage{
 igo_recode_igoyear(x)
 
 igo_recode_stateyear(x)
+
+igo_recode_dyadic(x)
 }
 \arguments{
 \item{x}{Numerical value (or vector of values) to recode.}
@@ -23,6 +26,8 @@ These functions convert the numerical code of \link{igo_year_format3} and
 \link{igo_year_format3}.
 \item \code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} is intended to work with values on
 \link{state_year_format3}.
+\item \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} is intended to work with values on
+\code{\link[=igo_dyadic]{igo_dyadic()}}.
 }
 }
 \examples{

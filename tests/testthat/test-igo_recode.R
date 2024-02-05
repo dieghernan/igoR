@@ -19,3 +19,14 @@ test_that("recode state year", {
   expect_length(levels(checkl), 7)
   expect_snapshot(igo_recode_stateyear(-1))
 })
+
+test_that("recode dyadic", {
+  expect_snapshot(
+    igo_recode_dyadic(c(0, 1, -9, -1))
+  )
+
+  checkl <- igo_recode_dyadic(c(-3, NA, -9, -1))
+  expect_snapshot(checkl)
+  expect_length(levels(checkl), 5)
+  expect_snapshot(igo_recode_dyadic(-1))
+})

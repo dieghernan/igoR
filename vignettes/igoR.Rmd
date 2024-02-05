@@ -131,13 +131,13 @@ countries_by_year <- state_year_format3 %>%
   summarise(value = n(), .groups = "keep") %>%
   mutate(variable = "Number of COW states")
 
-all_by_year <- rbind(igos_by_year, countries_by_year) %>%
-  mutate(variable = factor(variable))
+all_by_year <- igos_by_year %>%
+  bind_rows(countries_by_year) %>%
+  # For labelling the plot
+  mutate(variable = factor(variable,
+    levels = c("Total IGOs", "Number of COW states")
+  ))
 
-# Reverse values
-all_by_year$variable <- factor(all_by_year$variable,
-  levels = rev(levels(all_by_year$variable))
-)
 
 # Plot
 ggplot(all_by_year, aes(x = year, y = value)) +
@@ -171,8 +171,9 @@ deads <- df %>%
   mutate(variable = "IGO Deaths")
 
 
-births_and_deads <- rbind(births, deads) %>% filter(!is.na(year))
-
+births_and_deads <- births %>%
+  bind_rows(deads) %>%
+  filter(!is.na(year))
 
 # Plot
 ggplot(births_and_deads, aes(x = year, y = value)) +
@@ -244,9 +245,7 @@ americas <- c(
   4260, 4280, 4370
 )
 
-regions <- igo_search()
-
-regions <- regions %>%
+regions <- igo_search() %>%
   mutate(region = case_when(
     ionum %in% africa ~ "Africa",
     ionum %in% americas ~ "Americas",
@@ -254,7 +253,8 @@ regions <- regions %>%
     ionum %in% europe ~ "Europe",
     ionum %in% middle_east ~ "Middle East",
     TRUE ~ NA
-  ))
+  )) %>%
+  select(ioname, region)
 ```
 
 After we have created a data frame with the regions, we can classify the IGOs by
@@ -264,20 +264,22 @@ region.
 # regions dataset created on previous chunk
 
 # All IGOs
-alligos <- igo_year_format3[, c("year", "ionum")]
+alligos <- igo_year_format3 %>%
+  select(ioname, year)
 
-regionsum <- merge(alligos, regions) %>%
+regionsum <- alligos %>%
+  left_join(regions) %>%
   group_by(year, region) %>%
   summarise(value = n(), .groups = "keep") %>%
-  filter(!is.na(region))
+  filter(!is.na(region)) %>%
+  # For plotting
+  mutate(region = factor(region,
+    levels = c(
+      "Asia", "Europe", "Africa", "Americas",
+      "Middle East"
+    )
+  ))
 
-# Order
-regionsum$region <- factor(regionsum$region,
-  levels = c(
-    "Asia", "Europe", "Africa",
-    "Americas", "Middle East"
-  )
-)
 
 # Plot
 ggplot(regionsum, aes(x = year, y = value)) +
@@ -310,11 +312,8 @@ asia5_igos <- igo_state_membership(
 
 asia5 <- asia5_igos %>%
   group_by(statenme, year) %>%
-  summarise(values = n(), .groups = "keep")
-
-
-# Reorder
-asia5$statenme <- factor(asia5$statenme, levels = asia5_cntries)
+  summarise(values = n(), .groups = "keep") %>%
+  mutate(statenme = factor(statenme, levels = asia5_cntries))
 
 # Plot
 ggplot(asia5, aes(x = year, y = values)) +
@@ -348,8 +347,9 @@ selected_countries <- c("France", "Morocco", "China", "USA")
 spain_selected <- igo_dyadic("Spain", selected_countries)
 
 # Compute number of shared memberships
-
-spain_selected$values <- rowSums(spain_selected == 1)
+spain_selected <- spain_selected %>%
+  rowwise() %>%
+  mutate(values = sum(c_across(aaaid:wassen) == 1))
 
 # Plot
 ggplot(spain_selected, aes(x = year, y = values)) +

@@ -1,7 +1,8 @@
 # igoR (development version)
 
+-   Internal refactor of the code. The user shouldn't notice any visible change.
 -   New helper functions for converting numerical values to labels:
-    `igo_recode_igoyear()` and `igo_recode_stateyear()`.
+    `igo_recode_igoyear()`, `igo_recode_stateyear()`, `igo_recode_dyadic()`.
 -   Update docs and basic package maintenance.
 
 # igoR 0.1.5
