@@ -4,7 +4,8 @@
 #'
 #' @description
 #' Dyadic version of the data. The unit of observation is a dyad of countries.
-#' It provides a summary of the joint memberships of two IGOs over time.
+#' It provides a summary of the joint memberships of two countries across IGOs
+#' over time.
 #'
 #' @return
 #' A coded [`data.frame`][data.frame()] representing the years and country dyad
@@ -23,10 +24,8 @@
 #' datasets. *Journal of Peace Research, 57*(3), 492–503.
 #' \doi{10.1177/0022343319881175}.
 #'
-#' @param country1 A single state, used as a base of comparison. It could be
-#'   any valid name or code of a state as specified on [states2016].
-#' @param country2 A state of vector of states to be compared with
-#'   `country1`.
+#' @param country1,country2 A state of vector of states to be compared. It
+#'   could be any valid name or code of a state as specified on [states2016].
 #' @param year Year to be assessed, an integer or an array of year.
 #' @param ioname Optional. `ioname` or vector of `ioname` corresponding to the
 #'   IGOs to be assessed. If `NULL` (the default), all IGOs would be extracted.
@@ -84,182 +83,201 @@
 #'
 #' # Using custom parameters
 #' custom <- igo_dyadic(
-#'   country1 = "France", country2 = c("Sweden", "Austria"),
-#'   year = 1992:1995, ioname = "EU"
+#'   country1 = c("France", "Germany"), country2 = c("Sweden", "Austria"),
+#'   year = 1992:1993, ioname = "EU"
 #' )
 #'
-#' dplyr::tibble(custom)
-#'
+#' dplyr::glimpse(custom)
 igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
-  # Check countries
-  if (length(country1) != 1) {
-    stop("country1 should be a single value")
+  # Check inputs
+  if (!is.numeric(year)) {
+    warning("year should be numeric, no ", paste0(class(year), collapse = ", "))
+    return(invisible(NULL))
   }
 
-  country1 <- igo_search_states(country1)$stateabb
-  country2 <- unique(igo_search_states(country2)$stateabb)
+  # Prepare base for applys
+  c1s <- igo_search_states(country1)
+  c2s <- igo_search_states(country2)
 
-  # Initial clean up
-  country2 <- country2[country2 != country1]
-
-  if (length(country2) == 0) {
-    stop("Codes selected correspond to the same country: ", country1)
+  if (any(is.null(c1s), is.null(c2s))) {
+    warning("No country(ies) found for comparison")
+    return(invisible(NULL))
   }
 
-  if (length(country2) == 1) {
-    # Get IGO info
-    all_igos <- igoR::state_year_format3
+  names(c1s) <- paste0(names(c1s), "1")
+  names(c2s) <- paste0(names(c2s), "2")
 
-    min <- min(all_igos$year)
-    max <- max(all_igos$year)
+  base_df <- expand.grid(
+    state1 = unique(c1s$state1),
+    state2 = unique(c2s$state2),
+    stringsAsFactors = FALSE
+  )
 
-    # Filter by years
-    all_igos <- all_igos[all_igos$year %in% year, ]
+  # Remove 1 to 1 comparisons
+  base_df <- base_df[base_df$state1 != base_df$state2, ]
 
-    # Check years
-    if (nrow(all_igos) == 0) {
-      stop("The value(s) of year are not valid. Years range: ", min, " - ", max)
-    }
 
-    # Check ionames if selected
-    if (!is.null(ioname)) {
-      coligos <- colnames(all_igos)
-
-      ioname <- unique(tolower(ioname))
-      colsel <- match(ioname, coligos)
-
-      if (anyNA(colsel)) {
-        warning(
-          "ioname(s) ",
-          paste0("'", ioname[is.na(colsel)], "'", collapse = ","),
-          " not valid"
-        )
-      }
-
-      if (all(is.na(colsel))) {
-        stop("Execution halted. No valid ionames used.")
-      }
-
-      colsel <- c(1:2, colsel[!is.na(colsel)])
-      all_igos <- all_igos[, colsel]
-    }
-
-    # Extract countries
-    c1 <- igo_search_states(country1)
-    c2 <- igo_search_states(country2)
-
-    # nocov start
-    if (c1$ccode == c2$ccode) {
-      stop("Codes selected correspond to the same country: ", c1$statenme)
-    }
-    # nocov end
-
-    # Extract igos by country
-    c1_igos <- all_igos[all_igos$ccode == c1$ccode, ]
-    colnames(c1_igos) <- gsub("ccode", "ccode1", colnames(c1_igos))
-    colnames(c1_igos) <- gsub("state", "state1", colnames(c1_igos))
-
-    c2_igos <- all_igos[all_igos$ccode == c2$ccode, ]
-    colnames(c2_igos) <- gsub("ccode", "ccode2", colnames(c2_igos))
-    colnames(c2_igos) <- gsub("state", "state2", colnames(c2_igos))
-
-    # Master table with common years
-    master <- merge(c1_igos[, 1:2], c2_igos[, 1:2])
-    master$dyadid <- master$ccode1 * 1000 + master$ccode2
-    # Check
-    if (nrow(master) == 0) {
-      stop(
-        "No common records on the years selected. ",
-        "One country (or both) does not exist on that range.",
-        "Countries selected: ", c1$statenme, ", ", c2$statenme
-      )
-    }
-
-    # Refilter country tables
-    c1_igos <- c1_igos[c1_igos$year %in% master$year, ]
-    c2_igos <- c2_igos[c2_igos$year %in% master$year, ]
-
-    # Recode table
-    igos_colnames <- colnames(c1_igos)
-    igos_colnames <- igos_colnames[!igos_colnames %in% c(
-      "ccode1", "year",
-      "state1"
-    )]
-
-    c1_matrix <- as.matrix(c1_igos[, igos_colnames])
-    c2_matrix <- as.matrix(c2_igos[, igos_colnames])
-    end_matrix <- matrix(
-      data = NA, nrow = nrow(c1_matrix),
-      ncol = ncol(c1_matrix)
+  if (nrow(base_df) == 0) {
+    warning(
+      "No different country(ies) found for comparison ",
+      "in 'country','country2' values"
     )
-
-    colnames(end_matrix) <- igos_colnames
-    dims <- dim(end_matrix)
-
-    # Create coding
-    for (r in seq_len(dims[1])) {
-      for (c in seq_len(dims[2])) {
-        vals <- c(c1_matrix[r, c], c2_matrix[r, c])
-
-        if (any(vals == -9)) {
-          finalvalue <- -9
-        } else if (any(vals == -1)) {
-          finalvalue <- -1
-        } else if (all(vals == 1)) {
-          finalvalue <- 1
-        } else if (any(vals %in% c(0, 2, 3))) {
-          finalvalue <- 0
-        } else {
-          # Safe coding
-          # nocov start
-          finalvalue <- -9
-          # nocov end
-        }
-
-        end_matrix[r, c] <- finalvalue
-      }
-    }
-
-    # Handle NAs
-    end_matrix[is.na(end_matrix)] <- -9
-
-    end_igos <- as.data.frame(end_matrix)
-    end_igos$year <- master$year
-
-    # Regenerate table
-    colnames(c1) <- paste0(colnames(c1), 1)
-    colnames(c2) <- paste0(colnames(c2), 2)
-
-    master <- merge(master, c1)
-    master <- merge(master, c2)
-    master <- merge(master, end_igos)
-
-    # Reorder rows and cols
-    colorder <- unique(c(
-      "dyadid", colnames(c1), colnames(c2),
-      colnames(master)
-    ))
-    master <- master[, colorder]
-    master <- master[order(master$year), ]
-
-    rownames(master) <- NULL
-
-    return(master)
-  } else {
-    # Vectorized part for country2----
-    df <- igo_dyadic(
-      country1 = country1, country2 = country2[1], year = year,
-      ioname = ioname
-    )
-
-    dflen <- seq_len(length(country2))[-1]
-    for (i in dflen) {
-      df <- rbind(df, igo_dyadic(
-        country1 = country1, country2 = country2[i], year = year,
-        ioname = ioname
-      ))
-    }
-
-    return(df)
+    return(invisible(NULL))
   }
+
+  # Find vectorized
+
+  iter <- seq_len(nrow(base_df))
+
+  find_v <- lapply(iter, igo_dyadic_single,
+    base_df = base_df,
+    year = year, ioname = ioname
+  )
+
+  # Check results
+  has_results <- vapply(find_v, is.null, logical(1))
+
+  # Clean
+  clean <- find_v[!has_results]
+  if (length(clean) < 1) {
+    warning("No dyadic results found with the required parameters")
+    return(invisible(NULL))
+  }
+
+  end <- do.call("rbind", clean)
+  rownames(end) <- NULL
+  end
+}
+
+igo_dyadic_single <- function(iter, base_df, year, ioname) {
+  # Handle ioname
+  all_igos <- igoR::state_year_format3
+
+  ioname_ext <- tolower(colnames(all_igos))
+  if (!is.null(ioname)) {
+    ioname <- unique(tolower(ioname))
+    colsel <- match(ioname, ioname_ext)
+    ioname_ext <- ioname_ext[colsel[!is.na(colsel)]]
+  }
+
+  if (length(ioname_ext) == 0) {
+    message(
+      "No valid ionames used with ",
+      paste0("'", ioname, "'", collapse = ", ")
+    )
+    return(NULL)
+  }
+
+  this_iter_df <- base_df[iter, ]
+
+
+  # Filter with year
+  all_igos <- all_igos[all_igos$year %in% year, ]
+
+  if (nrow(all_igos) == 0) {
+    message("No ionames found for years selected")
+    return(NULL)
+  }
+
+  # Start getting matrixes for comparisons
+
+  mat1 <- all_igos[all_igos$state == this_iter_df$state1, ]
+  if (nrow(mat1) == 0) {
+    message(
+      "Country '", this_iter_df$state1,
+      "' was not alive on years selected"
+    )
+    return(NULL)
+  }
+  mat2 <- all_igos[all_igos$state == this_iter_df$state2, ]
+  if (nrow(mat2) == 0) {
+    message(
+      "Country '", this_iter_df$state2,
+      "' was not alive on years selected"
+    )
+    return(NULL)
+  }
+
+  # Common years
+  ress <- table(c(mat1$year, mat2$year))
+  fyear <- as.numeric(names(ress[ress == 2]))
+
+  mat1_comp <- mat1[mat1$year %in% fyear,
+    tolower(ioname_ext),
+    drop = FALSE
+  ]
+  mat2_comp <- mat2[mat2$year %in% fyear,
+    names(mat1_comp),
+    drop = FALSE
+  ]
+
+
+  # Create final matrix and iterate
+  mat_res <- matrix(
+    data = double(0),
+    nrow = nrow(mat1_comp), ncol = ncol(mat2_comp)
+  )
+
+
+  n_cols <- seq_len(ncol(mat_res))
+  n_rows <- seq_len(nrow(mat_res))
+
+
+  for (i in n_rows) {
+    for (j in n_cols) {
+      vals <- c(mat1_comp[i, j], mat2_comp[i, j])
+
+      finalvalue <- recode_joints(vals)
+      mat_res[i, j] <- finalvalue
+    }
+  }
+
+  # Handle NAs
+  mat_res[is.na(mat_res)] <- -9
+
+  end_igos <- as.data.frame(mat_res)
+  colnames(end_igos) <- colnames(mat1_comp)
+
+  # Last bits
+  end_igos$year <- fyear
+  c1 <- igo_search_states(this_iter_df$state1)[1, ]
+  c2 <- igo_search_states(this_iter_df$state2)[1, ]
+
+  end_igos$dyadid <- 1000 * c1$ccode + c1$ccode
+  end_igos$ccode1 <- c1$ccode
+  end_igos$statenme1 <- c1$statenme
+  end_igos$state1 <- c1$state
+  end_igos$stateabb1 <- c1$stateabb
+
+  end_igos$ccode2 <- c2$ccode
+  end_igos$statenme2 <- c2$statenme
+  end_igos$state2 <- c2$state
+  end_igos$stateabb2 <- c2$stateabb
+
+  # Re-order columns
+  reorder_col <- unique(c(
+    "dyadid", "ccode1", "stateabb1", "statenme1", "state1", "ccode2",
+    "stateabb2", "statenme2", "state2", "year", colnames(end_igos)
+  ))
+  end_igos <- end_igos[, reorder_col]
+
+  end_igos <- end_igos[order(end_igos$year), ]
+  rownames(end_igos) <- NULL
+  end_igos
+}
+
+recode_joints <- function(vals) {
+  finalvalue <- -9
+
+  if (all(vals == 1)) {
+    finalvalue <- 1
+  } else if (any(vals == -9)) {
+    finalvalue <- -9
+  } else if (any(vals == -1)) {
+    finalvalue <- -1
+  } else if (any(vals %in% c(0, 2, 3))) {
+    finalvalue <- 0
+  }
+
+  finalvalue
 }

@@ -50,3 +50,29 @@
       [1] IGO Not In Existence
       7 Levels: No Membership Full Membership Associate Membership ... <NA>
 
+# recode dyadic
+
+    Code
+      igo_recode_dyadic(c(0, 1, -9, -1))
+    Output
+      [1] No Joint Membership     Joint Full Membership   Missing data           
+      [4] State Not System Member
+      5 Levels: No Joint Membership Joint Full Membership ... <NA>
+
+---
+
+    Code
+      checkl
+    Output
+      [1] <NA>                    <NA>                    Missing data           
+      [4] State Not System Member
+      5 Levels: No Joint Membership Joint Full Membership ... <NA>
+
+---
+
+    Code
+      igo_recode_dyadic(-1)
+    Output
+      [1] State Not System Member
+      5 Levels: No Joint Membership Joint Full Membership ... <NA>
+

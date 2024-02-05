@@ -99,12 +99,12 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 
 | ioname | ccode | state       | statenme                | year | value | category        | orgname                     |
 |:-------|------:|:------------|:------------------------|-----:|------:|:----------------|:----------------------------|
-| EEC    |   211 | belgium     | Belgium                 | 1958 |     1 | Full Membership | European Economic Community |
-| EEC    |   220 | france      | France                  | 1958 |     1 | Full Membership | European Economic Community |
-| EEC    |   325 | italy       | Italy                   | 1958 |     1 | Full Membership | European Economic Community |
-| EEC    |   212 | luxembourg  | Luxembourg              | 1958 |     1 | Full Membership | European Economic Community |
 | EEC    |   210 | netherlands | Netherlands             | 1958 |     1 | Full Membership | European Economic Community |
+| EEC    |   211 | belgium     | Belgium                 | 1958 |     1 | Full Membership | European Economic Community |
+| EEC    |   212 | luxembourg  | Luxembourg              | 1958 |     1 | Full Membership | European Economic Community |
+| EEC    |   220 | france      | France                  | 1958 |     1 | Full Membership | European Economic Community |
 | EEC    |   260 | wgermany    | German Federal Republic | 1958 |     1 | Full Membership | European Economic Community |
+| EEC    |   325 | italy       | Italy                   | 1958 |     1 | Full Membership | European Economic Community |
 
 EEC, members (1958)
 
@@ -115,18 +115,18 @@ eec_end <- igo_members(eec_code$ioname)
 
 | ioname | ccode | state       | statenme       | year | value | category        | orgname                     |
 |:-------|------:|:------------|:---------------|-----:|------:|:----------------|:----------------------------|
-| EEC    |   211 | belgium     | Belgium        | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   390 | denmark     | Denmark        | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   220 | france      | France         | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   255 | germany     | Germany        | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   350 | greece      | Greece         | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   205 | ireland     | Ireland        | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   325 | italy       | Italy          | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   212 | luxembourg  | Luxembourg     | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   210 | netherlands | Netherlands    | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   235 | portugal    | Portugal       | 1992 |     1 | Full Membership | European Economic Community |
-| EEC    |   230 | spain       | Spain          | 1992 |     1 | Full Membership | European Economic Community |
 | EEC    |   200 | uk          | United Kingdom | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   205 | ireland     | Ireland        | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   210 | netherlands | Netherlands    | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   211 | belgium     | Belgium        | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   212 | luxembourg  | Luxembourg     | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   220 | france      | France         | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   230 | spain       | Spain          | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   235 | portugal    | Portugal       | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   255 | germany     | Germany        | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   325 | italy       | Italy          | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   350 | greece      | Greece         | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   390 | denmark     | Denmark        | 1992 |     1 | Full Membership | European Economic Community |
 
 EEC, members (1992)
 

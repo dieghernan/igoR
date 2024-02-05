@@ -57,106 +57,108 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
     stop("You must enter a value on 'ioname'")
   }
 
-  if (length(ioname) == 1) {
-    df <- igoR::igo_year_format3
-
-    if (!(tolower(ioname) %in% tolower(df$ioname))) {
-      stop(ioname, " is not a valid ioname. See igoR::igo_year_format3")
-    }
-
-    ioname <- df[tolower(df$ioname) == tolower(ioname), "ioname"]
-    ioname <- unique(ioname)
-
-    df <- df[df$ioname == ioname, ]
-    interval <- c(min(df$year), max(df$year))
-
-    if (is.null(year)) {
-      year <- interval[2]
-    }
-    year <- sort(unique(as.integer(year)))
-    yeardf <- data.frame(year = year, check = NA)
-
-    yeardf$check <- ifelse(yeardf$year %in% df$year, TRUE, FALSE)
-
-    if (isFALSE(all(yeardf$check))) {
-      warning(
-        "The IGO requested is not available for year(s) ",
-        paste0("'", as.character(yeardf[!yeardf$check, ]$year), "'",
-          collapse = ", "
-        )
-      )
-    }
-
-    df <- df[df$year %in% year, c("year", "ioname", "orgname")]
-
-    if (nrow(df) == 0) {
-      stop(
-        "year(s) ",
-        paste0("'", as.character(yeardf[!yeardf$check, ]$year), "'",
-          collapse = ", "
-        ),
-        " not valid for ", ioname, " date should be any year between ",
-        interval[1], " and ", interval[2]
-      )
-    }
-
-    # End checks
-    levls <- levels(igo_recode_stateyear(1))
-    levls <- levls[!is.na(levls)]
-    checkstatus <- match(status, levls)
-    if (isTRUE(anyNA(checkstatus))) {
-      warning(
-        "status ",
-        paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
-        " not valid. Valid values are ",
-        paste0("'", levls, collapse = "', "), "'"
-      )
-    }
-
-    # Extract countries
-    cntries <- igoR::state_year_format3
-    cntries <- cntries[
-      cntries$year %in% year,
-      tolower(c("ccode", "state", "year", ioname))
-    ]
-
-    colnames(cntries) <- c("ccode", "state", "year", "value")
-    cntries$ioname <- as.character(ioname)
-    cntries$category <- igo_recode_stateyear(cntries$value)
-    cntriesend <- cntries[cntries$category %in% status, ]
-    cntriesend <- merge(cntriesend, df)
-
-    # Names
-    dfnames <- cow_country_codes[, c("ccode", "statenme")]
-    cntriesend <- merge(cntriesend, dfnames)
-
-    # Rearrange columns
-    rearcol <- unique(c(
-      "ioname", "ccode", "state", "statenme", "year",
-      colnames(cntriesend)
-    ))
-
-    cntriesend <- cntriesend[, rearcol]
-
-    # Extra check
-    if (nrow(cntriesend) == 0) {
-      stop("Parameters selected return an empty result")
-    }
-
-    cntriesend <- cntriesend[order(cntriesend$state), ]
-    cntriesend <- cntriesend[order(cntriesend$year), ]
-    rownames(cntriesend) <- NULL
-
-    return(cntriesend)
-  } else {
-    # Vectorized
-    df <- igo_members(ioname[1], year = year, status = status)
-    dflen <- seq_len(length(ioname))[-1]
-
-    for (i in dflen) {
-      df <- rbind(df, igo_members(ioname[i], year = year, status = status))
-    }
-
-    return(df)
+  levls <- levels(igo_recode_stateyear(1))
+  levls <- levls[!is.na(levls)]
+  checkstatus <- match(status, levls)
+  if (isTRUE(anyNA(checkstatus))) {
+    warning(
+      "status ",
+      paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
+      " not valid. Valid values are ",
+      paste0("'", levls, collapse = "', "), "'"
+    )
   }
+
+  # Find vectorized
+  find_v <- lapply(ioname, igo_member_single, year = year, status = status)
+
+  # Check results
+  has_results <- vapply(find_v, is.null, logical(1))
+
+  # Clean
+  clean <- find_v[!has_results]
+  if (length(clean) < 1) {
+    warning("No IGO results found with the required parameters")
+    return(invisible(NULL))
+  }
+
+  end <- do.call("rbind", clean)
+  rownames(end) <- NULL
+  end
+}
+
+
+igo_member_single <- function(ioname, year, status) {
+  igo_db <- igoR::igo_year_format3
+
+  igo_db <- igo_db[tolower(igo_db$ioname) %in% tolower(ioname), ]
+
+  if (nrow(igo_db) == 0) {
+    message("ioname '", ioname, "' not found in data base")
+    return(NULL)
+  }
+
+  if (is.null(year)) {
+    year <- max(igo_db$year)
+  }
+
+  year <- sort(unique(year))
+  ioname <- igo_db$ioname[1]
+
+  # Master db
+  master_db <- expand.grid(
+    ioname = ioname,
+    year = year,
+    stringsAsFactors = FALSE
+  )
+
+  igo_db2 <- merge(igo_db, master_db)[, c("ioname", "year", "orgname")]
+
+  if (nrow(igo_db2) == 0) {
+    dates <- range(igo_db$year, na.rm = TRUE)
+    message(
+      "ioname '", ioname, "' only alive between ",
+      paste0(dates, collapse = " and ")
+    )
+    return(NULL)
+  }
+
+  # Get members
+  state_igo <- igoR::state_year_format3
+  state_igo <- state_igo[, tolower(c("ccode", "state", "year", ioname))]
+  colnames(state_igo) <- c("ccode", "state", "year", "value")
+  state_igo$ioname <- as.character(ioname)
+  state_igo$category <- igo_recode_stateyear(state_igo$value)
+
+  # Merge with igo_db
+
+  igo_w_year <- merge(igo_db2, state_igo)
+  igo_w_year <- igo_w_year[igo_w_year$category %in% status, ]
+
+  if (nrow(igo_w_year) == 0) {
+    message(
+      "No members for ioname '", ioname,
+      "' with the parameters provided."
+    )
+    return(NULL)
+  }
+
+  # Last bits
+  dfnames <- cow_country_codes[, c("ccode", "statenme")]
+  cntriesend <- merge(igo_w_year, dfnames)
+  # Rearrange columns
+  rearcol <- unique(c(
+    "ioname", "ccode", "state", "statenme", "year",
+    "value", "category", "orgname"
+  ))
+
+  cntriesend <- cntriesend[, rearcol]
+  cntriesend <- cntriesend[order(
+    cntriesend$year,
+    cntriesend$category,
+    cntriesend$ccode
+  ), ]
+
+  rownames(cntriesend) <- NULL
+  cntriesend
 }
