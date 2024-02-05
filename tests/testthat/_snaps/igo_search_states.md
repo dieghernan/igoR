@@ -11,5 +11,7 @@
       n <- igo_search_states("aaaaa")
     Message
       state not found: 'aaaaa'
-      No results for query
+    Condition
+      Warning in `igo_search_states()`:
+      No states found with required parameters
 

@@ -24,16 +24,56 @@ test_that("Testing messages ", {
   expect_null(res)
 })
 
-test_that("Results", {
-  expect_silent(igo_members("EU"))
-  expect_silent(igo_members("EU", year = 2000))
+test_that("Expect years", {
+  # Compare last
+  expect_silent(single <- igo_members("SCA"))
 
-  n1 <- nrow(igo_members("EU", year = 2000))
-  n2 <- nrow(igo_members("EU", year = 1993))
-  expect_false(n1 == n2)
-  expect_silent(igo_members(c("NAFTA", "EU"), year = 1993))
-  expect_silent(res <- igo_members(c("nafta", "un", "eu"), year = 1993:2000))
+  comp <- igoR::igo_year_format3
+  comp <- comp[comp$ioname == "SCA", ]
 
-  expect_identical(unique(res$ioname), c("NAFTA", "UN", "EU"))
-  expect_identical(as.integer(unique(res$year)), 1993:2000)
+  expect_identical(max(comp$year), unique(single$year))
+
+
+  # With an array of years
+  expect_silent(single <- igo_members("SCA", year = 1700:2020))
+
+  comp <- igoR::igo_year_format3
+  comp <- comp[comp$ioname == "SCA", ]
+  fullr <- range(comp$year)
+
+  expect_equal(seq(fullr[1], fullr[2]), unique(single$year))
+})
+
+test_that("Extract several orgs", {
+  # Compare last
+  expect_silent(sev <- igo_members(c("wpact", "EU")))
+
+  expect_identical(c("WPact", "EU"), unique(sev$ioname))
+})
+
+test_that("Extract several status", {
+  lvs <- levels(igo_recode_stateyear(1))
+  lvs <- lvs[!is.na(lvs)]
+  expect_silent(sev <- igo_members("UN", status = lvs, year = 1900:2014))
+
+  expect_identical(
+    as.character(unique(sev$category)),
+    lvs[1:2]
+  )
+})
+
+test_that("Object classes", {
+  expect_silent(sev <- igo_members("UN"))
+
+  expect_s3_class(sev, "data.frame", exact = TRUE)
+
+  expect_snapshot(
+    vapply(sev, class, character(1))
+  )
+})
+
+test_that("Cleanup", {
+  expect_snapshot(var_err <- igo_members(c("EU", "an invented", "UN")))
+
+  expect_identical(unique(var_err$ioname), c("EU", "UN"))
 })

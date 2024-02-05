@@ -59,7 +59,7 @@ igo_search_states <- function(state) {
   # Clean
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
-    message("No results for query")
+    warning("No states found with required parameters")
     return(invisible(NULL))
   }
 

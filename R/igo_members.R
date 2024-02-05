@@ -78,7 +78,7 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Clean
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
-    message("No results for query")
+    warning("No IGO results found with the required parameters")
     return(invisible(NULL))
   }
 
@@ -108,7 +108,8 @@ igo_member_single <- function(ioname, year, status) {
   # Master db
   master_db <- expand.grid(
     ioname = ioname,
-    year = year
+    year = year,
+    stringsAsFactors = FALSE
   )
 
   igo_db2 <- merge(igo_db, master_db)[, c("ioname", "year", "orgname")]

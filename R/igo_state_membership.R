@@ -55,120 +55,126 @@ igo_state_membership <- function(state, year = NULL,
     stop("You must enter a value on 'state'")
   }
 
-  if (length(state) == 1) {
-    ## A. States
-    # Search state
-    df_states <- igoR::igo_search_states(state)
+  df_states <- igoR::igo_search_states(state)
 
-    # Extract state
-    state_names <- as.character(df_states$state)
-
-    ## Check years
-    df_mem <- igoR::state_year_format3
-    df_mem <- df_mem[df_mem$state == state_names, ]
-
-    interval <- c(min(df_mem$year), max(df_mem$year))
-
-    if (is.null(year)) {
-      year <- interval[2]
-    }
-    year <- sort(unique(as.integer(year)))
-    yeardf <- data.frame(year = year, check = NA)
-
-    yeardf$check <- ifelse(yeardf$year %in% df_mem$year, TRUE, FALSE)
-
-    df_mem <- df_mem[df_mem$year %in% year, ]
-
-    if (nrow(df_mem) == 0) {
-      stop(
-        "year(s) ",
-        paste0("'", as.character(yeardf[!yeardf$check, ]$year), "'",
-          collapse = ", "
-        ),
-        " not valid for ", df_states$statenme,
-        ". Date should be any year between ", interval[1], " and ", interval[2]
-      )
-    }
-
-    ## Memberships
-    levls <- levels(igo_recode_igoyear(1))
-    levls <- levls[!is.na(levls)]
-    checkstatus <- match(status, levls)
-    if (isTRUE(anyNA(checkstatus))) {
-      warning(
-        "status ",
-        paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
-        " not valid. Valid values are ",
-        paste0("'", levls, collapse = "', "), "'"
-      )
-    }
-
-    if (all(is.na(checkstatus))) {
-      stop("status values not valid")
-    }
-
-    # Extract igoS
-    igos <- igoR::igo_year_format3
-    igos <-
-      igos[
-        igos$year %in% year,
-        tolower(c(
-          "ioname", "orgname", "year", "longorgname", "political",
-          "social", "economic", state_names
-        ))
-      ]
-
-    colnames(igos)[8] <- "value"
-
-    igos$state <- as.character(state_names)
-    igos$category <- igo_recode_igoyear(igos$value)
-
-    igosend <- igos[igos$category %in% status, ]
-    igosend <- merge(igosend, df_states)
-
-    # Rearrange columns
-    rearcol <- unique(c(
-      colnames(df_states), "year", "ioname", "category",
-      colnames(igosend)
-    ))
-
-    rearcol <- rearcol[-match("value", rearcol)]
-    igosend <- igosend[, rearcol]
-
-    # Handle missing results
-    if (nrow(igosend) == 0) {
-      warning(
-        "No memberships for ", df_states$statenme,
-        " on the year(s) selected"
-      )
-
-      df_null <- igosend[seq_len(length(year)), ]
-      df_null$year <- year
-      df_null$ccode <- df_states$ccode
-      df_null$stateabb <- df_states$stateabb
-      df_null$statenme <- df_states$statenme
-      df_null$state <- df_states$state
-
-      igosend <- df_null
-    }
-
-    igosend <- igosend[order(igosend$ioname), ]
-    igosend <- igosend[order(igosend$year), ]
-    rownames(igosend) <- NULL
-
-    return(igosend)
-  } else {
-    # Vectorized
-    df <- igo_state_membership(state[1], year = year, status = status)
-    dflen <- seq_len(length(state))[-1]
-
-    for (i in dflen) {
-      df <- rbind(
-        df,
-        igo_state_membership(state[i], year = year, status = status)
-      )
-    }
-
-    return(df)
+  if (is.null(df_states)) {
+    warning(
+      "state(s) ",
+      paste0("'", state, "'", collapse = ", "),
+      " not found in data base"
+    )
+    return(invisible(NULL))
   }
+
+  # Extract state
+  state_names <- as.character(df_states$state)
+
+  levls <- levels(igo_recode_igoyear(1))
+  levls <- levls[!is.na(levls)]
+  checkstatus <- match(status, levls)
+  if (isTRUE(anyNA(checkstatus))) {
+    warning(
+      "status ",
+      paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
+      " not valid. Valid values are ",
+      paste0("'", levls, collapse = "', "), "'"
+    )
+  }
+
+  # Find vectorized
+  find_v <- lapply(state_names, igo_state_mmb_single,
+    year = year,
+    status = status
+  )
+
+  # Check results
+  has_results <- vapply(find_v, is.null, logical(1))
+
+  # Clean
+  clean <- find_v[!has_results]
+  if (length(clean) < 1) {
+    warning("No states found with the required parameters")
+    return(invisible(NULL))
+  }
+
+  end <- do.call("rbind", clean)
+  rownames(end) <- NULL
+  end
+}
+
+igo_state_mmb_single <- function(state_names, year, status) {
+  state_db <- igoR::state_year_format3
+
+  state_db <- state_db[tolower(state_db$state) %in% tolower(state_names), ]
+
+  if (is.null(year)) {
+    year <- max(state_db$year)
+  }
+
+  year <- sort(unique(year))
+  ccode <- state_db$ccode[1]
+
+  # Master db
+  master_db <- expand.grid(
+    ccode = ccode,
+    year = year,
+    stringsAsFactors = FALSE
+  )
+
+  igo_db2 <- merge(state_db, master_db)[, c("ccode", "year", "state")]
+
+  if (nrow(igo_db2) == 0) {
+    dates <- range(state_db$year, na.rm = TRUE)
+    message(
+      "state '", state_names, "' only alive between ",
+      paste0(dates, collapse = " and ")
+    )
+    return(NULL)
+  }
+
+  # Get IGO state
+  state_igo <- igoR::igo_year_format3
+  init_cols <- c(
+    "ioname", "orgname", "year", "longorgname",
+    "political", "social", "economic", state_names
+  )
+
+  state_igo <- state_igo[, tolower(init_cols)]
+  colnames(state_igo) <- c(
+    "ioname", "orgname", "year", "longorgname",
+    "political", "social", "economic", "value"
+  )
+  state_igo$category <- igo_recode_igoyear(state_igo$value)
+
+  # Merge with igo_db
+  igo_w_year <- merge(igo_db2, state_igo)
+  igo_w_year <- igo_w_year[igo_w_year$category %in% status, ]
+
+  if (nrow(igo_w_year) == 0) {
+    message(
+      "No IGOs for state '", state_names,
+      "' with the parameters provided."
+    )
+    return(NULL)
+  }
+
+  # Last bits
+  df_states <- igoR::igo_search_states(state_names)
+  cntriesend <- merge(igo_w_year, df_states)
+  # Rearrange columns
+  rearcol <- c(
+    "ccode", "stateabb", "statenme", "state",
+    "year", "ioname", "value", "category", "orgname",
+    "longorgname", "political", "social", "economic"
+  )
+
+  cntriesend <- cntriesend[, rearcol]
+
+  cntriesend <- cntriesend[order(
+    cntriesend$year, cntriesend$category,
+    cntriesend$ioname
+  ), ]
+
+  rownames(cntriesend) <- NULL
+  cntriesend
 }
