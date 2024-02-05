@@ -1,4 +1,4 @@
-# igoR (development version)
+# igoR 0.2.0
 
 -   Internal refactor of the code. The user shouldn't notice any visible change.
 -   `igo_dyadic()` accepts now a vector of countries also in the `country1`

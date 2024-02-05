@@ -152,7 +152,7 @@ A BibTeX entry for LaTeX users:
       doi = {10.5281/zenodo.4442958},
       author = {Diego Hernangómez},
       year = {2024},
-      version = {0.1.5.9000},
+      version = {0.2.0},
       url = {https://dieghernan.github.io/igoR/},
       abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
     }

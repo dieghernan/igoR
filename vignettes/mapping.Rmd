@@ -54,9 +54,7 @@ United Nations. First we should extract the data:
 world <- gisco_get_countries()
 
 # Extract three dates - some errors given that ISO doesnt have every COW Code
-un_all <- igo_members("UN", c(1950, 1980, 2010),
-  status = c("Full Membership", "No Membership")
-) %>%
+un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
   # Add ISO3 Code
   mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
   select(year, orgname, ISO3_CODE, category)
@@ -87,28 +85,23 @@ Now we are ready to plot with **ggplot2**:
 
 ```r
 ggplot(un_all_sf) +
-  geom_sf(aes(fill = category), color = NA) +
+  geom_sf(aes(fill = category), color = NA, show.legend = FALSE) +
   # Robinson
   coord_sf(crs = "ESRI:54030") +
   facet_wrap(~year, ncol = 1, strip.position = "left") +
   scale_fill_manual(
-    values = c("Full Membership" = "#74A9CF", "No Membership" = "#FF7F7F"),
+    values = c("Full Membership" = "#74A9CF"),
     na.value = "#E0E0E0",
-    # Reorder legend
-    limits = c("Full Membership", "No Membership", NA),
-    # Relabel legend
-    labels = c("Full Membership", "No Membership", "N/A")
   ) +
   labs(
     title = "UN Members", caption = gisco_attributions(),
-    fill = "Membership"
   ) +
   theme_minimal() +
-  theme(plot.caption = element_text(face = "italic"))
+  theme(plot.caption = element_text(face = "italic", hjust = 0.15))
 ```
 
 <div class="figure">
-<img src="./UNMaps-1.png" alt="UN Members" width="100%" height="60%" />
+<img src="./UNMaps-1.png" alt="UN Members" width="100%" />
 <p class="caption">UN Members</p>
 </div>
 
@@ -167,21 +160,18 @@ ggplot(sharedmap) +
     fill = "Number of IGOs shared",
     caption = gisco_attributions()
   ) +
-  theme_void() +
+  theme_minimal() +
   theme(
     legend.position = "bottom",
     plot.title = element_text(face = "bold", hjust = 0.5),
-    plot.caption = element_text(
-      face = "italic", size = 8,
-      hjust = 0.05
-    ),
+    plot.caption = element_text(face = "italic", size = 7, hjust = 0.15),
     legend.title = element_text(size = 7),
     legend.text = element_text(size = 8)
   )
 ```
 
 <div class="figure">
-<img src="./AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%" height="60%" />
+<img src="./AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%" />
 <p class="caption">Shared Full Memberships with Australia (2014)</p>
 </div>
 
@@ -228,7 +218,7 @@ ggplot(countries_sf) +
   theme(
     plot.title = element_text(face = "bold"),
     plot.subtitle = element_text(margin = margin(t = 3, b = 10)),
-    plot.caption = element_text(face = "italic", hjust = 0.05),
+    plot.caption = element_text(face = "italic"),
     legend.box.margin = margin(l = 20),
     legend.title = element_text(size = 8),
     strip.background = element_rect(fill = "grey90", colour = NA)
@@ -236,7 +226,7 @@ ggplot(countries_sf) +
 ```
 
 <div class="figure">
-<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%" height="60%" />
+<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%" />
 <p class="caption">Shared Full Memberships on North America (1930 - 2010)</p>
 </div>
 
