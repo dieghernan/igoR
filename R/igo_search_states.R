@@ -44,7 +44,7 @@ igo_search_states <- function(state) {
 
     if (is.na(find_state)) {
       message("state not found: ", paste0("'", x, "'", collapse = ", "))
-      return(NULL)
+      return(invisible(NULL))
     }
 
     df_states <- df_states[find_state, ]

@@ -108,7 +108,7 @@ ggplot(un_all_sf) +
 ```
 
 <div class="figure">
-<img src="./UNMaps-1.png" alt="UN Members" width="100%" />
+<img src="./UNMaps-1.png" alt="UN Members" width="100%" height="60%" />
 <p class="caption">UN Members</p>
 </div>
 
@@ -128,22 +128,21 @@ states2014 <- states2016 %>%
 # Shared memberships with Australia
 shared <- igo_dyadic("AUL", as.character(states2014$statenme),
   year = 2014
-)
+) %>%
+  rowwise() %>%
+  mutate(shared = sum(c_across(aaaid:wassen) == 1)) %>%
+  mutate(ISO3_CODE = countrycode(ccode2, "cown", "iso3c",
+    warn = FALSE
+  )) %>%
+  select(ISO3_CODE, shared)
 
-shared$shared <- rowSums(shared == 1)
-
-# ISO3 Code
-shared$ISO3_CODE <- countrycode(shared$ccode2, "cown", "iso3c",
-  warn = FALSE
-)
 
 # Merge with map
 sharedmap <- world %>%
-  left_join(shared) %>%
+  left_join(shared, by = "ISO3_CODE") %>%
   select(ISO3_CODE, shared)
 
 # Plot with custom palette
-
 pal <- hcl.colors(10, palette = "Lajolla")
 
 # Plot
@@ -182,7 +181,7 @@ ggplot(sharedmap) +
 ```
 
 <div class="figure">
-<img src="./AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%" />
+<img src="./AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%" height="60%" />
 <p class="caption">Shared Full Memberships with Australia (2014)</p>
 </div>
 
@@ -198,24 +197,17 @@ each decade.
 years <- seq(1930, 2010, 10)
 
 # Shared memberships
-usa <- igo_dyadic("USA", c("MEX", "CAN"), years)
-can <- igo_dyadic("CAN", c("USA", "MEX"), years)
-mex <- igo_dyadic("MEX", c("CAN", "USA"), years)
-
-usa$value <- rowSums(usa == 1)
-can$value <- rowSums(can == 1)
-mex$value <- rowSums(mex == 1)
-
-# Long data
-final_na <- usa %>%
-  bind_rows(can, mex) %>%
-  select(ccode1, year, value) %>%
-  mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c"))
+cntries <- c("USA", "CAN", "MEX")
+all <- igo_dyadic(cntries, cntries, years) %>%
+  rowwise() %>%
+  mutate(value = sum(c_across(aaaid:wassen) == 1)) %>%
+  mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c")) %>%
+  select(ISO3_CODE, year, value)
 
 # Create map
 # Get shapes
 countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
-  left_join(final_na)
+  left_join(all, by = "ISO3_CODE")
 
 # Map
 ggplot(countries_sf) +
@@ -244,7 +236,7 @@ ggplot(countries_sf) +
 ```
 
 <div class="figure">
-<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%" />
+<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%" height="60%" />
 <p class="caption">Shared Full Memberships on North America (1930 - 2010)</p>
 </div>
 
