@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.3 (2024-02-29)",
+  "runtimePlatform": "R version 4.3.3 (2024-02-29 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -135,7 +135,7 @@
     "SystemRequirements": null
   },
   "keywords": ["R", "igo", "correlates-of-war", "intergovernmental-organisations", "r-package", "intergovernmental-organizations", "r", "rstats", "cran"],
-  "fileSize": "1199.975KB",
+  "fileSize": "800.251KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
