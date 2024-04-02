@@ -2,7 +2,7 @@
 % Please edit documentation in R/igo_search.R
 \name{igo_search}
 \alias{igo_search}
-\title{Search and Find an IGO}
+\title{Search and find an IGO}
 \usage{
 igo_search(pattern = NULL, exact = FALSE)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/igo_members.R
 \name{igo_members}
 \alias{igo_members}
-\title{Extract Members of an IGO}
+\title{Extract members of an IGO}
 \usage{
 igo_members(ioname, year = NULL, status = "Full Membership")
 }

@@ -28,6 +28,7 @@ library(reactable)
 igo <- igo_search()
 reactable(igo[, 1:7],
   filterable = TRUE,
+  defaultColDef = colDef(minWidth = 150, vAlign = "center"),
   searchable = TRUE,
   showPageSizeOptions = TRUE,
   striped = TRUE,
@@ -43,6 +44,7 @@ cc <- states2016
 reactable(cc,
   filterable = TRUE,
   searchable = TRUE,
+  defaultColDef = colDef(minWidth = 150, vAlign = "center"),
   showPageSizeOptions = TRUE,
   striped = TRUE,
   paginationType = "jump",
@@ -53,13 +55,16 @@ reactable(cc,
 ## Session info
 
 <details>
-  <summary>Details</summary>
+
+<summary>Details</summary>
+
 ```{r session, echo=FALSE}
 if (!require("sessioninfo")) {
   install.packages("sessioninfo")
 }
 sessioninfo::session_info()
 ```
+
 </details>
 
 ## References

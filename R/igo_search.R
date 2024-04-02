@@ -1,4 +1,4 @@
-#' @title Search and Find an IGO
+#' Search and find an IGO
 #'
 #' @name igo_search
 #'

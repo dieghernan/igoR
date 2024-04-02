@@ -43,14 +43,13 @@ The goal of **igoR** is to provide access and to extract information from the
 Intergovernmental Organizations Database (IGOs), version 3, provided by the
 Correlates of War Project [@pevehouse2020].
 
-The dataset (V3) includes information of **`r nrow(igoR::igo_search())`** IGO
+The dataset (V3) includes information of **`r nrow(igoR::igo_search())`** IGOs
 from `r min(igoR::igo_year_format3$year)` to
 `r max(igoR::igo_year_format3$year)`, as well as membership information.
 
-**Source**: [Intergovernmental Organizations
-(v3)](https://correlatesofwar.org/data-sets/IGOs/).
-
-Documentation and vignettes on <https://dieghernan.github.io/igoR/>
+-   Source: [Intergovernmental Organizations
+    (v3)](https://correlatesofwar.org/data-sets/IGOs/).
+-   Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
 Additionally, a distribution of the State System Membership
 [@correlatesofwarproject2017] is included on this package.
@@ -85,7 +84,7 @@ install.packages("igoR", repos = c(
 
 ### Search an IGO by name:
 
-Search all IGOs related with sugar:
+Search all IGOs related with "sugar":
 
 ```{r search}
 library(igoR)

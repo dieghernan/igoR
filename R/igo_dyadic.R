@@ -1,4 +1,4 @@
-#' @title Extract the Joint Membership of a pair of Countries across IGOs.
+#' Extract the joint membership of a pair of countries across IGOs
 #'
 #' @name igo_dyadic
 #'

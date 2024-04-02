@@ -2,7 +2,7 @@
 % Please edit documentation in R/igo_state_membership.R
 \name{igo_state_membership}
 \alias{igo_state_membership}
-\title{Extract Memberships of a State}
+\title{Extract memberships of a state}
 \usage{
 igo_state_membership(state, year = NULL, status = "Full Membership")
 }

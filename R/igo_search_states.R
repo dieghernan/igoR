@@ -1,4 +1,4 @@
-#' @title Finds codes and names of a state
+#' Finds codes and names of a state
 #'
 #' @name igo_search_states
 #'

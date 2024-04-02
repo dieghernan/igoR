@@ -1,4 +1,4 @@
-#' @title Extract Members of an IGO
+#' Extract members of an IGO
 #'
 #' @name igo_members
 #'

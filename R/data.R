@@ -88,7 +88,7 @@
 #' sample_state_year_recoded %>% glimpse()
 NULL
 
-#' @title Country membership to IGO by year
+#' Country membership to IGO by year
 #'
 #' @name state_year_format3
 #'
@@ -157,7 +157,7 @@ NULL
 NULL
 
 
-#' @title State System Membership (v2016)
+#' State System Membership (v2016)
 #'
 #' @name states2016
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/igo_dyadic.R
 \name{igo_dyadic}
 \alias{igo_dyadic}
-\title{Extract the Joint Membership of a pair of Countries across IGOs.}
+\title{Extract the joint membership of a pair of countries across IGOs}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }

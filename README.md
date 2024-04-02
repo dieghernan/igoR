@@ -26,13 +26,12 @@ from the Intergovernmental Organizations Database (IGOs), version 3,
 provided by the Correlates of War Project ([Pevehouse et al.
 2020](#ref-pevehouse2020)).
 
-The dataset (V3) includes information of **534** IGO from 1816 to 2014,
+The dataset (V3) includes information of **534** IGOs from 1816 to 2014,
 as well as membership information.
 
-**Source**: [Intergovernmental Organizations
-(v3)](https://correlatesofwar.org/data-sets/IGOs/).
-
-Documentation and vignettes on <https://dieghernan.github.io/igoR/>
+- Source: [Intergovernmental Organizations
+  (v3)](https://correlatesofwar.org/data-sets/IGOs/).
+- Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
 Additionally, a distribution of the State System Membership ([Correlates
 of War Project 2017](#ref-correlatesofwarproject2017)) is included on
@@ -69,7 +68,7 @@ install.packages("igoR", repos = c(
 
 ### Search an IGO by name:
 
-Search all IGOs related with sugar:
+Search all IGOs related with “sugar”:
 
 ``` r
 library(igoR)
@@ -159,8 +158,7 @@ A BibTeX entry for LaTeX users:
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
 <div id="ref-correlatesofwarproject2017" class="csl-entry">
 

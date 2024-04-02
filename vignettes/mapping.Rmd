@@ -1,6 +1,6 @@
 ---
 title: "Mapping IGOs"
-author: <a href="https://orcid.org/0000-0001-8457-4658">Diego Hernangómez <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_24x24.png" width="16" height="16" /></a>
+author: Diego Hernangómez
 description: >
   Integrating IGOs on mapping projects.
 bibliography: refs_igo.bib
@@ -149,12 +149,7 @@ ggplot(sharedmap) +
   # Robinson
   coord_sf(crs = "ESRI:54030") +
   scale_fill_gradientn(colours = pal, n.breaks = 10) +
-  guides(fill = guide_legend(
-    direction = "horizontal",
-    title.position = "top",
-    label.position = "bottom", nrow = 1,
-    keyheight = 0.5, keywidth = 1.5
-  )) +
+  guides(fill = guide_legend(nrow = 1)) +
   labs(
     title = "Shared Full Memberships with Australia (2014)",
     fill = "Number of IGOs shared",
@@ -162,11 +157,16 @@ ggplot(sharedmap) +
   ) +
   theme_minimal() +
   theme(
-    legend.position = "bottom",
     plot.title = element_text(face = "bold", hjust = 0.5),
     plot.caption = element_text(face = "italic", size = 7, hjust = 0.15),
     legend.title = element_text(size = 7),
-    legend.text = element_text(size = 8)
+    legend.text = element_text(size = 8),
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title.position = "top",
+    legend.text.position = "bottom",
+    legend.key.width = unit(1.5, "lines"),
+    legend.key.height = unit(0.5, "lines")
   )
 ```
 
@@ -206,12 +206,12 @@ ggplot(countries_sf) +
   facet_wrap(~year, ncol = 3) +
   scale_fill_gradientn(
     colors = hcl.colors(10, "YlGn", rev = TRUE),
-    breaks = seq(0, 100, 10)
+    breaks = seq(0, 100, 5)
   ) +
-  guides(fill = guide_legend(keyheight = 1.5, reverse = TRUE)) +
+  guides(fill = guide_legend(reverse = TRUE)) +
   labs(
     title = "Shared Full Memberships on North America",
-    subtitle = "(1930-2010)", fill = "shared IGOs",
+    subtitle = "(1930-2010)", fill = "Shared IGOs",
     caption = gisco_attributions()
   ) +
   theme_void() +
@@ -221,6 +221,8 @@ ggplot(countries_sf) +
     plot.caption = element_text(face = "italic"),
     legend.box.margin = margin(l = 20),
     legend.title = element_text(size = 8),
+    legend.key.height = unit(1.5, "lines"),
+    legend.key.width = unit(1, "lines"),
     strip.background = element_rect(fill = "grey90", colour = NA)
   )
 ```

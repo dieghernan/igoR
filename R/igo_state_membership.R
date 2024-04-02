@@ -1,4 +1,4 @@
-#' @title Extract Memberships of a State
+#' Extract memberships of a state
 #'
 #' @name igo_state_membership
 #'

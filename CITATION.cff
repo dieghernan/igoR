@@ -45,12 +45,10 @@ contact:
   orcid: https://orcid.org/0000-0001-8457-4658
 keywords:
 - R
-- IGO
-- Correlates of War
-- Intergovernmental Organisations
-- correlates-of-war
-- cran
 - igo
+- correlates-of-war
+- intergovernmental-organisations
+- cran
 - intergovernmental-organizations
 - r
 - r-package
