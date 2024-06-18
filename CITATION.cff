@@ -9,7 +9,7 @@ type: software
 license: GPL-3.0-or-later
 title: 'igoR: Intergovernmental Organizations Database'
 version: 0.2.0
-doi: 10.5281/zenodo.4442958
+doi: 10.32614/CRAN.package.igoR
 abstract: Tools to extract information from the Intergovernmental Organizations ('IGO')
   Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>.
   See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815
@@ -27,7 +27,7 @@ preferred-citation:
     given-names: Diego
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
-  doi: 10.5281/zenodo.4442958
+  doi: 10.32614/CRAN.package.igoR
   year: '2024'
   version: 0.2.0
   url: https://dieghernan.github.io/igoR/

@@ -140,7 +140,7 @@ EEC, members (1992)
 <p>
 Hernangómez D (2024). <em>igoR: Intergovernmental Organizations
 Database</em>.
-<a href="https://doi.org/10.5281/zenodo.4442958">doi:10.5281/zenodo.4442958</a>,
+<a href="https://doi.org/10.32614/CRAN.package.igoR">doi:10.32614/CRAN.package.igoR</a>,
 <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
 </p>
 
@@ -148,7 +148,7 @@ A BibTeX entry for LaTeX users:
 
     @Manual{R-igoR,
       title = {{igoR}: Intergovernmental Organizations Database},
-      doi = {10.5281/zenodo.4442958},
+      doi = {10.32614/CRAN.package.igoR},
       author = {Diego Hernangómez},
       year = {2024},
       version = {0.2.0},
