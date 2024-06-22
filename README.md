@@ -12,6 +12,7 @@ results](https://badges.cranchecks.info/worst/igoR.svg)](https://cran.r-project.
 [![CRAN-Downloads](https://cranlogs.r-pkg.org/badges/grand-total/igoR)](https://cran.r-project.org/package=igoR)
 [![r-universe](https://dieghernan.r-universe.dev/badges/igoR)](https://dieghernan.r-universe.dev/)
 [![R-CMD-check](https://github.com/dieghernan/igoR/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/igoR/actions/workflows/check-full.yaml)
+[![R-hub](https://github.com/dieghernan/igoR/actions/workflows/rhub.yaml/badge.svg)](https://github.com/dieghernan/igoR/actions/workflows/rhub.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/igoR/branch/main/graph/badge.svg?token=UH3VLTTTRE)](https://app.codecov.io/gh/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
 [![DOI](https://img.shields.io/badge/DOI-10.32614/CRAN.package.igoR-blue)](https://doi.org/10.32614/CRAN.package.igoR)
