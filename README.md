@@ -1,4 +1,3 @@
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" align="right" height="139"/></a>
@@ -19,6 +18,7 @@ results](https://badges.cranchecks.info/worst/igoR.svg)](https://cran.r-project.
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![status](https://tinyverse.netlify.app/status/igoR)](https://CRAN.R-project.org/package=igoR)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdieghernan%2FigoR.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdieghernan%2FigoR?ref=badge_shield)
 
 <!-- badges: end -->
 
@@ -179,3 +179,7 @@ Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 </div>
 
 </div>
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdieghernan%2FigoR.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdieghernan%2FigoR?ref=badge_large)
