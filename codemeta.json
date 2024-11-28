@@ -134,8 +134,8 @@
     },
     "SystemRequirements": null
   },
-  "keywords": ["R", "igo", "correlates-of-war", "intergovernmental-organisations", "cran", "intergovernmental-organizations", "r", "r-package", "rstats"],
-  "fileSize": "800.565KB",
+  "keywords": ["r", "igo", "correlates-of-war", "intergovernmental-organisations", "cran", "intergovernmental-organizations", "r-package", "rstats"],
+  "fileSize": "800.562KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

@@ -32,6 +32,6 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-X-schema.org-keywords: R, igo, correlates-of-war,
+X-schema.org-keywords: r, igo, correlates-of-war,
     intergovernmental-organisations, cran,
-    intergovernmental-organizations, r, r-package, rstats
+    intergovernmental-organizations, r-package, rstats
