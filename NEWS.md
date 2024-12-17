@@ -1,3 +1,7 @@
+# igoR 0.2.1
+
+-   Regular update of documentation.
+
 # igoR 0.2.0
 
 -   Internal refactor of the code. The user shouldn't notice any visible change.

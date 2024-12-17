@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/dieghernan/igoR",
   "issueTracker": "https://github.com/dieghernan/igoR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -134,8 +134,8 @@
     },
     "SystemRequirements": null
   },
-  "keywords": ["r", "igo", "correlates-of-war", "intergovernmental-organisations", "cran", "intergovernmental-organizations", "r-package", "rstats"],
-  "fileSize": "800.562KB",
+  "keywords": ["r", "igo", "correlates-of-war", "intergovernmental-organisations", "cran", "intergovernmental-organizations", "r-package", "rstats", "cran-r"],
+  "fileSize": "798.81KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -165,7 +165,8 @@
         {
           "@type": "Person",
           "givenName": "Timothy",
-          "familyName": "Nordstrom"
+          "familyName": "Nordstrom",
+          "@id": "https://orcid.org/0000-0002-1264-9590"
         },
         {
           "@type": "Person",

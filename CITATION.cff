@@ -8,7 +8,7 @@ message: 'To cite package "igoR" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'igoR: Intergovernmental Organizations Database'
-version: 0.2.0
+version: 0.2.1
 doi: 10.32614/CRAN.package.igoR
 identifiers:
 - type: doi
@@ -32,7 +32,7 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
   doi: 10.32614/CRAN.package.igoR
   year: '2024'
-  version: 0.2.0
+  version: 0.2.1
   url: https://dieghernan.github.io/igoR/
   abstract: Tools to extract information from the Intergovernmental Organizations
     (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>.
@@ -47,15 +47,15 @@ contact:
   email: diego.hernangomezherrero@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
 keywords:
-- R
+- r
 - igo
 - correlates-of-war
 - intergovernmental-organisations
 - cran
 - intergovernmental-organizations
-- r
 - r-package
 - rstats
+- cran-r
 references:
 - type: article
   title: 'Tracking organizations in the world: The Correlates of War IGO Version 3.0
@@ -65,6 +65,7 @@ references:
     given-names: Jon CW
   - family-names: Nordstrom
     given-names: Timothy
+    orcid: https://orcid.org/0000-0002-1264-9590
   - family-names: McManus
     given-names: Roseanne W
   - family-names: Jamison
