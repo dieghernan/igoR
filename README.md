@@ -77,12 +77,12 @@ library(igoR)
 result_sugar <- igo_search("Sugar")
 ```
 
-| ionum | ioname | orgname | longorgname | label | sdate | deaddate | dead | integrated | replaced | igocode | version | accuracyofpre1965membershipdates | sourcesandnotes | imputed | political | social | economic |
-|---:|:---|:---|:---|:---|---:|---:|---:|---:|---:|---:|---:|:---|:---|---:|---:|---:|---:|
-| 40 | AMSC | African/Malgasy Sugar Council | African and Malagasy Sugar Council | African and Malagasy Sugar Council | 1966 | 1977 | 1 | 0 | 0 | NA | 2.1 | Not applicable - created 1965 or later |  | 0 | 0 | 0 | 1 |
-| 1920 | GLACSEC | Group of L/A & Carib. Sugar Exp. Countries | Group of Latin American and Caribbean Sugar Exporting Countries | Group of Latin American and Caribbean Sugar Exporting Countries | 1974 | 2001 | 1 | 0 | 0 | NA | 2.3 | Not applicable - created 1965 or later |  | 0 | 1 | 0 | 0 |
-| 3130 | ISuC | Intl Sugar Council | International Sugar Council | International Sugar Council | 1937 | 1967 | 1 | 0 | 0 | 91 | 3.0 | Within 5 years |  | 0 | 0 | 1 | 0 |
-| 4290 | SugU | Sugar Union | Sugar Union | Sugar Union | 1902 | 1913 | 1 | 0 | 0 | 29 | 3.0 | Completely accurate, except a few minor uncertainties |  | 0 | 0 | 0 | 1 |
+| ionum | ioname  | orgname                                    | longorgname                                                     | label                                                           | sdate | deaddate | dead | integrated | replaced | igocode | version | accuracyofpre1965membershipdates                      | sourcesandnotes | imputed | political | social | economic |
+|------:|:--------|:-------------------------------------------|:----------------------------------------------------------------|:----------------------------------------------------------------|------:|---------:|-----:|-----------:|---------:|--------:|--------:|:------------------------------------------------------|:----------------|--------:|----------:|-------:|---------:|
+|    40 | AMSC    | African/Malgasy Sugar Council              | African and Malagasy Sugar Council                              | African and Malagasy Sugar Council                              |  1966 |     1977 |    1 |          0 |        0 |      NA |     2.1 | Not applicable - created 1965 or later                |                 |       0 |         0 |      0 |        1 |
+|  1920 | GLACSEC | Group of L/A & Carib. Sugar Exp. Countries | Group of Latin American and Caribbean Sugar Exporting Countries | Group of Latin American and Caribbean Sugar Exporting Countries |  1974 |     2001 |    1 |          0 |        0 |      NA |     2.3 | Not applicable - created 1965 or later                |                 |       0 |         1 |      0 |        0 |
+|  3130 | ISuC    | Intl Sugar Council                         | International Sugar Council                                     | International Sugar Council                                     |  1937 |     1967 |    1 |          0 |        0 |      91 |     3.0 | Within 5 years                                        |                 |       0 |         0 |      1 |        0 |
+|  4290 | SugU    | Sugar Union                                | Sugar Union                                                     | Sugar Union                                                     |  1902 |     1913 |    1 |          0 |        0 |      29 |     3.0 | Completely accurate, except a few minor uncertainties |                 |       0 |         0 |      0 |        1 |
 
 ### IGO members:
 
@@ -97,14 +97,14 @@ eec_code <- igo_search("EEC", exact = TRUE)
 eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 ```
 
-| ioname | ccode | state | statenme | year | value | category | orgname |
-|:---|---:|:---|:---|---:|---:|:---|:---|
-| EEC | 210 | netherlands | Netherlands | 1958 | 1 | Full Membership | European Economic Community |
-| EEC | 211 | belgium | Belgium | 1958 | 1 | Full Membership | European Economic Community |
-| EEC | 212 | luxembourg | Luxembourg | 1958 | 1 | Full Membership | European Economic Community |
-| EEC | 220 | france | France | 1958 | 1 | Full Membership | European Economic Community |
-| EEC | 260 | wgermany | German Federal Republic | 1958 | 1 | Full Membership | European Economic Community |
-| EEC | 325 | italy | Italy | 1958 | 1 | Full Membership | European Economic Community |
+| ioname | ccode | state       | statenme                | year | value | category        | orgname                     |
+|:-------|------:|:------------|:------------------------|-----:|------:|:----------------|:----------------------------|
+| EEC    |   210 | netherlands | Netherlands             | 1958 |     1 | Full Membership | European Economic Community |
+| EEC    |   211 | belgium     | Belgium                 | 1958 |     1 | Full Membership | European Economic Community |
+| EEC    |   212 | luxembourg  | Luxembourg              | 1958 |     1 | Full Membership | European Economic Community |
+| EEC    |   220 | france      | France                  | 1958 |     1 | Full Membership | European Economic Community |
+| EEC    |   260 | wgermany    | German Federal Republic | 1958 |     1 | Full Membership | European Economic Community |
+| EEC    |   325 | italy       | Italy                   | 1958 |     1 | Full Membership | European Economic Community |
 
 EEC, members (1958)
 
@@ -113,20 +113,20 @@ EEC, members (1958)
 eec_end <- igo_members(eec_code$ioname)
 ```
 
-| ioname | ccode | state | statenme | year | value | category | orgname |
-|:---|---:|:---|:---|---:|---:|:---|:---|
-| EEC | 200 | uk | United Kingdom | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 205 | ireland | Ireland | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 210 | netherlands | Netherlands | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 211 | belgium | Belgium | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 212 | luxembourg | Luxembourg | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 220 | france | France | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 230 | spain | Spain | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 235 | portugal | Portugal | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 255 | germany | Germany | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 325 | italy | Italy | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 350 | greece | Greece | 1992 | 1 | Full Membership | European Economic Community |
-| EEC | 390 | denmark | Denmark | 1992 | 1 | Full Membership | European Economic Community |
+| ioname | ccode | state       | statenme       | year | value | category        | orgname                     |
+|:-------|------:|:------------|:---------------|-----:|------:|:----------------|:----------------------------|
+| EEC    |   200 | uk          | United Kingdom | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   205 | ireland     | Ireland        | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   210 | netherlands | Netherlands    | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   211 | belgium     | Belgium        | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   212 | luxembourg  | Luxembourg     | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   220 | france      | France         | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   230 | spain       | Spain          | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   235 | portugal    | Portugal       | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   255 | germany     | Germany        | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   325 | italy       | Italy          | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   350 | greece      | Greece         | 1992 |     1 | Full Membership | European Economic Community |
+| EEC    |   390 | denmark     | Denmark        | 1992 |     1 | Full Membership | European Economic Community |
 
 EEC, members (1992)
 
@@ -139,7 +139,7 @@ EEC, members (1992)
 ## Citation
 
 <p>
-Hernangómez D (2024). <em>igoR: Intergovernmental Organizations
+Hernangómez D (2025). <em>igoR: Intergovernmental Organizations
 Database</em>.
 <a href="https://doi.org/10.32614/CRAN.package.igoR">doi:10.32614/CRAN.package.igoR</a>,
 <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
@@ -151,7 +151,7 @@ A BibTeX entry for LaTeX users:
       title = {{igoR}: Intergovernmental Organizations Database},
       doi = {10.32614/CRAN.package.igoR},
       author = {Diego Hernangómez},
-      year = {2024},
+      year = {2025},
       version = {0.2.1},
       url = {https://dieghernan.github.io/igoR/},
       abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
