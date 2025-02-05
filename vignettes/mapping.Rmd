@@ -35,9 +35,7 @@ library(igoR)
 
 # Helper packages
 library(dplyr)
-#> Error in library(dplyr): there is no package called 'dplyr'
 library(ggplot2)
-#> Error in library(ggplot2): there is no package called 'ggplot2'
 library(countrycode)
 
 # Geospatial packages
@@ -60,7 +58,6 @@ un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
   # Add ISO3 Code
   mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
   select(year, orgname, ISO3_CODE, category)
-#> Error in select(., year, orgname, ISO3_CODE, category): could not find function "select"
 
 # Auxiliar data.frame to collect every ISO3-year pairs
 
@@ -70,7 +67,6 @@ base_df <- expand.grid(
   stringsAsFactors = FALSE
 ) %>%
   as_tibble()
-#> Error in as_tibble(.): could not find function "as_tibble"
 
 # Merge everything with the spatial object
 un_all_sf <- world %>%
@@ -78,7 +74,6 @@ un_all_sf <- world %>%
   left_join(base_df, by = "ISO3_CODE") %>%
   # Add info
   left_join(un_all, by = c("ISO3_CODE", "year"))
-#> Error in left_join(., un_all, by = c("ISO3_CODE", "year")): could not find function "left_join"
 ```
 
 Note that the map is not completely accurate, as the base shapefile contains the
@@ -103,8 +98,12 @@ ggplot(un_all_sf) +
   ) +
   theme_minimal() +
   theme(plot.caption = element_text(face = "italic", hjust = 0.15))
-#> Error in ggplot(un_all_sf): could not find function "ggplot"
 ```
+
+<div class="figure">
+<img src="./UNMaps-1.png" alt="UN Members" width="100%" />
+<p class="caption">UN Members</p>
+</div>
 
 ## Number of shared memberships
 
@@ -118,7 +117,6 @@ for each country on the world:
 # Countries alive in 2014
 states2014 <- states2016 %>%
   filter(styear <= 2014 & endyear >= 2014)
-#> Error: object 'styear' not found
 
 # Shared memberships with Australia
 shared <- igo_dyadic("AUL", as.character(states2014$statenme),
@@ -130,14 +128,12 @@ shared <- igo_dyadic("AUL", as.character(states2014$statenme),
     warn = FALSE
   )) %>%
   select(ISO3_CODE, shared)
-#> Error in select(., ISO3_CODE, shared): could not find function "select"
 
 
 # Merge with map
 sharedmap <- world %>%
   left_join(shared, by = "ISO3_CODE") %>%
   select(ISO3_CODE, shared)
-#> Error in select(., ISO3_CODE, shared): could not find function "select"
 
 # Plot with custom palette
 pal <- hcl.colors(10, palette = "Lajolla")
@@ -172,8 +168,12 @@ ggplot(sharedmap) +
     legend.key.width = unit(1.5, "lines"),
     legend.key.height = unit(0.5, "lines")
   )
-#> Error in ggplot(sharedmap): could not find function "ggplot"
 ```
+
+<div class="figure">
+<img src="./AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%" />
+<p class="caption">Shared Full Memberships with Australia (2014)</p>
+</div>
 
 ## Cross-shared memberships
 
@@ -193,13 +193,11 @@ all <- igo_dyadic(cntries, cntries, years) %>%
   mutate(value = sum(c_across(aaaid:wassen) == 1)) %>%
   mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c")) %>%
   select(ISO3_CODE, year, value)
-#> Error in select(., ISO3_CODE, year, value): could not find function "select"
 
 # Create map
 # Get shapes
 countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
   left_join(all, by = "ISO3_CODE")
-#> Error in left_join(., all, by = "ISO3_CODE"): could not find function "left_join"
 
 # Map
 ggplot(countries_sf) +
@@ -227,7 +225,11 @@ ggplot(countries_sf) +
     legend.key.width = unit(1, "lines"),
     strip.background = element_rect(fill = "grey90", colour = NA)
   )
-#> Error in ggplot(countries_sf): could not find function "ggplot"
 ```
+
+<div class="figure">
+<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%" />
+<p class="caption">Shared Full Memberships on North America (1930 - 2010)</p>
+</div>
 
 ## References
