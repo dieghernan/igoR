@@ -159,6 +159,27 @@ A BibTeX entry for LaTeX users:
 
 ## References
 
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
+
+<div id="ref-correlatesofwarproject2017" class="csl-entry">
+
+Correlates of War Project. 2017. “State System Membership List, V2016.”
+<https://correlatesofwar.org/data-sets/state-system-membership/>.
+
+</div>
+
+<div id="ref-pevehouse2020" class="csl-entry">
+
+Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
+Spencer Jamison. 2020. “Tracking Organizations in the World: The
+Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
+57 (3): 492–503. <https://doi.org/10.1177/0022343319881175>.
+
+</div>
+
+</div>
+
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -195,24 +216,3 @@ specification. Contributions of any kind are welcome!
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0">
-
-<div id="ref-correlatesofwarproject2017" class="csl-entry">
-
-Correlates of War Project. 2017. “State System Membership List, V2016.”
-<https://correlatesofwar.org/data-sets/state-system-membership/>.
-
-</div>
-
-<div id="ref-pevehouse2020" class="csl-entry">
-
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
-Spencer Jamison. 2020. “Tracking Organizations in the World: The
-Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
-57 (3): 492–503. <https://doi.org/10.1177/0022343319881175>.
-
-</div>
-
-</div>

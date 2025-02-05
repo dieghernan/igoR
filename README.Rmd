@@ -146,6 +146,9 @@ toBibtex(citation("igoR")[1])
 
 ## References
 
+::: {#refs}
+:::
+
 ## Contributors
 
 
