@@ -117,7 +117,9 @@ names.</p>
 <span></span>
 <span><span class="co"># Helper packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in library(dplyr): there is no package called 'dplyr'</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in library(ggplot2): there is no package called 'ggplot2'</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/countrycode/" class="external-link">countrycode</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Geospatial packages</span></span>
@@ -137,6 +139,7 @@ of the United Nations. First we should extract the data:</p>
 <span>  <span class="co"># Add ISO3 Code</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://vincentarelbundock.github.io/countrycode/reference/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span>, warn <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">orgname</span>, <span class="va">ISO3_CODE</span>, <span class="va">category</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in select(., year, orgname, ISO3_CODE, category): could not find function "select"</span></span>
 <span></span>
 <span><span class="co"># Auxiliar data.frame to collect every ISO3-year pairs</span></span>
 <span></span>
@@ -146,13 +149,15 @@ of the United Nations. First we should extract the data:</p>
 <span>  stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in as_tibble(.): could not find function "as_tibble"</span></span>
 <span></span>
 <span><span class="co"># Merge everything with the spatial object</span></span>
 <span><span class="va">un_all_sf</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="co"># Expand to all cases</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">base_df</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="co"># Add info</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">un_all</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ISO3_CODE"</span>, <span class="st">"year"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">un_all</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ISO3_CODE"</span>, <span class="st">"year"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in left_join(., un_all, by = c("ISO3_CODE", "year")): could not find function "left_join"</span></span></code></pre></div>
 <p>Note that the map is not completely accurate, as the base shapefile
 contains the countries that exists on 2016. Some countries, as
 Czechoslovakia, East or West Germany are not included.</p>
@@ -171,12 +176,8 @@ Czechoslovakia, East or West Germany are not included.</p>
 <span>    title <span class="op">=</span> <span class="st">"UN Members"</span>, caption <span class="op">=</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_attributions.html" class="external-link">gisco_attributions</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span>, hjust <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="UNMaps-1.png" alt="UN Members" width="100%"><p class="caption">
-UN Members
-</p>
-</div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span>, hjust <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in ggplot(un_all_sf): could not find function "ggplot"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="number-of-shared-memberships">Number of shared memberships<a class="anchor" aria-label="anchor" href="#number-of-shared-memberships"></a>
@@ -189,6 +190,7 @@ shared with Australia for each country on the world:</p>
 <span><span class="co"># Countries alive in 2014</span></span>
 <span><span class="va">states2014</span> <span class="op">&lt;-</span> <span class="va">states2016</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">styear</span> <span class="op">&lt;=</span> <span class="fl">2014</span> <span class="op">&amp;</span> <span class="va">endyear</span> <span class="op">&gt;=</span> <span class="fl">2014</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error: object 'styear' not found</span></span>
 <span></span>
 <span><span class="co"># Shared memberships with Australia</span></span>
 <span><span class="va">shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="st">"AUL"</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">states2014</span><span class="op">$</span><span class="va">statenme</span><span class="op">)</span>,</span>
@@ -200,12 +202,14 @@ shared with Australia for each country on the world:</p>
 <span>    warn <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ISO3_CODE</span>, <span class="va">shared</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in select(., ISO3_CODE, shared): could not find function "select"</span></span>
 <span></span>
 <span></span>
 <span><span class="co"># Merge with map</span></span>
 <span><span class="va">sharedmap</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">shared</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ISO3_CODE</span>, <span class="va">shared</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in select(., ISO3_CODE, shared): could not find function "select"</span></span>
 <span></span>
 <span><span class="co"># Plot with custom palette</span></span>
 <span><span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">10</span>, palette <span class="op">=</span> <span class="st">"Lajolla"</span><span class="op">)</span></span>
@@ -239,12 +243,8 @@ shared with Australia for each country on the world:</p>
 <span>    legend.text.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
 <span>    legend.key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">1.5</span>, <span class="st">"lines"</span><span class="op">)</span>,</span>
 <span>    legend.key.height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"lines"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%"><p class="caption">
-Shared Full Memberships with Australia (2014)
-</p>
-</div>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; Error in ggplot(sharedmap): could not find function "ggplot"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="cross-shared-memberships">Cross-shared memberships<a class="anchor" aria-label="anchor" href="#cross-shared-memberships"></a>
@@ -263,11 +263,13 @@ representative of each decade.</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html" class="external-link">c_across</a></span><span class="op">(</span><span class="va">aaaid</span><span class="op">:</span><span class="va">wassen</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://vincentarelbundock.github.io/countrycode/reference/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode1</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ISO3_CODE</span>, <span class="va">year</span>, <span class="va">value</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in select(., ISO3_CODE, year, value): could not find function "select"</span></span>
 <span></span>
 <span><span class="co"># Create map</span></span>
 <span><span class="co"># Get shapes</span></span>
 <span><span class="va">countries_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">all</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in left_join(., all, by = "ISO3_CODE"): could not find function "left_join"</span></span>
 <span></span>
 <span><span class="co"># Map</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">countries_sf</span><span class="op">)</span> <span class="op">+</span></span>
@@ -294,12 +296,8 @@ representative of each decade.</p>
 <span>    legend.key.height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">1.5</span>, <span class="st">"lines"</span><span class="op">)</span>,</span>
 <span>    legend.key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"lines"</span><span class="op">)</span>,</span>
 <span>    strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"grey90"</span>, colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%"><p class="caption">
-Shared Full Memberships on North America (1930 - 2010)
-</p>
-</div>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; Error in ggplot(countries_sf): could not find function "ggplot"</span></span></code></pre></div>
 </div>
 <div class="section level2 unnumbered">
 <h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
