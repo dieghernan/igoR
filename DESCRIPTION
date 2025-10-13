@@ -31,7 +31,7 @@ Copyright: © 2000-2021 by the Correlates of War
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 X-schema.org-keywords: r, igo, correlates-of-war,
     intergovernmental-organisations, cran,
     intergovernmental-organizations, r-package, rstats, cran-r
