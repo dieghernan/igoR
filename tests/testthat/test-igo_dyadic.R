@@ -32,7 +32,6 @@ test_that("Test calls", {
   expect_snapshot(aa[, c("state1", "state2", "year")])
 
 
-
   expect_silent(igo_dyadic("USA", c("USA", "Canada"), 1921))
 
   expect_silent(aa <- igo_dyadic("USA", "Spain", 1990, "un"))
