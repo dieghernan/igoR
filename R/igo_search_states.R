@@ -52,7 +52,6 @@ igo_search_states <- function(state) {
     df_states
   })
 
-
   # Check results
   has_results <- vapply(find_v, is.null, logical(1))
 

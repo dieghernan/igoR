@@ -48,8 +48,11 @@
 #'   IT$iso3c <- countrycode(IT$ccode, origin = "cown", destination = "iso3c")
 #'   head(IT)
 #' }
-igo_state_membership <- function(state, year = NULL,
-                                 status = "Full Membership") {
+igo_state_membership <- function(
+  state,
+  year = NULL,
+  status = "Full Membership"
+) {
   # Checks
   if (missing(state)) {
     stop("You must enter a value on 'state'")
@@ -77,12 +80,15 @@ igo_state_membership <- function(state, year = NULL,
       "status ",
       paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
       " not valid. Valid values are ",
-      paste0("'", levls, collapse = "', "), "'"
+      paste0("'", levls, collapse = "', "),
+      "'"
     )
   }
 
   # Find vectorized
-  find_v <- lapply(state_names, igo_state_mmb_single,
+  find_v <- lapply(
+    state_names,
+    igo_state_mmb_single,
     year = year,
     status = status
   )
@@ -126,7 +132,9 @@ igo_state_mmb_single <- function(state_names, year, status) {
   if (nrow(igo_db2) == 0) {
     dates <- range(state_db$year, na.rm = TRUE)
     message(
-      "state '", state_names, "' only alive between ",
+      "state '",
+      state_names,
+      "' only alive between ",
       paste0(dates, collapse = " and ")
     )
     return(NULL)
@@ -135,14 +143,26 @@ igo_state_mmb_single <- function(state_names, year, status) {
   # Get IGO state
   state_igo <- igoR::igo_year_format3
   init_cols <- c(
-    "ioname", "orgname", "year", "longorgname",
-    "political", "social", "economic", state_names
+    "ioname",
+    "orgname",
+    "year",
+    "longorgname",
+    "political",
+    "social",
+    "economic",
+    state_names
   )
 
   state_igo <- state_igo[, tolower(init_cols)]
   colnames(state_igo) <- c(
-    "ioname", "orgname", "year", "longorgname",
-    "political", "social", "economic", "value"
+    "ioname",
+    "orgname",
+    "year",
+    "longorgname",
+    "political",
+    "social",
+    "economic",
+    "value"
   )
   state_igo$category <- igo_recode_igoyear(state_igo$value)
 
@@ -152,7 +172,8 @@ igo_state_mmb_single <- function(state_names, year, status) {
 
   if (nrow(igo_w_year) == 0) {
     message(
-      "No IGOs for state '", state_names,
+      "No IGOs for state '",
+      state_names,
       "' with the parameters provided."
     )
     return(NULL)
@@ -163,17 +184,30 @@ igo_state_mmb_single <- function(state_names, year, status) {
   cntriesend <- merge(igo_w_year, df_states)
   # Rearrange columns
   rearcol <- c(
-    "ccode", "stateabb", "statenme", "state",
-    "year", "ioname", "value", "category", "orgname",
-    "longorgname", "political", "social", "economic"
+    "ccode",
+    "stateabb",
+    "statenme",
+    "state",
+    "year",
+    "ioname",
+    "value",
+    "category",
+    "orgname",
+    "longorgname",
+    "political",
+    "social",
+    "economic"
   )
 
   cntriesend <- cntriesend[, rearcol]
 
-  cntriesend <- cntriesend[order(
-    cntriesend$year, cntriesend$category,
-    cntriesend$ioname
-  ), ]
+  cntriesend <- cntriesend[
+    order(
+      cntriesend$year,
+      cntriesend$category,
+      cntriesend$ioname
+    ),
+  ]
 
   rownames(cntriesend) <- NULL
   cntriesend

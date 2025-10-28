@@ -6,18 +6,28 @@ test_that("Testing messages ", {
   expect_snapshot(res <- igo_members("EU", year = 1900))
   expect_null(res)
 
-  expect_snapshot(res <- igo_members("IOLM",
-    status = c(
-      "Nope", "IGO Not In Existence",
-      "Full Membership", "Observer"
+  expect_snapshot(
+    res <- igo_members(
+      "IOLM",
+      status = c(
+        "Nope",
+        "IGO Not In Existence",
+        "Full Membership",
+        "Observer"
+      )
     )
-  ))
+  )
 
   expect_true(
-    all(unique(res$category) %in% c(
-      "Nope", "IGO Not In Existence",
-      "Full Membership", "Observer"
-    ))
+    all(
+      unique(res$category) %in%
+        c(
+          "Nope",
+          "IGO Not In Existence",
+          "Full Membership",
+          "Observer"
+        )
+    )
   )
 
   expect_snapshot(res <- igo_members("EU", status = "Observer"))
@@ -32,7 +42,6 @@ test_that("Expect years", {
   comp <- comp[comp$ioname == "SCA", ]
 
   expect_identical(max(comp$year), unique(single$year))
-
 
   # With an array of years
   expect_silent(single <- igo_members("SCA", year = 1700:2020))

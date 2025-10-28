@@ -120,7 +120,6 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   # Remove 1 to 1 comparisons
   base_df <- base_df[base_df$state1 != base_df$state2, ]
 
-
   if (nrow(base_df) == 0) {
     warning(
       "No different country(ies) found for comparison ",
@@ -133,9 +132,12 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
 
   iter <- seq_len(nrow(base_df))
 
-  find_v <- lapply(iter, igo_dyadic_single,
+  find_v <- lapply(
+    iter,
+    igo_dyadic_single,
     base_df = base_df,
-    year = year, ioname = ioname
+    year = year,
+    ioname = ioname
   )
 
   # Check results
@@ -174,7 +176,6 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
 
   this_iter_df <- base_df[iter, ]
 
-
   # Filter with year
   all_igos <- all_igos[all_igos$year %in% year, ]
 
@@ -188,7 +189,8 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
   mat1 <- all_igos[all_igos$state == this_iter_df$state1, ]
   if (nrow(mat1) == 0) {
     message(
-      "Country '", this_iter_df$state1,
+      "Country '",
+      this_iter_df$state1,
       "' was not alive on years selected"
     )
     return(NULL)
@@ -196,7 +198,8 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
   mat2 <- all_igos[all_igos$state == this_iter_df$state2, ]
   if (nrow(mat2) == 0) {
     message(
-      "Country '", this_iter_df$state2,
+      "Country '",
+      this_iter_df$state2,
       "' was not alive on years selected"
     )
     return(NULL)
@@ -206,26 +209,18 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
   ress <- table(c(mat1$year, mat2$year))
   fyear <- as.numeric(names(ress[ress == 2]))
 
-  mat1_comp <- mat1[mat1$year %in% fyear,
-    tolower(ioname_ext),
-    drop = FALSE
-  ]
-  mat2_comp <- mat2[mat2$year %in% fyear,
-    names(mat1_comp),
-    drop = FALSE
-  ]
-
+  mat1_comp <- mat1[mat1$year %in% fyear, tolower(ioname_ext), drop = FALSE]
+  mat2_comp <- mat2[mat2$year %in% fyear, names(mat1_comp), drop = FALSE]
 
   # Create final matrix and iterate
   mat_res <- matrix(
     data = double(0),
-    nrow = nrow(mat1_comp), ncol = ncol(mat2_comp)
+    nrow = nrow(mat1_comp),
+    ncol = ncol(mat2_comp)
   )
-
 
   n_cols <- seq_len(ncol(mat_res))
   n_rows <- seq_len(nrow(mat_res))
-
 
   for (i in n_rows) {
     for (j in n_cols) {
@@ -260,8 +255,17 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
 
   # Re-order columns
   reorder_col <- unique(c(
-    "dyadid", "ccode1", "stateabb1", "statenme1", "state1", "ccode2",
-    "stateabb2", "statenme2", "state2", "year", colnames(end_igos)
+    "dyadid",
+    "ccode1",
+    "stateabb1",
+    "statenme1",
+    "state1",
+    "ccode2",
+    "stateabb2",
+    "statenme2",
+    "state2",
+    "year",
+    colnames(end_igos)
   ))
   end_igos <- end_igos[, reorder_col]
 

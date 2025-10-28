@@ -8,7 +8,6 @@ test_that("Testing messages ", {
   expect_snapshot(n <- igo_dyadic("USA", "USA"))
   expect_null(n)
 
-
   expect_snapshot(n <- igo_dyadic("USA", "Cuba", ioname = "Not an IGO"))
   expect_null(n)
 
@@ -30,7 +29,6 @@ test_that("Test calls", {
   )
 
   expect_snapshot(aa[, c("state1", "state2", "year")])
-
 
   expect_silent(igo_dyadic("USA", c("USA", "Canada"), 1921))
 

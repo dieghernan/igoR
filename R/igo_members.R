@@ -65,7 +65,8 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
       "status ",
       paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
       " not valid. Valid values are ",
-      paste0("'", levls, collapse = "', "), "'"
+      paste0("'", levls, collapse = "', "),
+      "'"
     )
   }
 
@@ -117,7 +118,9 @@ igo_member_single <- function(ioname, year, status) {
   if (nrow(igo_db2) == 0) {
     dates <- range(igo_db$year, na.rm = TRUE)
     message(
-      "ioname '", ioname, "' only alive between ",
+      "ioname '",
+      ioname,
+      "' only alive between ",
       paste0(dates, collapse = " and ")
     )
     return(NULL)
@@ -137,7 +140,8 @@ igo_member_single <- function(ioname, year, status) {
 
   if (nrow(igo_w_year) == 0) {
     message(
-      "No members for ioname '", ioname,
+      "No members for ioname '",
+      ioname,
       "' with the parameters provided."
     )
     return(NULL)
@@ -148,16 +152,24 @@ igo_member_single <- function(ioname, year, status) {
   cntriesend <- merge(igo_w_year, dfnames)
   # Rearrange columns
   rearcol <- unique(c(
-    "ioname", "ccode", "state", "statenme", "year",
-    "value", "category", "orgname"
+    "ioname",
+    "ccode",
+    "state",
+    "statenme",
+    "year",
+    "value",
+    "category",
+    "orgname"
   ))
 
   cntriesend <- cntriesend[, rearcol]
-  cntriesend <- cntriesend[order(
-    cntriesend$year,
-    cntriesend$category,
-    cntriesend$ccode
-  ), ]
+  cntriesend <- cntriesend[
+    order(
+      cntriesend$year,
+      cntriesend$category,
+      cntriesend$ccode
+    ),
+  ]
 
   rownames(cntriesend) <- NULL
   cntriesend

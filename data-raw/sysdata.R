@@ -9,9 +9,6 @@ cow_country_codes <- igoR::states2016 %>%
   arrange(ccode)
 
 
-usethis::use_data(cow_country_codes,
-  overwrite = TRUE,
-  internal = TRUE
-)
+usethis::use_data(cow_country_codes, overwrite = TRUE, internal = TRUE)
 
 tools::checkRdaFiles("./R")

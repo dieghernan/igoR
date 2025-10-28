@@ -10,7 +10,8 @@ download.file(
   "data-raw/states2016.csv"
 )
 
-states2016 <- read.csv2("data-raw/states2016.csv",
+states2016 <- read.csv2(
+  "data-raw/states2016.csv",
   sep = ",",
   stringsAsFactors = FALSE
 )
