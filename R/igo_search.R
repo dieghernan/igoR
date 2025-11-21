@@ -5,8 +5,7 @@
 #' @description
 #' Search any IGO by name or string pattern.
 #'
-#' @return
-#' A [`data.frame`][data.frame()].
+#' @inherit igo_members source references return
 #'
 #' @seealso [igo_year_format3]
 #'
@@ -114,5 +113,5 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
     }
   }
   row.names(db_end) <- NULL
-  return(db_end)
+  db_end
 }

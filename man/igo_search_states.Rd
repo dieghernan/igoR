@@ -3,6 +3,9 @@
 \name{igo_search_states}
 \alias{igo_search_states}
 \title{Finds codes and names of a state}
+\source{
+\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
+}
 \usage{
 igo_search_states(state)
 }
@@ -28,6 +31,12 @@ igo_search_states("congo") \%>\% as_tibble()
 igo_search_states(c("Germany", "papal states")) \%>\% as_tibble()
 
 igo_search_states(c("FRN", "United Kingdom", 240, "italy")) \%>\% as_tibble()
+}
+\references{
+Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version 3.0
+datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+\doi{10.1177/0022343319881175}.
 }
 \seealso{
 \code{\link[=states2016]{states2016()}}.

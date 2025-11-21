@@ -97,7 +97,11 @@ ggplot(un_all_sf) +
     title = "UN Members", caption = gisco_attributions(),
   ) +
   theme_minimal() +
-  theme(plot.caption = element_text(face = "italic", hjust = 0.15))
+  theme(
+    plot.caption = element_text(face = "italic", hjust = 0.15),
+    axis.line = element_blank(),
+    axis.text = element_blank()
+  )
 ```
 
 <div class="figure">
@@ -159,6 +163,8 @@ ggplot(sharedmap) +
   theme(
     plot.title = element_text(face = "bold", hjust = 0.5),
     plot.caption = element_text(face = "italic", size = 7, hjust = 0.15),
+    axis.line = element_blank(),
+    axis.text = element_blank(),
     legend.title = element_text(size = 7),
     legend.text = element_text(size = 8),
     legend.position = "bottom",
@@ -202,7 +208,7 @@ countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
 # Map
 ggplot(countries_sf) +
   geom_sf(aes(fill = value), color = NA) +
-  coord_sf(crs = 2163, xlim = c(-3200000, 3333018)) +
+  coord_sf(crs = 9311, xlim = c(-3200000, 3333018)) +
   facet_wrap(~year, ncol = 3) +
   scale_fill_gradientn(
     colors = hcl.colors(10, "YlGn", rev = TRUE),
@@ -214,15 +220,11 @@ ggplot(countries_sf) +
     subtitle = "(1930-2010)", fill = "Shared IGOs",
     caption = gisco_attributions()
   ) +
-  theme_void() +
+  theme_minimal() +
   theme(
-    plot.title = element_text(face = "bold"),
-    plot.subtitle = element_text(margin = margin(t = 3, b = 10)),
-    plot.caption = element_text(face = "italic"),
-    legend.box.margin = margin(l = 20),
-    legend.title = element_text(size = 8),
-    legend.key.height = unit(1.5, "lines"),
-    legend.key.width = unit(1, "lines"),
+    panel.grid = element_blank(),
+    axis.line = element_blank(),
+    axis.text = element_blank(),
     strip.background = element_rect(fill = "grey90", colour = NA)
   )
 ```

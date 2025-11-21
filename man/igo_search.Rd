@@ -3,6 +3,9 @@
 \name{igo_search}
 \alias{igo_search}
 \title{Search and find an IGO}
+\source{
+\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
+}
 \usage{
 igo_search(pattern = NULL, exact = FALSE)
 }
@@ -61,6 +64,12 @@ igo_search("^NAFTA$|^UN$|^EU$") \%>\%
   select(ionum:orgname) \%>\%
   tibble()
 
+}
+\references{
+Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version 3.0
+datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+\doi{10.1177/0022343319881175}.
 }
 \seealso{
 \link{igo_year_format3}

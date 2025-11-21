@@ -7,6 +7,8 @@
 #'
 #' @return A [`data.frame`][data.frame()].
 #'
+#' @inherit igo_dyadic source references
+#'
 #' @seealso
 #' [igo_year_format3], [igo_search()], [state_year_format3].
 #'

@@ -3,6 +3,9 @@
 \name{igo_members}
 \alias{igo_members}
 \title{Extract members of an IGO}
+\source{
+\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
+}
 \usage{
 igo_members(ioname, year = NULL, status = "Full Membership")
 }
@@ -54,6 +57,12 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 
   tibble(EU)
 }
+}
+\references{
+Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version 3.0
+datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+\doi{10.1177/0022343319881175}.
 }
 \seealso{
 \link{igo_year_format3}, \code{\link[=igo_search]{igo_search()}}, \link{state_year_format3}.

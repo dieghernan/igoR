@@ -5,8 +5,7 @@
 #' @description
 #' Extract all the memberships of a state on a specific date.
 #'
-#' @return
-#' A [`data.frame`][data.frame()].
+#' @inherit igo_members source references return
 #'
 #' @seealso
 #' [igo_year_format3], [igo_search_states()], [states2016].

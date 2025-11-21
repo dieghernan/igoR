@@ -5,9 +5,9 @@
 #' @description
 #' Extract all the memberships of a state on a specific date.
 #'
-#' @return A [`data.frame`][data.frame()].
-#'
 #' @seealso [states2016()].
+#'
+#' @inherit igo_members source references return
 #'
 #' @param state Any valid name or code of a state as specified on
 #'   [states2016()]. It could be also an array of states.
