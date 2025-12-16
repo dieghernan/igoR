@@ -32,7 +32,7 @@
   gtag('config', 'G-S61Y539QDX');
 </script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
 <!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet">
 </head>
 <body>
@@ -131,7 +131,7 @@ names.</p>
 of the United Nations. First we should extract the data:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Extract shapes</span></span>
-<span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get_countries.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract three dates - some errors given that ISO doesnt have every COW Code</span></span>
 <span><span class="va">un_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="st">"UN"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1950</span>, <span class="fl">1980</span>, <span class="fl">2010</span><span class="op">)</span>, status <span class="op">=</span> <span class="st">"Full Membership"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -273,7 +273,7 @@ representative of each decade.</p>
 <span></span>
 <span><span class="co"># Create map</span></span>
 <span><span class="co"># Get shapes</span></span>
-<span><span class="va">countries_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">countries_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get_countries.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">all</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Map</span></span>
