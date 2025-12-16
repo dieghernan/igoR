@@ -43,7 +43,7 @@ Details
     #>  jsonlite      2.0.0   2025-03-27 [1] RSPM
     #>  knitr         1.50    2025-03-16 [1] RSPM
     #>  lifecycle     1.0.4   2023-11-07 [1] RSPM
-    #>  pkgdown       2.2.0   2025-11-06 [1] RSPM
+    #>  pkgdown       2.2.0   2025-11-06 [1] any (@2.2.0)
     #>  R6            2.6.1   2025-02-15 [1] RSPM
     #>  ragg          1.5.0   2025-09-02 [1] RSPM
     #>  reactable   * 0.4.5   2025-12-01 [1] RSPM
