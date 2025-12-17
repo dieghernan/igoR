@@ -22,7 +22,7 @@ Details
     #>  collate  English_United States.utf8
     #>  ctype    English_United States.utf8
     #>  tz       UTC
-    #>  date     2025-12-16
+    #>  date     2025-12-17
     #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
     #>  quarto   NA
     #> 
@@ -38,12 +38,12 @@ Details
     #>  fs            1.6.6   2025-04-12 [1] RSPM
     #>  htmltools     0.5.9   2025-12-04 [1] RSPM
     #>  htmlwidgets   1.6.4   2023-12-06 [1] RSPM
-    #>  igoR        * 0.2.1   2025-12-16 [1] local
+    #>  igoR        * 0.2.1   2025-12-17 [1] local
     #>  jquerylib     0.1.4   2021-04-26 [1] RSPM
     #>  jsonlite      2.0.0   2025-03-27 [1] RSPM
     #>  knitr         1.50    2025-03-16 [1] RSPM
     #>  lifecycle     1.0.4   2023-11-07 [1] RSPM
-    #>  pkgdown       2.2.0   2025-11-06 [1] any (@2.2.0)
+    #>  pkgdown       2.2.0   2025-11-06 [1] RSPM
     #>  R6            2.6.1   2025-02-15 [1] RSPM
     #>  ragg          1.5.0   2025-09-02 [1] RSPM
     #>  reactable   * 0.4.5   2025-12-01 [1] RSPM
@@ -54,7 +54,7 @@ Details
     #>  sessioninfo * 1.2.3   2025-02-05 [1] any (@1.2.3)
     #>  systemfonts   1.3.1   2025-10-01 [1] RSPM
     #>  textshaping   1.0.4   2025-10-10 [1] RSPM
-    #>  xfun          0.54    2025-10-30 [1] RSPM
+    #>  xfun          0.55    2025-12-16 [1] RSPM
     #>  yaml          2.3.12  2025-12-10 [1] RSPM
     #> 
     #>  [1] D:/a/_temp/Library
