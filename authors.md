@@ -11,7 +11,7 @@
 Source:
 [`inst/CITATION`](https://github.com/dieghernan/igoR/blob/main/inst/CITATION)
 
-Hernangómez D (2025). *igoR: Intergovernmental Organizations Database*.
+Hernangómez D (2026). *igoR: Intergovernmental Organizations Database*.
 [doi:10.32614/CRAN.package.igoR](https://doi.org/10.32614/CRAN.package.igoR),
 <https://dieghernan.github.io/igoR/>.
 
@@ -19,7 +19,7 @@ Hernangómez D (2025). *igoR: Intergovernmental Organizations Database*.
       title = {{igoR}: Intergovernmental Organizations Database},
       doi = {10.32614/CRAN.package.igoR},
       author = {Diego Hernangómez},
-      year = {2025},
+      year = {2026},
       version = {0.2.1},
       url = {https://dieghernan.github.io/igoR/},
       abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
