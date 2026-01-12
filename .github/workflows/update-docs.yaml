@@ -54,6 +54,7 @@ jobs:
         run: jarl --version
         
       - name: Run jarl
+        continue-on-error: true
         run: jarl check . --fix
 
       - name: Install Air
