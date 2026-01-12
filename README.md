@@ -139,7 +139,7 @@ EEC, members (1992)
 ## Citation
 
 <p>
-Hernangómez D (2025). <em>igoR: Intergovernmental Organizations
+Hernangómez D (2026). <em>igoR: Intergovernmental Organizations
 Database</em>.
 <a href="https://doi.org/10.32614/CRAN.package.igoR">doi:10.32614/CRAN.package.igoR</a>,
 <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
@@ -151,7 +151,7 @@ A BibTeX entry for LaTeX users:
       title = {{igoR}: Intergovernmental Organizations Database},
       doi = {10.32614/CRAN.package.igoR},
       author = {Diego Hernangómez},
-      year = {2025},
+      year = {2026},
       version = {0.2.1},
       url = {https://dieghernan.github.io/igoR/},
       abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
