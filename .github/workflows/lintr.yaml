@@ -22,10 +22,16 @@ on:
       - main
       - master
   schedule:
-    - cron: '56 06 * * 5'
+    - cron: '56 07 * * 5'
 
 permissions:
   contents: read
+
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
 
 jobs:
   lintr:
