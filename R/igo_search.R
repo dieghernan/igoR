@@ -76,7 +76,7 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
 
   db_end$label <- gsub("\\((.*?)\\)", "", db_end$label)
   db_end$label <- gsub("\\((.*?)$", "", db_end$label)
-  db_end$label <- gsub("  ", " ", db_end$label)
+  db_end$label <- gsub("  ", " ", db_end$label, fixed = TRUE)
 
   # Reorder col
   cols <- unique(

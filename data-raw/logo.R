@@ -10,7 +10,7 @@ p <- sticker(
   p_size = 35,
   p_y = 1.5,
   s_x = 1,
-  s_y = .88,
+  s_y = 0.88,
   s_width = 0.99,
   h_fill = "#0099ff",
   h_color = "#99d6ff",
