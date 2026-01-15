@@ -13,7 +13,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
   cancel-in-progress: true
 
-
 jobs:
   test-coverage:
     runs-on: ubuntu-latest
@@ -45,7 +44,8 @@ jobs:
           # Create junit code as character
           junreport <- paste0(
             "testthat::test_package('",
-            pkgname, "', reporter = testthat::JunitReporter$new(file = '", junfile, "'))"
+            pkgname, "',
+            reporter = testthat::JunitReporter$new(file = '", junfile, "'))"
           )
 
           cov <- covr::package_coverage(
@@ -99,4 +99,3 @@ jobs:
         with:
           name: coverage-test-failures
           path: ${{ runner.temp }}/package
-
