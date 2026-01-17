@@ -2,13 +2,13 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "igoR",
-  "description": "Tools to extract information from the Intergovernmental Organizations ('IGO') Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse JC, Nordstrom T, McManus RW, Jamison AS (2020). \"Tracking organizations in the world: The Correlates of War IGO Version 3.0 datasets.\" Journal of Peace Research, 57(3), 492-503. <doi:10.1177/0022343319881175>.",
+  "description": "Tools to extract information from the Intergovernmental Organizations ('IGO') Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.",
   "name": "igoR: Intergovernmental Organizations Database",
   "relatedLink": ["https://dieghernan.github.io/igoR/", "https://CRAN.R-project.org/package=igoR"],
   "codeRepository": "https://github.com/dieghernan/igoR",
   "issueTracker": "https://github.com/dieghernan/igoR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.1.9000",
+  "version": "1.0.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -139,7 +139,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "igo", "correlates-of-war", "intergovernmental-organisations", "cran", "intergovernmental-organizations", "r-package", "rstats", "cran-r"],
-  "fileSize": "797.928KB",
+  "fileSize": "797.262KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
