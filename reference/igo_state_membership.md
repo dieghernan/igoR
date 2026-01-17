@@ -19,12 +19,12 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
   Any valid name or code of a state as specified on
   [`states2016()`](https://dieghernan.github.io/igoR/reference/states2016.md).
-  It could be also an array of states.
+  It can be also an array of states.
 
 - year:
 
   Year to be assessed, an integer or an array of year. If `NULL` the
-  latest year available of the state would be extracted.
+  latest year available of the state will be extracted.
 
 - status:
 

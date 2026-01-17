@@ -1,6 +1,6 @@
 # Finds codes and names of a state
 
-Extract all the memberships of a state on a specific date.
+Find codes and names of a state.
 
 ## Usage
 
@@ -19,7 +19,7 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
   Any valid name or code of a state as specified on
   [`states2016()`](https://dieghernan.github.io/igoR/reference/states2016.md).
-  It could be also an array of states.
+  It can be also an array of states.
 
 ## Value
 

@@ -52,7 +52,7 @@ system from 1816-2016 for the following criteria:
 
 ## Note
 
-`state` variable added to original data to help comparison across
+`state` variable added to original data to help comparisons across
 datasets on this package.
 
 ## References

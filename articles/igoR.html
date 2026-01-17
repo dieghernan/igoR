@@ -45,7 +45,7 @@
       <img src="../apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">
       igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,15 +95,15 @@ Hernangómez</h4>
 
     
     
-<p>This vignette is meant to provide <strong>useRs</strong> with an
+<p>This vignette is meant to provide <strong>useRs</strong> with a
 visual, explorable introduction to the capabilities of the
 <strong>igoR</strong> package.</p>
-<p>The analysis would be based on those provided on <span class="citation">(<a href="#ref-pevehouse2020">J. C. Pevehouse et al.
-2020</a>)</span>. For more information on the IGO data sets and
-additional downloads, see <a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Intergovernmental
+<p>The analysis is based on those provided in <span class="citation">J.
+C. Pevehouse et al. (<a href="#ref-pevehouse2020">2020</a>)</span>. For
+more information on the IGO data sets and additional downloads, see <a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Intergovernmental
 Organizations (v3)</a>.</p>
 <p><em>Note that the dyadic dataset is not provided in the package, due
-its size (~500 MB on Stata <code>.dta</code> format). However,</em>
+to its size (~500 MB in Stata <code>.dta</code> format). However,</em>
 <code><a href="../reference/igo_dyadic.html">igo_dyadic()</a></code> <em>function provides similar
 results.</em></p>
 <div class="section level2">
@@ -158,9 +158,8 @@ were used to describe the context of the organization:
 <span><span class="co"># Additional libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
-<p>In first place, we create a custom <code><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">ggplot2::theme()</a></code>
-named <code>theme_igor</code>, that we would apply to all our
-figures:</p>
+<p>In the first place, we create a custom <code><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">ggplot2::theme()</a></code>
+named <code>theme_igor</code>, which we apply to all our figures:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">theme_igor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
 <span>  axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -186,7 +185,7 @@ figures:</p>
 <div class="section level3">
 <h3 id="igos-overview">IGOs overview<a class="anchor" aria-label="anchor" href="#igos-overview"></a>
 </h3>
-<p>The following code extracts the number of IGOs and states included on
+<p>The following code extracts the number of IGOs and states included in
 this package. The years available are 1816 to 2014.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Summarize</span></span>
@@ -225,9 +224,9 @@ Figure 1. IGOs and states in the world system, 1816-2014
 <div class="section level3">
 <h3 id="igo-births-and-deaths">IGO Births and deaths<a class="anchor" aria-label="anchor" href="#igo-births-and-deaths"></a>
 </h3>
-<p>This plot shows how many IGOs were “born” and “died” on each year</p>
+<p>This plot shows how many IGOs were “born” and “died” in each year</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Births and deads by year</span></span>
+<code class="sourceCode R"><span><span class="co"># Births and deaths by year</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_search.html">igo_search</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
@@ -378,7 +377,7 @@ Figure 3. IGO counts across regions, 1816-2014
 <div class="section level3">
 <h3 id="selected-countries-asia">Selected Countries: Asia<a class="anchor" aria-label="anchor" href="#selected-countries-asia"></a>
 </h3>
-<p>Number of memberships of a country. We select here five countries on
+<p>Number of memberships for a country. We select here five countries in
 Asia: India, China, Pakistan, Indonesia and Bangladesh.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">asia5_cntries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"China"</span>, <span class="st">"India"</span>, <span class="st">"Pakistan"</span>, <span class="st">"Indonesia"</span>, <span class="st">"Bangladesh"</span><span class="op">)</span></span>
@@ -485,8 +484,7 @@ Organizations Data Set Version 3.0.”</span> <a href="https://correlatesofwar.o
 </div>
 <div id="ref-priorep" class="csl-entry">
 PRIO. 2020. <span>“Replication Datasets: Journal of Peace
-Research.”</span> <span>Peace Research Institute Oslo</span>; Online.
-2020. <a href="https://www.prio.org/journals/jpr/replicationdata" class="external-link">https://www.prio.org/journals/jpr/replicationdata</a>.
+Research.”</span> <span>Peace Research Institute Oslo</span>; Online. <a href="https://www.prio.org/journals/jpr/replicationdata" class="external-link">https://www.prio.org/journals/jpr/replicationdata</a>.
 </div>
 </div>
 </div>

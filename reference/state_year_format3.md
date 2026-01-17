@@ -27,11 +27,11 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/)
 
 [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs/), The Correlates of
-War Project (IGO Data Stata Files)
+War Project (IGO Data Stata Files).
 
 ## Details
 
-Possible value of the status of that state in the IGO are:
+Possible values of the status of that state in the IGO are:
 
 |                      |                     |
 |----------------------|---------------------|

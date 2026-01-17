@@ -19,7 +19,7 @@ thereafter)."><meta property="og:image" content="https://dieghernan.github.io/ig
       <img src="../apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">
       igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +69,7 @@ fields:</p><ul><li><p><strong>ioname</strong>: Short abbreviation of the IGO nam
 <li><p><strong>afghanistan...zimbabwe</strong>: status of that state in the IGO. See
 <strong>Details</strong>.</p></li>
 <li><p><strong>sdate</strong>: start date (year) that the IGO started.</p></li>
-<li><p><strong>deaddate</strong>: dead date (year) that the IGO dead.</p></li>
+<li><p><strong>deaddate</strong>: dead date (year) that the IGO ceased to exist.</p></li>
 <li><p><strong>longorgname</strong>: a longer version of the IGOs name (including previous
 names)</p></li>
 <li><p><strong>ionum</strong>: IGO id number in v2.1 and v3.0 of the data.</p></li>
@@ -83,7 +83,7 @@ Project (IGO Data Stata Files).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Possible value of the status of that state in the IGO are:</p><table class="table table"><tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr><tr><td>No Membership</td><td>0</td></tr><tr><td>Full Membership</td><td>1</td></tr><tr><td>Associate Membership</td><td>2</td></tr><tr><td>Observer</td><td>3</td></tr><tr><td>Missing data</td><td>-9</td></tr><tr><td>State Not System Member</td><td>-1</td></tr></table><p>See <code><a href="igo_recode.html">igo_recode_igoyear()</a></code> section for an easy way to recode the numerical
+    <p>Possible values of the status of that state in the IGO are:</p><table class="table table"><tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr><tr><td>No Membership</td><td>0</td></tr><tr><td>Full Membership</td><td>1</td></tr><tr><td>Associate Membership</td><td>2</td></tr><tr><td>Observer</td><td>3</td></tr><tr><td>Missing data</td><td>-9</td></tr><tr><td>State Not System Member</td><td>-1</td></tr></table><p>See <code><a href="igo_recode.html">igo_recode_igoyear()</a></code> section for an easy way to recode the numerical
 values into <a href="https://rdrr.io/r/base/factor.html" class="external-link">factors</a>.</p>
     </div>
     <div class="section level2">

@@ -19,7 +19,7 @@ over time."><meta property="og:image" content="https://dieghernan.github.io/igoR
       <img src="../apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">
       igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,17 +72,17 @@ over time.</p>
 
 
 <dl><dt id="arg-country-country-">country1, country2<a class="anchor" aria-label="anchor" href="#arg-country-country-"></a></dt>
-<dd><p>A state of vector of states to be compared. It
+<dd><p>A state or vector of states to be compared. It
 could be any valid name or code of a state as specified on <a href="states2016.html">states2016</a>.</p></dd>
 
 
 <dt id="arg-year">year<a class="anchor" aria-label="anchor" href="#arg-year"></a></dt>
-<dd><p>Year to be assessed, an integer or an array of year.</p></dd>
+<dd><p>Year to be assessed, an integer or an array of years.</p></dd>
 
 
 <dt id="arg-ioname">ioname<a class="anchor" aria-label="anchor" href="#arg-ioname"></a></dt>
 <dd><p>Optional. <code>ioname</code> or vector of <code>ioname</code> corresponding to the
-IGOs to be assessed. If <code>NULL</code> (the default), all IGOs would be extracted.
+IGOs to be assessed. If <code>NULL</code> (the default), all IGOs will be extracted.
 See codes on <code><a href="igo_search.html">igo_search()</a></code>.</p></dd>
 
 </dl></div>
@@ -158,7 +158,7 @@ datasets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   acwl &lt;dbl&gt;, afesd &lt;dbl&gt;, afeximb &lt;dbl&gt;, afgec &lt;dbl&gt;, afpu &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   afrand &lt;dbl&gt;, afristat &lt;dbl&gt;, afspc &lt;dbl&gt;, afte &lt;dbl&gt;, agc &lt;dbl&gt;, …</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Using custom parameters</span></span></span>
+<span class="r-in"><span><span class="co"># Using custom arguments</span></span></span>
 <span class="r-in"><span><span class="va">custom</span> <span class="op">&lt;-</span> <span class="fu">igo_dyadic</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  country1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"France"</span>, <span class="st">"Germany"</span><span class="op">)</span>, country2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Sweden"</span>, <span class="st">"Austria"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  year <span class="op">=</span> <span class="fl">1992</span><span class="op">:</span><span class="fl">1993</span>, ioname <span class="op">=</span> <span class="st">"EU"</span></span></span>

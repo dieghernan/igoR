@@ -1,11 +1,11 @@
 # igoR
 
-The goal of **igoR** is to provide access and to extract information
+The goal of **igoR** is to provide access to and extract information
 from the Intergovernmental Organizations Database (IGOs), version 3,
 provided by the Correlates of War Project ([Pevehouse et al.
 2020](#ref-pevehouse2020)).
 
-The dataset (V3) includes information of **534** IGOs from 1816 to 2014,
+The dataset (V3) includes information on **534** IGOs from 1816 to 2014,
 as well as membership information.
 
 - Source: [Intergovernmental Organizations
@@ -13,7 +13,7 @@ as well as membership information.
 - Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
 Additionally, a distribution of the State System Membership ([Correlates
-of War Project 2017](#ref-correlatesofwarproject2017)) is included on
+of War Project 2017](#ref-correlatesofwarproject2017)) is included in
 this package.
 
 ## Installation
@@ -47,7 +47,7 @@ install.packages("igoR", repos = c(
 
 ### Search an IGO by name:
 
-Search all IGOs related with “sugar”:
+Search all IGOs related to “sugar”:
 
 ``` r
 library(igoR)
@@ -111,7 +111,7 @@ EEC, members (1992)
 ## Recommended packages
 
 - **countrycode** for converting country names and codes across
-  different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
+  different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.)
 - **dplyr** for data manipulation.
 
 ## Citation
@@ -128,9 +128,9 @@ A BibTeX entry for LaTeX users:
   doi = {10.32614/CRAN.package.igoR},
   author = {Diego Hernangómez},
   year = {2026},
-  version = {0.2.1},
+  version = {0.2.1.9000},
   url = {https://dieghernan.github.io/igoR/},
-  abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.},
+  abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse JC, Nordstrom T, McManus RW, Jamison AS (2020). "Tracking organizations in the world: The Correlates of War IGO Version 3.0 datasets." Journal of Peace Research, 57(3), 492-503. <doi:10.1177/0022343319881175>.},
 }
 ```
 
@@ -188,7 +188,7 @@ Helper function to extract information.
 
 - [Mapping IGOs](https://dieghernan.github.io/igoR/articles/mapping.md):
 
-  Integrating IGOs on mapping projects.
+  Integrating IGOs into mapping projects.
 
 - [List of IGOs and
   Countries](https://dieghernan.github.io/igoR/articles/list-igos.md):

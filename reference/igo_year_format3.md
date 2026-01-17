@@ -20,7 +20,7 @@ Relevant fields:
 
 - **sdate**: start date (year) that the IGO started.
 
-- **deaddate**: dead date (year) that the IGO dead.
+- **deaddate**: dead date (year) that the IGO ceased to exist.
 
 - **longorgname**: a longer version of the IGOs name (including previous
   names)
@@ -40,7 +40,7 @@ War Project (IGO Data Stata Files).
 
 ## Details
 
-Possible value of the status of that state in the IGO are:
+Possible values of the status of that state in the IGO are:
 
 |                         |                     |
 |-------------------------|---------------------|

@@ -1,15 +1,15 @@
 # Get started with the igoR package
 
-This vignette is meant to provide **useRs** with an visual, explorable
+This vignette is meant to provide **useRs** with a visual, explorable
 introduction to the capabilities of the **igoR** package.
 
-The analysis would be based on those provided on ([J. C. Pevehouse et
-al. 2020](#ref-pevehouse2020)). For more information on the IGO data
-sets and additional downloads, see [Intergovernmental Organizations
+The analysis is based on those provided in J. C. Pevehouse et al.
+([2020](#ref-pevehouse2020)). For more information on the IGO data sets
+and additional downloads, see [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*Note that the dyadic dataset is not provided in the package, due its
-size (~500 MB on Stata `.dta` format). However,*
+*Note that the dyadic dataset is not provided in the package, due to its
+size (~500 MB in Stata `.dta` format). However,*
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
 *function provides similar results.*
 
@@ -64,9 +64,9 @@ library(ggplot2)
 library(dplyr)
 ```
 
-In first place, we create a custom
+In the first place, we create a custom
 [`ggplot2::theme()`](https://ggplot2.tidyverse.org/reference/theme.html)
-named `theme_igor`, that we would apply to all our figures:
+named `theme_igor`, which we apply to all our figures:
 
 ``` r
 theme_igor <- theme(
@@ -93,7 +93,7 @@ theme_igor <- theme(
 
 ### IGOs overview
 
-The following code extracts the number of IGOs and states included on
+The following code extracts the number of IGOs and states included in
 this package. The years available are 1816 to 2014.
 
 ``` r
@@ -133,10 +133,10 @@ Figure 1. IGOs and states in the world system, 1816-2014
 
 ### IGO Births and deaths
 
-This plot shows how many IGOs were “born” and “died” on each year
+This plot shows how many IGOs were “born” and “died” in each year
 
 ``` r
-# Births and deads by year
+# Births and deaths by year
 
 df <- igo_search()
 
@@ -291,7 +291,7 @@ Figure 3. IGO counts across regions, 1816-2014
 
 ### Selected Countries: Asia
 
-Number of memberships of a country. We select here five countries on
+Number of memberships for a country. We select here five countries in
 Asia: India, China, Pakistan, Indonesia and Bangladesh.
 
 ``` r
@@ -396,5 +396,5 @@ Set Version 3.0.”
 <https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf>.
 
 PRIO. 2020. “Replication Datasets: Journal of Peace Research.” Peace
-Research Institute Oslo; Online. 2020.
+Research Institute Oslo; Online.
 <https://www.prio.org/journals/jpr/replicationdata>.

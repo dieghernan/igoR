@@ -19,12 +19,12 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
   Any valid `ioname` of an IGO as specified on
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
-  It could be also a vector of IGOs.
+  It can be also a vector of IGOs.
 
 - year:
 
-  Year to be assessed, an integer or an array of year. If `NULL` the
-  latest year available of the IGO would be extracted.
+  Year to be assessed, an integer or an array of years. If `NULL` the
+  latest year available of the IGO will be extracted.
 
 - status:
 

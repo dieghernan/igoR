@@ -1,6 +1,6 @@
 # Mapping IGOs
 
-Maps are a powerful tool to show data. As the scope of **igoR** are the
+Maps are a powerful tool to show data. As the scope of **igoR** is the
 Intergovernmental Organizations, mapping and IGOs are a perfect match.
 
 This vignette provides some geospatial visualizations using the IGO data
@@ -28,14 +28,14 @@ library(sf)
 
 ## Evolution of the composition of UN
 
-The following maps shows the evolution of countries that are members of
+The following map shows the evolution of countries that are members of
 the United Nations. First we should extract the data:
 
 ``` r
 # Extract shapes
 world <- gisco_get_countries()
 
-# Extract three dates - some errors given that ISO doesnt have every COW Code
+# Extract three dates - some errors given that ISO doesn't have every COW Code
 un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
   # Add ISO3 Code
   mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
@@ -59,8 +59,8 @@ un_all_sf <- world %>%
 ```
 
 Note that the map is not completely accurate, as the base shapefile
-contains the countries that exists on 2016. Some countries, as
-Czechoslovakia, East or West Germany are not included.
+contains the countries that existed in 2016. Some countries, such as
+Czechoslovakia, East Germany and West Germany are not included.
 
 Now we are ready to plot with **ggplot2**:
 
@@ -93,7 +93,7 @@ UN Members
 
 Shared memberships are useful for identifying regional patterns. The
 following code produces a map showing the number of full memberships
-shared with Australia for each country on the world:
+shared with Australia for each country in the world:
 
 ``` r
 ## Number of igos shared - 2014
@@ -162,7 +162,7 @@ Shared Full Memberships with Australia (2014)
 ## Cross-shared memberships
 
 The following map shows how the relationships between the countries of
-North America has flourished on the last 90 years, using a year as
+North America have flourished over the last 90 years, using a year as
 representative of each decade.
 
 ``` r

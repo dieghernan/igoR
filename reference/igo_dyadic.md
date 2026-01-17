@@ -19,18 +19,18 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - country1, country2:
 
-  A state of vector of states to be compared. It could be any valid name
+  A state or vector of states to be compared. It could be any valid name
   or code of a state as specified on
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
 
 - year:
 
-  Year to be assessed, an integer or an array of year.
+  Year to be assessed, an integer or an array of years.
 
 - ioname:
 
   Optional. `ioname` or vector of `ioname` corresponding to the IGOs to
-  be assessed. If `NULL` (the default), all IGOs would be extracted. See
+  be assessed. If `NULL` (the default), all IGOs will be extracted. See
   codes on
   [`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md).
 
@@ -129,7 +129,7 @@ dplyr::tibble(usa_esp)
 #> #   acwl <dbl>, afesd <dbl>, afeximb <dbl>, afgec <dbl>, afpu <dbl>,
 #> #   afrand <dbl>, afristat <dbl>, afspc <dbl>, afte <dbl>, agc <dbl>, …
 
-# Using custom parameters
+# Using custom arguments
 custom <- igo_dyadic(
   country1 = c("France", "Germany"), country2 = c("Sweden", "Austria"),
   year = 1992:1993, ioname = "EU"
