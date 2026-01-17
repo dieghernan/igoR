@@ -1,5 +1,9 @@
 # Changelog
 
+## igoR (development version)
+
+- `COPYRIGHTS` file updated.
+
 ## igoR 1.0.0
 
 CRAN release: 2026-01-17
