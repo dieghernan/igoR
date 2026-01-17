@@ -6,6 +6,7 @@
 #' Extract all the memberships of a state on a specific date.
 #'
 #' @inherit igo_members source references return
+#' @encoding UTF-8
 #'
 #' @seealso
 #' [igo_year_format3], [igo_search_states()], [states2016].
@@ -15,7 +16,7 @@
 #' @inheritParams igo_search_states
 #'
 #' @param year Year to be assessed, an integer or an array of year. If `NULL`
-#'   the latest year available of the state would be extracted.
+#'   the latest year available of the state will be extracted.
 #' @param status Character or vector with the membership status to be extracted.
 #' See **Details** on [igo_year_format3].
 #'
@@ -98,7 +99,7 @@ igo_state_membership <- function(
   # Clean
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
-    warning("No states found with the required parameters")
+    warning("No states found with the required arguments")
     return(invisible(NULL))
   }
 
@@ -173,7 +174,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
     message(
       "No IGOs for state '",
       state_names,
-      "' with the parameters provided."
+      "' with the arguments provided."
     )
     return(NULL)
   }

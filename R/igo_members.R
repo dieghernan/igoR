@@ -8,6 +8,7 @@
 #' @return A [`data.frame`][data.frame()].
 #'
 #' @inherit igo_dyadic source references
+#' @encoding UTF-8
 #'
 #' @seealso
 #' [igo_year_format3], [igo_search()], [state_year_format3].
@@ -15,9 +16,9 @@
 #' @export
 #'
 #' @param ioname Any valid `ioname` of an IGO as specified on
-#'   [igo_year_format3]. It could be also a vector of IGOs.
-#' @param year Year to be assessed, an integer or an array of year. If `NULL`
-#'   the latest year available of the IGO would be extracted.
+#'   [igo_year_format3]. It can be also a vector of IGOs.
+#' @param year Year to be assessed, an integer or an array of years. If `NULL`
+#'   the latest year available of the IGO will be extracted.
 #' @param status Character or vector with the membership status to be extracted.
 #'   See **Details** on [state_year_format3].
 #'
@@ -81,7 +82,7 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Clean
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
-    warning("No IGO results found with the required parameters")
+    warning("No IGO results found with the required arguments")
     return(invisible(NULL))
   }
 
@@ -144,7 +145,7 @@ igo_member_single <- function(ioname, year, status) {
     message(
       "No members for ioname '",
       ioname,
-      "' with the parameters provided."
+      "' with the arguments provided."
     )
     return(NULL)
   }

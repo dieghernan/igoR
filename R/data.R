@@ -3,6 +3,8 @@
 #' @name igo_year_format3
 #'
 #' @docType data
+#' @encoding UTF-8
+#' @inherit igo_dyadic references
 #'
 #' @description
 #' Data on IGOs from 1815-2014, at the IGO-year level. Contains one record per
@@ -15,7 +17,7 @@
 #' Project (IGO Data Stata Files).
 #'
 #' @details
-#' Possible value of the status of that state in the IGO are:
+#' Possible values of the status of that state in the IGO are:
 #'
 #' ```{r, echo=FALSE}
 #'
@@ -44,7 +46,7 @@
 #'   * **afghanistan...zimbabwe**: status of that state in the IGO. See
 #'     **Details**.
 #'   * **sdate**: start date (year) that the IGO started.
-#'   * **deaddate**: dead date (year) that the IGO dead.
+#'   * **deaddate**: dead date (year) that the IGO ceased to exist.
 #'   * **longorgname**: a longer version of the IGOs name (including previous
 #'     names)
 #'   * **ionum**: IGO id number in v2.1 and v3.0 of the data.
@@ -57,11 +59,6 @@
 #'
 #' @note Raw data used internally by \CRANpkg{igoR}.
 #'
-#' @references
-#' Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
-#' Tracking organizations in the world: The Correlates of War IGO Version 3.0
-#' datasets. *Journal of Peace Research, 57*(3), 492–503.
-#' \doi{10.1177/0022343319881175}.
 #' @examples
 #' data("state_year_format3")
 #'
@@ -93,19 +90,16 @@ NULL
 #' @name state_year_format3
 #'
 #' @docType data
+#' @encoding UTF-8
+#' @inherit igo_year_format3 source references note
 #'
 #' @description
 #' Data on IGOs from 1815-2014, at the country-year level. Contains one record
 #' per country-year (with years listed at 5 year intervals through 1965, and
 #' annually thereafter).
 #'
-#' @source
-#' [Intergovernmental Organizations
-#' (v3)](https://correlatesofwar.org/data-sets/IGOs/), The Correlates of War
-#' Project (IGO Data Stata Files)
-#'
 #' @details
-#' Possible value of the status of that state in the IGO are:
+#' Possible values of the status of that state in the IGO are:
 #'
 #' ```{r, echo=FALSE}
 #'
@@ -142,13 +136,6 @@ NULL
 #'
 #' @family datasets
 #'
-#' @note Raw data used internally by \CRANpkg{igoR}.
-#'
-#' @references
-#' Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
-#' Tracking organizations in the world: The Correlates of War IGO Version 3.0
-#' datasets. *Journal of Peace Research, 57*(3), 492–503.
-#' \doi{10.1177/0022343319881175}.
 #'
 #' @examples
 #' data("state_year_format3")
@@ -162,6 +149,7 @@ NULL
 #' @name states2016
 #'
 #' @docType data
+#' @encoding UTF-8
 #'
 #' @description
 #' The list of states with COW abbreviations and ID numbers, plus the field
@@ -206,7 +194,7 @@ NULL
 #'
 #'
 #' @note
-#' `state` variable added to original data to help comparison across datasets
+#' `state` variable added to original data to help comparisons across datasets
 #' on this package.
 #'
 #' @references

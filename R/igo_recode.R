@@ -10,6 +10,8 @@
 #'   [state_year_format3].
 #' - [igo_recode_dyadic()] is intended to work with values on
 #'   [igo_dyadic()].
+#'
+#' @encoding UTF-8
 #' @rdname igo_recode
 #' @name igo_recode_igoyear
 #' @param x Numerical value (or vector of values) to recode.

@@ -13,5 +13,5 @@
       state not found: 'aaaaa'
     Condition
       Warning in `igo_search_states()`:
-      No states found with required parameters
+      No states found with required arguments
 

@@ -40,11 +40,11 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-The goal of **igoR** is to provide access and to extract information from the
+The goal of **igoR** is to provide access to and extract information from the
 Intergovernmental Organizations Database (IGOs), version 3, provided by the
 Correlates of War Project [@pevehouse2020].
 
-The dataset (V3) includes information of **`r nrow(igoR::igo_search())`** IGOs
+The dataset (V3) includes information on **`r nrow(igoR::igo_search())`** IGOs
 from `r min(igoR::igo_year_format3$year)` to
 `r max(igoR::igo_year_format3$year)`, as well as membership information.
 
@@ -53,7 +53,7 @@ from `r min(igoR::igo_year_format3$year)` to
 -   Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
 Additionally, a distribution of the State System Membership
-[@correlatesofwarproject2017] is included on this package.
+[@correlatesofwarproject2017] is included in this package.
 
 ## Installation
 
@@ -85,7 +85,7 @@ install.packages("igoR", repos = c(
 
 ### Search an IGO by name:
 
-Search all IGOs related with "sugar":
+Search all IGOs related to "sugar":
 
 ```{r search}
 library(igoR)
@@ -129,7 +129,7 @@ knitr::kable(eec_end, caption = paste0(
 ## Recommended packages
 
 -   **countrycode** for converting country names and codes across different
-    systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc..)
+    systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.)
 -   **dplyr** for data manipulation.
 
 ## Citation

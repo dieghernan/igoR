@@ -7,7 +7,8 @@ url <-
 
 download.file(
   url,
-  "data-raw/states2016.csv"
+  "data-raw/states2016.csv",
+  mode = "wb"
 )
 
 states2016 <- read.csv2(

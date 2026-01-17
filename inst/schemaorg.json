@@ -7,14 +7,20 @@
         "id": "https://orcid.org/0000-0001-8457-4658"
       },
       "codeRepository": "https://github.com/dieghernan/igoR",
-      "copyrightHolder": {
-        "id": "https://orcid.org/0000-0001-8457-4658",
-        "type": "Person",
-        "email": "diego.hernangomezherrero@gmail.com",
-        "familyName": "Hernangómez",
-        "givenName": "Diego"
-      },
-      "description": "Tools to extract information from the Intergovernmental Organizations ('IGO') Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815 to 2014.",
+      "copyrightHolder": [
+        {
+          "id": "https://orcid.org/0000-0001-8457-4658",
+          "type": "Person",
+          "email": "diego.hernangomezherrero@gmail.com",
+          "familyName": "Hernangómez",
+          "givenName": "Diego"
+        },
+        {
+          "type": "Organization",
+          "name": "The Correlates of War Project"
+        }
+      ],
+      "description": "Tools to extract information from the Intergovernmental Organizations ('IGO') Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse JC, Nordstrom T, McManus RW, Jamison AS (2020). \"Tracking organizations in the world: The Correlates of War IGO Version 3.0 datasets.\" Journal of Peace Research, 57(3), 492-503. <doi:10.1177/0022343319881175>.",
       "license": "https://spdx.org/licenses/GPL-3.0",
       "name": "igoR: Intergovernmental Organizations Database",
       "programmingLanguage": {
@@ -29,7 +35,7 @@
         "url": "https://cran.r-project.org"
       },
       "runtimePlatform": "R version 4.5.2 (2025-10-31 ucrt)",
-      "version": "0.2.1"
+      "version": "0.2.1.9000"
     },
     {
       "id": "https://doi.org/10.32614/CRAN.package.igoR",

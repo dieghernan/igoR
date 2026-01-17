@@ -37,13 +37,19 @@ reference:
   contents:
   - igoR-package
 
-authors:
-  Diego Hernangómez:
-    href: https://dieghernan.github.io/
-
 articles:
 - title: Articles
   navbar: Articles
   contents:
   - mapping
   - articles/list-igos
+
+authors:
+  Diego Hernangómez:
+    href: https://dieghernan.github.io/
+  The Correlates of War Project:
+    href: https://correlatesofwar.org/
+    html: >
+      <img
+      src='https://correlatesofwar.org/wp-content/uploads/cropped-COW-logo-2025-base-1-300x101.png'
+      width='50' alt='The Correlates of War Project' class='align-middle'>

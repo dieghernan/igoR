@@ -6,6 +6,7 @@
 #' Search any IGO by name or string pattern.
 #'
 #' @inherit igo_members source references return
+#' @encoding UTF-8
 #'
 #' @seealso [igo_year_format3]
 #'

@@ -2,8 +2,8 @@
 title: "Mapping IGOs"
 author: Diego Hernangómez
 description: >
-  Integrating IGOs on mapping projects.
-bibliography: refs_igo.bib
+  Integrating IGOs into mapping projects.
+bibliography: REFERENCES.bib
 link-citations: yes
 output: rmarkdown::html_vignette
 vignette: >
@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Maps are a powerful tool to show data. As the scope of **igoR** are the
+Maps are a powerful tool to show data. As the scope of **igoR** is the
 Intergovernmental Organizations, mapping and IGOs are a perfect match.
 
 This vignette provides some geospatial visualizations using the IGO data sets
@@ -56,14 +56,14 @@ library(sf)
 
 ## Evolution of the composition of UN
 
-The following maps shows the evolution of countries that are members of the
+The following map shows the evolution of countries that are members of the
 United Nations. First we should extract the data:
 
 ```{r UN}
 # Extract shapes
 world <- gisco_get_countries()
 
-# Extract three dates - some errors given that ISO doesnt have every COW Code
+# Extract three dates - some errors given that ISO doesn't have every COW Code
 un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
   # Add ISO3 Code
   mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
@@ -87,8 +87,7 @@ un_all_sf <- world %>%
 ```
 
 Note that the map is not completely accurate, as the base shapefile contains the
-countries that exists on 2016. Some countries, as Czechoslovakia, East or West
-Germany are not included.
+countries that existed in 2016. Some countries, such as Czechoslovakia, East Germany and West Germany are not included.
 
 Now we are ready to plot with **ggplot2**:
 
@@ -117,7 +116,7 @@ ggplot(un_all_sf) +
 
 Shared memberships are useful for identifying regional patterns. The following
 code produces a map showing the number of full memberships shared with Australia
-for each country on the world:
+for each country in the world:
 
 ```{r AustShared, fig.asp=0.72, fig.cap="Shared Full Memberships with Australia (2014)"}
 ## Number of igos shared - 2014
@@ -182,7 +181,7 @@ ggplot(sharedmap) +
 ## Cross-shared memberships
 
 The following map shows how the relationships between the countries of North
-America has flourished on the last 90 years, using a year as representative of
+America have flourished over the last 90 years, using a year as representative of
 each decade.
 
 ```{r NAShared, fig.cap="Shared Full Memberships on North America (1930 - 2010)", fig.asp=1}

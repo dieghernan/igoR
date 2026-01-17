@@ -14,7 +14,7 @@
       Country 'cuba' was not alive on years selected
     Condition
       Warning in `igo_dyadic()`:
-      No dyadic results found with the required parameters
+      No dyadic results found with the required arguments
 
 ---
 
@@ -32,7 +32,7 @@
       No valid ionames used with 'not an igo'
     Condition
       Warning in `igo_dyadic()`:
-      No dyadic results found with the required parameters
+      No dyadic results found with the required arguments
 
 ---
 
@@ -42,12 +42,12 @@
       state not found: 'Not a country'
     Condition
       Warning in `igo_search_states()`:
-      No states found with required parameters
+      No states found with required arguments
     Message
       state not found: 'banana'
     Condition
       Warning in `igo_search_states()`:
-      No states found with required parameters
+      No states found with required arguments
       Warning in `igo_dyadic()`:
       No country(ies) found for comparison
 
@@ -59,7 +59,7 @@
       Country 'cuba' was not alive on years selected
     Condition
       Warning in `igo_dyadic()`:
-      No dyadic results found with the required parameters
+      No dyadic results found with the required arguments
 
 ---
 
@@ -69,7 +69,7 @@
       No ionames found for years selected
     Condition
       Warning in `igo_dyadic()`:
-      No dyadic results found with the required parameters
+      No dyadic results found with the required arguments
 
 # Test calls
 

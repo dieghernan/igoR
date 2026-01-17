@@ -3,7 +3,7 @@ title: "Get started with the igoR package"
 author: Diego Hernangómez
 description: >
   Introduction to the capabilities of the package.
-bibliography: refs_igo.bib
+bibliography: REFERENCES.bib
 link-citations: yes
 output: rmarkdown::html_vignette
 vignette: >
@@ -27,16 +27,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette is meant to provide **useRs** with an visual, explorable
+This vignette is meant to provide **useRs** with a visual, explorable
 introduction to the capabilities of the **igoR** package.
 
-The analysis would be based on those provided on [@pevehouse2020]. For more
-information on the IGO data sets and additional downloads, see
-[Intergovernmental Organizations
-(v3)](https://correlatesofwar.org/data-sets/IGOs/).
+The analysis is based on those provided in @pevehouse2020. For more information
+on the IGO data sets and additional downloads, see [Intergovernmental
+Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*Note that the dyadic dataset is not provided in the package, due its size
-(\~500 MB on Stata `.dta` format). However,* `igo_dyadic()` *function provides
+*Note that the dyadic dataset is not provided in the package, due to its size
+(\~500 MB in Stata `.dta` format). However,* `igo_dyadic()` *function provides
 similar results.*
 
 ## Definitions
@@ -88,8 +87,8 @@ library(ggplot2)
 library(dplyr)
 ```
 
-In first place, we create a custom `ggplot2::theme()` named `theme_igor`, that
-we would apply to all our figures:
+In the first place, we create a custom `ggplot2::theme()` named `theme_igor`,
+which we apply to all our figures:
 
 ```{r custom_theme}
 theme_igor <- theme(
@@ -116,7 +115,7 @@ theme_igor <- theme(
 
 ### IGOs overview
 
-The following code extracts the number of IGOs and states included on this
+The following code extracts the number of IGOs and states included in this
 package. The years available are 1816 to 2014.
 
 ```{r Fig1, message=FALSE, warning=FALSE, fig.cap="Figure 1. IGOs and states in the world system, 1816-2014"}
@@ -151,10 +150,10 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 ### IGO Births and deaths
 
-This plot shows how many IGOs were "born" and "died" on each year
+This plot shows how many IGOs were "born" and "died" in each year
 
 ```{r Fig2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Birth and death rates of IGOs, 1816-2014"}
-# Births and deads by year
+# Births and deaths by year
 
 df <- igo_search()
 
@@ -298,7 +297,7 @@ ggplot(regionsum, aes(x = year, y = value)) +
 
 ### Selected Countries: Asia
 
-Number of memberships of a country. We select here five countries on Asia:
+Number of memberships for a country. We select here five countries in Asia:
 India, China, Pakistan, Indonesia and Bangladesh.
 
 ```{r Fig4, message=FALSE, warning=FALSE, fig.cap="Figure 4. IGO membership: five states in Asia, 1865-2014"}

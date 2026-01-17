@@ -8,15 +8,16 @@ message: 'To cite package "igoR" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'igoR: Intergovernmental Organizations Database'
-version: 0.2.1
+version: 0.2.1.9000
 doi: 10.32614/CRAN.package.igoR
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.igoR
-abstract: Tools to extract information from the Intergovernmental Organizations ('IGO')
-  Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>.
-  See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815
-  to 2014.
+abstract: 'Tools to extract information from the Intergovernmental Organizations (''IGO'')
+  Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>.
+  See also Pevehouse JC, Nordstrom T, McManus RW, Jamison AS (2020). "Tracking organizations
+  in the world: The Correlates of War IGO Version 3.0 datasets." Journal of Peace
+  Research, 57(3), 492-503. <https://doi.org/10.1177/0022343319881175>.'
 authors:
 - family-names: Hernangómez
   given-names: Diego
@@ -32,12 +33,13 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
   doi: 10.32614/CRAN.package.igoR
   year: '2026'
-  version: 0.2.1
+  version: 0.2.1.9000
   url: https://dieghernan.github.io/igoR/
-  abstract: Tools to extract information from the Intergovernmental Organizations
-    (IGO) Database , version 3, provided by the Correlates of War Project <https://correlatesofwar.org/>.
-    See also Pevehouse, J. C. et al. (2020). Version 3 includes information from 1815
-    to 2014.
+  abstract: 'Tools to extract information from the Intergovernmental Organizations
+    (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>.
+    See also Pevehouse JC, Nordstrom T, McManus RW, Jamison AS (2020). "Tracking organizations
+    in the world: The Correlates of War IGO Version 3.0 datasets." Journal of Peace
+    Research, 57(3), 492-503. <doi:10.1177/0022343319881175>.'
 repository: https://CRAN.R-project.org/package=igoR
 repository-code: https://github.com/dieghernan/igoR
 url: https://dieghernan.github.io/igoR/
@@ -86,7 +88,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2026'
-  version: '>= 2.10'
+  version: '>= 3.6.0'
 - type: software
   title: countrycode
   abstract: 'countrycode: Convert Country Names and Country Codes'

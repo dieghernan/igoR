@@ -6,7 +6,7 @@
       ioname 'Error' not found in data base
     Condition
       Warning in `igo_members()`:
-      No IGO results found with the required parameters
+      No IGO results found with the required arguments
 
 ---
 
@@ -16,7 +16,7 @@
       ioname 'EU' only alive between 1993 and 2014
     Condition
       Warning in `igo_members()`:
-      No IGO results found with the required parameters
+      No IGO results found with the required arguments
 
 ---
 
@@ -32,10 +32,10 @@
     Code
       res <- igo_members("EU", status = "Observer")
     Message
-      No members for ioname 'EU' with the parameters provided.
+      No members for ioname 'EU' with the arguments provided.
     Condition
       Warning in `igo_members()`:
-      No IGO results found with the required parameters
+      No IGO results found with the required arguments
 
 # Object classes
 

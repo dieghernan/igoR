@@ -2,6 +2,7 @@
 #'
 #' @name igo_dyadic
 #'
+#' @encoding UTF-8
 #' @description
 #' Dyadic version of the data. The unit of observation is a dyad of countries.
 #' It provides a summary of the joint memberships of two countries across IGOs
@@ -24,11 +25,11 @@
 #' datasets. *Journal of Peace Research, 57*(3), 492–503.
 #' \doi{10.1177/0022343319881175}.
 #'
-#' @param country1,country2 A state of vector of states to be compared. It
+#' @param country1,country2 A state or vector of states to be compared. It
 #'   could be any valid name or code of a state as specified on [states2016].
-#' @param year Year to be assessed, an integer or an array of year.
+#' @param year Year to be assessed, an integer or an array of years.
 #' @param ioname Optional. `ioname` or vector of `ioname` corresponding to the
-#'   IGOs to be assessed. If `NULL` (the default), all IGOs would be extracted.
+#'   IGOs to be assessed. If `NULL` (the default), all IGOs will be extracted.
 #'   See codes on [igo_search()].
 #'
 #' @details
@@ -85,7 +86,7 @@
 #'
 #' dplyr::tibble(usa_esp)
 #'
-#' # Using custom parameters
+#' # Using custom arguments
 #' custom <- igo_dyadic(
 #'   country1 = c("France", "Germany"), country2 = c("Sweden", "Austria"),
 #'   year = 1992:1993, ioname = "EU"
@@ -146,7 +147,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   # Clean
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
-    warning("No dyadic results found with the required parameters")
+    warning("No dyadic results found with the required arguments")
     return(invisible(NULL))
   }
 

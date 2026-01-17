@@ -1,19 +1,24 @@
 Package: igoR
 Title: Intergovernmental Organizations Database
-Version: 0.2.1
-Authors@R: 
+Version: 0.2.1.9000
+Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
-           comment = c(ORCID = "0000-0001-8457-4658"))
+           comment = c(ORCID = "0000-0001-8457-4658")),
+    person("The Correlates of War Project", role = "cph",
+           comment = "for the data")
+  )
 Description: Tools to extract information from the Intergovernmental
-    Organizations ('IGO') Database , version 3, provided by the Correlates
-    of War Project <https://correlatesofwar.org/>. See also Pevehouse, J.
-    C. et al. (2020).  Version 3 includes information from 1815 to 2014.
+    Organizations ('IGO') Database (v3), provided by the Correlates of War
+    Project <https://correlatesofwar.org/>. See also Pevehouse JC,
+    Nordstrom T, McManus RW, Jamison AS (2020). "Tracking organizations in
+    the world: The Correlates of War IGO Version 3.0 datasets." Journal of
+    Peace Research, 57(3), 492-503. <doi:10.1177/0022343319881175>.
 License: GPL (>= 3)
 URL: https://dieghernan.github.io/igoR/,
     https://github.com/dieghernan/igoR
 BugReports: https://github.com/dieghernan/igoR/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 3.6.0)
 Suggests: 
     countrycode (>= 1.1.0),
     dplyr (>= 1.0.2),
@@ -27,7 +32,7 @@ Config/Needs/website: dieghernan/gitdevr, reactable, giscoR, devtools,
     remotes, cpp11
 Config/testthat/edition: 3
 Config/testthat/parallel: true
-Copyright: © 2000-2021 by the Correlates of War
+Copyright: © 2000-2021 by the Correlates of War. See file COPYRIGHTS.
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

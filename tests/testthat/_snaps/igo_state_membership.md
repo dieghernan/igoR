@@ -6,7 +6,7 @@
       state not found: 'Error'
     Condition
       Warning in `igoR::igo_search_states()`:
-      No states found with required parameters
+      No states found with required arguments
       Warning in `igo_state_membership()`:
       state(s) 'Error' not found in data base
 
@@ -18,7 +18,7 @@
       state 'modena' only alive between 1842 and 1860
     Condition
       Warning in `igo_state_membership()`:
-      No states found with the required parameters
+      No states found with the required arguments
 
 ---
 
@@ -34,10 +34,10 @@
     Code
       res <- igo_state_membership("spain", year = 1900, status = "Observer")
     Message
-      No IGOs for state 'spain' with the parameters provided.
+      No IGOs for state 'spain' with the arguments provided.
     Condition
       Warning in `igo_state_membership()`:
-      No states found with the required parameters
+      No states found with the required arguments
 
 # Extract several cntries
 
