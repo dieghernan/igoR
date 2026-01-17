@@ -1,3 +1,7 @@
+# igoR (development version)
+
+-   `COPYRIGHTS` file updated.
+
 # igoR 1.0.0
 
 First major version of the package.
