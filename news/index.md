@@ -2,6 +2,8 @@
 
 ## igoR 1.0.0
 
+CRAN release: 2026-01-17
+
 First major version of the package.
 
 - The minimum **R** version required is now 3.6.0. No visible change for
