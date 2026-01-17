@@ -25,9 +25,9 @@ Hernangómez D (2026). *igoR: Intergovernmental Organizations Database*.
       doi = {10.32614/CRAN.package.igoR},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {0.2.1.9000},
+      version = {1.0.0},
       url = {https://dieghernan.github.io/igoR/},
-      abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse JC, Nordstrom T, McManus RW, Jamison AS (2020). "Tracking organizations in the world: The Correlates of War IGO Version 3.0 datasets." Journal of Peace Research, 57(3), 492-503. <doi:10.1177/0022343319881175>.},
+      abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
     }
 
 Pevehouse J, Nordstrom T, McManus R, Jamison A (2020). “Tracking

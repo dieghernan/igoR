@@ -1,6 +1,6 @@
 # Changelog
 
-## igoR (development version)
+## igoR 1.0.0
 
 First major version of the package.
 
