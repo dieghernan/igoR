@@ -3,7 +3,7 @@ title: "List of IGOs and Countries"
 description: >
   Interactive exploration of the data included on the package.
 bibliography: REFERENCES.bib
-link-citations: yes
+link-citations: true
 ---
 
 ```{r knitropts, include=FALSE}
