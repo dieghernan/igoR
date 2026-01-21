@@ -21,28 +21,28 @@ repo:
   branch: main
 
 reference:
-  - title: Datasets
-    desc: These objects are datasets already included in the package.
-    contents:
-      - has_concept("datasets")
-  - title: Search functions
-    desc: Helper function to extract information.
-    contents:
-      - igo_dyadic
-      - igo_members
-      - igo_search
-      - igo_search_states
-      - igo_state_membership
-  - title: About the package
-    contents:
-      - igoR-package
+- title: Datasets
+  desc: These objects are datasets already included in the package.
+  contents:
+  - has_concept("datasets")
+- title: Search functions
+  desc: Helper function to extract information.
+  contents:
+  - igo_dyadic
+  - igo_members
+  - igo_search
+  - igo_search_states
+  - igo_state_membership
+- title: About the package
+  contents:
+  - igoR-package
 
 articles:
-  - title: Articles
-    navbar: Articles
-    contents:
-      - mapping
-      - articles/list-igos
+- title: Articles
+  navbar: Articles
+  contents:
+  - mapping
+  - articles/list-igos
 
 authors:
   Diego Hernangómez:
