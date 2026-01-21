@@ -44,7 +44,7 @@ Details
     #>  knitr         1.51       2025-12-20 [1] RSPM
     #>  lifecycle     1.0.5      2026-01-08 [1] RSPM
     #>  otel          0.2.0      2025-08-29 [1] RSPM
-    #>  pkgdown       2.2.0      2025-11-06 [1] any (@2.2.0)
+    #>  pkgdown       2.2.0      2025-11-06 [1] RSPM
     #>  R6            2.6.1      2025-02-15 [1] RSPM
     #>  ragg          1.5.0      2025-09-02 [1] RSPM
     #>  reactable   * 0.4.5      2025-12-01 [1] RSPM
