@@ -28,7 +28,7 @@ Details
     #> 
     #> ─ Packages ───────────────────────────────────────────────────────────────────
     #>  package     * version    date (UTC) lib source
-    #>  bslib         0.9.0      2025-01-30 [1] RSPM
+    #>  bslib         0.10.0     2026-01-26 [1] RSPM
     #>  cachem        1.1.0      2024-05-16 [1] RSPM
     #>  cli           3.6.5      2025-04-23 [1] RSPM
     #>  desc          1.4.3      2023-12-10 [1] RSPM
