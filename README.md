@@ -34,11 +34,13 @@ as well as membership information.
   (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
-Additionally, a distribution of the State System Membership ([War
-Project 2017](#ref-correlatesofwarproject2017)) is included in this
-package.
+Additionally, a distribution of the State System Membership ([Correlates
+of War Project 2017](#ref-correlatesofwarproject2017)) is included in
+this package.
 
 ## Installation
+
+<div class="pkgdown-release">
 
 Install **igoR** from
 [**CRAN**](https://CRAN.R-project.org/package=igoR):
@@ -47,11 +49,14 @@ Install **igoR** from
 install.packages("igoR")
 ```
 
+</div>
+
+<div class="pkgdown-devel">
+
 You can install the developing version from GitHub:
 
 ``` r
-library(remotes)
-install_github("dieghernan/igoR")
+pak::pak("dieghernan/igoR")
 ```
 
 Alternatively, you can install **igoR** using the
@@ -64,6 +69,8 @@ install.packages("igoR", repos = c(
   "https://cloud.r-project.org"
 ))
 ```
+
+</div>
 
 ## Basic usage
 
@@ -162,6 +169,13 @@ A BibTeX entry for LaTeX users:
 <div id="refs" class="references csl-bib-body hanging-indent"
 entry-spacing="0">
 
+<div id="ref-correlatesofwarproject2017" class="csl-entry">
+
+Correlates of War Project. 2017. “State System Membership List, V2016.”
+<https://correlatesofwar.org/data-sets/state-system-membership/>.
+
+</div>
+
 <div id="ref-pevehouse2020" class="csl-entry">
 
 Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
@@ -169,13 +183,6 @@ Spencer Jamison. 2020. “Tracking Organizations in the World: The
 <span class="nocase">Correlates of War IGO</span> Version 3.0 Datasets.”
 *Journal of Peace Research* 57 (3): 492–503.
 <https://doi.org/10.1177/0022343319881175>.
-
-</div>
-
-<div id="ref-correlatesofwarproject2017" class="csl-entry">
-
-War Project, Correlates of. 2017. “State System Membership List, V2016.”
-<https://correlatesofwar.org/data-sets/state-system-membership/>.
 
 </div>
 

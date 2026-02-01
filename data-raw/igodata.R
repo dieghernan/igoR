@@ -1,3 +1,6 @@
+getwd()
+pkgdev::update_docs()
+
 # Download
 rm(list = ls())
 

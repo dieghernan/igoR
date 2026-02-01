@@ -57,17 +57,19 @@ Additionally, a distribution of the State System Membership
 
 ## Installation
 
+::: pkgdown-release
 Install **igoR** from [**CRAN**](https://CRAN.R-project.org/package=igoR):
 
 ```{r, eval=FALSE}
 install.packages("igoR")
 ```
+:::
 
+::: pkgdown-devel
 You can install the developing version from GitHub:
 
 ```{r, eval=FALSE}
-library(remotes)
-install_github("dieghernan/igoR")
+pak::pak("dieghernan/igoR")
 ```
 
 Alternatively, you can install **igoR** using the
@@ -80,6 +82,7 @@ install.packages("igoR", repos = c(
   "https://cloud.r-project.org"
 ))
 ```
+:::
 
 ## Basic usage
 
