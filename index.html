@@ -40,11 +40,9 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar fixed-top navbar- navbar-expand-lg bg-"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="index.html">
-      <img src="apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">
-      igoR</a>
+    <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">igoR</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
 
@@ -104,17 +102,15 @@
 <li>Documentation and vignettes on <a href="https://dieghernan.github.io/igoR/" class="uri">https://dieghernan.github.io/igoR/</a>
 </li>
 </ul>
-<p>Additionally, a distribution of the State System Membership (<a href="#ref-correlatesofwarproject2017">War Project 2017</a>) is included in this package.</p>
+<p>Additionally, a distribution of the State System Membership (<a href="#ref-correlatesofwarproject2017">Correlates of War Project 2017</a>) is included in this package.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Install <strong>igoR</strong> from <a href="https://CRAN.R-project.org/package=igoR" class="external-link"><strong>CRAN</strong></a>:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"igoR"</span><span class="op">)</span></span></code></pre></div>
+
+<div class="pkgdown-devel">
 <p>You can install the developing version from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dieghernan/igoR"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"dieghernan/igoR"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install <strong>igoR</strong> using the <a href="https://dieghernan.r-universe.dev/igoR" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install igoR in R:</span></span>
@@ -122,6 +118,7 @@
 <span>  <span class="st">"https://dieghernan.r-universe.dev"</span>,</span>
 <span>  <span class="st">"https://cloud.r-project.org"</span></span>
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="basic-usage">Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
@@ -534,11 +531,11 @@ Hernangómez D (2026). <em>igoR: Intergovernmental Organizations Database</em>. 
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-correlatesofwarproject2017" class="csl-entry">
+Correlates of War Project. 2017. “State System Membership List, V2016.” <a href="https://correlatesofwar.org/data-sets/state-system-membership/" class="external-link uri">https://correlatesofwar.org/data-sets/state-system-membership/</a>.
+</div>
 <div id="ref-pevehouse2020" class="csl-entry">
 Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer Jamison. 2020. “Tracking Organizations in the World: The <span class="nocase">Correlates of War IGO</span> Version 3.0 Datasets.” <em>Journal of Peace Research</em> 57 (3): 492–503. <a href="https://doi.org/10.1177/0022343319881175" class="external-link uri">https://doi.org/10.1177/0022343319881175</a>.
-</div>
-<div id="ref-correlatesofwarproject2017" class="csl-entry">
-War Project, Correlates of. 2017. “State System Membership List, V2016.” <a href="https://correlatesofwar.org/data-sets/state-system-membership/" class="external-link uri">https://correlatesofwar.org/data-sets/state-system-membership/</a>.
 </div>
 </div>
 </div>
