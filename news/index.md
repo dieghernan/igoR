@@ -56,8 +56,7 @@ CRAN release: 2021-10-20
 CRAN release: 2021-08-04
 
 - “Mapping IGOs” article compiled into vignette.
-- Updated docs. Now in markdown format using
-  [`roxygen2md::roxygen2md()`](https://roxygen2md.r-lib.org/reference/roxygen2md.html).
+- Updated docs. Now in markdown format using `roxygen2md::roxygen2md()`.
 - Moved tests to **testthat**.
 
 ## igoR 0.1.1
