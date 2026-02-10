@@ -14,16 +14,16 @@ Details
 
     #> ─ Session info ───────────────────────────────────────────────────────────────
     #>  setting  value
-    #>  version  R version 4.5.2 (2025-10-31 ucrt)
-    #>  os       Windows Server 2022 x64 (build 26100)
-    #>  system   x86_64, mingw32
-    #>  ui       RTerm
+    #>  version  R version 4.5.2 (2025-10-31)
+    #>  os       Ubuntu 24.04.3 LTS
+    #>  system   x86_64, linux-gnu
+    #>  ui       X11
     #>  language en
-    #>  collate  English_United States.utf8
-    #>  ctype    English_United States.utf8
+    #>  collate  C.UTF-8
+    #>  ctype    C.UTF-8
     #>  tz       UTC
-    #>  date     2026-02-09
-    #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
+    #>  date     2026-02-10
+    #>  pandoc   3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/ (via rmarkdown)
     #>  quarto   NA
     #> 
     #> ─ Packages ───────────────────────────────────────────────────────────────────
@@ -38,7 +38,7 @@ Details
     #>  fs            1.6.6      2025-04-12 [1] RSPM
     #>  htmltools     0.5.9      2025-12-04 [1] RSPM
     #>  htmlwidgets   1.6.4      2023-12-06 [1] RSPM
-    #>  igoR        * 1.0.0.9000 2026-02-09 [1] local
+    #>  igoR        * 1.0.0.9000 2026-02-10 [1] local
     #>  jquerylib     0.1.4      2021-04-26 [1] RSPM
     #>  jsonlite      2.0.0      2025-03-27 [1] RSPM
     #>  knitr         1.51       2025-12-20 [1] RSPM
@@ -58,9 +58,9 @@ Details
     #>  xfun          0.56       2026-01-18 [1] RSPM
     #>  yaml          2.3.12     2025-12-10 [1] RSPM
     #> 
-    #>  [1] D:/a/_temp/Library
-    #>  [2] C:/R/site-library
-    #>  [3] C:/R/library
+    #>  [1] /home/runner/work/_temp/Library
+    #>  [2] /opt/R/4.5.2/lib/R/site-library
+    #>  [3] /opt/R/4.5.2/lib/R/library
     #>  * ── Packages attached to the search path.
     #> 
     #> ──────────────────────────────────────────────────────────────────────────────

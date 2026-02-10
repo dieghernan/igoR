@@ -10,10 +10,10 @@ These objects are datasets already included in the package.
   : Helper functions to recode categories
 - [`igo_year_format3`](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
   : Intergovernmental Organizations (IGO) by year
-- [`states2016`](https://dieghernan.github.io/igoR/reference/states2016.md)
-  : State System Membership (v2016)
 - [`state_year_format3`](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
   : Country membership to IGO by year
+- [`states2016`](https://dieghernan.github.io/igoR/reference/states2016.md)
+  : State System Membership (v2016)
 
 ## Search functions
 

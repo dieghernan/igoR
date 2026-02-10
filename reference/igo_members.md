@@ -55,11 +55,11 @@ Version 3.0 datasets. *Journal of Peace Research, 57*(3), 492–503.
 ``` r
 library(dplyr)
 #> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
+#> Attaching package: ‘dplyr’
+#> The following objects are masked from ‘package:stats’:
 #> 
 #>     filter, lag
-#> The following objects are masked from 'package:base':
+#> The following objects are masked from ‘package:base’:
 #> 
 #>     intersect, setdiff, setequal, union
 igo_members("EU", year = 1993) %>% as_tibble()
