@@ -75,7 +75,8 @@ ggplot(un_all_sf) +
     na.value = "#E0E0E0",
   ) +
   labs(
-    title = "UN Members", caption = gisco_attributions(),
+    title = "UN Members",
+    caption = gisco_attributions(),
   ) +
   theme_minimal() +
   theme(
@@ -85,9 +86,9 @@ ggplot(un_all_sf) +
   )
 ```
 
-![UN Members](UNMaps-1.png)
+![UN Members (1950, 1980, 2010)](./UNMaps-1.png)
 
-UN Members
+UN Members (1950, 1980, 2010)
 
 ## Number of shared memberships
 
@@ -96,20 +97,16 @@ following code produces a map showing the number of full memberships
 shared with Australia for each country in the world:
 
 ``` r
-## Number of igos shared - 2014
+# Number of igos shared - 2014
 # Countries alive in 2014
 states2014 <- states2016 %>%
   filter(styear <= 2014 & endyear >= 2014)
 
 # Shared memberships with Australia
-shared <- igo_dyadic("AUL", as.character(states2014$statenme),
-  year = 2014
-) %>%
+shared <- igo_dyadic("AUL", as.character(states2014$statenme), year = 2014) %>%
   rowwise() %>%
   mutate(shared = sum(c_across(aaaid:wassen) == 1)) %>%
-  mutate(ISO3_CODE = countrycode(ccode2, "cown", "iso3c",
-    warn = FALSE
-  )) %>%
+  mutate(ISO3_CODE = countrycode(ccode2, "cown", "iso3c", warn = FALSE)) %>%
   select(ISO3_CODE, shared)
 
 
@@ -127,7 +124,8 @@ ggplot(sharedmap) +
   # Australia
   geom_sf(
     data = sharedmap %>% filter(ISO3_CODE == "AUS"),
-    fill = "black", color = NA,
+    fill = "black",
+    color = NA,
   ) +
   # Robinson
   coord_sf(crs = "ESRI:54030") +
@@ -155,7 +153,7 @@ ggplot(sharedmap) +
   )
 ```
 
-![Shared Full Memberships with Australia (2014)](AustShared-1.png)
+![Shared Full Memberships with Australia (2014)](./AustShared-1.png)
 
 Shared Full Memberships with Australia (2014)
 
@@ -194,7 +192,8 @@ ggplot(countries_sf) +
   guides(fill = guide_legend(reverse = TRUE)) +
   labs(
     title = "Shared Full Memberships on North America",
-    subtitle = "(1930-2010)", fill = "Shared IGOs",
+    subtitle = "(1930-2010)",
+    fill = "Shared IGOs",
     caption = gisco_attributions()
   ) +
   theme_minimal() +
@@ -207,7 +206,7 @@ ggplot(countries_sf) +
 ```
 
 ![Shared Full Memberships on North America (1930 -
-2010)](NAShared-1.png)
+2010)](./NAShared-1.png)
 
 Shared Full Memberships on North America (1930 - 2010)
 

@@ -129,8 +129,7 @@ ggplot(all_by_year, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![Figure 1. IGOs and states in the world system,
-1816-2014](igoR_files/figure-html/Fig1-1.png)
+![](igoR_files/figure-html/Fig1-1.png)
 
 Figure 1. IGOs and states in the world system, 1816-2014
 
@@ -172,8 +171,7 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![Figure 2. Birth and death rates of IGOs,
-1816-2014](igoR_files/figure-html/Fig2-1.png)
+![](igoR_files/figure-html/Fig2-1.png)
 
 Figure 2. Birth and death rates of IGOs, 1816-2014
 
@@ -183,6 +181,8 @@ A plot with the number of IGOs by region. The definition of region is
 based on the original definition by J. C. Pevehouse et al.
 ([2020](#ref-pevehouse2020)), as provided in the complementary
 replication data set ([PRIO 2020](#ref-priorep)):
+
+IGOs across regions: codes
 
 ``` r
 # crossreg and universal codes not included
@@ -518,6 +518,11 @@ americas <- c(
   4280,
   4370
 )
+```
+
+``` r
+# africa, americas, asia, europe, middle_east created in previous chunk
+# collapsed for readability.
 
 regions <- igo_search() %>%
   mutate(
@@ -578,8 +583,7 @@ ggplot(regionsum, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![Figure 3. IGO counts across regions,
-1816-2014](igoR_files/figure-html/Fig3-1.png)
+![](igoR_files/figure-html/Fig3-1.png)
 
 Figure 3. IGO counts across regions, 1816-2014
 
@@ -629,8 +633,7 @@ ggplot(asia5, aes(x = year, y = values)) +
   theme_igor
 ```
 
-![Figure 4. IGO membership: five states in Asia,
-1865-2014](igoR_files/figure-html/Fig4-1.png)
+![](igoR_files/figure-html/Fig4-1.png)
 
 Figure 4. IGO membership: five states in Asia, 1865-2014
 
@@ -683,8 +686,7 @@ ggplot(spain_selected, aes(x = year, y = values)) +
   )
 ```
 
-![Figure 5. Number of IGOs with full shared memberships with Spain
-(selected countries), 1816-2014](igoR_files/figure-html/Fig5-1.png)
+![](igoR_files/figure-html/Fig5-1.png)
 
 Figure 5. Number of IGOs with full shared memberships with Spain
 (selected countries), 1816-2014
@@ -698,8 +700,8 @@ Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 
 Pevehouse, Jon, Roseanne McManus, and Timothy Nordstrom. 2019. “Codebook
 for Correlates of War 3 International Governmental Organizations Data
-Set Version 3.0.”
-[https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf](https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf%0A%09)
+Set Version
+3.0.”[https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf](https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf%0A%09)
 .
 
 PRIO. 2020. “Replication Datasets: Journal of Peace Research.” Peace
