@@ -47,3 +47,5 @@
 ^inst/README\.qmd$
 ^README_files$
 ^README\.html$
+^vignettes/*_files$
+^vignettes/mapping\.qmd\.orig$

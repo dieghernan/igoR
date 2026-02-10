@@ -1,6 +1,7 @@
 # igoR (development version)
 
 -   `COPYRIGHTS` file updated.
+-   Migrate documentation and vignettes to Quarto.
 
 # igoR 1.0.0
 

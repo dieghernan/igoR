@@ -36,3 +36,4 @@ Rplots.pdf
 **/*.quarto_ipynb
 README_files/
 README.html
+**/.quarto/

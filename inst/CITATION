@@ -18,7 +18,8 @@ bibentry(
 )
 
 # Pevehouse, Jon CW, et al.
-bibentry("Article",
+bibentry(
+  "Article",
   header = "Please cite also:",
   author = c(
     person("Jon CW", "Pevehouse"),

@@ -15,19 +15,18 @@ License: GPL (>= 3)
 URL: https://dieghernan.github.io/igoR/,
     https://github.com/dieghernan/igoR
 BugReports: https://github.com/dieghernan/igoR/issues
-Depends: 
+Depends:
     R (>= 3.6.0)
-Suggests: 
+Suggests:
     countrycode (>= 1.1.0),
     dplyr (>= 1.0.2),
     ggplot2,
-    knitr,
-    rmarkdown,
+    quarto,
     testthat (>= 3.0.0)
 VignetteBuilder: 
-    knitr
+    quarto
 Config/Needs/website: dieghernan/gitdevr, reactable, giscoR, devtools,
-    remotes, cpp11
+    remotes, cpp11, sessioninfo
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Copyright: © 2000-2021 by the Correlates of War. See file COPYRIGHTS.
