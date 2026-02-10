@@ -19,5 +19,7 @@
   "files.eol": "\n",
   "yaml.completion": true,
   "yaml.format.printWidth": 80,
-  "yaml.validate": true
+  "yaml.validate": true,
+  "positron.r.useNativePipe": false,
+  "positron.r.pipe": "%>%"
 }
