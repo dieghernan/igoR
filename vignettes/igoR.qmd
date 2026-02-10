@@ -1,8 +1,7 @@
 ---
 title: "Get started with the igoR package"
 author: Diego Hernangómez
-description: >
-  Introduction to the capabilities of the package.
+description: Introduction to the capabilities of the package.
 bibliography: REFERENCES.bib
 link-citations: true
 vignette: >
