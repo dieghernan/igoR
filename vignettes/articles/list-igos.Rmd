@@ -6,7 +6,9 @@ bibliography: REFERENCES.bib
 link-citations: true
 ---
 
-```{r knitropts, include=FALSE}
+```{r}
+#| label = "knitropts",
+#| include = FALSE
 start_time <- Sys.time()
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -21,7 +23,9 @@ Annex with the list of IGOs [@pevehouse2020] and countries
 
 ## List of IGOs
 
-```{r igo, echo=FALSE}
+```{r}
+#| label = "igo",
+#| echo = FALSE
 library(igoR)
 library(reactable)
 
@@ -39,7 +43,9 @@ reactable(igo[, 1:7],
 
 ## List of Countries
 
-```{r countries, echo=FALSE}
+```{r}
+#| label = "countries",
+#| echo = FALSE
 cc <- states2016
 reactable(cc,
   filterable = TRUE,
@@ -58,7 +64,9 @@ reactable(cc,
 
 <summary>Details</summary>
 
-```{r session, echo=FALSE}
+```{r}
+#| label = "session",
+#| echo = FALSE
 if (!require("sessioninfo")) {
   install.packages("sessioninfo")
 }

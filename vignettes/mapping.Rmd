@@ -229,8 +229,10 @@ ggplot(countries_sf) +
 ```
 
 <div class="figure">
-<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%" />
-<p class="caption">Shared Full Memberships on North America (1930 - 2010)</p>
+<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 -
+2010)" width="100%" />
+<p class="caption">Shared Full Memberships on North America (1930 -
+2010)</p>
 </div>
 
 ## References

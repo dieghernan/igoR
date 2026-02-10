@@ -14,7 +14,9 @@ vignette: >
 
 <!-- mapping.Rmd is generated from mapping.Rmd.orig. Please edit that file -->
 
-```{r knitr_config, include = FALSE}
+```{r}
+#| label = "knitr_config",
+#| include = FALSE
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -41,7 +43,8 @@ data:
 Also **countrycode** is a very handy package for translating between coding
 schemes (CoW, ISO3, NUTS, FIPS) and country names.
 
-```{r libs}
+```{r}
+#| label = "libs"
 library(igoR)
 
 # Helper packages
@@ -59,7 +62,8 @@ library(sf)
 The following map shows the evolution of countries that are members of the
 United Nations. First we should extract the data:
 
-```{r UN}
+```{r}
+#| label = "UN"
 # Extract shapes
 world <- gisco_get_countries()
 
@@ -91,7 +95,10 @@ countries that existed in 2016. Some countries, such as Czechoslovakia, East Ger
 
 Now we are ready to plot with **ggplot2**:
 
-```{r UNMaps, fig.asp=1.5, fig.cap="UN Members"}
+```{r}
+#| label = "UNMaps",
+#| fig.asp = 1.5,
+#| fig.cap = "UN Members"
 ggplot(un_all_sf) +
   geom_sf(aes(fill = category), color = NA, show.legend = FALSE) +
   # Robinson
@@ -118,7 +125,10 @@ Shared memberships are useful for identifying regional patterns. The following
 code produces a map showing the number of full memberships shared with Australia
 for each country in the world:
 
-```{r AustShared, fig.asp=0.72, fig.cap="Shared Full Memberships with Australia (2014)"}
+```{r}
+#| label = "AustShared",
+#| fig.asp = 0.72,
+#| fig.cap = "Shared Full Memberships with Australia (2014)"
 ## Number of igos shared - 2014
 # Countries alive in 2014
 states2014 <- states2016 %>%
@@ -184,7 +194,11 @@ The following map shows how the relationships between the countries of North
 America have flourished over the last 90 years, using a year as representative of
 each decade.
 
-```{r NAShared, fig.cap="Shared Full Memberships on North America (1930 - 2010)", fig.asp=1}
+```{r}
+#| label = "NAShared",
+#| fig.cap = "Shared Full Memberships on North America (1930 -
+#| 2010)",
+#| fig.asp = 1
 # Select years
 years <- seq(1930, 2010, 10)
 

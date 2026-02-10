@@ -12,7 +12,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r knitropts, include=FALSE}
+```{r}
+#| label = "knitropts",
+#| include = FALSE
 start_time <- Sys.time()
 
 knitr::opts_chunk$set(
@@ -79,7 +81,8 @@ This section provides some quick analysis based on the figures of
 
 ### Initial Setup
 
-```{r setup}
+```{r}
+#| label = "setup"
 library(igoR)
 
 # Additional libraries
@@ -90,7 +93,8 @@ library(dplyr)
 In the first place, we create a custom `ggplot2::theme()` named `theme_igor`,
 which we apply to all our figures:
 
-```{r custom_theme}
+```{r}
+#| label = "custom_theme"
 theme_igor <- theme(
   axis.title = element_blank(),
   axis.line.x.bottom = element_line("black"),
@@ -118,7 +122,12 @@ theme_igor <- theme(
 The following code extracts the number of IGOs and states included in this
 package. The years available are 1816 to 2014.
 
-```{r Fig1, message=FALSE, warning=FALSE, fig.cap="Figure 1. IGOs and states in the world system, 1816-2014"}
+```{r}
+#| label = "Fig1",
+#| message = FALSE,
+#| warning = FALSE,
+#| fig.cap = "Figure 1. IGOs and states in the world system,
+#| 1816-2014"
 # Summarize
 igos_by_year <- igo_year_format3 %>%
   group_by(year) %>%
@@ -155,7 +164,12 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 This plot shows how many IGOs were "born" and "died" in each year
 
-```{r Fig2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Birth and death rates of IGOs, 1816-2014"}
+```{r}
+#| label = "Fig2",
+#| message = FALSE,
+#| warning = FALSE,
+#| fig.cap = "Figure 2. Birth and death rates of IGOs,
+#| 1816-2014"
 # Births and deaths by year
 
 df <- igo_search()
@@ -195,7 +209,8 @@ A plot with the number of IGOs by region. The definition of region is based on
 the original definition by @pevehouse2020, as provided in the complementary
 replication data set [@priorep]:
 
-```{r regions_code}
+```{r}
+#| label = "regions_code"
 # crossreg and universal codes not included
 
 asia <- c(
@@ -547,7 +562,11 @@ regions <- igo_search() %>%
 After we have created a data frame with the regions, we can classify the IGOs by
 region.
 
-```{r Fig3, message=FALSE, warning=FALSE, fig.cap="Figure 3. IGO counts across regions, 1816-2014"}
+```{r}
+#| label = "Fig3",
+#| message = FALSE,
+#| warning = FALSE,
+#| fig.cap = "Figure 3. IGO counts across regions, 1816-2014"
 # regions dataset created on previous chunk
 
 # All IGOs
@@ -594,7 +613,12 @@ ggplot(regionsum, aes(x = year, y = value)) +
 Number of memberships for a country. We select here five countries in Asia:
 India, China, Pakistan, Indonesia and Bangladesh.
 
-```{r Fig4, message=FALSE, warning=FALSE, fig.cap="Figure 4. IGO membership: five states in Asia, 1865-2014"}
+```{r}
+#| label = "Fig4",
+#| message = FALSE,
+#| warning = FALSE,
+#| fig.cap = "Figure 4. IGO membership: five states in Asia,
+#| 1865-2014"
 asia5_cntries <- c("China", "India", "Pakistan", "Indonesia", "Bangladesh")
 
 # Five countries of Asia
@@ -639,7 +663,12 @@ ggplot(asia5, aes(x = year, y = values)) +
 
 Number of shared full memberships between Spain and four selected countries:
 
-```{r Fig5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014"}
+```{r}
+#| label = "Fig5",
+#| message = FALSE,
+#| warning = FALSE,
+#| fig.cap = "Figure 5. Number of IGOs with full shared
+#| memberships with Spain (selected countries), 1816-2014"
 selected_countries <- c("France", "Morocco", "China", "USA")
 
 spain_selected <- igo_dyadic("Spain", selected_countries)
