@@ -24,7 +24,7 @@ Details
     #>  tz       UTC
     #>  date     2026-02-10
     #>  pandoc   3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/ (via rmarkdown)
-    #>  quarto   NA
+    #>  quarto   1.8.27 @ /usr/local/bin/quarto
     #> 
     #> ─ Packages ───────────────────────────────────────────────────────────────────
     #>  package     * version    date (UTC) lib source

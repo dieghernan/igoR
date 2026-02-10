@@ -120,7 +120,7 @@ A BibTeX entry for LaTeX users:
   doi = {10.32614/CRAN.package.igoR},
   author = {Diego Hernangómez},
   year = {2026},
-  version = {1.0.0.9000},
+  version = {1.0.0},
   url = {https://dieghernan.github.io/igoR/},
   abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
 }
