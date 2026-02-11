@@ -129,9 +129,9 @@ ggplot(all_by_year, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![](igoR_files/figure-html/Fig1-1.png)
+![](igoR_files/figure-html/fig-f1-1.png)
 
-Figure 1. IGOs and states in the world system, 1816-2014
+Figure 1: IGOs and states in the world system, 1816-2014
 
 ### IGO Births and deaths
 
@@ -171,9 +171,9 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![](igoR_files/figure-html/Fig2-1.png)
+![](igoR_files/figure-html/fig-f2-1.png)
 
-Figure 2. Birth and death rates of IGOs, 1816-2014
+Figure 2: Birth and death rates of IGOs, 1816-2014
 
 ### IGOs across regions
 
@@ -583,9 +583,9 @@ ggplot(regionsum, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![](igoR_files/figure-html/Fig3-1.png)
+![](igoR_files/figure-html/fig-f3-1.png)
 
-Figure 3. IGO counts across regions, 1816-2014
+Figure 3: IGO counts across regions, 1816-2014
 
 ### Selected Countries: Asia
 
@@ -633,9 +633,9 @@ ggplot(asia5, aes(x = year, y = values)) +
   theme_igor
 ```
 
-![](igoR_files/figure-html/Fig4-1.png)
+![](igoR_files/figure-html/fig-f4-1.png)
 
-Figure 4. IGO membership: five states in Asia, 1865-2014
+Figure 4: IGO membership: five states in Asia, 1865-2014
 
 ### Shared memberships
 
@@ -686,9 +686,9 @@ ggplot(spain_selected, aes(x = year, y = values)) +
   )
 ```
 
-![](igoR_files/figure-html/Fig5-1.png)
+![](igoR_files/figure-html/fig-f5-1.png)
 
-Figure 5. Number of IGOs with full shared memberships with Spain
+Figure 5: Number of IGOs with full shared memberships with Spain
 (selected countries), 1816-2014
 
 ## References
