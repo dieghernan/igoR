@@ -115,8 +115,8 @@ The following code extracts the number of IGOs and states included in this
 package. The years available are 1816 to 2014.
 
 ```{r}
-#| label: Fig1
-#| fig-cap: "Figure 1. IGOs and states in the world system, 1816-2014"
+#| label: fig-f1
+#| fig-cap: "IGOs and states in the world system, 1816-2014"
 # Summarize
 igos_by_year <- igo_year_format3 %>%
   group_by(year) %>%
@@ -154,8 +154,8 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 This plot shows how many IGOs were "born" and "died" in each year
 
 ```{r}
-#| label: Fig2
-#| fig-cap: "Figure 2. Birth and death rates of IGOs, 1816-2014"
+#| label: fig-f2
+#| fig-cap: "Birth and death rates of IGOs, 1816-2014"
 # Births and deaths by year
 
 df <- igo_search()
@@ -563,8 +563,8 @@ After we have created a data frame with the regions, we can classify the IGOs by
 region.
 
 ```{r}
-#| label: Fig3
-#| fig-cap: Figure 3. IGO counts across regions, 1816-2014
+#| label: fig-f3
+#| fig-cap: IGO counts across regions, 1816-2014
 # regions dataset created on previous chunk
 
 # All IGOs
@@ -612,8 +612,8 @@ Number of memberships for a country. We select here five countries in Asia:
 India, China, Pakistan, Indonesia and Bangladesh.
 
 ```{r}
-#| label: Fig4
-#| fig-cap: "Figure 4. IGO membership: five states in Asia, 1865-2014"
+#| label: fig-f4
+#| fig-cap: "IGO membership: five states in Asia, 1865-2014"
 asia5_cntries <- c("China", "India", "Pakistan", "Indonesia", "Bangladesh")
 
 # Five countries of Asia
@@ -659,8 +659,9 @@ ggplot(asia5, aes(x = year, y = values)) +
 Number of shared full memberships between Spain and four selected countries:
 
 ```{r}
-#| label: Fig5
-#| fig-cap: Figure 5. Number of IGOs with full shared memberships with Spain (selected countries), 1816-2014
+#| label: fig-f5
+#| fig-cap: Number of IGOs with full shared memberships with Spain (selected
+#|   countries), 1816-2014
 selected_countries <- c("France", "Morocco", "China", "USA")
 
 spain_selected <- igo_dyadic("Spain", selected_countries)

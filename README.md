@@ -1,6 +1,6 @@
 
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" align="right" height="139"/></a>
 
@@ -91,6 +91,8 @@ result_sugar <- igo_search("Sugar")
 | 1920 | GLACSEC | Group of L/A & Carib. Sugar Exp. Countries | Group of Latin American and Caribbean Sugar Exporting Countries | Group of Latin American and Caribbean Sugar Exporting Countries | 1974 | 2001 | 1 | 0 | 0 | NA | 2.3 | Not applicable - created 1965 or later |  | 0 | 1 | 0 | 0 |
 | 3130 | ISuC | Intl Sugar Council | International Sugar Council | International Sugar Council | 1937 | 1967 | 1 | 0 | 0 | 91 | 3.0 | Within 5 years |  | 0 | 0 | 1 | 0 |
 | 4290 | SugU | Sugar Union | Sugar Union | Sugar Union | 1902 | 1913 | 1 | 0 | 0 | 29 | 3.0 | Completely accurate, except a few minor uncertainties |  | 0 | 0 | 0 | 1 |
+
+IGOs related with sugar.
 
 ### IGO members:
 

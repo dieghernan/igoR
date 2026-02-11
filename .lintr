@@ -2,4 +2,4 @@ linters: linters_with_defaults(
     pipe_consistency_linter("%>%")
   )
 encoding: "UTF-8"
-exclusions: list("data-raw", "vignettes")
+exclusions: list("data-raw")

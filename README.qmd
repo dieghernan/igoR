@@ -15,7 +15,7 @@ knitr:
     out.width: "100%"
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" align="right" height="139"/></a>
 
@@ -100,7 +100,7 @@ result_sugar <- igo_search("Sugar")
 
 ```{r}
 #| echo: false
-knitr::kable(result_sugar)
+knitr::kable(result_sugar, caption = "IGOs related with sugar.")
 ```
 
 ### IGO members:
@@ -171,6 +171,3 @@ toBibtex(citation("igoR")[1])
 ```
 
 ## References
-
-::: {#refs}
-:::
