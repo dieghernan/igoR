@@ -59,7 +59,7 @@ Additionally, a distribution of the State System Membership
 Install **igoR** from [**CRAN**](https://CRAN.R-project.org/package=igoR):
 
 ```{r}
-#| eval = FALSE
+#| eval: false
 install.packages("igoR")
 ```
 :::
@@ -68,7 +68,7 @@ install.packages("igoR")
 You can install the developing version from GitHub:
 
 ```{r}
-#| eval = FALSE
+#| eval: false
 pak::pak("dieghernan/igoR")
 ```
 
@@ -76,8 +76,8 @@ Alternatively, you can install **igoR** using the
 [r-universe](https://dieghernan.r-universe.dev/igoR):
 
 ```{r}
-#| eval = FALSE
-# Install igoR in R:
+#| eval: false
+# Install igoR in R
 install.packages("igoR", repos = c(
   "https://dieghernan.r-universe.dev",
   "https://cloud.r-project.org"
@@ -92,14 +92,14 @@ install.packages("igoR", repos = c(
 Search all IGOs related to "sugar":
 
 ```{r}
-#| label = "search"
+#| label: search
 library(igoR)
 
 result_sugar <- igo_search("Sugar")
 ```
 
 ```{r}
-#| echo = FALSE
+#| echo: false
 knitr::kable(result_sugar)
 ```
 
@@ -109,7 +109,7 @@ Composition of the [European Economic
 Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time:
 
 ```{r}
-#| label = "eec"
+#| label: eec
 eec_code <- igo_search("EEC", exact = TRUE)
 
 # Founding
@@ -117,23 +117,34 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 ```
 
 ```{r}
-#| echo = FALSE
-knitr::kable(eec_init, caption = paste0("EEC, members
-                                        (", unique(eec_init$year), ")"))
+#| echo: false
+knitr::kable(
+  eec_init,
+  caption = paste0(
+    "EEC, members
+                                        (",
+    unique(eec_init$year),
+    ")"
+  )
+)
 ```
 
 ```{r}
-#| label = "eec_end"
+#| label: eec_end
 # Latest date
 eec_end <- igo_members(eec_code$ioname)
 ```
 
 ```{r}
-#| echo = FALSE
-knitr::kable(eec_end, caption = paste0(
-  "EEC, members (",
-  unique(eec_end$year), ")"
-))
+#| echo: false
+knitr::kable(
+  eec_end,
+  caption = paste0(
+    "EEC, members (",
+    unique(eec_end$year),
+    ")"
+  )
+)
 ```
 
 ## Recommended packages
@@ -145,17 +156,17 @@ knitr::kable(eec_end, caption = paste0(
 ## Citation
 
 ```{r}
-#| label = "cit",
-#| echo = FALSE,
-#| results = "asis"
+#| label: cit
+#| echo: false
+#| results: asis
 print(citation("igoR")[1], style = "html")
 ```
 
 A BibTeX entry for LaTeX users:
 
 ```{r}
-#| echo = FALSE,
-#| comment = ""
+#| echo: false
+#| comment: ""
 toBibtex(citation("igoR")[1])
 ```
 
