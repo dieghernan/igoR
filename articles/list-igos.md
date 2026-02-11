@@ -22,7 +22,7 @@ Details
     #>  collate  C.UTF-8
     #>  ctype    C.UTF-8
     #>  tz       UTC
-    #>  date     2026-02-10
+    #>  date     2026-02-11
     #>  pandoc   3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/ (via rmarkdown)
     #>  quarto   1.8.27 @ /usr/local/bin/quarto
     #>
@@ -34,7 +34,7 @@ Details
     #>  fastmap       1.2.0      2024-05-15 [1] RSPM
     #>  htmltools     0.5.9      2025-12-04 [1] RSPM
     #>  htmlwidgets   1.6.4      2023-12-06 [1] RSPM
-    #>  igoR        * 1.0.0.9000 2026-02-10 [1] local
+    #>  igoR        * 1.0.0.9000 2026-02-11 [1] local
     #>  jsonlite      2.0.0      2025-03-27 [1] RSPM
     #>  knitr         1.51       2025-12-20 [1] RSPM
     #>  otel          0.2.0      2025-08-29 [1] RSPM
