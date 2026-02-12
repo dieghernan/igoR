@@ -1,10 +1,5 @@
 # Changelog
 
-## igoR (development version)
-
-- `COPYRIGHTS` file updated.
-- Migrate documentation and vignettes to Quarto.
-
 ## igoR 1.0.0
 
 CRAN release: 2026-01-17
@@ -57,7 +52,8 @@ CRAN release: 2021-10-20
 CRAN release: 2021-08-04
 
 - “Mapping IGOs” article compiled into vignette.
-- Updated docs. Now in markdown format using `roxygen2md::roxygen2md()`.
+- Updated docs. Now in markdown format using
+  [`roxygen2md::roxygen2md()`](https://roxygen2md.r-lib.org/reference/roxygen2md.html).
 - Moved tests to **testthat**.
 
 ## igoR 0.1.1
