@@ -18,6 +18,9 @@ this package.
 
 ## Installation
 
+Check the docs of the developing version
+in <https://dieghernan.github.io/igoR/dev/>.
+
 You can install the developing version from GitHub:
 
 ``` r
