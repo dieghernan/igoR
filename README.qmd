@@ -78,10 +78,13 @@ Alternatively, you can install **igoR** using the
 ```{r}
 #| eval: false
 # Install igoR in R
-install.packages("igoR", repos = c(
-  "https://dieghernan.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+install.packages(
+  "igoR",
+  repos = c(
+    "https://dieghernan.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
 ```
 :::
 
@@ -100,8 +103,14 @@ result_sugar <- igo_search("Sugar")
 
 ```{r}
 #| echo: false
-knitr::kable(result_sugar, caption = "IGOs related with sugar.")
+knitr::kable(result_sugar)
 ```
+
+<p class="caption">
+
+Table 1: IGOs related with sugar
+
+</p>
 
 ### IGO members:
 
@@ -118,13 +127,13 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 
 ```{r}
 #| echo: false
-knitr::kable(
-  eec_init,
-  caption = paste0(
-    "EEC, members
-                                        (",
+#| output: asis
+knitr::kable(eec_init)
+cat(
+  paste0(
+    "<p class=\"caption\">Table 2: EEC, members (",
     unique(eec_init$year),
-    ")"
+    ")</p>"
   )
 )
 ```
@@ -137,12 +146,14 @@ eec_end <- igo_members(eec_code$ioname)
 
 ```{r}
 #| echo: false
-knitr::kable(
-  eec_end,
-  caption = paste0(
-    "EEC, members (",
+#| output: asis
+knitr::kable(eec_end)
+
+cat(
+  paste0(
+    "<p class=\"caption\">Table 3: EEC, members (",
     unique(eec_end$year),
-    ")"
+    ")</p>"
   )
 )
 ```

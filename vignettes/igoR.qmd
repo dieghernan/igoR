@@ -195,12 +195,10 @@ A plot with the number of IGOs by region. The definition of region is based on
 the original definition by @pevehouse2020, as provided in the complementary
 replication data set [@priorep]:
 
-<details>
-
-<summary>IGOs across regions: codes</summary>
-
 ```{r}
 #| label: loncodes
+#| code-fold: true
+#| code-summary: "IGOs across regions: codes"
 
 # crossreg and universal codes not included
 
@@ -536,8 +534,6 @@ americas <- c(
   4370
 )
 ```
-
-</details>
 
 ```{r}
 #| label: regions_code

@@ -98,7 +98,7 @@ Now we are ready to plot with **ggplot2**:
 ```{r}
 #| label: UNMaps
 #| fig-asp: 1.5
-#| fig-cap: "UN Members (1950, 1980, 2010)"
+#| fig-cap: "Figure 1: UN Members (1950, 1980, 2010)"
 ggplot(un_all_sf) +
   geom_sf(aes(fill = category), color = NA, show.legend = FALSE) +
   # Robinson
@@ -129,7 +129,7 @@ for each country in the world:
 ```{r}
 #| label: AustShared
 #| fig-asp: 0.72
-#| fig-cap: Shared Full Memberships with Australia (2014)
+#| fig-cap: "Figure 2: Shared Full Memberships with Australia (2014)"
 # Number of igos shared - 2014
 # Countries alive in 2014
 states2014 <- states2016 %>%
@@ -194,7 +194,7 @@ of each decade.
 
 ```{r}
 #| label: NAShared
-#| fig-cap: Shared Full Memberships on North America (1930 - 2010)
+#| fig-cap: "Figure 3: Shared Full Memberships on North America (1930 - 2010)"
 #| fig-asp: 1
 # Select years
 years <- seq(1930, 2010, 10)

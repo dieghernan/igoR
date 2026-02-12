@@ -105,8 +105,8 @@ ggplot(un_all_sf) +
 ```
 
 <div class="figure">
-<img src="./UNMaps-1.png" alt="UN Members (1950, 1980, 2010)" width="100%" />
-<p class="caption">UN Members (1950, 1980, 2010)</p>
+<img src="./UNMaps-1.png" alt="Figure 1: UN Members (1950, 1980, 2010)" width="100%" />
+<p class="caption">Figure 1: UN Members (1950, 1980, 2010)</p>
 </div>
 
 ## Number of shared memberships
@@ -174,8 +174,8 @@ ggplot(sharedmap) +
 ```
 
 <div class="figure">
-<img src="./AustShared-1.png" alt="Shared Full Memberships with Australia (2014)" width="100%" />
-<p class="caption">Shared Full Memberships with Australia (2014)</p>
+<img src="./AustShared-1.png" alt="Figure 2: Shared Full Memberships with Australia (2014)" width="100%" />
+<p class="caption">Figure 2: Shared Full Memberships with Australia (2014)</p>
 </div>
 
 ## Cross-shared memberships
@@ -228,8 +228,8 @@ ggplot(countries_sf) +
 ```
 
 <div class="figure">
-<img src="./NAShared-1.png" alt="Shared Full Memberships on North America (1930 - 2010)" width="100%" />
-<p class="caption">Shared Full Memberships on North America (1930 - 2010)</p>
+<img src="./NAShared-1.png" alt="Figure 3: Shared Full Memberships on North America (1930 - 2010)" width="100%" />
+<p class="caption">Figure 3: Shared Full Memberships on North America (1930 - 2010)</p>
 </div>
 
 ## References

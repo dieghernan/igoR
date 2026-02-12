@@ -65,10 +65,13 @@ Alternatively, you can install **igoR** using the
 
 ``` r
 # Install igoR in R
-install.packages("igoR", repos = c(
-  "https://dieghernan.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+install.packages(
+  "igoR",
+  repos = c(
+    "https://dieghernan.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
 ```
 
 </div>
@@ -92,7 +95,11 @@ result_sugar <- igo_search("Sugar")
 | 3130 | ISuC | Intl Sugar Council | International Sugar Council | International Sugar Council | 1937 | 1967 | 1 | 0 | 0 | 91 | 3.0 | Within 5 years |  | 0 | 0 | 1 | 0 |
 | 4290 | SugU | Sugar Union | Sugar Union | Sugar Union | 1902 | 1913 | 1 | 0 | 0 | 29 | 3.0 | Completely accurate, except a few minor uncertainties |  | 0 | 0 | 0 | 1 |
 
-IGOs related with sugar.
+<p class="caption">
+
+Table 1: IGOs related with sugar
+
+</p>
 
 ### IGO members:
 
@@ -116,7 +123,10 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 | EEC | 260 | wgermany | German Federal Republic | 1958 | 1 | Full Membership | European Economic Community |
 | EEC | 325 | italy | Italy | 1958 | 1 | Full Membership | European Economic Community |
 
-EEC, members (1958)
+<p class="caption">
+
+Table 2: EEC, members (1958)
+</p>
 
 ``` r
 # Latest date
@@ -138,7 +148,10 @@ eec_end <- igo_members(eec_code$ioname)
 | EEC | 350 | greece | Greece | 1992 | 1 | Full Membership | European Economic Community |
 | EEC | 390 | denmark | Denmark | 1992 | 1 | Full Membership | European Economic Community |
 
-EEC, members (1992)
+<p class="caption">
+
+Table 3: EEC, members (1992)
+</p>
 
 ## Recommended packages
 

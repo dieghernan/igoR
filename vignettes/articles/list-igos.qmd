@@ -54,18 +54,4 @@ reactable(
 )
 ```
 
-## Session info
-
-<details>
-
-<summary>Details</summary>
-
-```{r}
-#| label: session
-#| echo: false
-sessioninfo::session_info()
-```
-
-</details>
-
 ## References
