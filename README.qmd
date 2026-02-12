@@ -1,23 +1,21 @@
 ---
-output: github_document
+format: gfm
 bibliography: inst/REFERENCES.bib
-link-citations: yes
+link-citations: true
+default-image-extension: ''
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: "#>"
+    fig.path: "man/figures/README-"
+    tidy: "styler"
+    dev: "ragg_png"
+    warning: false
+    message: false
+    out.width: "100%"
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  tidy = "styler",
-  dev = "ragg_png",
-  warning = FALSE,
-  message = FALSE,
-  out.width = "100%"
-)
-```
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" align="right" height="139"/></a>
 
@@ -57,29 +55,40 @@ Additionally, a distribution of the State System Membership
 
 ## Installation
 
+::: pkgdown-release
 Install **igoR** from [**CRAN**](https://CRAN.R-project.org/package=igoR):
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("igoR")
 ```
 
+:::
+
+::: pkgdown-devel
 You can install the developing version from GitHub:
 
-```{r, eval=FALSE}
-library(remotes)
-install_github("dieghernan/igoR")
+```{r}
+#| eval: false
+pak::pak("dieghernan/igoR")
 ```
 
 Alternatively, you can install **igoR** using the
 [r-universe](https://dieghernan.r-universe.dev/igoR):
 
-```{r, eval=FALSE}
-# Install igoR in R:
-install.packages("igoR", repos = c(
-  "https://dieghernan.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+```{r}
+#| eval: false
+# Install igoR in R
+install.packages(
+  "igoR",
+  repos = c(
+    "https://dieghernan.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
 ```
+
+:::
 
 ## Basic usage
 
@@ -87,14 +96,18 @@ install.packages("igoR", repos = c(
 
 Search all IGOs related to "sugar":
 
-```{r search}
+```{r}
+#| label: search
 library(igoR)
 
 result_sugar <- igo_search("Sugar")
 ```
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
+#| output: asis
 knitr::kable(result_sugar)
+cat("<p class=\"caption\">Table 1: IGOs related with sugar</p>")
 ```
 
 ### IGO members:
@@ -102,28 +115,45 @@ knitr::kable(result_sugar)
 Composition of the [European Economic
 Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time:
 
-```{r eec}
+```{r}
+#| label: eec
 eec_code <- igo_search("EEC", exact = TRUE)
 
 # Founding
 eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 ```
 
-```{r echo=FALSE}
-knitr::kable(eec_init, caption = paste0("EEC, members
-                                        (", unique(eec_init$year), ")"))
+```{r}
+#| echo: false
+#| output: asis
+knitr::kable(eec_init)
+cat(
+  paste0(
+    "<p class=\"caption\">Table 2: EEC, members (",
+    unique(eec_init$year),
+    ")</p>"
+  )
+)
 ```
 
-```{r eec_end}
+```{r}
+#| label: eec_end
 # Latest date
 eec_end <- igo_members(eec_code$ioname)
 ```
 
-```{r echo=FALSE}
-knitr::kable(eec_end, caption = paste0(
-  "EEC, members (",
-  unique(eec_end$year), ")"
-))
+```{r}
+#| echo: false
+#| output: asis
+knitr::kable(eec_end)
+
+cat(
+  paste0(
+    "<p class=\"caption\">Table 3: EEC, members (",
+    unique(eec_end$year),
+    ")</p>"
+  )
+)
 ```
 
 ## Recommended packages
@@ -134,17 +164,19 @@ knitr::kable(eec_end, caption = paste0(
 
 ## Citation
 
-```{r cit, echo=FALSE, results='asis'}
+```{r}
+#| label: cit
+#| echo: false
+#| results: asis
 print(citation("igoR")[1], style = "html")
 ```
 
 A BibTeX entry for LaTeX users:
 
-```{r, echo=FALSE, comment = ''}
+```{r}
+#| echo: false
+#| comment: ""
 toBibtex(citation("igoR")[1])
 ```
 
 ## References
-
-::: {#refs}
-:::

@@ -3,30 +3,29 @@ title: "List of IGOs and Countries"
 description: >
   Interactive exploration of the data included on the package.
 bibliography: REFERENCES.bib
-link-citations: yes
+link-citations: true
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    warning: false
+    message: false
 ---
-
-```{r knitropts, include=FALSE}
-start_time <- Sys.time()
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  warning = FALSE,
-  message = FALSE
-)
-```
 
 Annex with the list of IGOs [@pevehouse2020] and countries
 [@correlatesofwarproject2017] included on this package.
 
 ## List of IGOs
 
-```{r igo, echo=FALSE}
+```{r}
+#| label: igo
+#| echo: false
 library(igoR)
 library(reactable)
 
 igo <- igo_search()
-reactable(igo[, 1:7],
+reactable(
+  igo[, 1:7],
   filterable = TRUE,
   defaultColDef = colDef(minWidth = 150, vAlign = "center"),
   searchable = TRUE,
@@ -39,9 +38,12 @@ reactable(igo[, 1:7],
 
 ## List of Countries
 
-```{r countries, echo=FALSE}
+```{r}
+#| label: countries
+#| echo: false
 cc <- states2016
-reactable(cc,
+reactable(
+  cc,
   filterable = TRUE,
   searchable = TRUE,
   defaultColDef = colDef(minWidth = 150, vAlign = "center"),
@@ -51,20 +53,5 @@ reactable(cc,
   elementId = "countries"
 )
 ```
-
-## Session info
-
-<details>
-
-<summary>Details</summary>
-
-```{r session, echo=FALSE}
-if (!require("sessioninfo")) {
-  install.packages("sessioninfo")
-}
-sessioninfo::session_info()
-```
-
-</details>
 
 ## References

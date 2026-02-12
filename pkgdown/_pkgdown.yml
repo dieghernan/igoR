@@ -4,6 +4,12 @@ figures:
   dpi: 300
   fig.retina: 2
 
+development:
+  mode: auto
+
+repo:
+  branch: release
+
 template:
   bootstrap: 5
   package: gitdevr
@@ -16,9 +22,6 @@ home:
     This package provide access and to extract information from the
     Intergovernmental Organizations Database (IGOs), version 3, provided by the
     Correlates of War Project.
-
-repo:
-  branch: main
 
 reference:
 - title: Datasets
