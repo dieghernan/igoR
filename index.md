@@ -25,24 +25,6 @@ Install **igoR** from
 install.packages("igoR")
 ```
 
-You can install the developing version from GitHub:
-
-``` r
-library(remotes)
-install_github("dieghernan/igoR")
-```
-
-Alternatively, you can install **igoR** using the
-[r-universe](https://dieghernan.r-universe.dev/igoR):
-
-``` r
-# Install igoR in R:
-install.packages("igoR", repos = c(
-  "https://dieghernan.r-universe.dev",
-  "https://cloud.r-project.org"
-))
-```
-
 ## Basic usage
 
 ### Search an IGO by name:
@@ -61,6 +43,8 @@ result_sugar <- igo_search("Sugar")
 |  1920 | GLACSEC | Group of L/A & Carib. Sugar Exp. Countries | Group of Latin American and Caribbean Sugar Exporting Countries | Group of Latin American and Caribbean Sugar Exporting Countries |  1974 |     2001 |    1 |          0 |        0 |      NA |     2.3 | Not applicable - created 1965 or later                |                 |       0 |         1 |      0 |        0 |
 |  3130 | ISuC    | Intl Sugar Council                         | International Sugar Council                                     | International Sugar Council                                     |  1937 |     1967 |    1 |          0 |        0 |      91 |     3.0 | Within 5 years                                        |                 |       0 |         0 |      1 |        0 |
 |  4290 | SugU    | Sugar Union                                | Sugar Union                                                     | Sugar Union                                                     |  1902 |     1913 |    1 |          0 |        0 |      29 |     3.0 | Completely accurate, except a few minor uncertainties |                 |       0 |         0 |      0 |        1 |
+
+Table 1: IGOs related with sugar
 
 ### IGO members:
 
@@ -84,7 +68,7 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 | EEC    |   260 | wgermany    | German Federal Republic | 1958 |     1 | Full Membership | European Economic Community |
 | EEC    |   325 | italy       | Italy                   | 1958 |     1 | Full Membership | European Economic Community |
 
-EEC, members (1958)
+Table 2: EEC, members (1958)
 
 ``` r
 # Latest date
@@ -106,7 +90,7 @@ eec_end <- igo_members(eec_code$ioname)
 | EEC    |   350 | greece      | Greece         | 1992 |     1 | Full Membership | European Economic Community |
 | EEC    |   390 | denmark     | Denmark        | 1992 |     1 | Full Membership | European Economic Community |
 
-EEC, members (1992)
+Table 3: EEC, members (1992)
 
 ## Recommended packages
 

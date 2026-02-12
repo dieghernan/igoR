@@ -44,7 +44,7 @@
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,20 +106,12 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
+<div class="pkgdown-release">
 <p>Install <strong>igoR</strong> from <a href="https://CRAN.R-project.org/package=igoR" class="external-link"><strong>CRAN</strong></a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"igoR"</span><span class="op">)</span></span></code></pre></div>
-<p>You can install the developing version from GitHub:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dieghernan/igoR"</span><span class="op">)</span></span></code></pre></div>
-<p>Alternatively, you can install <strong>igoR</strong> using the <a href="https://dieghernan.r-universe.dev/igoR" class="external-link">r-universe</a>:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Install igoR in R:</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"igoR"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  <span class="st">"https://dieghernan.r-universe.dev"</span>,</span>
-<span>  <span class="st">"https://cloud.r-project.org"</span></span>
-<span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+
 </div>
 <div class="section level2">
 <h2 id="basic-usage">Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
@@ -256,6 +248,9 @@
 </tr>
 </tbody>
 </table>
+<p class="caption">
+Table 1: IGOs related with sugar
+</p>
 </div>
 <div class="section level3">
 <h3 id="igo-members">IGO members:<a class="anchor" aria-label="anchor" href="#igo-members"></a>
@@ -350,7 +345,9 @@
 </tr>
 </tbody>
 </table>
-<p>EEC, members (1958)</p>
+<p class="caption">
+Table 2: EEC, members (1958)
+</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Latest date</span></span>
 <span><span class="va">eec_end</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="va">eec_code</span><span class="op">$</span><span class="va">ioname</span><span class="op">)</span></span></code></pre></div>
@@ -498,7 +495,9 @@
 </tr>
 </tbody>
 </table>
-<p>EEC, members (1992)</p>
+<p class="caption">
+Table 3: EEC, members (1992)
+</p>
 </div>
 </div>
 <div class="section level2">
@@ -581,22 +580,7 @@ Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer Jamis
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=igoR" class="external-link"><img src="https://www.r-pkg.org/badges/version/igoR" alt="CRAN status"></a></li>
-<li><a href="https://cran.r-project.org/web/checks/check_results_igoR.html" class="external-link"><img src="https://badges.cranchecks.info/worst/igoR.svg" alt="CRAN results"></a></li>
-<li><a href="https://cran.r-project.org/package=igoR" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/igoR" alt="CRAN-Downloads"></a></li>
-<li><a href="https://dieghernan.r-universe.dev/" class="external-link"><img src="https://dieghernan.r-universe.dev/badges/igoR" alt="r-universe"></a></li>
-<li><a href="https://github.com/dieghernan/igoR/actions/workflows/check-full.yaml" class="external-link"><img src="https://github.com/dieghernan/igoR/actions/workflows/check-full.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/dieghernan/igoR/actions/workflows/rhub.yaml" class="external-link"><img src="https://github.com/dieghernan/igoR/actions/workflows/rhub.yaml/badge.svg" alt="R-hub"></a></li>
-<li><a href="https://app.codecov.io/gh/dieghernan/igoR" class="external-link"><img src="https://codecov.io/gh/dieghernan/igoR/branch/main/graph/badge.svg?token=UH3VLTTTRE" alt="codecov"></a></li>
-<li><a href="https://www.codefactor.io/repository/github/dieghernan/igor" class="external-link"><img src="https://www.codefactor.io/repository/github/dieghernan/igor/badge" alt="CodeFactor"></a></li>
-<li><a href="https://doi.org/10.32614/CRAN.package.igoR" class="external-link"><img src="https://img.shields.io/badge/DOI-10.32614/CRAN.package.igoR-blue" alt="DOI"></a></li>
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://CRAN.R-project.org/package=igoR" class="external-link"><img src="https://tinyverse.netlify.app/status/igoR" alt="status"></a></li>
-</ul>
-</div>
+
 
   </aside>
 </div>

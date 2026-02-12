@@ -111,9 +111,12 @@ countries_by_year <- state_year_format3 %>%
 all_by_year <- igos_by_year %>%
   bind_rows(countries_by_year) %>%
   # For labelling the plot
-  mutate(variable = factor(variable,
-    levels = c("Total IGOs", "Number of COW states")
-  ))
+  mutate(
+    variable = factor(
+      variable,
+      levels = c("Total IGOs", "Number of COW states")
+    )
+  )
 
 
 # Plot
@@ -126,10 +129,9 @@ ggplot(all_by_year, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![Figure 1. IGOs and states in the world system,
-1816-2014](igoR_files/figure-html/Fig1-1.png)
+![](igoR_files/figure-html/fig-f1-1.png)
 
-Figure 1. IGOs and states in the world system, 1816-2014
+Figure 1: IGOs and states in the world system, 1816-2014
 
 ### IGO Births and deaths
 
@@ -169,10 +171,9 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![Figure 2. Birth and death rates of IGOs,
-1816-2014](igoR_files/figure-html/Fig2-1.png)
+![](igoR_files/figure-html/fig-f2-1.png)
 
-Figure 2. Birth and death rates of IGOs, 1816-2014
+Figure 2: Birth and death rates of IGOs, 1816-2014
 
 ### IGOs across regions
 
@@ -181,67 +182,359 @@ based on the original definition by J. C. Pevehouse et al.
 ([2020](#ref-pevehouse2020)), as provided in the complementary
 replication data set ([PRIO 2020](#ref-priorep)):
 
+IGOs across regions: codes
+
 ``` r
 # crossreg and universal codes not included
 
 asia <- c(
-  550, 560, 570, 580, 590, 600, 610, 640, 650, 660,
-  670, 725, 750, 825, 1030, 1345, 1400, 1530, 1532, 2300,
-  2770, 3185, 3330, 3560, 3930, 4115, 4150, 4160, 4170,
-  4190, 4200, 4220, 4265, 4440
+  550,
+  560,
+  570,
+  580,
+  590,
+  600,
+  610,
+  640,
+  650,
+  660,
+  670,
+  725,
+  750,
+  825,
+  1030,
+  1345,
+  1400,
+  1530,
+  1532,
+  2300,
+  2770,
+  3185,
+  3330,
+  3560,
+  3930,
+  4115,
+  4150,
+  4160,
+  4170,
+  4190,
+  4200,
+  4220,
+  4265,
+  4440
 )
 
 middle_east <- c(
-  370, 380, 390, 400, 410, 420, 430, 440, 450, 460,
-  470, 490, 500, 510, 520, 1110, 1410, 1990, 2000,
-  2220, 3450, 3800, 4140, 4270, 4380
+  370,
+  380,
+  390,
+  400,
+  410,
+  420,
+  430,
+  440,
+  450,
+  460,
+  470,
+  490,
+  500,
+  510,
+  520,
+  1110,
+  1410,
+  1990,
+  2000,
+  2220,
+  3450,
+  3800,
+  4140,
+  4270,
+  4380
 )
 
 europe <- c(
-  20, 300, 780, 800, 832, 840, 860, 1020, 1050, 1070, 1080,
-  1125, 1140, 1390, 1420, 1440, 1563, 1565, 1580, 1585, 1590,
-  1600, 1610, 1620, 1630, 1640, 1645, 1653, 1660, 1670, 1675,
-  1680, 1690, 1700, 1710, 1715, 1720, 1730, 1740, 1750, 1760,
-  1770, 1780, 1790, 1800, 1810, 1820, 1830, 1930, 1970, 1980,
-  2310, 2325, 2345, 2440, 2450, 2550, 2575, 2610, 2650, 2705,
-  2890, 2972, 3010, 3095, 3230, 3290, 3360, 3485, 3505, 3585,
-  3590, 3600, 3610, 3620, 3630, 3640, 3650, 3655, 3660, 3665,
-  3762, 3810, 3855, 3860, 3910, 4000, 4350, 4450, 4460, 4510,
-  4520, 4540
+  20,
+  300,
+  780,
+  800,
+  832,
+  840,
+  860,
+  1020,
+  1050,
+  1070,
+  1080,
+  1125,
+  1140,
+  1390,
+  1420,
+  1440,
+  1563,
+  1565,
+  1580,
+  1585,
+  1590,
+  1600,
+  1610,
+  1620,
+  1630,
+  1640,
+  1645,
+  1653,
+  1660,
+  1670,
+  1675,
+  1680,
+  1690,
+  1700,
+  1710,
+  1715,
+  1720,
+  1730,
+  1740,
+  1750,
+  1760,
+  1770,
+  1780,
+  1790,
+  1800,
+  1810,
+  1820,
+  1830,
+  1930,
+  1970,
+  1980,
+  2310,
+  2325,
+  2345,
+  2440,
+  2450,
+  2550,
+  2575,
+  2610,
+  2650,
+  2705,
+  2890,
+  2972,
+  3010,
+  3095,
+  3230,
+  3290,
+  3360,
+  3485,
+  3505,
+  3585,
+  3590,
+  3600,
+  3610,
+  3620,
+  3630,
+  3640,
+  3650,
+  3655,
+  3660,
+  3665,
+  3762,
+  3810,
+  3855,
+  3860,
+  3910,
+  4000,
+  4350,
+  4450,
+  4460,
+  4510,
+  4520,
+  4540
 )
 
 africa <- c(
-  30, 40, 50, 60, 80, 90, 100, 110, 115, 120, 125, 130, 140,
-  150, 155, 160, 170, 180, 190, 200, 210, 225, 240, 250, 260, 280,
-  290, 690, 700, 710, 940, 1060, 1150, 1170, 1260, 1290, 1310,
-  1320, 1330, 1340, 1355, 1430, 1450, 1460, 1470, 1475, 1480,
-  1500, 1510, 1520, 1870, 2080, 2090, 2230, 2330, 2795, 3300,
-  3310, 3470, 3480, 3510, 3520, 3570, 3740, 3760, 3761, 3790,
-  3820, 3875, 3905, 3970, 4010, 4030, 4050, 4055, 4080, 4110,
-  4120, 4130, 4230, 4240, 4250, 4251, 4340, 4365, 4480, 4485,
-  4490, 4500, 4501, 4503
+  30,
+  40,
+  50,
+  60,
+  80,
+  90,
+  100,
+  110,
+  115,
+  120,
+  125,
+  130,
+  140,
+  150,
+  155,
+  160,
+  170,
+  180,
+  190,
+  200,
+  210,
+  225,
+  240,
+  250,
+  260,
+  280,
+  290,
+  690,
+  700,
+  710,
+  940,
+  1060,
+  1150,
+  1170,
+  1260,
+  1290,
+  1310,
+  1320,
+  1330,
+  1340,
+  1355,
+  1430,
+  1450,
+  1460,
+  1470,
+  1475,
+  1480,
+  1500,
+  1510,
+  1520,
+  1870,
+  2080,
+  2090,
+  2230,
+  2330,
+  2795,
+  3300,
+  3310,
+  3470,
+  3480,
+  3510,
+  3520,
+  3570,
+  3740,
+  3760,
+  3761,
+  3790,
+  3820,
+  3875,
+  3905,
+  3970,
+  4010,
+  4030,
+  4050,
+  4055,
+  4080,
+  4110,
+  4120,
+  4130,
+  4230,
+  4240,
+  4250,
+  4251,
+  4340,
+  4365,
+  4480,
+  4485,
+  4490,
+  4500,
+  4501,
+  4503
 )
 
 americas <- c(
-  310, 320, 330, 340, 720, 760, 815, 875, 880, 890, 900,
-  910, 912, 913, 920, 950, 970, 980, 990, 1000, 1010, 1095,
-  1130, 1486, 1489, 1490, 1860, 1890, 1920, 1950, 2070, 2110,
-  2120, 2130, 2140, 2150, 2160, 2170, 2175, 2180, 2190, 2200,
-  2203, 2206, 2210, 2260, 2340, 2490, 2560, 2980, 3060,
-  3340, 3370, 3380, 3390, 3400, 3410, 3420, 3428, 3430, 3670,
-  3680, 3812, 3830, 3880, 3890, 3900, 3925, 3980, 4070, 4100,
-  4260, 4280, 4370
+  310,
+  320,
+  330,
+  340,
+  720,
+  760,
+  815,
+  875,
+  880,
+  890,
+  900,
+  910,
+  912,
+  913,
+  920,
+  950,
+  970,
+  980,
+  990,
+  1000,
+  1010,
+  1095,
+  1130,
+  1486,
+  1489,
+  1490,
+  1860,
+  1890,
+  1920,
+  1950,
+  2070,
+  2110,
+  2120,
+  2130,
+  2140,
+  2150,
+  2160,
+  2170,
+  2175,
+  2180,
+  2190,
+  2200,
+  2203,
+  2206,
+  2210,
+  2260,
+  2340,
+  2490,
+  2560,
+  2980,
+  3060,
+  3340,
+  3370,
+  3380,
+  3390,
+  3400,
+  3410,
+  3420,
+  3428,
+  3430,
+  3670,
+  3680,
+  3812,
+  3830,
+  3880,
+  3890,
+  3900,
+  3925,
+  3980,
+  4070,
+  4100,
+  4260,
+  4280,
+  4370
 )
+```
+
+``` r
+# africa, americas, asia, europe, middle_east created in previous chunk
+# collapsed for readability.
 
 regions <- igo_search() %>%
-  mutate(region = case_when(
-    ionum %in% africa ~ "Africa",
-    ionum %in% americas ~ "Americas",
-    ionum %in% asia ~ "Asia",
-    ionum %in% europe ~ "Europe",
-    ionum %in% middle_east ~ "Middle East",
-    TRUE ~ NA
-  )) %>%
+  mutate(
+    region = case_when(
+      ionum %in% africa ~ "Africa",
+      ionum %in% americas ~ "Americas",
+      ionum %in% asia ~ "Asia",
+      ionum %in% europe ~ "Europe",
+      ionum %in% middle_east ~ "Middle East",
+      TRUE ~ NA
+    )
+  ) %>%
   select(ioname, region)
 ```
 
@@ -261,12 +554,18 @@ regionsum <- alligos %>%
   summarise(value = n(), .groups = "keep") %>%
   filter(!is.na(region)) %>%
   # For plotting
-  mutate(region = factor(region,
-    levels = c(
-      "Asia", "Europe", "Africa", "Americas",
-      "Middle East"
+  mutate(
+    region = factor(
+      region,
+      levels = c(
+        "Asia",
+        "Europe",
+        "Africa",
+        "Americas",
+        "Middle East"
+      )
     )
-  ))
+  )
 
 
 # Plot
@@ -284,10 +583,9 @@ ggplot(regionsum, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![Figure 3. IGO counts across regions,
-1816-2014](igoR_files/figure-html/Fig3-1.png)
+![](igoR_files/figure-html/fig-f3-1.png)
 
-Figure 3. IGO counts across regions, 1816-2014
+Figure 3: IGO counts across regions, 1816-2014
 
 ### Selected Countries: Asia
 
@@ -299,7 +597,8 @@ asia5_cntries <- c("China", "India", "Pakistan", "Indonesia", "Bangladesh")
 
 # Five countries of Asia
 asia5_igos <- igo_state_membership(
-  state = asia5_cntries, year = 1865:2014,
+  state = asia5_cntries,
+  year = 1865:2014,
   status = "Full Membership"
 )
 
@@ -315,25 +614,28 @@ ggplot(asia5, aes(x = year, y = values)) +
     values = c("solid", "dashed", "dotted", "dotdash", "longdash")
   ) +
   guides(linetype = guide_legend(ncol = 3, byrow = TRUE)) +
-  theme(axis.title.y.left = element_text(
-    family = "sans", size = 12,
-    margin = margin(r = 6)
-  )) +
+  theme(
+    axis.title.y.left = element_text(
+      family = "sans",
+      size = 12,
+      margin = margin(r = 6)
+    )
+  ) +
   scale_x_continuous(
     limits = c(1865, 2015),
     breaks = seq(1865, 2015, by = 25)
   ) +
-  scale_y_continuous("Number of memberships",
+  scale_y_continuous(
+    "Number of memberships",
     breaks = seq(0, 100, 20),
     limits = c(0, 100)
   ) +
   theme_igor
 ```
 
-![Figure 4. IGO membership: five states in Asia,
-1865-2014](igoR_files/figure-html/Fig4-1.png)
+![](igoR_files/figure-html/fig-f4-1.png)
 
-Figure 4. IGO membership: five states in Asia, 1865-2014
+Figure 4: IGO membership: five states in Asia, 1865-2014
 
 ### Shared memberships
 
@@ -355,15 +657,19 @@ ggplot(spain_selected, aes(x = year, y = values)) +
   geom_line(color = "black", aes(linetype = statenme2)) +
   scale_linetype_manual(values = c("solid", "dashed", "dotted", "dotdash")) +
   guides(linetype = guide_legend(ncol = 2, byrow = TRUE)) +
-  theme(axis.title.y.left = element_text(
-    family = "sans", size = 10,
-    margin = margin(r = 6)
-  )) +
+  theme(
+    axis.title.y.left = element_text(
+      family = "sans",
+      size = 10,
+      margin = margin(r = 6)
+    )
+  ) +
   scale_x_continuous(
     limits = c(1815, 2015),
     breaks = seq(1815, 2015, by = 25)
   ) +
-  scale_y_continuous("Number of memberships",
+  scale_y_continuous(
+    "Number of memberships",
     breaks = seq(0, 110, 20),
     limits = c(0, 110)
   ) +
@@ -371,16 +677,18 @@ ggplot(spain_selected, aes(x = year, y = values)) +
   geom_vline(xintercept = 1939, alpha = 0.2) +
   annotate("label", x = 1938, y = 60, size = 3, label = "Spanish \nCivil War") +
   geom_vline(xintercept = 1978, alpha = 0.2) +
-  annotate("label",
-    x = 1970, y = 100, size = 3,
+  annotate(
+    "label",
+    x = 1970,
+    y = 100,
+    size = 3,
     label = "Constitution \nof Spain"
   )
 ```
 
-![Figure 5. Number of IGOs with full shared memberships with Spain
-(selected countries), 1816-2014](igoR_files/figure-html/Fig5-1.png)
+![](igoR_files/figure-html/fig-f5-1.png)
 
-Figure 5. Number of IGOs with full shared memberships with Spain
+Figure 5: Number of IGOs with full shared memberships with Spain
 (selected countries), 1816-2014
 
 ## References
@@ -392,8 +700,9 @@ Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 
 Pevehouse, Jon, Roseanne McManus, and Timothy Nordstrom. 2019. “Codebook
 for Correlates of War 3 International Governmental Organizations Data
-Set Version 3.0.”
-<https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf>.
+Set Version
+3.0.”[https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf](https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf%0A%09)
+.
 
 PRIO. 2020. “Replication Datasets: Journal of Peace Research.” Peace
 Research Institute Oslo; Online.
