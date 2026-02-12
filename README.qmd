@@ -62,6 +62,7 @@ Install **igoR** from [**CRAN**](https://CRAN.R-project.org/package=igoR):
 #| eval: false
 install.packages("igoR")
 ```
+
 :::
 
 ::: pkgdown-devel
@@ -86,6 +87,7 @@ install.packages(
   )
 )
 ```
+
 :::
 
 ## Basic usage
@@ -103,14 +105,10 @@ result_sugar <- igo_search("Sugar")
 
 ```{r}
 #| echo: false
+#| output: asis
 knitr::kable(result_sugar)
+cat("<p class=\"caption\">Table 1: IGOs related with sugar</p>")
 ```
-
-<p class="caption">
-
-Table 1: IGOs related with sugar
-
-</p>
 
 ### IGO members:
 

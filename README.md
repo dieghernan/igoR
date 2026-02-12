@@ -98,7 +98,6 @@ result_sugar <- igo_search("Sugar")
 <p class="caption">
 
 Table 1: IGOs related with sugar
-
 </p>
 
 ### IGO members:
