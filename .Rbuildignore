@@ -49,3 +49,5 @@
 ^README\.html$
 ^vignettes/*_files$
 ^vignettes/mapping\.qmd\.orig$
+^\.quarto$
+^\./vignettes/mapping\.qmd\.orig$
