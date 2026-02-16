@@ -23,11 +23,7 @@ library(countrycode)
 
 # Geospatial packages
 library(giscoR)
-#> Error in `library()`:
-#> ! there is no package called 'giscoR'
 library(sf)
-#> Error in `library()`:
-#> ! there is no package called 'sf'
 ```
 
 ## Evolution of the composition of UN
@@ -38,8 +34,6 @@ the United Nations. First we should extract the data:
 ``` r
 # Extract shapes
 world <- gisco_get_countries()
-#> Error in `gisco_get_countries()`:
-#> ! could not find function "gisco_get_countries"
 
 # Extract three dates - some errors given that ISO doesn't have every COW Code
 un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
@@ -55,8 +49,6 @@ base_df <- expand.grid(
   stringsAsFactors = FALSE
 ) %>%
   as_tibble()
-#> Error:
-#> ! object 'world' not found
 
 # Merge everything with the spatial object
 un_all_sf <- world %>%
@@ -64,8 +56,6 @@ un_all_sf <- world %>%
   left_join(base_df, by = "ISO3_CODE") %>%
   # Add info
   left_join(un_all, by = c("ISO3_CODE", "year"))
-#> Error:
-#> ! object 'world' not found
 ```
 
 Note that the map is not completely accurate, as the base shapefile
@@ -94,9 +84,11 @@ ggplot(un_all_sf) +
     axis.line = element_blank(),
     axis.text = element_blank()
   )
-#> Error:
-#> ! object 'un_all_sf' not found
 ```
+
+![Figure 1: UN Members (1950, 1980, 2010)](./UNMaps-1.png)
+
+Figure 1: UN Members (1950, 1980, 2010)
 
 ## Number of shared memberships
 
@@ -122,8 +114,6 @@ shared <- igo_dyadic("AUL", as.character(states2014$statenme), year = 2014) %>%
 sharedmap <- world %>%
   left_join(shared, by = "ISO3_CODE") %>%
   select(ISO3_CODE, shared)
-#> Error:
-#> ! object 'world' not found
 
 # Plot with custom palette
 pal <- hcl.colors(10, palette = "Lajolla")
@@ -161,9 +151,12 @@ ggplot(sharedmap) +
     legend.key.width = unit(1.5, "lines"),
     legend.key.height = unit(0.5, "lines")
   )
-#> Error:
-#> ! object 'sharedmap' not found
 ```
+
+![Figure 2: Shared Full Memberships with Australia
+(2014)](./AustShared-1.png)
+
+Figure 2: Shared Full Memberships with Australia (2014)
 
 ## Cross-shared memberships
 
@@ -187,8 +180,6 @@ all <- igo_dyadic(cntries, cntries, years) %>%
 # Get shapes
 countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
   left_join(all, by = "ISO3_CODE")
-#> Error in `gisco_get_countries()`:
-#> ! could not find function "gisco_get_countries"
 
 # Map
 ggplot(countries_sf) +
@@ -213,9 +204,12 @@ ggplot(countries_sf) +
     axis.text = element_blank(),
     strip.background = element_rect(fill = "grey90", colour = NA)
   )
-#> Error:
-#> ! object 'countries_sf' not found
 ```
+
+![Figure 3: Shared Full Memberships on North America (1930 -
+2010)](./NAShared-1.png)
+
+Figure 3: Shared Full Memberships on North America (1930 - 2010)
 
 ## References
 
