@@ -29,6 +29,7 @@ jobs:
           local::.
           any::rcmdcheck
           dieghernan/pkgdev
+          dieghernan/gitdevr
 
     - name: Install optipng
       run: |
