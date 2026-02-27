@@ -63,7 +63,7 @@ Version 3.0 datasets. *Journal of Peace Research, 57*(3), 492–503.
 
 ## See also
 
-[`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html)
+[`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
 to convert between different country code schemes.
 
 Other datasets:
