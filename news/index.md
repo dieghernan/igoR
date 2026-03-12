@@ -1,5 +1,10 @@
 # Changelog
 
+## igoR 1.0.1
+
+- `COPYRIGHTS` file updated.
+- Migrate documentation and vignettes to Quarto.
+
 ## igoR 1.0.0
 
 CRAN release: 2026-01-17
