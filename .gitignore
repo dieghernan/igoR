@@ -37,3 +37,6 @@ Rplots.pdf
 README_files/
 README.html
 **/.quarto/
+index_files/
+*index.html
+pkgdown/*_files

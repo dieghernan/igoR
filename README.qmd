@@ -61,11 +61,9 @@ Install **igoR** from [**CRAN**](https://CRAN.R-project.org/package=igoR):
 #| eval: false
 install.packages("igoR")
 ```
-
 :::
 
 ::: pkgdown-devel
-
 Check the docs of the developing version
 in <https://dieghernan.github.io/igoR/dev/>.
 
@@ -90,7 +88,6 @@ install.packages(
   )
 )
 ```
-
 :::
 
 ## Basic usage

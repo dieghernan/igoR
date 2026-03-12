@@ -11,7 +11,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-<!-- mapping.Rmd is generated from mapping.Rmd.orig. Please edit that file -->
+<!-- mapping.qmd is generated from mapping.qmd.orig. Please edit that file -->
 
 ```{r}
 #| label: knitr_config
@@ -96,9 +96,9 @@ Germany and West Germany are not included.
 Now we are ready to plot with **ggplot2**:
 
 ```{r}
-#| label: UNMaps
+#| label: fig-UNMaps
 #| fig-asp: 1.5
-#| fig-cap: "Figure 1: UN Members (1950, 1980, 2010)"
+#| fig-cap: "UN Members (1950, 1980, 2010)"
 ggplot(un_all_sf) +
   geom_sf(aes(fill = category), color = NA, show.legend = FALSE) +
   # Robinson
@@ -127,9 +127,9 @@ code produces a map showing the number of full memberships shared with Australia
 for each country in the world:
 
 ```{r}
-#| label: AustShared
+#| label: fig-AustShared
 #| fig-asp: 0.72
-#| fig-cap: "Figure 2: Shared Full Memberships with Australia (2014)"
+#| fig-cap: "Shared Full Memberships with Australia (2014)"
 # Number of igos shared - 2014
 # Countries alive in 2014
 states2014 <- states2016 %>%
@@ -193,8 +193,8 @@ America have flourished over the last 90 years, using a year as representative
 of each decade.
 
 ```{r}
-#| label: NAShared
-#| fig-cap: "Figure 3: Shared Full Memberships on North America (1930 - 2010)"
+#| label: fig-NAShared
+#| fig-cap: "Shared Full Memberships on North America (1930 - 2010)"
 #| fig-asp: 1
 # Select years
 years <- seq(1930, 2010, 10)
