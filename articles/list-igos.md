@@ -10,7 +10,7 @@ Annex with the list of IGOs ([Pevehouse et al.
 
 ## References
 
-Correlates of War Project. 2017. “State System Membership List, V2016.”
+Correlates of War Project. 2017. *State System Membership List, V2016*.
 <https://correlatesofwar.org/data-sets/state-system-membership/>.
 
 Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne

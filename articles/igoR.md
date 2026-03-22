@@ -3,7 +3,7 @@
 This vignette is meant to provide **useRs** with a visual, explorable
 introduction to the capabilities of the **igoR** package.
 
-The analysis is based on those provided in J. C. Pevehouse et al.
+The analysis is based on those provided in Pevehouse et al.
 ([2020](#ref-pevehouse2020)). For more information on the IGO data sets
 and additional downloads, see [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs/).
@@ -15,7 +15,7 @@ size (~500 MB in Stata `.dta` format). However,*
 
 ## Definitions
 
-From J. Pevehouse, McManus, and Nordstrom ([2019](#ref-pevehouse2019)):
+From Pevehouse et al. ([2019](#ref-pevehouse2019)):
 
 > ### What is an IGO?
 >
@@ -51,7 +51,7 @@ From J. Pevehouse, McManus, and Nordstrom ([2019](#ref-pevehouse2019)):
 
 ## Analysis
 
-This section provides some quick analysis based on the figures of J. C.
+This section provides some quick analysis based on the figures of
 Pevehouse et al. ([2020](#ref-pevehouse2020)).
 
 ### Initial Setup
@@ -178,7 +178,7 @@ Figure 2: Birth and death rates of IGOs, 1816-2014
 ### IGOs across regions
 
 A plot with the number of IGOs by region. The definition of region is
-based on the original definition by J. C. Pevehouse et al.
+based on the original definition by Pevehouse et al.
 ([2020](#ref-pevehouse2020)), as provided in the complementary
 replication data set ([PRIO 2020](#ref-priorep)):
 
@@ -698,12 +698,12 @@ Spencer Jamison. 2020. “Tracking Organizations in the World: The
 Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 57 (3): 492–503. <https://doi.org/10.1177/0022343319881175>.
 
-Pevehouse, Jon, Roseanne McManus, and Timothy Nordstrom. 2019. “Codebook
+Pevehouse, Jon, Roseanne McManus, and Timothy Nordstrom. 2019. *Codebook
 for Correlates of War 3 International Governmental Organizations Data
 Set Version
-3.0.”[https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf](https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf%0A%09)
+3.0*.[https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf](https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf%0A%09)
 .
 
-PRIO. 2020. “Replication Datasets: Journal of Peace Research.” Peace
+PRIO. 2020. *Replication Datasets: Journal of Peace Research*. Peace
 Research Institute Oslo; Online.
 <https://www.prio.org/journals/jpr/replicationdata>.
