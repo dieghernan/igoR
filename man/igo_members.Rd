@@ -21,7 +21,7 @@ the latest year available of the IGO will be extracted.}
 See \strong{Details} on \link{state_year_format3}.}
 }
 \value{
-A \code{\link[=data.frame]{data.frame}}.
+A \code{\link{data.frame}}.
 }
 \description{
 Extract all the countries belonging to an IGO on a specific date.

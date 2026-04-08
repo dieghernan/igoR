@@ -184,12 +184,11 @@ A BibTeX entry for LaTeX users:
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
 <div id="ref-correlatesofwarproject2017" class="csl-entry">
 
-Correlates of War Project. 2017. “State System Membership List, V2016.”
+Correlates of War Project. 2017. *State System Membership List, V2016*.
 <https://correlatesofwar.org/data-sets/state-system-membership/>.
 
 </div>

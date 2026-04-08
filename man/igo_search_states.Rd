@@ -15,7 +15,7 @@ igo_search_states(state)
 \code{\link[=states2016]{states2016()}}. It can be also an array of states.}
 }
 \value{
-A \code{\link[=data.frame]{data.frame}}.
+A \code{\link{data.frame}}.
 }
 \description{
 Find codes and names of a state.

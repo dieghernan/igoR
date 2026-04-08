@@ -6,7 +6,7 @@
 \alias{state_year_format3}
 \title{Country membership to IGO by year}
 \format{
-\code{\link[=data.frame]{data.frame}} with
+\code{\link{data.frame}} with
 15,557 rows. Relevant
 fields:
 \itemize{
@@ -62,8 +62,8 @@ datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}} to convert between different country code
 schemes.
 
-Other datasets: 
-\code{\link{igo_recode_igoyear}()},
+Other datasets:
+\code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}},
 \code{\link{igo_year_format3}},
 \code{\link{states2016}}
 }

@@ -6,7 +6,7 @@
 \alias{states2016}
 \title{State System Membership (v2016)}
 \format{
-\code{\link[=data.frame]{data.frame}} with
+\code{\link{data.frame}} with
 243 rows. Relevant fields:
 \itemize{
 \item \strong{ccode}: COW country number.
@@ -60,8 +60,8 @@ Correlates of War Project. 2017 "State System Membership List, v2016."
 Online, \url{https://correlatesofwar.org/}.
 }
 \seealso{
-Other datasets: 
-\code{\link{igo_recode_igoyear}()},
+Other datasets:
+\code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}},
 \code{\link{igo_year_format3}},
 \code{\link{state_year_format3}}
 }

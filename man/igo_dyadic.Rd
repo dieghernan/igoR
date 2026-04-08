@@ -21,7 +21,7 @@ IGOs to be assessed. If \code{NULL} (the default), all IGOs will be extracted.
 See codes on \code{\link[=igo_search]{igo_search()}}.}
 }
 \value{
-A coded \code{\link[=data.frame]{data.frame}} representing the years and country dyad
+A coded \code{\link{data.frame}} representing the years and country dyad
 (rows) and the IGOs selected (columns). See \strong{Details}.
 }
 \description{
@@ -34,7 +34,7 @@ This function tries to replicate the information contained in the original
 file distributed by The Correlates of War Project (\code{dyadic_format3.dta}).
 That file is not included in this package due to its size.
 
-The result is a \code{\link[=data.frame]{data.frame}} containing the common years of
+The result is a \code{\link{data.frame}} containing the common years of
 the states selected via \verb{country1, country2, year} by rows.
 
 An additional column \code{dyadid}, computed as \code{(1000*ccode1)+ccode2} is provided

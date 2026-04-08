@@ -18,7 +18,7 @@ accepted.}
 \item{exact}{Logical. When \code{TRUE} only exact matches are returned.}
 }
 \value{
-A \code{\link[=data.frame]{data.frame}}.
+A \code{\link{data.frame}}.
 }
 \description{
 Search any IGO by name or string pattern.

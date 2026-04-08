@@ -6,7 +6,7 @@
 \alias{igo_year_format3}
 \title{Intergovernmental Organizations (IGO) by year}
 \format{
-\code{\link[=data.frame]{data.frame}} with
+\code{\link{data.frame}} with
 19,335 rows. Relevant
 fields:
 \itemize{
@@ -84,8 +84,8 @@ datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-Other datasets: 
-\code{\link{igo_recode_igoyear}()},
+Other datasets:
+\code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}},
 \code{\link{state_year_format3}},
 \code{\link{states2016}}
 }

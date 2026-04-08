@@ -21,7 +21,7 @@ the latest year available of the state will be extracted.}
 See \strong{Details} on \link{igo_year_format3}.}
 }
 \value{
-A \code{\link[=data.frame]{data.frame}}.
+A \code{\link{data.frame}}.
 }
 \description{
 Extract all the memberships of a state on a specific date.

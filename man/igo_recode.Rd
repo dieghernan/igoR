@@ -55,7 +55,7 @@ samp \%>\%
 
 }
 \seealso{
-Other datasets: 
+Other datasets:
 \code{\link{igo_year_format3}},
 \code{\link{state_year_format3}},
 \code{\link{states2016}}
