@@ -30,6 +30,9 @@ jobs:
           any::rcmdcheck
           dieghernan/pkgdev
           dieghernan/gitdevr
+        needs: 
+          website
+          check
 
     - name: Install optipng
       run: |
