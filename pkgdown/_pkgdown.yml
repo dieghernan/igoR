@@ -19,7 +19,7 @@ template:
 home:
   title: igoR | R package for Intergovernmental Organizations (IGOs)
   description: >
-    This package provide access and to extract information from the
+    This package provides access to and extracts information from the
     Intergovernmental Organizations Database (IGOs), version 3, provided by the
     Correlates of War Project.
 
@@ -29,7 +29,7 @@ reference:
   contents:
   - has_concept("datasets")
 - title: Search functions
-  desc: Helper function to extract information.
+  desc: Helper functions to extract information.
   contents:
   - igo_dyadic
   - igo_members

@@ -20,15 +20,15 @@ knitr:
     out.height: "60%"
 ---
 
-This vignette is meant to provide **useRs** with a visual, explorable
-introduction to the capabilities of the **igoR** package.
+This vignette provides users with a visual, explorable introduction to the
+capabilities of the **igoR** package.
 
-The analysis is based on those provided in @pevehouse2020. For more information
-on the IGO data sets and additional downloads, see [Intergovernmental
+The analysis is based on examples provided in @pevehouse2020. For more
+information on the IGO datasets and additional downloads, see [Intergovernmental
 Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*Note that the dyadic dataset is not provided in the package, due to its size
-(\~500 MB in Stata `.dta` format). However,* `igo_dyadic()` *function provides
+*Note that the dyadic dataset is not included in the package due to its size
+(\~500 MB in Stata `.dta` format). However, the function `igo_dyadic()` provides
 similar results.*
 
 ## Definitions
@@ -48,7 +48,7 @@ From @pevehouse2019:
 >
 > ### When does an IGO actually begin?
 >
-> The data sets begins to code an IGO by identifying the first year in which the
+> The dataset begins to code an IGO by identifying the first year in which the
 > organization functions. In some cases, individual members are listed by year
 > of accession or signature.
 >
@@ -81,8 +81,8 @@ library(ggplot2)
 library(dplyr)
 ```
 
-In the first place, we create a custom `ggplot2::theme()` named `theme_igor`,
-which we apply to all our figures:
+First, we create a custom `ggplot2::theme()` named `theme_igor`, which we apply
+to all figures:
 
 ```{r}
 #| label: custom-theme
@@ -151,7 +151,7 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 ### IGO Births and deaths
 
-This plot shows how many IGOs were "born" and "died" in each year
+This plot shows how many IGOs were "born" and "died" in each year.
 
 ```{r}
 #| label: fig-f2
@@ -191,9 +191,8 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
 
 ### IGOs across regions
 
-A plot with the number of IGOs by region. The definition of region is based on
-the original definition by @pevehouse2020, as provided in the complementary
-replication data set [@priorep]:
+This plot shows the number of IGOs by region. The region definitions are based
+on @pevehouse2020 and the complementary replication dataset [@priorep]:
 
 ```{r}
 #| label: loncodes

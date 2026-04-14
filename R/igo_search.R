@@ -61,7 +61,7 @@
 igo_search <- function(pattern = NULL, exact = FALSE) {
   db <- igoR::igo_year_format3
 
-  # Select columns that not are countries
+  # Select columns that are not countries
   cols <- !colnames(db) %in% c(unique(igoR::state_year_format3$state))
   db_clean <- db[, cols]
 
@@ -109,7 +109,7 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
     if (length(lon) > 0) {
       db_end <- db_end[lon, ]
     } else {
-      warning("Pattern '", pattern, "' do not match with any IGO")
+      warning("Pattern '", pattern, "' does not match any IGO")
       return(invisible(NULL))
     }
   }

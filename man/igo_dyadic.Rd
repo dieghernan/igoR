@@ -41,8 +41,8 @@ An additional column \code{dyadid}, computed as \code{(1000*ccode1)+ccode2} is p
 in order to identify relationships.
 
 For each IGO selected via \code{ioname} (or all if the default option has been
-used) a column (using lowercase \code{ioname} as identifier) is provided with the
-following code system:\tabular{lr}{
+used) a column (using lowercase \code{ioname} as identifier) is provided
+with the following code system:\tabular{lr}{
    \strong{Category} \tab \strong{Numerical Value} \cr
    No Joint Membership \tab 0 \cr
    Joint Full Membership \tab 1 \cr

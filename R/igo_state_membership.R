@@ -15,7 +15,7 @@
 #'
 #' @inheritParams igo_search_states
 #'
-#' @param year Year to be assessed, an integer or an array of year. If `NULL`
+#' @param year Year to be assessed, an integer or an array of years. If `NULL`
 #'   the latest year available of the state will be extracted.
 #' @param status Character or vector with the membership status to be extracted.
 #' See **Details** on [igo_year_format3].

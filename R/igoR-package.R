@@ -1,6 +1,6 @@
 #' @keywords internal
 "_PACKAGE"
 
-# import stuffs
+# Import required packages
 #' @importFrom stats aggregate reshape
 NULL

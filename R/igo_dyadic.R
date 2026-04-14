@@ -44,8 +44,8 @@
 #' in order to identify relationships.
 #'
 #' For each IGO selected via `ioname` (or all if the default option has been
-#' used) a column (using lowercase `ioname` as identifier) is provided with the
-#' following code system:
+#' used) a column (using lowercase `ioname` as identifier) is provided
+#' with the following code system:
 #'
 #' ```{r, echo=FALSE}
 #'
@@ -96,11 +96,14 @@
 igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   # Check inputs
   if (!is.numeric(year)) {
-    warning("year should be numeric, no ", paste0(class(year), collapse = ", "))
+    warning(
+      "year should be numeric, not ",
+      paste0(class(year), collapse = ", ")
+    )
     return(invisible(NULL))
   }
 
-  # Prepare base for applys
+  # Prepare base for applies
   c1s <- igo_search_states(country1)
   c2s <- igo_search_states(country2)
 

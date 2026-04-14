@@ -14,7 +14,7 @@ igo_state_membership(state, year = NULL, status = "Full Membership")
 \item{state}{Any valid name or code of a state as specified on
 \code{\link[=states2016]{states2016()}}. It can be also an array of states.}
 
-\item{year}{Year to be assessed, an integer or an array of year. If \code{NULL}
+\item{year}{Year to be assessed, an integer or an array of years. If \code{NULL}
 the latest year available of the state will be extracted.}
 
 \item{status}{Character or vector with the membership status to be extracted.

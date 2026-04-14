@@ -16,7 +16,7 @@ First major version of the package.
 
 # igoR 0.2.0
 
--   Internal refactor of the code. The user shouldn't notice any visible change.
+-   Internal code refactor. Users should not notice any visible change.
 -   `igo_dyadic()` now accepts a vector of countries also in the `country1`
     argument.
 -   New helper functions for converting numerical values to labels:

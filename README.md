@@ -22,9 +22,8 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-The goal of **igoR** is to provide access to and extract information
-from the Intergovernmental Organizations Database (IGOs), version 3,
-provided by the Correlates of War Project ([Pevehouse et al.
+igoR provides access to the Intergovernmental Organizations Database
+(v3) from the Correlates of War Project ([Pevehouse et al.
 2020](#ref-pevehouse2020)).
 
 The dataset (V3) includes information on **534** IGOs from 1816 to 2014,
@@ -99,7 +98,7 @@ result_sugar <- igo_search("Sugar")
 
 <p class="caption">
 
-Table 1: IGOs related with sugar
+Table 1: IGOs related to sugar
 </p>
 
 ### IGO members:
