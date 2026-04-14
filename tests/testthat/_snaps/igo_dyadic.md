@@ -4,7 +4,7 @@
       n <- igo_dyadic("USA", "CUBA", year = NULL)
     Condition
       Warning in `igo_dyadic()`:
-      year should be numeric, no NULL
+      year should be numeric, not NULL
 
 ---
 
