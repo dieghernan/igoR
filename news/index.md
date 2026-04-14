@@ -26,8 +26,7 @@ CRAN release: 2024-12-17
 
 CRAN release: 2024-02-05
 
-- Internal refactor of the code. The user shouldn’t notice any visible
-  change.
+- Internal code refactor. Users should not notice any visible change.
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
   now accepts a vector of countries also in the `country1` argument.
 - New helper functions for converting numerical values to labels:

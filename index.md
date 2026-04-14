@@ -1,8 +1,7 @@
 # igoR
 
-The goal of **igoR** is to provide access to and extract information
-from the Intergovernmental Organizations Database (IGOs), version 3,
-provided by the Correlates of War Project ([Pevehouse et al.
+igoR provides access to the Intergovernmental Organizations Database
+(v3) from the Correlates of War Project ([Pevehouse et al.
 2020](#ref-pevehouse2020)).
 
 The dataset (V3) includes information on **534** IGOs from 1816 to 2014,
@@ -44,7 +43,7 @@ result_sugar <- igo_search("Sugar")
 |  3130 | ISuC    | Intl Sugar Council                         | International Sugar Council                                     | International Sugar Council                                     |  1937 |     1967 |    1 |          0 |        0 |      91 |     3.0 | Within 5 years                                        |                 |       0 |         0 |      1 |        0 |
 |  4290 | SugU    | Sugar Union                                | Sugar Union                                                     | Sugar Union                                                     |  1902 |     1913 |    1 |          0 |        0 |      29 |     3.0 | Completely accurate, except a few minor uncertainties |                 |       0 |         0 |      0 |        1 |
 
-Table 1: IGOs related with sugar
+Table 1: IGOs related to sugar
 
 ### IGO members:
 

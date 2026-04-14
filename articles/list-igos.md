@@ -1,8 +1,8 @@
 # List of IGOs and Countries
 
-Annex with the list of IGOs ([Pevehouse et al.
+This annex contains the list of IGOs ([Pevehouse et al.
 2020](#ref-pevehouse2020)) and countries ([Correlates of War Project
-2017](#ref-correlatesofwarproject2017)) included on this package.
+2017](#ref-correlatesofwarproject2017)) included in this package.
 
 ## List of IGOs
 

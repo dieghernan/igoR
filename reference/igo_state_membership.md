@@ -23,7 +23,7 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - year:
 
-  Year to be assessed, an integer or an array of year. If `NULL` the
+  Year to be assessed, an integer or an array of years. If `NULL` the
   latest year available of the state will be extracted.
 
 - status:

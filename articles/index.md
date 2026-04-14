@@ -9,4 +9,4 @@
 - [List of IGOs and
   Countries](https://dieghernan.github.io/igoR/articles/list-igos.md):
 
-  Interactive exploration of the data included on the package.
+  Interactive exploration of the data included in the package.

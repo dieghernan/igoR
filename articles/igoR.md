@@ -1,17 +1,17 @@
 # Get started with the igoR package
 
-This vignette is meant to provide **useRs** with a visual, explorable
-introduction to the capabilities of the **igoR** package.
+This vignette provides users with a visual, explorable introduction to
+the capabilities of the **igoR** package.
 
-The analysis is based on those provided in Pevehouse et al.
-([2020](#ref-pevehouse2020)). For more information on the IGO data sets
+The analysis is based on examples provided in Pevehouse et al.
+([2020](#ref-pevehouse2020)). For more information on the IGO datasets
 and additional downloads, see [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*Note that the dyadic dataset is not provided in the package, due to its
-size (~500 MB in Stata `.dta` format). However,*
+*Note that the dyadic dataset is not included in the package due to its
+size (~500 MB in Stata `.dta` format). However, the function
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
-*function provides similar results.*
+provides similar results.*
 
 ## Definitions
 
@@ -32,7 +32,7 @@ From Pevehouse et al. ([2019](#ref-pevehouse2019)):
 >
 > ### When does an IGO actually begin?
 >
-> The data sets begins to code an IGO by identifying the first year in
+> The dataset begins to code an IGO by identifying the first year in
 > which the organization functions. In some cases, individual members
 > are listed by year of accession or signature.
 >
@@ -64,9 +64,9 @@ library(ggplot2)
 library(dplyr)
 ```
 
-In the first place, we create a custom
+First, we create a custom
 [`ggplot2::theme()`](https://ggplot2.tidyverse.org/reference/theme.html)
-named `theme_igor`, which we apply to all our figures:
+named `theme_igor`, which we apply to all figures:
 
 ``` r
 theme_igor <- theme(
@@ -135,7 +135,7 @@ Figure 1: IGOs and states in the world system, 1816-2014
 
 ### IGO Births and deaths
 
-This plot shows how many IGOs were “born” and “died” in each year
+This plot shows how many IGOs were “born” and “died” in each year.
 
 ``` r
 # Births and deaths by year
@@ -177,10 +177,9 @@ Figure 2: Birth and death rates of IGOs, 1816-2014
 
 ### IGOs across regions
 
-A plot with the number of IGOs by region. The definition of region is
-based on the original definition by Pevehouse et al.
-([2020](#ref-pevehouse2020)), as provided in the complementary
-replication data set ([PRIO 2020](#ref-priorep)):
+This plot shows the number of IGOs by region. The region definitions are
+based on Pevehouse et al. ([2020](#ref-pevehouse2020)) and the
+complementary replication dataset ([PRIO 2020](#ref-priorep)):
 
 IGOs across regions: codes
 

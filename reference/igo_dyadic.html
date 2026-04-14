@@ -105,8 +105,8 @@ the states selected via <code>country1, country2, year</code> by rows.</p>
 <p>An additional column <code>dyadid</code>, computed as <code>(1000*ccode1)+ccode2</code> is provided
 in order to identify relationships.</p>
 <p>For each IGO selected via <code>ioname</code> (or all if the default option has been
-used) a column (using lowercase <code>ioname</code> as identifier) is provided with the
-following code system:</p><table class="table table"><tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr><tr><td>No Joint Membership</td><td>0</td></tr><tr><td>Joint Full Membership</td><td>1</td></tr><tr><td>Missing data</td><td>-9</td></tr><tr><td>State Not System Member</td><td>-1</td></tr></table><p>See <code><a href="igo_recode.html">igo_recode_dyadic()</a></code> section for an easy way to recode the numerical
+used) a column (using lowercase <code>ioname</code> as identifier) is provided
+with the following code system:</p><table class="table table"><tr><td><strong>Category</strong></td><td><strong>Numerical Value</strong></td></tr><tr><td>No Joint Membership</td><td>0</td></tr><tr><td>Joint Full Membership</td><td>1</td></tr><tr><td>Missing data</td><td>-9</td></tr><tr><td>State Not System Member</td><td>-1</td></tr></table><p>See <code><a href="igo_recode.html">igo_recode_dyadic()</a></code> section for an easy way to recode the numerical
 values into <a href="https://rdrr.io/r/base/factor.html" class="external-link">factors</a>.</p>
 <p>If one state in an IGO is a full member but the other is an associate member
 or observer, that IGO is not coded as a joint membership.</p>

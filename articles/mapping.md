@@ -1,17 +1,17 @@
 # Mapping IGOs
 
-Maps are a powerful tool to show data. As the scope of **igoR** is the
-Intergovernmental Organizations, mapping and IGOs are a perfect match.
+Maps are a powerful tool for showing data. Because **igoR** focuses on
+Intergovernmental Organizations, mapping and IGOs are a natural fit.
 
-This vignette provides some geospatial visualizations using the IGO data
-sets ([Pevehouse et al. 2020](#ref-pevehouse2020)) included in this
-package. Specific packages used for geospatial data:
+This vignette provides geospatial visualizations using the IGO datasets
+([Pevehouse et al. 2020](#ref-pevehouse2020)) included in this package.
+It uses these packages for geospatial data:
 
 - **giscoR** for extracting the shapefiles of the countries.
 - **ggplot2** for plotting.
 
-Also **countrycode** is a very handy package for translating between
-coding schemes (CoW, ISO3, NUTS, FIPS) and country names.
+The **countrycode** package is useful for translating between coding
+schemes (CoW, ISO3, NUTS, FIPS) and country names.
 
 ``` r
 library(igoR)
@@ -28,8 +28,8 @@ library(sf)
 
 ## Evolution of the composition of UN
 
-The following map shows the evolution of countries that are members of
-the United Nations. First we should extract the data:
+The following map shows the evolution of United Nations membership.
+First, extract the data:
 
 ``` r
 # Extract shapes
@@ -58,9 +58,9 @@ un_all_sf <- world %>%
   left_join(un_all, by = c("ISO3_CODE", "year"))
 ```
 
-Note that the map is not completely accurate, as the base shapefile
-contains the countries that existed in 2016. Some countries, such as
-Czechoslovakia, East Germany and West Germany are not included.
+Note that the map is not completely accurate because the base shapefile
+contains countries that existed in 2016. Some countries, such as
+Czechoslovakia, East Germany and West Germany, are not included.
 
 Now we are ready to plot with **ggplot2**:
 
@@ -93,8 +93,8 @@ UN Members (1950, 1980, 2010)
 ## Number of shared memberships
 
 Shared memberships are useful for identifying regional patterns. The
-following code produces a map showing the number of full memberships
-shared with Australia for each country in the world:
+following code produces a map showing how many full memberships each
+country shared with Australia in 2014:
 
 ``` r
 # Number of igos shared - 2014
@@ -159,9 +159,9 @@ Shared Full Memberships with Australia (2014)
 
 ## Cross-shared memberships
 
-The following map shows how the relationships between the countries of
-North America have flourished over the last 90 years, using a year as
-representative of each decade.
+The following map shows how relationships between North American
+countries have evolved over the last 90 years, with one year
+representing each decade.
 
 ``` r
 # Select years

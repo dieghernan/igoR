@@ -17,7 +17,7 @@ These objects are datasets already included in the package.
 
 ## Search functions
 
-Helper function to extract information.
+Helper functions to extract information.
 
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
   : Extract the joint membership of a pair of countries across IGOs

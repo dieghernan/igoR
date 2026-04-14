@@ -100,15 +100,15 @@
 
 
 
-    <!-- mapping.qmd is generated from mapping.qmd.orig. Please edit that file --><p>Maps are a powerful tool to show data. As the scope of <strong>igoR</strong> is the Intergovernmental Organizations, mapping and IGOs are a perfect match.</p>
-<p>This vignette provides some geospatial visualizations using the IGO data sets <span class="citation" data-cites="pevehouse2020">(<a href="#ref-pevehouse2020" role="doc-biblioref">Pevehouse et al. 2020</a>)</span> included in this package. Specific packages used for geospatial data:</p>
+    <!-- mapping.qmd is generated from mapping.qmd.orig. Please edit that file --><p>Maps are a powerful tool for showing data. Because <strong>igoR</strong> focuses on Intergovernmental Organizations, mapping and IGOs are a natural fit.</p>
+<p>This vignette provides geospatial visualizations using the IGO datasets <span class="citation" data-cites="pevehouse2020">(<a href="#ref-pevehouse2020" role="doc-biblioref">Pevehouse et al. 2020</a>)</span> included in this package. It uses these packages for geospatial data:</p>
 <ul>
 <li>
 <strong>giscoR</strong> for extracting the shapefiles of the countries.</li>
 <li>
 <strong>ggplot2</strong> for plotting.</li>
 </ul>
-<p>Also <strong>countrycode</strong> is a very handy package for translating between coding schemes (CoW, ISO3, NUTS, FIPS) and country names.</p>
+<p>The <strong>countrycode</strong> package is useful for translating between coding schemes (CoW, ISO3, NUTS, FIPS) and country names.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span></span>
 <span></span>
@@ -122,7 +122,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span></code></pre></div>
 <section class="level2"><h2 id="evolution-of-the-composition-of-un">Evolution of the composition of UN<a class="anchor" aria-label="anchor" href="#evolution-of-the-composition-of-un"></a>
 </h2>
-<p>The following map shows the evolution of countries that are members of the United Nations. First we should extract the data:</p>
+<p>The following map shows the evolution of United Nations membership. First, extract the data:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Extract shapes</span></span>
 <span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get_countries.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -148,7 +148,7 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">base_df</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="co"># Add info</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">un_all</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ISO3_CODE"</span>, <span class="st">"year"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>Note that the map is not completely accurate, as the base shapefile contains the countries that existed in 2016. Some countries, such as Czechoslovakia, East Germany and West Germany are not included.</p>
+<p>Note that the map is not completely accurate because the base shapefile contains countries that existed in 2016. Some countries, such as Czechoslovakia, East Germany and West Germany, are not included.</p>
 <p>Now we are ready to plot with <strong>ggplot2</strong>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">un_all_sf</span><span class="op">)</span> <span class="op">+</span></span>
@@ -177,7 +177,7 @@ UN Members (1950, 1980, 2010)
 </div>
 </section><section class="level2"><h2 id="number-of-shared-memberships">Number of shared memberships<a class="anchor" aria-label="anchor" href="#number-of-shared-memberships"></a>
 </h2>
-<p>Shared memberships are useful for identifying regional patterns. The following code produces a map showing the number of full memberships shared with Australia for each country in the world:</p>
+<p>Shared memberships are useful for identifying regional patterns. The following code produces a map showing how many full memberships each country shared with Australia in 2014:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Number of igos shared - 2014</span></span>
 <span><span class="co"># Countries alive in 2014</span></span>
@@ -240,7 +240,7 @@ Shared Full Memberships with Australia (2014)
 </div>
 </section><section class="level2"><h2 id="cross-shared-memberships">Cross-shared memberships<a class="anchor" aria-label="anchor" href="#cross-shared-memberships"></a>
 </h2>
-<p>The following map shows how the relationships between the countries of North America have flourished over the last 90 years, using a year as representative of each decade.</p>
+<p>The following map shows how relationships between North American countries have evolved over the last 90 years, with one year representing each decade.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Select years</span></span>
 <span><span class="va">years</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1930</span>, <span class="fl">2010</span>, <span class="fl">10</span><span class="op">)</span></span>
