@@ -165,7 +165,7 @@ Table 3: EEC, members (1992)
 
 Hernangómez D (2026). <em>igoR: Intergovernmental Organizations
 Database</em>.
-<a href="https://doi.org/10.32614/CRAN.package.igoR">doi:10.32614/CRAN.package.igoR</a>,
+<a href="https://doi.org/10.32614/CRAN.package.igoR">doi:10.32614/CRAN.package.igoR</a>.
 <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
 </p>
 
