@@ -17,7 +17,7 @@ Source:
 [`inst/CITATION`](https://github.com/dieghernan/igoR/blob/main/inst/CITATION)
 
 Hernangómez D (2026). *igoR: Intergovernmental Organizations Database*.
-[doi:10.32614/CRAN.package.igoR](https://doi.org/10.32614/CRAN.package.igoR),
+[doi:10.32614/CRAN.package.igoR](https://doi.org/10.32614/CRAN.package.igoR).
 <https://dieghernan.github.io/igoR/>.
 
     @Manual{R-igoR,
