@@ -57,6 +57,7 @@ Pevehouse et al. ([2020](#ref-pevehouse2020)).
 ### Initial Setup
 
 ``` r
+
 library(igoR)
 
 # Additional libraries
@@ -69,6 +70,7 @@ First, we create a custom
 named `theme_igor`, which we apply to all figures:
 
 ``` r
+
 theme_igor <- theme(
   axis.title = element_blank(),
   axis.line.x.bottom = element_line("black"),
@@ -97,6 +99,7 @@ The following code extracts the number of IGOs and states included in
 this package. The years available are 1816 to 2014.
 
 ``` r
+
 # Summarize
 igos_by_year <- igo_year_format3 %>%
   group_by(year) %>%
@@ -138,6 +141,7 @@ Figure 1: IGOs and states in the world system, 1816-2014
 This plot shows how many IGOs were “born” and “died” in each year.
 
 ``` r
+
 # Births and deaths by year
 
 df <- igo_search()
@@ -184,6 +188,7 @@ complementary replication dataset ([PRIO 2020](#ref-priorep)):
 IGOs across regions: codes
 
 ``` r
+
 # crossreg and universal codes not included
 
 asia <- c(
@@ -520,6 +525,7 @@ americas <- c(
 ```
 
 ``` r
+
 # africa, americas, asia, europe, middle_east created in previous chunk
 # collapsed for readability.
 
@@ -541,6 +547,7 @@ After we have created a data frame with the regions, we can classify the
 IGOs by region.
 
 ``` r
+
 # regions dataset created on previous chunk
 
 # All IGOs
@@ -592,6 +599,7 @@ Number of memberships for a country. We select here five countries in
 Asia: India, China, Pakistan, Indonesia and Bangladesh.
 
 ``` r
+
 asia5_cntries <- c("China", "India", "Pakistan", "Indonesia", "Bangladesh")
 
 # Five countries of Asia
@@ -642,6 +650,7 @@ Number of shared full memberships between Spain and four selected
 countries:
 
 ``` r
+
 selected_countries <- c("France", "Morocco", "China", "USA")
 
 spain_selected <- igo_dyadic("Spain", selected_countries)

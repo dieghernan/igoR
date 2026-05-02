@@ -14,6 +14,7 @@ The **countrycode** package is useful for translating between coding
 schemes (CoW, ISO3, NUTS, FIPS) and country names.
 
 ``` r
+
 library(igoR)
 
 # Helper packages
@@ -32,6 +33,7 @@ The following map shows the evolution of United Nations membership.
 First, extract the data:
 
 ``` r
+
 # Extract shapes
 world <- gisco_get_countries()
 
@@ -65,6 +67,7 @@ Czechoslovakia, East Germany and West Germany, are not included.
 Now we are ready to plot with **ggplot2**:
 
 ``` r
+
 ggplot(un_all_sf) +
   geom_sf(aes(fill = category), color = NA, show.legend = FALSE) +
   # Robinson
@@ -97,6 +100,7 @@ following code produces a map showing how many full memberships each
 country shared with Australia in 2014:
 
 ``` r
+
 # Number of igos shared - 2014
 # Countries alive in 2014
 states2014 <- states2016 %>%
@@ -164,6 +168,7 @@ countries have evolved over the last 90 years, with one year
 representing each decade.
 
 ``` r
+
 # Select years
 years <- seq(1930, 2010, 10)
 
