@@ -2,14 +2,9 @@
 
 library(dplyr)
 
-url <-
-  "https://correlatesofwar.org/data-sets/state-system-membership/states2016/at_download/file"
+url <- "https://correlatesofwar.org/data-sets/state-system-membership/states2016/at_download/file"
 
-download.file(
-  url,
-  "data-raw/states2016.csv",
-  mode = "wb"
-)
+download.file(url, "data-raw/states2016.csv", mode = "wb")
 
 states2016 <- read.csv2(
   "data-raw/states2016.csv",
@@ -18,15 +13,13 @@ states2016 <- read.csv2(
 )
 
 # Add codes from IGO
-codesigo <-
-  igoR::state_year_format3 %>%
+codesigo <- igoR::state_year_format3 %>%
   select(ccode, state) %>%
   unique()
 
 colnames(states2016) <- tolower(colnames(states2016))
 
-states2016 <-
-  merge(states2016, codesigo)
+states2016 <- merge(states2016, codesigo)
 
 
 states2016 <- dplyr::arrange(states2016, ccode, styear)

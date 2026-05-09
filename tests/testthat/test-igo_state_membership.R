@@ -9,26 +9,14 @@ test_that("Testing messages ", {
   expect_snapshot(
     res <- igo_state_membership(
       "uk",
-      status = c(
-        "Nope",
-        "IGO Not In Existence",
-        "Full Membership",
-        "Observer"
-      )
+      status = c("Nope", "IGO Not In Existence", "Full Membership", "Observer")
     )
   )
 
-  expect_true(
-    all(
-      unique(res$category) %in%
-        c(
-          "Nope",
-          "IGO Not In Existence",
-          "Full Membership",
-          "Observer"
-        )
-    )
-  )
+  expect_true(all(
+    unique(res$category) %in%
+      c("Nope", "IGO Not In Existence", "Full Membership", "Observer")
+  ))
 
   expect_snapshot(
     res <- igo_state_membership("spain", year = 1900, status = "Observer")
@@ -77,10 +65,7 @@ test_that("Extract several status", {
     sev <- igo_state_membership("kosovo", status = lvs, year = 1900:2014)
   )
 
-  expect_identical(
-    as.character(unique(sort(sev$category))),
-    lvs[c(1:3, 5)]
-  )
+  expect_identical(as.character(unique(sort(sev$category))), lvs[c(1:3, 5)])
 })
 
 test_that("Object classes", {
@@ -88,9 +73,7 @@ test_that("Object classes", {
 
   expect_s3_class(sev, "data.frame", exact = TRUE)
 
-  expect_snapshot(
-    vapply(sev, class, character(1))
-  )
+  expect_snapshot(vapply(sev, class, character(1)))
 })
 
 test_that("Cleanup", {

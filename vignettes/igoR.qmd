@@ -56,14 +56,14 @@ From @pevehouse2019:
 >
 > Version 3.0 of the IGO data set uses the following criteria:
 >
-> -   An organization is considered terminated when the following words were
->     used to describe the context of the organization:
->     -   Replaced;
->     -   Succeeded;
->     -   Superseded;
->     -   Integrated;
->     -   Merged;
->     -   Dies.
+> - An organization is considered terminated when the following words were used
+>   to describe the context of the organization:
+>   - Replaced;
+>   - Succeeded;
+>   - Superseded;
+>   - Integrated;
+>   - Merged;
+>   - Dies.
 
 ## Analysis
 

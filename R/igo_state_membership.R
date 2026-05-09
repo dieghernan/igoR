@@ -121,11 +121,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
   ccode <- state_db$ccode[1]
 
   # Master db
-  master_db <- expand.grid(
-    ccode = ccode,
-    year = year,
-    stringsAsFactors = FALSE
-  )
+  master_db <- expand.grid(ccode = ccode, year = year, stringsAsFactors = FALSE)
 
   igo_db2 <- merge(state_db, master_db)[, c("ccode", "year", "state")]
 
@@ -202,11 +198,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
   cntriesend <- cntriesend[, rearcol]
 
   cntriesend <- cntriesend[
-    order(
-      cntriesend$year,
-      cntriesend$category,
-      cntriesend$ioname
-    ),
+    order(cntriesend$year, cntriesend$category, cntriesend$ioname),
   ]
 
   rownames(cntriesend) <- NULL

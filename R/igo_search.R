@@ -80,9 +80,14 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
   db_end$label <- gsub("  ", " ", db_end$label, fixed = TRUE)
 
   # Reorder col
-  cols <- unique(
-    c("ionum", "ioname", "orgname", "longorgname", "label", colnames(db_end))
-  )
+  cols <- unique(c(
+    "ionum",
+    "ioname",
+    "orgname",
+    "longorgname",
+    "label",
+    colnames(db_end)
+  ))
 
   cols <- cols[cols != "year"]
   db_end <- db_end[, cols]

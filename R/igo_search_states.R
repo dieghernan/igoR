@@ -36,9 +36,14 @@ igo_search_states <- function(state) {
     df_states <- cow_country_codes
 
     for (i in seq_len(ncol(df_states))) {
-      find_state <- sort(unique(
-        c(find_state, match(tolower(x), tolower(df_states[, i])))
-      ))
+      find_state <- sort(
+        unique(
+          c(
+            find_state,
+            match(tolower(x), tolower(df_states[, i]))
+          )
+        )
+      )
     }
 
     find_state <- sort(find_state)[1]

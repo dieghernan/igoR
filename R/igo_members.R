@@ -142,11 +142,7 @@ igo_member_single <- function(ioname, year, status) {
   igo_w_year <- igo_w_year[igo_w_year$category %in% status, ]
 
   if (nrow(igo_w_year) == 0) {
-    message(
-      "No members for ioname '",
-      ioname,
-      "' with the arguments provided."
-    )
+    message("No members for ioname '", ioname, "' with the arguments provided.")
     return(NULL)
   }
 
@@ -167,11 +163,7 @@ igo_member_single <- function(ioname, year, status) {
 
   cntriesend <- cntriesend[, rearcol]
   cntriesend <- cntriesend[
-    order(
-      cntriesend$year,
-      cntriesend$category,
-      cntriesend$ccode
-    ),
+    order(cntriesend$year, cntriesend$category, cntriesend$ccode),
   ]
 
   rownames(cntriesend) <- NULL

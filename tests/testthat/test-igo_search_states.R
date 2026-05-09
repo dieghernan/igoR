@@ -16,8 +16,6 @@ test_that("Search states", {
   )
   expect_equal(nrow(n), 4)
 
-  expect_snapshot(
-    n <- igo_search_states("aaaaa")
-  )
+  expect_snapshot(n <- igo_search_states("aaaaa"))
   expect_null(n)
 })
