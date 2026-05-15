@@ -11,20 +11,20 @@
 igo_members(ioname, year = NULL, status = "Full Membership")
 }
 \arguments{
-\item{ioname}{Any valid \code{ioname} of an IGO as specified on
-\link{igo_year_format3}. It can be also a vector of IGOs.}
+\item{ioname}{Any valid \code{ioname} of an IGO as specified in
+\link{igo_year_format3}. It can also be a vector of IGOs.}
 
-\item{year}{Year to be assessed, an integer or an array of years. If \code{NULL}
-the latest year available of the IGO will be extracted.}
+\item{year}{Year to be assessed, as an integer or vector of years. If
+\code{NULL}, the latest year available for the IGO is extracted.}
 
 \item{status}{Character or vector with the membership status to be extracted.
-See \strong{Details} on \link{state_year_format3}.}
+See \strong{Details} in \link{state_year_format3}.}
 }
 \value{
 A \code{\link{data.frame}}.
 }
 \description{
-Extract all the countries belonging to an IGO on a specific date.
+Extract all countries belonging to an IGO on a specific date.
 }
 \examples{
 library(dplyr)
@@ -32,11 +32,11 @@ igo_members("EU", year = 1993) \%>\% as_tibble()
 igo_members("EU") \%>\% as_tibble()
 igo_members("NAFTA", year = c(1995:1998)) \%>\% as_tibble()
 
-# Extract different status
+# Extract different statuses
 igo_members("ACCT", status = c("Associate Membership", "Observer")) \%>\%
   as_tibble()
 
-# States no members of the UN
+# States that are not members of the UN
 igo_members("UN", status = "No Membership") \%>\%
   as_tibble()
 
@@ -45,7 +45,7 @@ igo_members(c("NAFTA", "EU"), year = 1993) \%>\%
   as_tibble() \%>\%
   arrange(state)
 
-# Use countrycodes package to get additional codes
+# Use the countrycode package to get additional codes
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")
@@ -62,7 +62,7 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{

@@ -26,16 +26,16 @@ igoR provides access to the Intergovernmental Organizations Database
 (v3) from the Correlates of War Project ([Pevehouse et al.
 2020](#ref-pevehouse2020)).
 
-The dataset (V3) includes information on **534** IGOs from 1816 to 2014,
-as well as membership information.
+The data set (V3) includes information on **534** IGOs from 1816 to
+2014, as well as membership information.
 
 - Source: [Intergovernmental Organizations
   (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes on <https://dieghernan.github.io/igoR/>
 
-Additionally, a distribution of the State System Membership ([Correlates
-of War Project 2017](#ref-correlatesofwarproject2017)) is included in
-this package.
+The package also includes a distribution of the State System Membership
+data ([Correlates of War Project
+2017](#ref-correlatesofwarproject2017)).
 
 ## Installation
 
@@ -52,8 +52,8 @@ install.packages("igoR")
 
 <div class="pkgdown-devel">
 
-Check the docs of the developing version
-in <https://dieghernan.github.io/igoR/dev/>.
+Check the documentation for the development version at
+<https://dieghernan.github.io/igoR/dev/>.
 
 You can install the developing version from GitHub:
 
@@ -61,11 +61,11 @@ You can install the developing version from GitHub:
 pak::pak("dieghernan/igoR")
 ```
 
-Alternatively, you can install **igoR** using the
+Alternatively, you can install **igoR** using
 [r-universe](https://dieghernan.r-universe.dev/igoR):
 
 ``` r
-# Install igoR in R
+# Install igoR in R.
 install.packages(
   "igoR",
   repos = c(
@@ -79,7 +79,7 @@ install.packages(
 
 ## Basic usage
 
-### Search an IGO by name:
+### Search an IGO by name
 
 Search all IGOs related to “sugar”:
 
@@ -101,7 +101,7 @@ result_sugar <- igo_search("Sugar")
 Table 1: IGOs related to sugar
 </p>
 
-### IGO members:
+### IGO members
 
 Composition of the [European Economic
 Community](https://en.wikipedia.org/wiki/European_Economic_Community)
@@ -110,7 +110,7 @@ over time:
 ``` r
 eec_code <- igo_search("EEC", exact = TRUE)
 
-# Founding
+# Get founding members.
 eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 ```
 
@@ -129,7 +129,7 @@ Table 2: EEC, members (1958)
 </p>
 
 ``` r
-# Latest date
+# Get members at the latest available date.
 eec_end <- igo_members(eec_code$ioname)
 ```
 
@@ -156,7 +156,7 @@ Table 3: EEC, members (1992)
 ## Recommended packages
 
 - **countrycode** for converting country names and codes across
-  different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.)
+  different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.).
 - **dplyr** for data manipulation.
 
 ## Citation
@@ -178,7 +178,7 @@ A BibTeX entry for LaTeX users:
       year = {2026},
       version = {1.0.1},
       url = {https://dieghernan.github.io/igoR/},
-      abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
+      abstract = {Tools to access and extract information from the Intergovernmental Organizations (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
     }
 
 ## References

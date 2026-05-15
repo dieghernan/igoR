@@ -1,17 +1,17 @@
-#' Finds codes and names of a state
+#' Find codes and names of a state
 #'
 #' @name igo_search_states
 #'
 #' @description
 #' Find codes and names of a state.
 #'
-#' @seealso [states2016()].
+#' @seealso [states2016].
 #'
 #' @inherit igo_members source references return
 #' @encoding UTF-8
 #'
-#' @param state Any valid name or code of a state as specified on
-#'   [states2016()]. It can be also an array of states.
+#' @param state Any valid name or code of a state as specified in
+#'   [states2016]. It can also be a vector of states.
 #'
 #' @examples
 #' library(dplyr)
@@ -27,12 +27,12 @@
 #' igo_search_states(c("FRN", "United Kingdom", 240, "italy")) %>% as_tibble()
 #' @export
 igo_search_states <- function(state) {
-  # Vectorize
+  # Vectorize the lookup.
 
   find_v <- lapply(state, function(x) {
     # Lookup
     find_state <- vector(mode = "numeric")
-    # Search state
+    # Search for the state.
     df_states <- cow_country_codes
 
     for (i in seq_len(ncol(df_states))) {
@@ -58,10 +58,10 @@ igo_search_states <- function(state) {
     df_states
   })
 
-  # Check results
+  # Check results.
   has_results <- vapply(find_v, is.null, logical(1))
 
-  # Clean
+  # Clean results.
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
     warning("No states found with required arguments")

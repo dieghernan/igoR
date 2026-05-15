@@ -3,7 +3,7 @@
 #' @name igo_state_membership
 #'
 #' @description
-#' Extract all the memberships of a state on a specific date.
+#' Extract all memberships of a state on a specific date.
 #'
 #' @inherit igo_members source references return
 #' @encoding UTF-8
@@ -15,10 +15,10 @@
 #'
 #' @inheritParams igo_search_states
 #'
-#' @param year Year to be assessed, an integer or an array of years. If `NULL`
-#'   the latest year available of the state will be extracted.
+#' @param year Year to be assessed, as an integer or vector of years. If
+#'   `NULL`, the latest year available for the state is extracted.
 #' @param status Character or vector with the membership status to be extracted.
-#' See **Details** on [igo_year_format3].
+#'   See **Details** in [igo_year_format3].
 #'
 #' @examples
 #' # Memberships on two different dates
@@ -32,7 +32,7 @@
 #' # Use codes to get countries
 #' igo_state_membership("2", year = 1865)
 #'
-#' # Extract different status
+#' # Extract different statuses
 #' igo_state_membership("kosovo", status = c(
 #'   "Associate Membership", "Observer",
 #'   "Full Membership"
@@ -41,7 +41,7 @@
 #' # Vectorized
 #' igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #'
-#' # Use countrycodes package to get additional codes
+#' # Use the countrycode package to get additional codes
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   IT <- igo_state_membership("Italy", year = 1880)
@@ -53,7 +53,7 @@ igo_state_membership <- function(
   year = NULL,
   status = "Full Membership"
 ) {
-  # Checks
+  # Check inputs.
   if (missing(state)) {
     stop("You must enter a value on 'state'")
   }
@@ -69,7 +69,7 @@ igo_state_membership <- function(
     return(invisible(NULL))
   }
 
-  # Extract state
+  # Extract the state.
   state_names <- as.character(df_states$state)
 
   levls <- levels(igo_recode_igoyear(1))
@@ -85,7 +85,7 @@ igo_state_membership <- function(
     )
   }
 
-  # Find vectorized
+  # Run the vectorized search.
   find_v <- lapply(
     state_names,
     igo_state_mmb_single,
@@ -93,10 +93,10 @@ igo_state_membership <- function(
     status = status
   )
 
-  # Check results
+  # Check results.
   has_results <- vapply(find_v, is.null, logical(1))
 
-  # Clean
+  # Clean results.
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
     warning("No states found with the required arguments")
@@ -120,7 +120,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
   year <- sort(unique(year))
   ccode <- state_db$ccode[1]
 
-  # Master db
+  # Build the master data set.
   master_db <- expand.grid(ccode = ccode, year = year, stringsAsFactors = FALSE)
 
   igo_db2 <- merge(state_db, master_db)[, c("ccode", "year", "state")]
@@ -136,7 +136,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
     return(NULL)
   }
 
-  # Get IGO state
+  # Get the IGO state.
   state_igo <- igoR::igo_year_format3
   init_cols <- c(
     "ioname",
@@ -162,7 +162,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
   )
   state_igo$category <- igo_recode_igoyear(state_igo$value)
 
-  # Merge with igo_db
+  # Merge with `igo_db`.
   igo_w_year <- merge(igo_db2, state_igo)
   igo_w_year <- igo_w_year[igo_w_year$category %in% status, ]
 
@@ -175,10 +175,10 @@ igo_state_mmb_single <- function(state_names, year, status) {
     return(NULL)
   }
 
-  # Last bits
+  # Add final country metadata.
   df_states <- igoR::igo_search_states(state_names)
   cntriesend <- merge(igo_w_year, df_states)
-  # Rearrange columns
+  # Rearrange columns.
   rearcol <- c(
     "ccode",
     "stateabb",

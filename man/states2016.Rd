@@ -15,7 +15,7 @@
 \item \strong{styear...endday}: Fields to identify the beginning and the end of each
 tenure.
 \item \strong{version}: Data file version number.
-\item \strong{state}: Abbreviated state name as appear in \link{state_year_format3}.
+\item \strong{state}: Abbreviated state name as it appears in \link{state_year_format3}.
 }
 }
 \source{
@@ -35,8 +35,8 @@ code" or state number (used throughout the Correlates of War project data
 sets), state abbreviations, and dates of membership as states and major
 powers in the international system.
 
-The Correlates of War project includes a state in the international system
-from 1816-2016 for the following criteria:
+The Correlates of War Project includes a state in the international system
+from 1816-2016 according to the following criteria:
 \itemize{
 \item \strong{Prior to 1920} the entity must have had a population greater than
 500,000 and have had diplomatic missions at or above the rank of charge
@@ -47,11 +47,11 @@ diplomatic missions from two major powers.
 }
 }
 \note{
-\code{state} variable added to original data to help comparisons across datasets
-on this package.
+The \code{state} variable was added to the original data to help comparisons
+across data sets in this package.
 }
 \examples{
-# example code
+# Example code
 data("states2016")
 dplyr::glimpse(states2016)
 }

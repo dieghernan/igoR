@@ -20,14 +20,14 @@ igo_recode_dyadic(x)
 The recoded values as \link[base:factor]{factors}.
 }
 \description{
-These functions convert the numerical code of \link{igo_year_format3} and
+These functions convert the numerical codes of \link{igo_year_format3} and
 \link{state_year_format3} into \link[base:factor]{factors}.
 \itemize{
-\item \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} is intended to work with values on
+\item \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} is intended to work with values from
 \link{igo_year_format3}.
-\item \code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} is intended to work with values on
+\item \code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} is intended to work with values from
 \link{state_year_format3}.
-\item \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} is intended to work with values on
+\item \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} is intended to work with values from
 \code{\link[=igo_dyadic]{igo_dyadic()}}.
 }
 }

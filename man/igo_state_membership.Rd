@@ -11,20 +11,20 @@
 igo_state_membership(state, year = NULL, status = "Full Membership")
 }
 \arguments{
-\item{state}{Any valid name or code of a state as specified on
-\code{\link[=states2016]{states2016()}}. It can be also an array of states.}
+\item{state}{Any valid name or code of a state as specified in
+\link{states2016}. It can also be a vector of states.}
 
-\item{year}{Year to be assessed, an integer or an array of years. If \code{NULL}
-the latest year available of the state will be extracted.}
+\item{year}{Year to be assessed, as an integer or vector of years. If
+\code{NULL}, the latest year available for the state is extracted.}
 
 \item{status}{Character or vector with the membership status to be extracted.
-See \strong{Details} on \link{igo_year_format3}.}
+See \strong{Details} in \link{igo_year_format3}.}
 }
 \value{
 A \code{\link{data.frame}}.
 }
 \description{
-Extract all the memberships of a state on a specific date.
+Extract all memberships of a state on a specific date.
 }
 \examples{
 # Memberships on two different dates
@@ -38,7 +38,7 @@ igo_state_membership("ZAN")[, 1:7]
 # Use codes to get countries
 igo_state_membership("2", year = 1865)
 
-# Extract different status
+# Extract different statuses
 igo_state_membership("kosovo", status = c(
   "Associate Membership", "Observer",
   "Full Membership"
@@ -47,7 +47,7 @@ igo_state_membership("kosovo", status = c(
 # Vectorized
 igo_state_membership(c("usa", "spain"), year = 1870:1871)
 
-# Use countrycodes package to get additional codes
+# Use the countrycode package to get additional codes
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   IT <- igo_state_membership("Italy", year = 1880)
@@ -58,7 +58,7 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{

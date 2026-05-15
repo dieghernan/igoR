@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_dyadic}
 \alias{igo_dyadic}
-\title{Extract the joint membership of a pair of countries across IGOs}
+\title{Extract joint membership for a pair of countries across IGOs}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }
@@ -11,14 +11,14 @@
 igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 }
 \arguments{
-\item{country1, country2}{A state or vector of states to be compared. It
-could be any valid name or code of a state as specified on \link{states2016}.}
+\item{country1, country2}{A state or vector of states to be compared. It can
+be any valid name or code of a state as specified in \link{states2016}.}
 
-\item{year}{Year to be assessed, an integer or an array of years.}
+\item{year}{Year to be assessed, as an integer or vector of years.}
 
 \item{ioname}{Optional. \code{ioname} or vector of \code{ioname} corresponding to the
 IGOs to be assessed. If \code{NULL} (the default), all IGOs will be extracted.
-See codes on \code{\link[=igo_search]{igo_search()}}.}
+See codes in \code{\link[=igo_search]{igo_search()}}.}
 }
 \value{
 A coded \code{\link{data.frame}} representing the years and country dyad
@@ -35,14 +35,14 @@ file distributed by The Correlates of War Project (\code{dyadic_format3.dta}).
 That file is not included in this package due to its size.
 
 The result is a \code{\link{data.frame}} containing the common years of
-the states selected via \verb{country1, country2, year} by rows.
+the states selected via \code{country1}, \code{country2} and \code{year} by rows.
 
-An additional column \code{dyadid}, computed as \code{(1000*ccode1)+ccode2} is provided
-in order to identify relationships.
+An additional column \code{dyadid}, computed as \code{(1000 * ccode1) + ccode2}, is
+provided to identify relationships.
 
-For each IGO selected via \code{ioname} (or all if the default option has been
-used) a column (using lowercase \code{ioname} as identifier) is provided
-with the following code system:\tabular{lr}{
+For each IGO selected via \code{ioname}, or all IGOs if the default option has
+been used, a column using lowercase \code{ioname} as an identifier is provided
+with the following coding system:\tabular{lr}{
    \strong{Category} \tab \strong{Numerical Value} \cr
    No Joint Membership \tab 0 \cr
    Joint Full Membership \tab 1 \cr
@@ -51,19 +51,19 @@ with the following code system:\tabular{lr}{
 }
 
 
-See \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} section for an easy way to recode the numerical
-values into \link[base:factor]{factors}.
+See the \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} section for an easy way to recode the
+numerical values into \link[base:factor]{factors}.
 
 If one state in an IGO is a full member but the other is an associate member
 or observer, that IGO is not coded as a joint membership.
 }
-\section{Differences with the original dataset}{
-There are some differences on the results provided by this function and the
-original dataset on some IGOs regarding the "Missing Data" (\code{-9}) and
-"State Not System Member" (\code{-1}). However it is not clear how to fully
+\section{Differences with the original data set}{
+There are some differences between the results provided by this function and
+the original data set for some IGOs regarding "Missing data" (\code{-9}) and
+"State Not System Member" (\code{-1}). However, it is not clear how to fully
 replicate those values.
 
-See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}
+See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}.
 }
 
 \examples{
@@ -84,9 +84,9 @@ dplyr::glimpse(custom)
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\link{state_year_format3},  \link{states2016}, \code{\link[=igo_search]{igo_search()}}.
+\link{state_year_format3}, \link{states2016}, \code{\link[=igo_search]{igo_search()}}.
 }

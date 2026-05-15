@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_search_states}
 \alias{igo_search_states}
-\title{Finds codes and names of a state}
+\title{Find codes and names of a state}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }
@@ -11,8 +11,8 @@
 igo_search_states(state)
 }
 \arguments{
-\item{state}{Any valid name or code of a state as specified on
-\code{\link[=states2016]{states2016()}}. It can be also an array of states.}
+\item{state}{Any valid name or code of a state as specified in
+\link{states2016}. It can also be a vector of states.}
 }
 \value{
 A \code{\link{data.frame}}.
@@ -36,9 +36,9 @@ igo_search_states(c("FRN", "United Kingdom", 240, "italy")) \%>\% as_tibble()
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\code{\link[=states2016]{states2016()}}.
+\link{states2016}.
 }

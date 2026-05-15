@@ -1,5 +1,5 @@
 ---
-title: "List of IGOs and Countries"
+title: "List of IGOs and countries"
 description: >
   Interactive exploration of the data included in the package.
 bibliography: REFERENCES.bib
@@ -36,7 +36,7 @@ reactable(
 )
 ```
 
-## List of Countries
+## List of countries
 
 ```{r}
 #| label: countries

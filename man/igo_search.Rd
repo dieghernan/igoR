@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_search}
 \alias{igo_search}
-\title{Search and find an IGO}
+\title{Search for an IGO}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }
@@ -11,24 +11,24 @@
 igo_search(pattern = NULL, exact = FALSE)
 }
 \arguments{
-\item{pattern}{\link[base:regex]{regex} pattern. If \code{NULL} the function returns
-a dataset with all the IGOs on \link{igo_year_format3}. Integer values are
+\item{pattern}{\link[base:regex]{regex} pattern. If \code{NULL}, the function returns
+a data set with all IGOs in \link{igo_year_format3}. Integer values are
 accepted.}
 
-\item{exact}{Logical. When \code{TRUE} only exact matches are returned.}
+\item{exact}{Logical. When \code{TRUE}, only exact matches are returned.}
 }
 \value{
 A \code{\link{data.frame}}.
 }
 \description{
-Search any IGO by name or string pattern.
+Search for any IGO by name or string pattern.
 }
 \details{
-The information of each IGO is retrieved based on the last year available on
+The information for each IGO is retrieved from the last year available in
 \link{igo_year_format3}.
 
 An additional column \code{label} is provided. This column is a clean version of
-\code{longorgname}
+\code{longorgname}.
 }
 \examples{
 # All values
@@ -60,7 +60,7 @@ igo_search("NAFTA|UN|EU") \%>\%
   select(ionum:orgname) \%>\%
   tibble()
 
-# Several patterns Exact (regex style)
+# Several exact patterns (regex style)
 igo_search("^NAFTA$|^UN$|^EU$") \%>\%
   select(ionum:orgname) \%>\%
   tibble()
@@ -69,9 +69,9 @@ igo_search("^NAFTA$|^UN$|^EU$") \%>\%
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-datasets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\link{igo_year_format3}
+\link{igo_year_format3}.
 }
