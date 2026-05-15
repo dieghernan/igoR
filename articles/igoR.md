@@ -4,11 +4,11 @@ This vignette provides users with a visual, explorable introduction to
 the capabilities of the **igoR** package.
 
 The analysis is based on examples provided in Pevehouse et al.
-([2020](#ref-pevehouse2020)). For more information on the IGO datasets
+([2020](#ref-pevehouse2020)). For more information on the IGO data sets
 and additional downloads, see [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*Note that the dyadic dataset is not included in the package due to its
+*Note that the dyadic data set is not included in the package due to its
 size (~500 MB in Stata `.dta` format). However, the function
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
 provides similar results.*
@@ -19,20 +19,20 @@ From Pevehouse et al. ([2019](#ref-pevehouse2019)):
 
 > ### What is an IGO?
 >
-> The definition of an Intergovernmental Organization (IGO) on the
-> original dataset is based on the following criteria:
+> The definition of an Intergovernmental Organization (IGO) in the
+> original data set is based on the following criteria:
 >
 > 1.  An IGO must consist of at least three members of the [COW-defined
 >     state
 >     system](https://correlatesofwar.org/data-sets/cow-country-codes/).
 > 2.  An IGO must hold regular plenary sessions at least once every ten
->     years
+>     years.
 > 3.  An IGO must possess a permanent secretariat and corresponding
 >     headquarters.
 >
 > ### When does an IGO actually begin?
 >
-> The dataset begins to code an IGO by identifying the first year in
+> The data set begins to code an IGO by identifying the first year in
 > which the organization functions. In some cases, individual members
 > are listed by year of accession or signature.
 >
@@ -54,13 +54,13 @@ From Pevehouse et al. ([2019](#ref-pevehouse2019)):
 This section provides some quick analysis based on the figures of
 Pevehouse et al. ([2020](#ref-pevehouse2020)).
 
-### Initial Setup
+### Initial setup
 
 ``` r
 
 library(igoR)
 
-# Additional libraries
+# Load additional libraries.
 library(ggplot2)
 library(dplyr)
 ```
@@ -136,13 +136,13 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 Figure 1: IGOs and states in the world system, 1816-2014
 
-### IGO Births and deaths
+### IGO births and deaths
 
 This plot shows how many IGOs were “born” and “died” in each year.
 
 ``` r
 
-# Births and deaths by year
+# Summarize births and deaths by year.
 
 df <- igo_search()
 
@@ -183,13 +183,13 @@ Figure 2: Birth and death rates of IGOs, 1816-2014
 
 This plot shows the number of IGOs by region. The region definitions are
 based on Pevehouse et al. ([2020](#ref-pevehouse2020)) and the
-complementary replication dataset ([PRIO 2020](#ref-priorep)):
+complementary replication data set ([PRIO 2020](#ref-priorep)):
 
 IGOs across regions: codes
 
 ``` r
 
-# crossreg and universal codes not included
+# Cross-regional and universal codes are not included.
 
 asia <- c(
   550,
@@ -526,8 +526,8 @@ americas <- c(
 
 ``` r
 
-# africa, americas, asia, europe, middle_east created in previous chunk
-# collapsed for readability.
+# `africa`, `americas`, `asia`, `europe` and `middle_east` were created in
+# the previous chunk, which is collapsed for readability.
 
 regions <- igo_search() %>%
   mutate(
@@ -548,7 +548,7 @@ IGOs by region.
 
 ``` r
 
-# regions dataset created on previous chunk
+# The `regions` data set was created in the previous chunk.
 
 # All IGOs
 alligos <- igo_year_format3 %>%
@@ -593,16 +593,16 @@ ggplot(regionsum, aes(x = year, y = value)) +
 
 Figure 3: IGO counts across regions, 1816-2014
 
-### Selected Countries: Asia
+### Selected countries in Asia
 
-Number of memberships for a country. We select here five countries in
-Asia: India, China, Pakistan, Indonesia and Bangladesh.
+This plot shows the number of memberships for five countries in Asia:
+India, China, Pakistan, Indonesia and Bangladesh.
 
 ``` r
 
 asia5_cntries <- c("China", "India", "Pakistan", "Indonesia", "Bangladesh")
 
-# Five countries of Asia
+# Use five countries in Asia.
 asia5_igos <- igo_state_membership(
   state = asia5_cntries,
   year = 1865:2014,
@@ -655,7 +655,7 @@ selected_countries <- c("France", "Morocco", "China", "USA")
 
 spain_selected <- igo_dyadic("Spain", selected_countries)
 
-# Compute number of shared memberships
+# Compute the number of shared memberships.
 spain_selected <- spain_selected %>%
   rowwise() %>%
   mutate(values = sum(c_across(aaaid:wassen) == 1))

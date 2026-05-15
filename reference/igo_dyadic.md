@@ -1,4 +1,4 @@
-# Extract the joint membership of a pair of countries across IGOs
+# Extract joint membership for a pair of countries across IGOs
 
 Dyadic version of the data. The unit of observation is a dyad of
 countries. It provides a summary of the joint memberships of two
@@ -19,19 +19,19 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - country1, country2:
 
-  A state or vector of states to be compared. It could be any valid name
-  or code of a state as specified on
+  A state or vector of states to be compared. It can be any valid name
+  or code of a state as specified in
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
 
 - year:
 
-  Year to be assessed, an integer or an array of years.
+  Year to be assessed, as an integer or vector of years.
 
 - ioname:
 
   Optional. `ioname` or vector of `ioname` corresponding to the IGOs to
   be assessed. If `NULL` (the default), all IGOs will be extracted. See
-  codes on
+  codes in
   [`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md).
 
 ## Value
@@ -48,15 +48,15 @@ original file distributed by The Correlates of War Project
 its size.
 
 The result is a [`data.frame`](https://rdrr.io/r/base/data.frame.html)
-containing the common years of the states selected via
-`country1, country2, year` by rows.
+containing the common years of the states selected via `country1`,
+`country2` and `year` by rows.
 
-An additional column `dyadid`, computed as `(1000*ccode1)+ccode2` is
-provided in order to identify relationships.
+An additional column `dyadid`, computed as `(1000 * ccode1) + ccode2`,
+is provided to identify relationships.
 
-For each IGO selected via `ioname` (or all if the default option has
-been used) a column (using lowercase `ioname` as identifier) is provided
-with the following code system:
+For each IGO selected via `ioname`, or all IGOs if the default option
+has been used, a column using lowercase `ioname` as an identifier is
+provided with the following coding system:
 
 |                         |                     |
 |-------------------------|---------------------|
@@ -66,7 +66,7 @@ with the following code system:
 | Missing data            | -9                  |
 | State Not System Member | -1                  |
 
-See
+See the
 [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
 section for an easy way to recode the numerical values into
 [factors](https://rdrr.io/r/base/factor.html).
@@ -74,21 +74,21 @@ section for an easy way to recode the numerical values into
 If one state in an IGO is a full member but the other is an associate
 member or observer, that IGO is not coded as a joint membership.
 
-## Differences with the original dataset
+## Differences with the original data set
 
-There are some differences on the results provided by this function and
-the original dataset on some IGOs regarding the "Missing Data" (`-9`)
-and "State Not System Member" (`-1`). However it is not clear how to
+There are some differences between the results provided by this function
+and the original data set for some IGOs regarding "Missing data" (`-9`)
+and "State Not System Member" (`-1`). However, it is not clear how to
 fully replicate those values.
 
 See [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/)
+Data**](https://correlatesofwar.org/data-sets/IGOs/).
 
 ## References
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
 (2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 datasets. *Journal of Peace Research, 57*(3), 492–503.
+Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 

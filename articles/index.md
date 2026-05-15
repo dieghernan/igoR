@@ -7,6 +7,6 @@
   Integrating IGOs into mapping projects.
 
 - [List of IGOs and
-  Countries](https://dieghernan.github.io/igoR/articles/list-igos.md):
+  countries](https://dieghernan.github.io/igoR/articles/list-igos.md):
 
   Interactive exploration of the data included in the package.

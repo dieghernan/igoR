@@ -1,8 +1,8 @@
-# Country membership to IGO by year
+# Country membership in IGOs by year
 
 Data on IGOs from 1815-2014, at the country-year level. Contains one
-record per country-year (with years listed at 5 year intervals through
-1965, and annually thereafter).
+record per country-year, with years listed at 5-year intervals through
+1965 and annually thereafter).
 
 ## Format
 
@@ -12,7 +12,7 @@ Relevant fields:
 - **ccode**: COW country number, see
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
 
-- **year**: Calendar Year.
+- **year**: Calendar year.
 
 - **state**: Abbreviated state name, identical to variable names in
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
@@ -21,7 +21,7 @@ Relevant fields:
   membership status. See **Details**.
 
 See [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/)
+Data**](https://correlatesofwar.org/data-sets/IGOs/).
 
 ## Source
 
@@ -31,7 +31,7 @@ War Project (IGO Data Stata Files).
 
 ## Details
 
-Possible values of the status of that state in the IGO are:
+Possible values for the status of a state in the IGO are:
 
 |                      |                     |
 |----------------------|---------------------|
@@ -43,7 +43,7 @@ Possible values of the status of that state in the IGO are:
 | Missing data         | -9                  |
 | IGO Not In Existence | -1                  |
 
-See
+See the
 [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
 section for an easy way to recode the numerical values into
 [factors](https://rdrr.io/r/base/factor.html).
@@ -57,7 +57,7 @@ Raw data used internally by
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
 (2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 datasets. *Journal of Peace Research, 57*(3), 492–503.
+Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 

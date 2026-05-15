@@ -1,18 +1,18 @@
 # Helper functions to recode categories
 
-These functions convert the numerical code of
+These functions convert the numerical codes of
 [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
 and
 [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
 into [factors](https://rdrr.io/r/base/factor.html).
 
-- `igo_recode_igoyear()` is intended to work with values on
+- `igo_recode_igoyear()` is intended to work with values from
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
 
-- `igo_recode_stateyear()` is intended to work with values on
+- `igo_recode_stateyear()` is intended to work with values from
   [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
 
-- `igo_recode_dyadic()` is intended to work with values on
+- `igo_recode_dyadic()` is intended to work with values from
   [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md).
 
 ## Usage

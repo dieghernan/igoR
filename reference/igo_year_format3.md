@@ -1,7 +1,7 @@
-# Intergovernmental Organizations (IGO) by year
+# Intergovernmental organizations (IGO) by year
 
 Data on IGOs from 1815-2014, at the IGO-year level. Contains one record
-per IGO-year (with years listed at 5 year intervals through 1965, and
+per IGO-year, with years listed at 5-year intervals through 1965 and
 annually thereafter).
 
 ## Format
@@ -13,17 +13,17 @@ Relevant fields:
 
 - **orgname**: Full IGO name.
 
-- **year**: Calendar Year.
+- **year**: Calendar year.
 
-- **afghanistan...zimbabwe**: status of that state in the IGO. See
+- **afghanistan...zimbabwe**: Status of that state in the IGO. See
   **Details**.
 
-- **sdate**: start date (year) that the IGO started.
+- **sdate**: Start date (year) when the IGO started.
 
-- **deaddate**: dead date (year) that the IGO ceased to exist.
+- **deaddate**: End date (year) when the IGO ceased to exist.
 
-- **longorgname**: a longer version of the IGOs name (including previous
-  names)
+- **longorgname**: Longer version of the IGO name, including previous
+  names.
 
 - **ionum**: IGO id number in v2.1 and v3.0 of the data.
 
@@ -40,7 +40,7 @@ War Project (IGO Data Stata Files).
 
 ## Details
 
-Possible values of the status of that state in the IGO are:
+Possible values for the status of a state in the IGO are:
 
 |                         |                     |
 |-------------------------|---------------------|
@@ -52,7 +52,7 @@ Possible values of the status of that state in the IGO are:
 | Missing data            | -9                  |
 | State Not System Member | -1                  |
 
-See
+See the
 [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
 section for an easy way to recode the numerical values into
 [factors](https://rdrr.io/r/base/factor.html).
@@ -66,7 +66,7 @@ Raw data used internally by
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
 (2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 datasets. *Journal of Peace Research, 57*(3), 492–503.
+Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -118,7 +118,7 @@ state_year_format3 %>%
 #> $ afeximb  <dbl> -1, -1, -9, -9, -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -…
 #> $ afgec    <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 
-# Recode numerical to factors: with a sample
+# Recode numerical values to factors with a sample
 sample_state_year <- state_year_format3 %>%
   as_tibble() %>%
   select(ccode:afgec) %>%

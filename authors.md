@@ -27,7 +27,7 @@ Hernangómez D (2026). *igoR: Intergovernmental Organizations Database*.
       year = {2026},
       version = {1.0.1},
       url = {https://dieghernan.github.io/igoR/},
-      abstract = {Tools to extract information from the Intergovernmental Organizations (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
+      abstract = {Tools to access and extract information from the Intergovernmental Organizations (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
     }
 
 Pevehouse J, Nordstrom T, McManus R, Jamison A (2020). “Tracking

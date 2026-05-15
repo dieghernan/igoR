@@ -20,7 +20,7 @@ Relevant fields:
 
 - **version**: Data file version number.
 
-- **state**: Abbreviated state name as appear in
+- **state**: Abbreviated state name as it appears in
   [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
 
 ## Source
@@ -39,8 +39,8 @@ These data sets identify states, their standard Correlates of War
 project data sets), state abbreviations, and dates of membership as
 states and major powers in the international system.
 
-The Correlates of War project includes a state in the international
-system from 1816-2016 for the following criteria:
+The Correlates of War Project includes a state in the international
+system from 1816-2016 according to the following criteria:
 
 - **Prior to 1920** the entity must have had a population greater than
   500,000 and have had diplomatic missions at or above the rank of
@@ -52,8 +52,8 @@ system from 1816-2016 for the following criteria:
 
 ## Note
 
-`state` variable added to original data to help comparisons across
-datasets on this package.
+The `state` variable was added to the original data to help comparisons
+across data sets in this package.
 
 ## References
 
@@ -70,7 +70,7 @@ Other datasets:
 ## Examples
 
 ``` r
-# example code
+# Example code
 data("states2016")
 dplyr::glimpse(states2016)
 #> Rows: 243

@@ -1,4 +1,4 @@
-# List of IGOs and Countries
+# List of IGOs and countries
 
 This annex contains the list of IGOs ([Pevehouse et al.
 2020](#ref-pevehouse2020)) and countries ([Correlates of War Project
@@ -6,7 +6,7 @@ This annex contains the list of IGOs ([Pevehouse et al.
 
 ## List of IGOs
 
-## List of Countries
+## List of countries
 
 ## References
 

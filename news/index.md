@@ -5,7 +5,7 @@
 CRAN release: 2026-03-13
 
 - `COPYRIGHTS` file updated.
-- Migrate documentation and vignettes to Quarto.
+- Migrated documentation and vignettes to Quarto.
 
 ## igoR 1.0.0
 
@@ -20,7 +20,7 @@ First major version of the package.
 
 CRAN release: 2024-12-17
 
-- Regular documentation update.
+- Updated documentation.
 
 ## igoR 0.2.0
 
@@ -33,32 +33,33 @@ CRAN release: 2024-02-05
   [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
   [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
   [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_recode.md).
-- Updated docs and basic package maintenance.
+- Updated documentation and basic package maintenance.
 
 ## igoR 0.1.5
 
 CRAN release: 2023-04-14
 
-- Updated docs and examples.
+- Updated documentation and examples.
 
 ## igoR 0.1.4
 
 CRAN release: 2022-08-13
 
-- Updated docs due to **CRAN** notice.
+- Updated documentation due to a **CRAN** notice.
 
 ## igoR 0.1.3
 
 CRAN release: 2021-10-20
 
-- Updated docs.
+- Updated documentation.
 
 ## igoR 0.1.2
 
 CRAN release: 2021-08-04
 
-- “Mapping IGOs” article compiled into vignette.
-- Updated docs. Now in markdown format using `roxygen2md::roxygen2md()`.
+- Compiled the “Mapping IGOs” article into a vignette.
+- Updated documentation. It is now in Markdown format using
+  `roxygen2md::roxygen2md()`.
 - Moved tests to **testthat**.
 
 ## igoR 0.1.1

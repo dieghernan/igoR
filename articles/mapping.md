@@ -3,7 +3,7 @@
 Maps are a powerful tool for showing data. Because **igoR** focuses on
 Intergovernmental Organizations, mapping and IGOs are a natural fit.
 
-This vignette provides geospatial visualizations using the IGO datasets
+This vignette provides geospatial visualizations using the IGO data sets
 ([Pevehouse et al. 2020](#ref-pevehouse2020)) included in this package.
 It uses these packages for geospatial data:
 
@@ -11,7 +11,7 @@ It uses these packages for geospatial data:
 - **ggplot2** for plotting.
 
 The **countrycode** package is useful for translating between coding
-schemes (CoW, ISO3, NUTS, FIPS) and country names.
+schemes (COW, ISO3, NUTS, FIPS) and country names.
 
 ``` r
 
@@ -27,23 +27,24 @@ library(giscoR)
 library(sf)
 ```
 
-## Evolution of the composition of UN
+## Evolution of UN membership
 
 The following map shows the evolution of United Nations membership.
 First, extract the data:
 
 ``` r
 
-# Extract shapes
+# Extract shapes.
 world <- gisco_get_countries()
 
-# Extract three dates - some errors given that ISO doesn't have every COW Code
+# Extract three dates. Some errors occur because ISO does not have every COW
+# code.
 un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
-  # Add ISO3 Code
+  # Add the ISO3 code.
   mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
   select(year, orgname, ISO3_CODE, category)
 
-# Auxiliar data.frame to collect every ISO3-year pairs
+# Build an auxiliary data frame to collect every ISO3-year pair.
 
 base_df <- expand.grid(
   ISO3_CODE = unique(world$ISO3_CODE),
@@ -52,11 +53,11 @@ base_df <- expand.grid(
 ) %>%
   as_tibble()
 
-# Merge everything with the spatial object
+# Merge everything with the spatial object.
 un_all_sf <- world %>%
   # Expand to all cases
   left_join(base_df, by = "ISO3_CODE") %>%
-  # Add info
+  # Add information.
   left_join(un_all, by = c("ISO3_CODE", "year"))
 ```
 
@@ -101,12 +102,12 @@ country shared with Australia in 2014:
 
 ``` r
 
-# Number of igos shared - 2014
-# Countries alive in 2014
+# Count IGOs shared in 2014.
+# Find countries alive in 2014.
 states2014 <- states2016 %>%
   filter(styear <= 2014 & endyear >= 2014)
 
-# Shared memberships with Australia
+# Find shared memberships with Australia.
 shared <- igo_dyadic("AUL", as.character(states2014$statenme), year = 2014) %>%
   rowwise() %>%
   mutate(shared = sum(c_across(aaaid:wassen) == 1)) %>%
@@ -114,18 +115,18 @@ shared <- igo_dyadic("AUL", as.character(states2014$statenme), year = 2014) %>%
   select(ISO3_CODE, shared)
 
 
-# Merge with map
+# Merge with the map.
 sharedmap <- world %>%
   left_join(shared, by = "ISO3_CODE") %>%
   select(ISO3_CODE, shared)
 
-# Plot with custom palette
+# Plot with a custom palette.
 pal <- hcl.colors(10, palette = "Lajolla")
 
 # Plot
 ggplot(sharedmap) +
   geom_sf(aes(fill = shared), color = NA) +
-  # Australia
+  # Highlight Australia.
   geom_sf(
     data = sharedmap %>% filter(ISO3_CODE == "AUS"),
     fill = "black",
@@ -169,10 +170,10 @@ representing each decade.
 
 ``` r
 
-# Select years
+# Select years.
 years <- seq(1930, 2010, 10)
 
-# Shared memberships
+# Find shared memberships.
 cntries <- c("USA", "CAN", "MEX")
 all <- igo_dyadic(cntries, cntries, years) %>%
   rowwise() %>%
@@ -180,8 +181,8 @@ all <- igo_dyadic(cntries, cntries, years) %>%
   mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c")) %>%
   select(ISO3_CODE, year, value)
 
-# Create map
-# Get shapes
+# Create the map.
+# Get shapes.
 countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
   left_join(all, by = "ISO3_CODE")
 

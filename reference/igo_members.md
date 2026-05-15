@@ -1,6 +1,6 @@
 # Extract members of an IGO
 
-Extract all the countries belonging to an IGO on a specific date.
+Extract all countries belonging to an IGO on a specific date.
 
 ## Usage
 
@@ -17,19 +17,19 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - ioname:
 
-  Any valid `ioname` of an IGO as specified on
+  Any valid `ioname` of an IGO as specified in
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
-  It can be also a vector of IGOs.
+  It can also be a vector of IGOs.
 
 - year:
 
-  Year to be assessed, an integer or an array of years. If `NULL` the
-  latest year available of the IGO will be extracted.
+  Year to be assessed, as an integer or vector of years. If `NULL`, the
+  latest year available for the IGO is extracted.
 
 - status:
 
   Character or vector with the membership status to be extracted. See
-  **Details** on
+  **Details** in
   [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
 
 ## Value
@@ -40,7 +40,7 @@ A [`data.frame`](https://rdrr.io/r/base/data.frame.html).
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
 (2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 datasets. *Journal of Peace Research, 57*(3), 492–503.
+Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -110,7 +110,7 @@ igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
 #> 11 NAFTA     20 canada Canada                    1998     1 Full Member… North …
 #> 12 NAFTA     70 mexico Mexico                    1998     1 Full Member… North …
 
-# Extract different status
+# Extract different statuses
 igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
   as_tibble()
 #> # A tibble: 25 × 8
@@ -128,7 +128,7 @@ igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
 #> 10 ACCT     310 hungary     Hungary             2014     3 Observer      Franco…
 #> # ℹ 15 more rows
 
-# States no members of the UN
+# States that are not members of the UN
 igo_members("UN", status = "No Membership") %>%
   as_tibble()
 #> # A tibble: 2 × 8
@@ -160,7 +160,7 @@ igo_members(c("NAFTA", "EU"), year = 1993) %>%
 #> 14 EU       200 uk          United Kingdom           1993     1 Full Me… Europe…
 #> 15 NAFTA      2 usa         United States of Ameri…  1993     1 Full Me… North …
 
-# Use countrycodes package to get additional codes
+# Use the countrycode package to get additional codes
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")
