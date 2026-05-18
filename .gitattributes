@@ -1,3 +1,12 @@
+* text=auto eol=lf
+
+*.dta binary
+*.ico binary
+*.pdf binary
+*.png binary
+*.rda binary
+*.zip binary
+
 *.html linguist-detectable=false
 *.css linguist-detectable=false
 *.do linguist-detectable=false
