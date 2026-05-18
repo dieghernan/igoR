@@ -34,15 +34,15 @@ This function tries to replicate the information contained in the original
 file distributed by The Correlates of War Project (\code{dyadic_format3.dta}).
 That file is not included in this package due to its size.
 
-The result is a \code{\link{data.frame}} containing the common years of
-the states selected via \code{country1}, \code{country2} and \code{year} by rows.
+The result is a \code{\link{data.frame}} containing one row for each
+common year selected via \code{country1}, \code{country2} and \code{year}.
 
 An additional column \code{dyadid}, computed as \code{(1000 * ccode1) + ccode2}, is
 provided to identify relationships.
 
-For each IGO selected via \code{ioname}, or all IGOs if the default option has
-been used, a column using lowercase \code{ioname} as an identifier is provided
-with the following coding system:\tabular{lr}{
+For each IGO selected via \code{ioname}, or all IGOs if the default option is
+used, a column using lowercase \code{ioname} as an identifier is provided with
+the following coding system:\tabular{lr}{
    \strong{Category} \tab \strong{Numerical Value} \cr
    No Joint Membership \tab 0 \cr
    Joint Full Membership \tab 1 \cr
@@ -73,7 +73,7 @@ ncol(usa_esp)
 
 dplyr::tibble(usa_esp)
 
-# Using custom arguments
+# Use custom arguments.
 custom <- igo_dyadic(
   country1 = c("France", "Germany"), country2 = c("Sweden", "Austria"),
   year = 1992:1993, ioname = "EU"

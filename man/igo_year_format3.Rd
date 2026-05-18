@@ -4,7 +4,7 @@
 \encoding{UTF-8}
 \name{igo_year_format3}
 \alias{igo_year_format3}
-\title{Intergovernmental organizations (IGO) by year}
+\title{Intergovernmental organizations by year}
 \format{
 \code{\link{data.frame}} with
 19,335 rows. Relevant
@@ -19,7 +19,7 @@ fields:
 \item \strong{deaddate}: End date (year) when the IGO ceased to exist.
 \item \strong{longorgname}: Longer version of the IGO name, including previous
 names.
-\item \strong{ionum}: IGO id number in v2.1 and v3.0 of the data.
+\item \strong{ionum}: IGO ID number in v2.1 and v3.0 of the data.
 \item \strong{version}: COW version number.
 }
 
@@ -30,9 +30,9 @@ See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 
 Project (IGO Data Stata Files).
 }
 \description{
-Data on IGOs from 1815-2014, at the IGO-year level. Contains one record per
+Data on IGOs from 1815-2014 at the IGO-year level. Contains one record per
 IGO-year, with years listed at 5-year intervals through 1965 and annually
-thereafter).
+thereafter.
 }
 \details{
 Possible values for the status of a state in the IGO are:\tabular{lr}{
@@ -55,7 +55,7 @@ Raw data used internally by \CRANpkg{igoR}.
 \examples{
 data("state_year_format3")
 
-# Show a glimpse
+# Show a glimpse.
 library(dplyr)
 
 state_year_format3 \%>\%
@@ -63,7 +63,7 @@ state_year_format3 \%>\%
   filter(year > 1990) \%>\%
   glimpse()
 
-# Recode numerical values to factors with a sample
+# Recode numerical values to factors with a sample.
 sample_state_year <- state_year_format3 \%>\%
   as_tibble() \%>\%
   select(ccode:afgec) \%>\%
@@ -71,7 +71,7 @@ sample_state_year <- state_year_format3 \%>\%
 
 sample_state_year \%>\% glimpse()
 
-# Recode
+# Recode.
 sample_state_year_recoded <- sample_state_year \%>\%
   mutate(across(-c(ccode:state), igo_recode_stateyear))
 

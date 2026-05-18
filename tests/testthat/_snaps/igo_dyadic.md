@@ -4,14 +4,14 @@
       n <- igo_dyadic("USA", "CUBA", year = NULL)
     Condition
       Warning in `igo_dyadic()`:
-      year should be numeric, not NULL
+      year must be numeric, not NULL
 
 ---
 
     Code
       n <- igo_dyadic("USA", "Cuba", 1900)
     Message
-      Country 'cuba' was not alive on years selected
+      Country 'cuba' was not alive in the selected years
     Condition
       Warning in `igo_dyadic()`:
       No dyadic results found with the required arguments
@@ -22,7 +22,7 @@
       n <- igo_dyadic("USA", "USA")
     Condition
       Warning in `igo_dyadic()`:
-      No different country(ies) found for comparison in 'country','country2' values
+      No different countries found for comparison in 'country1' and 'country2' values
 
 ---
 
@@ -39,24 +39,24 @@
     Code
       n <- igo_dyadic("Not a country", "banana", 1900)
     Message
-      state not found: 'Not a country'
+      State not found: 'Not a country'
     Condition
       Warning in `igo_search_states()`:
-      No states found with required arguments
+      No states found with the required arguments
     Message
-      state not found: 'banana'
+      State not found: 'banana'
     Condition
       Warning in `igo_search_states()`:
-      No states found with required arguments
+      No states found with the required arguments
       Warning in `igo_dyadic()`:
-      No country(ies) found for comparison
+      No countries found for comparison
 
 ---
 
     Code
       n <- igo_dyadic("Cuba", "USa", 1900)
     Message
-      Country 'cuba' was not alive on years selected
+      Country 'cuba' was not alive in the selected years
     Condition
       Warning in `igo_dyadic()`:
       No dyadic results found with the required arguments
@@ -66,7 +66,7 @@
     Code
       n <- igo_dyadic("France", "Spain", 2200)
     Message
-      No ionames found for years selected
+      No ionames found for the selected years
     Condition
       Warning in `igo_dyadic()`:
       No dyadic results found with the required arguments

@@ -4,7 +4,7 @@
 \encoding{UTF-8}
 \name{states2016}
 \alias{states2016}
-\title{State System Membership (v2016)}
+\title{State system membership (v2016)}
 \format{
 \code{\link{data.frame}} with
 243 rows. Relevant fields:
@@ -12,7 +12,7 @@
 \item \strong{ccode}: COW country number.
 \item \strong{stateabb}: COW state abbreviation (3 characters).
 \item \strong{statenme}: COW state name.
-\item \strong{styear...endday}: Fields to identify the beginning and the end of each
+\item \strong{styear...endday}: Fields that identify the beginning and end of each
 tenure.
 \item \strong{version}: Data file version number.
 \item \strong{state}: Abbreviated state name as it appears in \link{state_year_format3}.
@@ -38,10 +38,10 @@ powers in the international system.
 The Correlates of War Project includes a state in the international system
 from 1816-2016 according to the following criteria:
 \itemize{
-\item \strong{Prior to 1920} the entity must have had a population greater than
+\item \strong{Before 1920}, the entity must have had a population greater than
 500,000 and have had diplomatic missions at or above the rank of charge
 d'affaires with Britain and France.
-\item \strong{After 1920} the entity must be a member of the League of Nations or the
+\item \strong{After 1920}, the entity must be a member of the League of Nations or the
 United Nations, or have a population greater than 500,000 and receive
 diplomatic missions from two major powers.
 }
@@ -51,7 +51,7 @@ The \code{state} variable was added to the original data to help comparisons
 across data sets in this package.
 }
 \examples{
-# Example code
+# Example code.
 data("states2016")
 dplyr::glimpse(states2016)
 }

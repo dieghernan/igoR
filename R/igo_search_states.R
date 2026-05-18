@@ -30,7 +30,7 @@ igo_search_states <- function(state) {
   # Vectorize the lookup.
 
   find_v <- lapply(state, function(x) {
-    # Lookup
+    # Initialize the lookup.
     find_state <- vector(mode = "numeric")
     # Search for the state.
     df_states <- cow_country_codes
@@ -49,7 +49,7 @@ igo_search_states <- function(state) {
     find_state <- sort(find_state)[1]
 
     if (is.na(find_state)) {
-      message("state not found: ", paste0("'", x, "'", collapse = ", "))
+      message("State not found: ", paste0("'", x, "'", collapse = ", "))
       return(invisible(NULL))
     }
 
@@ -64,7 +64,7 @@ igo_search_states <- function(state) {
   # Clean results.
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
-    warning("No states found with required arguments")
+    warning("No states found with the required arguments")
     return(invisible(NULL))
   }
 

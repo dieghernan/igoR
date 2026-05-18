@@ -16,7 +16,7 @@ First major version of the package.
 # igoR 0.2.0
 
 - Internal code refactor. Users should not notice any visible change.
-- `igo_dyadic()` now accepts a vector of countries also in the `country1`
+- `igo_dyadic()` now also accepts a vector of countries in the `country1`
   argument.
 - New helper functions for converting numerical values to labels:
   `igo_recode_igoyear()`, `igo_recode_stateyear()`, `igo_recode_dyadic()`.
@@ -47,8 +47,8 @@ First major version of the package.
 
 # igoR 0.1.0
 
-- Vectorize `igo_members()`.
-- Generalize search ignoring case.
+- Vectorized `igo_members()`.
+- Generalized search to ignore case.
 - Added `igo_state_membership()`.
 - `cow_country_codes` is now internal.
 - Added `igoR::states2016` as a replacement for `cow_country_codes`.

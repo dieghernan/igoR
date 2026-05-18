@@ -3,19 +3,19 @@
     Code
       res <- igo_state_membership("Error")
     Message
-      state not found: 'Error'
+      State not found: 'Error'
     Condition
       Warning in `igoR::igo_search_states()`:
-      No states found with required arguments
+      No states found with the required arguments
       Warning in `igo_state_membership()`:
-      state(s) 'Error' not found in data base
+      state(s) 'Error' not found in the database
 
 ---
 
     Code
       res <- igo_state_membership("modena", year = 1900)
     Message
-      state 'modena' only alive between 1842 and 1860
+      state 'modena' was available only between 1842 and 1860
     Condition
       Warning in `igo_state_membership()`:
       No states found with the required arguments
@@ -27,7 +27,7 @@
         "Full Membership", "Observer"))
     Condition
       Warning in `igo_state_membership()`:
-      status 'Nope', 'IGO Not In Existence' not valid. Valid values are 'No Membership', 'Full Membership', 'Associate Membership', 'Observer', 'Missing data', 'State Not System Member'
+      status 'Nope', 'IGO Not In Existence' is not valid. Valid values are 'No Membership', 'Full Membership', 'Associate Membership', 'Observer', 'Missing data', 'State Not System Member'
 
 ---
 
@@ -45,8 +45,8 @@
       sev <- igo_state_membership(c("UnitEd KingDom", "SPAIN", "aga haha", "1298",
         "WGeRMANy"))
     Message
-      state not found: 'aga haha'
-      state not found: '1298'
+      State not found: 'aga haha'
+      State not found: '1298'
 
 # Object classes
 
@@ -65,5 +65,5 @@
     Code
       var_err <- igo_state_membership(c("uk", "invented", "usa"))
     Message
-      state not found: 'invented'
+      State not found: 'invented'
 

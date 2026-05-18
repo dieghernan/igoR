@@ -27,27 +27,27 @@ A \code{\link{data.frame}}.
 Extract all memberships of a state on a specific date.
 }
 \examples{
-# Memberships on two different dates
+# Memberships on two different dates.
 igo_state_membership("Spain", year = 1850)
 igo_state_membership("Spain", year = 1870)
 igo_state_membership("Spain", year = 1880:1882)
 
-# Last year
+# Last year.
 igo_state_membership("ZAN")[, 1:7]
 
-# Use codes to get countries
+# Use codes to get countries.
 igo_state_membership("2", year = 1865)
 
-# Extract different statuses
+# Extract different statuses.
 igo_state_membership("kosovo", status = c(
   "Associate Membership", "Observer",
   "Full Membership"
 ))
 
-# Vectorized
+# Vectorized.
 igo_state_membership(c("usa", "spain"), year = 1870:1871)
 
-# Use the countrycode package to get additional codes
+# Use the countrycode package to get additional codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   IT <- igo_state_membership("Italy", year = 1880)

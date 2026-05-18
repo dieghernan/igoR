@@ -12,7 +12,7 @@ knitr:
     message: false
 ---
 
-This annex contains the list of IGOs [@pevehouse2020] and countries
+This annex lists the IGOs [@pevehouse2020] and countries
 [@correlatesofwarproject2017] included in this package.
 
 ## List of IGOs

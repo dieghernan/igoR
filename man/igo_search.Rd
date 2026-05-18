@@ -31,13 +31,13 @@ An additional column \code{label} is provided. This column is a clean version of
 \code{longorgname}.
 }
 \examples{
-# All values
+# All values.
 library(dplyr)
 all <- igo_search()
 
 all \%>\% tibble()
 
-# Search by pattern
+# Search by pattern.
 igo_search("EU") \%>\%
   select(ionum:orgname) \%>\%
   tibble()
@@ -46,7 +46,7 @@ igo_search("EU", exact = TRUE) \%>\%
   select(ionum:orgname) \%>\%
   tibble()
 
-# With integers
+# Use integers.
 igo_search(10) \%>\%
   select(ionum:orgname) \%>\%
   tibble()
@@ -55,12 +55,12 @@ igo_search(10, exact = TRUE) \%>\%
   select(ionum:orgname) \%>\%
   tibble()
 
-# Several patterns (regex style)
+# Use several patterns (regex style).
 igo_search("NAFTA|UN|EU") \%>\%
   select(ionum:orgname) \%>\%
   tibble()
 
-# Several exact patterns (regex style)
+# Use several exact patterns (regex style).
 igo_search("^NAFTA$|^UN$|^EU$") \%>\%
   select(ionum:orgname) \%>\%
   tibble()

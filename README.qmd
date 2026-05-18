@@ -40,13 +40,13 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 igoR provides access to the Intergovernmental Organizations Database (v3) from
 the Correlates of War Project [@pevehouse2020].
 
-The data set (V3) includes information on **`r nrow(igoR::igo_search())`** IGOs
+The data set (v3) includes information on **`r nrow(igoR::igo_search())`** IGOs
 from `r min(igoR::igo_year_format3$year)` to
 `r max(igoR::igo_year_format3$year)`, as well as membership information.
 
 - Source: [Intergovernmental Organizations
   (v3)](https://correlatesofwar.org/data-sets/IGOs/).
-- Documentation and vignettes on <https://dieghernan.github.io/igoR/>
+- Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
 
 The package also includes a distribution of the State System Membership data
 [@correlatesofwarproject2017].
@@ -66,7 +66,7 @@ install.packages("igoR")
 Check the documentation for the development version at
 <https://dieghernan.github.io/igoR/dev/>.
 
-You can install the developing version from GitHub:
+You can install the development version from GitHub:
 
 ```{r}
 #| eval: false
@@ -157,9 +157,9 @@ cat(
 
 ## Recommended packages
 
-- **countrycode** for converting country names and codes across different
-  systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.).
-- **dplyr** for data manipulation.
+- **countrycode** package for converting country names and codes across
+  different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.).
+- **dplyr** package for data manipulation.
 
 ## Citation
 

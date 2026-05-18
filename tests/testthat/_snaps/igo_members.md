@@ -3,7 +3,7 @@
     Code
       res <- igo_members("Error")
     Message
-      ioname 'Error' not found in data base
+      ioname 'Error' not found in the database
     Condition
       Warning in `igo_members()`:
       No IGO results found with the required arguments
@@ -13,7 +13,7 @@
     Code
       res <- igo_members("EU", year = 1900)
     Message
-      ioname 'EU' only alive between 1993 and 2014
+      ioname 'EU' was available only between 1993 and 2014
     Condition
       Warning in `igo_members()`:
       No IGO results found with the required arguments
@@ -25,7 +25,7 @@
         "Full Membership", "Observer"))
     Condition
       Warning in `igo_members()`:
-      status 'Nope' not valid. Valid values are 'No Membership', 'Full Membership', 'Associate Membership', 'Observer', 'Missing data', 'IGO Not In Existence'
+      status 'Nope' is not valid. Valid values are 'No Membership', 'Full Membership', 'Associate Membership', 'Observer', 'Missing data', 'IGO Not In Existence'
 
 ---
 
@@ -52,5 +52,5 @@
     Code
       var_err <- igo_members(c("EU", "an invented", "UN"))
     Message
-      ioname 'an invented' not found in data base
+      ioname 'an invented' not found in the database
 

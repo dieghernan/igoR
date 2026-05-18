@@ -25,9 +25,9 @@ See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 
 Project (IGO Data Stata Files).
 }
 \description{
-Data on IGOs from 1815-2014, at the country-year level. Contains one record
+Data on IGOs from 1815-2014 at the country-year level. Contains one record
 per country-year, with years listed at 5-year intervals through 1965 and
-annually thereafter).
+annually thereafter.
 }
 \details{
 Possible values for the status of a state in the IGO are:\tabular{lr}{

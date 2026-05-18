@@ -21,20 +21,15 @@ The recoded values as \link[base:factor]{factors}.
 }
 \description{
 These functions convert the numerical codes of \link{igo_year_format3} and
-\link{state_year_format3} into \link[base:factor]{factors}.
-\itemize{
-\item \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} is intended to work with values from
-\link{igo_year_format3}.
-\item \code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} is intended to work with values from
-\link{state_year_format3}.
-\item \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} is intended to work with values from
-\code{\link[=igo_dyadic]{igo_dyadic()}}.
-}
+\link{state_year_format3} into \link[base:factor]{factors}. Use
+\code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} with values from \link{igo_year_format3},
+\code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} with values from \link{state_year_format3} and
+\code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} with values from \code{\link[=igo_dyadic]{igo_dyadic()}}.
 }
 \examples{
 data("igo_year_format3")
 
-# Recode memberships for some countries
+# Recode memberships for some countries.
 
 library(dplyr)
 
@@ -45,7 +40,7 @@ samp <- igo_year_format3 \%>\%
 
 glimpse(samp)
 
-# Recode
+# Recode.
 samp \%>\%
   mutate(
     spain = igo_recode_igoyear(spain),

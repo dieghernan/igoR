@@ -28,20 +28,20 @@
 #' igo_members("EU") %>% as_tibble()
 #' igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
 #'
-#' # Extract different statuses
+#' # Extract different statuses.
 #' igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
 #'   as_tibble()
 #'
-#' # States that are not members of the UN
+#' # States that are not members of the UN.
 #' igo_members("UN", status = "No Membership") %>%
 #'   as_tibble()
 #'
-#' # Vectorized
+#' # Vectorized.
 #' igo_members(c("NAFTA", "EU"), year = 1993) %>%
 #'   as_tibble() %>%
 #'   arrange(state)
 #'
-#' # Use the countrycode package to get additional codes
+#' # Use the countrycode package to get additional codes.
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   EU <- igo_members("EU")
@@ -57,7 +57,7 @@
 igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Check inputs.
   if (missing(ioname)) {
-    stop("You must enter a value on 'ioname'")
+    stop("You must enter a value for 'ioname'")
   }
 
   levls <- levels(igo_recode_stateyear(1))
@@ -67,7 +67,7 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
     warning(
       "status ",
       paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
-      " not valid. Valid values are ",
+      " is not valid. Valid values are ",
       paste0("'", levls, collapse = "', "),
       "'"
     )
@@ -97,7 +97,7 @@ igo_member_single <- function(ioname, year, status) {
   igo_db <- igo_db[tolower(igo_db$ioname) %in% tolower(ioname), ]
 
   if (nrow(igo_db) == 0) {
-    message("ioname '", ioname, "' not found in data base")
+    message("ioname '", ioname, "' not found in the database")
     return(NULL)
   }
 
@@ -122,7 +122,7 @@ igo_member_single <- function(ioname, year, status) {
     message(
       "ioname '",
       ioname,
-      "' only alive between ",
+      "' was available only between ",
       paste0(dates, collapse = " and ")
     )
     return(NULL)

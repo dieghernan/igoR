@@ -3,15 +3,15 @@
     Code
       n <- igo_search_states(c("Spain", "aaa", "france"))
     Message
-      state not found: 'aaa'
+      State not found: 'aaa'
 
 ---
 
     Code
       n <- igo_search_states("aaaaa")
     Message
-      state not found: 'aaaaa'
+      State not found: 'aaaaa'
     Condition
       Warning in `igo_search_states()`:
-      No states found with required arguments
+      No states found with the required arguments
 

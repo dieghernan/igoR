@@ -37,15 +37,15 @@
 #' file distributed by The Correlates of War Project (`dyadic_format3.dta`).
 #' That file is not included in this package due to its size.
 #'
-#' The result is a [`data.frame`][data.frame()] containing the common years of
-#' the states selected via `country1`, `country2` and `year` by rows.
+#' The result is a [`data.frame`][data.frame()] containing one row for each
+#' common year selected via `country1`, `country2` and `year`.
 #'
 #' An additional column `dyadid`, computed as `(1000 * ccode1) + ccode2`, is
 #' provided to identify relationships.
 #'
-#' For each IGO selected via `ioname`, or all IGOs if the default option has
-#' been used, a column using lowercase `ioname` as an identifier is provided
-#' with the following coding system:
+#' For each IGO selected via `ioname`, or all IGOs if the default option is
+#' used, a column using lowercase `ioname` as an identifier is provided with
+#' the following coding system:
 #'
 #' ```{r, echo=FALSE}
 #'
@@ -86,7 +86,7 @@
 #'
 #' dplyr::tibble(usa_esp)
 #'
-#' # Using custom arguments
+#' # Use custom arguments.
 #' custom <- igo_dyadic(
 #'   country1 = c("France", "Germany"), country2 = c("Sweden", "Austria"),
 #'   year = 1992:1993, ioname = "EU"
@@ -97,7 +97,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   # Check inputs.
   if (!is.numeric(year)) {
     warning(
-      "year should be numeric, not ",
+      "year must be numeric, not ",
       paste0(class(year), collapse = ", ")
     )
     return(invisible(NULL))
@@ -108,7 +108,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   c2s <- igo_search_states(country2)
 
   if (any(is.null(c1s), is.null(c2s))) {
-    warning("No country(ies) found for comparison")
+    warning("No countries found for comparison")
     return(invisible(NULL))
   }
 
@@ -126,8 +126,8 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
 
   if (nrow(base_df) == 0) {
     warning(
-      "No different country(ies) found for comparison ",
-      "in 'country','country2' values"
+      "No different countries found for comparison ",
+      "in 'country1' and 'country2' values"
     )
     return(invisible(NULL))
   }
@@ -184,7 +184,7 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
   all_igos <- all_igos[all_igos$year %in% year, ]
 
   if (nrow(all_igos) == 0) {
-    message("No ionames found for years selected")
+    message("No ionames found for the selected years")
     return(NULL)
   }
 
@@ -195,7 +195,7 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
     message(
       "Country '",
       this_iter_df$state1,
-      "' was not alive on years selected"
+      "' was not alive in the selected years"
     )
     return(NULL)
   }
@@ -204,7 +204,7 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
     message(
       "Country '",
       this_iter_df$state2,
-      "' was not alive on years selected"
+      "' was not alive in the selected years"
     )
     return(NULL)
   }

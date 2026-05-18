@@ -32,20 +32,20 @@ igo_members("EU", year = 1993) \%>\% as_tibble()
 igo_members("EU") \%>\% as_tibble()
 igo_members("NAFTA", year = c(1995:1998)) \%>\% as_tibble()
 
-# Extract different statuses
+# Extract different statuses.
 igo_members("ACCT", status = c("Associate Membership", "Observer")) \%>\%
   as_tibble()
 
-# States that are not members of the UN
+# States that are not members of the UN.
 igo_members("UN", status = "No Membership") \%>\%
   as_tibble()
 
-# Vectorized
+# Vectorized.
 igo_members(c("NAFTA", "EU"), year = 1993) \%>\%
   as_tibble() \%>\%
   arrange(state)
 
-# Use the countrycode package to get additional codes
+# Use the countrycode package to get additional codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")

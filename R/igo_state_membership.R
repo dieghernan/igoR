@@ -21,27 +21,27 @@
 #'   See **Details** in [igo_year_format3].
 #'
 #' @examples
-#' # Memberships on two different dates
+#' # Memberships on two different dates.
 #' igo_state_membership("Spain", year = 1850)
 #' igo_state_membership("Spain", year = 1870)
 #' igo_state_membership("Spain", year = 1880:1882)
 #'
-#' # Last year
+#' # Last year.
 #' igo_state_membership("ZAN")[, 1:7]
 #'
-#' # Use codes to get countries
+#' # Use codes to get countries.
 #' igo_state_membership("2", year = 1865)
 #'
-#' # Extract different statuses
+#' # Extract different statuses.
 #' igo_state_membership("kosovo", status = c(
 #'   "Associate Membership", "Observer",
 #'   "Full Membership"
 #' ))
 #'
-#' # Vectorized
+#' # Vectorized.
 #' igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #'
-#' # Use the countrycode package to get additional codes
+#' # Use the countrycode package to get additional codes.
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   IT <- igo_state_membership("Italy", year = 1880)
@@ -55,7 +55,7 @@ igo_state_membership <- function(
 ) {
   # Check inputs.
   if (missing(state)) {
-    stop("You must enter a value on 'state'")
+    stop("You must enter a value for 'state'")
   }
 
   df_states <- igoR::igo_search_states(state)
@@ -64,7 +64,7 @@ igo_state_membership <- function(
     warning(
       "state(s) ",
       paste0("'", state, "'", collapse = ", "),
-      " not found in data base"
+      " not found in the database"
     )
     return(invisible(NULL))
   }
@@ -79,7 +79,7 @@ igo_state_membership <- function(
     warning(
       "status ",
       paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
-      " not valid. Valid values are ",
+      " is not valid. Valid values are ",
       paste0("'", levls, collapse = "', "),
       "'"
     )
@@ -130,7 +130,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
     message(
       "state '",
       state_names,
-      "' only alive between ",
+      "' was available only between ",
       paste0(dates, collapse = " and ")
     )
     return(NULL)
