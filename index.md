@@ -4,12 +4,12 @@ igoR provides access to the Intergovernmental Organizations Database
 (v3) from the Correlates of War Project ([Pevehouse et al.
 2020](#ref-pevehouse2020)).
 
-The data set (V3) includes information on **534** IGOs from 1816 to
+The data set (v3) includes information on **534** IGOs from 1816 to
 2014, as well as membership information.
 
 - Source: [Intergovernmental Organizations
   (v3)](https://correlatesofwar.org/data-sets/IGOs/).
-- Documentation and vignettes on <https://dieghernan.github.io/igoR/>
+- Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
 
 The package also includes a distribution of the State System Membership
 data ([Correlates of War Project
@@ -97,9 +97,9 @@ Table 3: EEC, members (1992)
 
 ## Recommended packages
 
-- **countrycode** for converting country names and codes across
+- **countrycode** package for converting country names and codes across
   different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.).
-- **dplyr** for data manipulation.
+- **dplyr** package for data manipulation.
 
 ## Citation
 
@@ -117,7 +117,7 @@ A BibTeX entry for LaTeX users:
   year = {2026},
   version = {1.0.1},
   url = {https://dieghernan.github.io/igoR/},
-  abstract = {Tools to access and extract information from the Intergovernmental Organizations (IGO) Database (v3), provided by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
+  abstract = {Tools for accessing and extracting information from the Intergovernmental Organizations (IGO) Database (v3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
 }
 ```
 

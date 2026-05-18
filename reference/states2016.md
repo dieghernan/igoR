@@ -1,4 +1,4 @@
-# State System Membership (v2016)
+# State system membership (v2016)
 
 The list of states with COW abbreviations and ID numbers, plus the field
 `state` from
@@ -15,7 +15,7 @@ Relevant fields:
 
 - **statenme**: COW state name.
 
-- **styear...endday**: Fields to identify the beginning and the end of
+- **styear...endday**: Fields that identify the beginning and end of
   each tenure.
 
 - **version**: Data file version number.
@@ -42,12 +42,12 @@ states and major powers in the international system.
 The Correlates of War Project includes a state in the international
 system from 1816-2016 according to the following criteria:
 
-- **Prior to 1920** the entity must have had a population greater than
+- **Before 1920**, the entity must have had a population greater than
   500,000 and have had diplomatic missions at or above the rank of
   charge d'affaires with Britain and France.
 
-- **After 1920** the entity must be a member of the League of Nations or
-  the United Nations, or have a population greater than 500,000 and
+- **After 1920**, the entity must be a member of the League of Nations
+  or the United Nations, or have a population greater than 500,000 and
   receive diplomatic missions from two major powers.
 
 ## Note
@@ -70,7 +70,7 @@ Other datasets:
 ## Examples
 
 ``` r
-# Example code
+# Example code.
 data("states2016")
 dplyr::glimpse(states2016)
 #> Rows: 243

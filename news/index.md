@@ -28,7 +28,7 @@ CRAN release: 2024-02-05
 
 - Internal code refactor. Users should not notice any visible change.
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
-  now accepts a vector of countries also in the `country1` argument.
+  now also accepts a vector of countries in the `country1` argument.
 - New helper functions for converting numerical values to labels:
   [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
   [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
@@ -70,9 +70,9 @@ CRAN release: 2021-01-27
 
 ## igoR 0.1.0
 
-- Vectorize
+- Vectorized
   [`igo_members()`](https://dieghernan.github.io/igoR/reference/igo_members.md).
-- Generalize search ignoring case.
+- Generalized search to ignore case.
 - Added
   [`igo_state_membership()`](https://dieghernan.github.io/igoR/reference/igo_state_membership.md).
 - `cow_country_codes` is now internal.

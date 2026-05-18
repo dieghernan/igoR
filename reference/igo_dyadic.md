@@ -48,15 +48,15 @@ original file distributed by The Correlates of War Project
 its size.
 
 The result is a [`data.frame`](https://rdrr.io/r/base/data.frame.html)
-containing the common years of the states selected via `country1`,
-`country2` and `year` by rows.
+containing one row for each common year selected via `country1`,
+`country2` and `year`.
 
 An additional column `dyadid`, computed as `(1000 * ccode1) + ccode2`,
 is provided to identify relationships.
 
-For each IGO selected via `ioname`, or all IGOs if the default option
-has been used, a column using lowercase `ioname` as an identifier is
-provided with the following coding system:
+For each IGO selected via `ioname`, or all IGOs if the default option is
+used, a column using lowercase `ioname` as an identifier is provided
+with the following coding system:
 
 |                         |                     |
 |-------------------------|---------------------|
@@ -129,7 +129,7 @@ dplyr::tibble(usa_esp)
 #> #   acwl <dbl>, afesd <dbl>, afeximb <dbl>, afgec <dbl>, afpu <dbl>,
 #> #   afrand <dbl>, afristat <dbl>, afspc <dbl>, afte <dbl>, agc <dbl>, …
 
-# Using custom arguments
+# Use custom arguments.
 custom <- igo_dyadic(
   country1 = c("France", "Germany"), country2 = c("Sweden", "Austria"),
   year = 1992:1993, ioname = "EU"

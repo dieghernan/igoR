@@ -5,15 +5,15 @@
 Data objects included in the package.
 
 - [`igo_year_format3`](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
-  : Intergovernmental organizations (IGO) by year
+  : Intergovernmental organizations by year
 - [`state_year_format3`](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
   : Country membership in IGOs by year
 - [`states2016`](https://dieghernan.github.io/igoR/reference/states2016.md)
-  : State System Membership (v2016)
+  : State system membership (v2016)
 
 ## Query and extraction functions
 
-Functions to search IGOs and extract membership information.
+Search IGOs and extract membership information.
 
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
   : Extract joint membership for a pair of countries across IGOs
@@ -28,7 +28,7 @@ Functions to search IGOs and extract membership information.
 
 ## Recode helpers
 
-Helpers to convert numerical membership codes into factors.
+Convert numerical membership codes into factors.
 
 - [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
   [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)

@@ -1,8 +1,8 @@
-# Intergovernmental organizations (IGO) by year
+# Intergovernmental organizations by year
 
-Data on IGOs from 1815-2014, at the IGO-year level. Contains one record
+Data on IGOs from 1815-2014 at the IGO-year level. Contains one record
 per IGO-year, with years listed at 5-year intervals through 1965 and
-annually thereafter).
+annually thereafter.
 
 ## Format
 
@@ -25,7 +25,7 @@ Relevant fields:
 - **longorgname**: Longer version of the IGO name, including previous
   names.
 
-- **ionum**: IGO id number in v2.1 and v3.0 of the data.
+- **ionum**: IGO ID number in v2.1 and v3.0 of the data.
 
 - **version**: COW version number.
 
@@ -82,7 +82,7 @@ Other datasets:
 ``` r
 data("state_year_format3")
 
-# Show a glimpse
+# Show a glimpse.
 library(dplyr)
 
 state_year_format3 %>%
@@ -118,7 +118,7 @@ state_year_format3 %>%
 #> $ afeximb  <dbl> -1, -1, -9, -9, -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -…
 #> $ afgec    <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 
-# Recode numerical values to factors with a sample
+# Recode numerical values to factors with a sample.
 sample_state_year <- state_year_format3 %>%
   as_tibble() %>%
   select(ccode:afgec) %>%
@@ -154,7 +154,7 @@ sample_state_year %>% glimpse()
 #> $ afeximb  <dbl> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…
 #> $ afgec    <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 
-# Recode
+# Recode.
 sample_state_year_recoded <- sample_state_year %>%
   mutate(across(-c(ccode:state), igo_recode_stateyear))
 

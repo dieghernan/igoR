@@ -54,7 +54,7 @@ Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 ## Examples
 
 ``` r
-# All values
+# All values.
 library(dplyr)
 all <- igo_search()
 
@@ -77,7 +77,7 @@ all %>% tibble()
 #> #   accuracyofpre1965membershipdates <chr>, sourcesandnotes <chr>,
 #> #   imputed <dbl>, political <dbl>, social <dbl>, economic <dbl>
 
-# Search by pattern
+# Search by pattern.
 igo_search("EU") %>%
   select(ionum:orgname) %>%
   tibble()
@@ -104,7 +104,7 @@ igo_search("EU", exact = TRUE) %>%
 #>   <dbl> <chr>  <chr>         
 #> 1  1830 EU     European Union
 
-# With integers
+# Use integers.
 igo_search(10) %>%
   select(ionum:orgname) %>%
   tibble()
@@ -131,7 +131,7 @@ igo_search(10, exact = TRUE) %>%
 #>   <dbl> <chr>  <chr>                
 #> 1    10 ACPEU  ACP/EU Joint Assembly
 
-# Several patterns (regex style)
+# Use several patterns (regex style).
 igo_search("NAFTA|UN|EU") %>%
   select(ionum:orgname) %>%
   tibble()
@@ -150,7 +150,7 @@ igo_search("NAFTA|UN|EU") %>%
 #> 10   110 AGC      African Groundnut Council                                
 #> # ℹ 186 more rows
 
-# Several exact patterns (regex style)
+# Use several exact patterns (regex style).
 igo_search("^NAFTA$|^UN$|^EU$") %>%
   select(ionum:orgname) %>%
   tibble()

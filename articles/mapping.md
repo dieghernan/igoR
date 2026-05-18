@@ -1,14 +1,14 @@
 # Mapping IGOs
 
-Maps are a powerful tool for showing data. Because **igoR** focuses on
-Intergovernmental Organizations, mapping and IGOs are a natural fit.
+Maps are a powerful tool for presenting data. Because **igoR** focuses
+on Intergovernmental Organizations, mapping and IGOs are a natural fit.
 
 This vignette provides geospatial visualizations using the IGO data sets
 ([Pevehouse et al. 2020](#ref-pevehouse2020)) included in this package.
 It uses these packages for geospatial data:
 
-- **giscoR** for extracting the shapefiles of the countries.
-- **ggplot2** for plotting.
+- **giscoR** package for extracting country shapefiles.
+- **ggplot2** package for plotting.
 
 The **countrycode** package is useful for translating between coding
 schemes (COW, ISO3, NUTS, FIPS) and country names.
@@ -17,12 +17,12 @@ schemes (COW, ISO3, NUTS, FIPS) and country names.
 
 library(igoR)
 
-# Helper packages
+# Helper packages.
 library(dplyr)
 library(ggplot2)
 library(countrycode)
 
-# Geospatial packages
+# Geospatial packages.
 library(giscoR)
 library(sf)
 ```
@@ -30,15 +30,15 @@ library(sf)
 ## Evolution of UN membership
 
 The following map shows the evolution of United Nations membership.
-First, extract the data:
+First, extract the data.
 
 ``` r
 
 # Extract shapes.
 world <- gisco_get_countries()
 
-# Extract three dates. Some errors occur because ISO does not have every COW
-# code.
+# Extract three dates. Some errors occur because ISO does not include every
+# COW code.
 un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
   # Add the ISO3 code.
   mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
@@ -55,15 +55,15 @@ base_df <- expand.grid(
 
 # Merge everything with the spatial object.
 un_all_sf <- world %>%
-  # Expand to all cases
+  # Expand to all cases.
   left_join(base_df, by = "ISO3_CODE") %>%
   # Add information.
   left_join(un_all, by = c("ISO3_CODE", "year"))
 ```
 
-Note that the map is not completely accurate because the base shapefile
-contains countries that existed in 2016. Some countries, such as
-Czechoslovakia, East Germany and West Germany, are not included.
+The map is not completely accurate because the base shapefile contains
+countries that existed in 2016. Some countries, such as Czechoslovakia,
+East Germany and West Germany, are not included.
 
 Now we are ready to plot with **ggplot2**:
 
@@ -79,7 +79,7 @@ ggplot(un_all_sf) +
     na.value = "#E0E0E0",
   ) +
   labs(
-    title = "UN Members",
+    title = "UN members",
     caption = gisco_attributions(),
   ) +
   theme_minimal() +
@@ -90,15 +90,15 @@ ggplot(un_all_sf) +
   )
 ```
 
-![UN Members (1950, 1980, 2010)](./fig-UNMaps-1.png)
+![UN members (1950, 1980, 2010)](./fig-UNMaps-1.png)
 
-UN Members (1950, 1980, 2010)
+UN members (1950, 1980, 2010)
 
 ## Number of shared memberships
 
 Shared memberships are useful for identifying regional patterns. The
 following code produces a map showing how many full memberships each
-country shared with Australia in 2014:
+country shared with Australia in 2014.
 
 ``` r
 
@@ -114,7 +114,6 @@ shared <- igo_dyadic("AUL", as.character(states2014$statenme), year = 2014) %>%
   mutate(ISO3_CODE = countrycode(ccode2, "cown", "iso3c", warn = FALSE)) %>%
   select(ISO3_CODE, shared)
 
-
 # Merge with the map.
 sharedmap <- world %>%
   left_join(shared, by = "ISO3_CODE") %>%
@@ -123,7 +122,7 @@ sharedmap <- world %>%
 # Plot with a custom palette.
 pal <- hcl.colors(10, palette = "Lajolla")
 
-# Plot
+# Plot the results.
 ggplot(sharedmap) +
   geom_sf(aes(fill = shared), color = NA) +
   # Highlight Australia.
@@ -137,7 +136,7 @@ ggplot(sharedmap) +
   scale_fill_gradientn(colours = pal, n.breaks = 10) +
   guides(fill = guide_legend(nrow = 1)) +
   labs(
-    title = "Shared Full Memberships with Australia (2014)",
+    title = "Shared full memberships with Australia (2014)",
     fill = "Number of IGOs shared",
     caption = gisco_attributions()
   ) +
@@ -158,15 +157,15 @@ ggplot(sharedmap) +
   )
 ```
 
-![Shared Full Memberships with Australia (2014)](./fig-AustShared-1.png)
+![Shared full memberships with Australia (2014)](./fig-AustShared-1.png)
 
-Shared Full Memberships with Australia (2014)
+Shared full memberships with Australia (2014)
 
 ## Cross-shared memberships
 
 The following map shows how relationships between North American
-countries have evolved over the last 90 years, with one year
-representing each decade.
+countries evolved over the last 90 years, with one year representing
+each decade.
 
 ``` r
 
@@ -186,7 +185,7 @@ all <- igo_dyadic(cntries, cntries, years) %>%
 countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
   left_join(all, by = "ISO3_CODE")
 
-# Map
+# Plot the map.
 ggplot(countries_sf) +
   geom_sf(aes(fill = value), color = NA) +
   coord_sf(crs = 9311, xlim = c(-3200000, 3333018)) +
@@ -197,7 +196,7 @@ ggplot(countries_sf) +
   ) +
   guides(fill = guide_legend(reverse = TRUE)) +
   labs(
-    title = "Shared Full Memberships on North America",
+    title = "Shared full memberships in North America",
     subtitle = "(1930-2010)",
     fill = "Shared IGOs",
     caption = gisco_attributions()
@@ -211,10 +210,10 @@ ggplot(countries_sf) +
   )
 ```
 
-![Shared Full Memberships on North America (1930 -
-2010)](./fig-NAShared-1.png)
+![Shared full memberships in North America
+(1930-2010)](./fig-NAShared-1.png)
 
-Shared Full Memberships on North America (1930 - 2010)
+Shared full memberships in North America (1930-2010)
 
 ## References
 

@@ -1,11 +1,11 @@
 # Get started with the igoR package
 
-This vignette provides users with a visual, explorable introduction to
-the capabilities of the **igoR** package.
+This vignette provides a visual introduction to the capabilities of the
+**igoR** package.
 
 The analysis is based on examples provided in Pevehouse et al.
-([2020](#ref-pevehouse2020)). For more information on the IGO data sets
-and additional downloads, see [Intergovernmental Organizations
+([2020](#ref-pevehouse2020)). For more information about the IGO data
+sets and additional downloads, see [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
 *Note that the dyadic data set is not included in the package due to its
@@ -51,8 +51,8 @@ From Pevehouse et al. ([2019](#ref-pevehouse2019)):
 
 ## Analysis
 
-This section provides some quick analysis based on the figures of
-Pevehouse et al. ([2020](#ref-pevehouse2020)).
+This section provides a quick analysis based on the figures in Pevehouse
+et al. ([2020](#ref-pevehouse2020)).
 
 ### Initial setup
 
@@ -60,7 +60,7 @@ Pevehouse et al. ([2020](#ref-pevehouse2020)).
 
 library(igoR)
 
-# Load additional libraries.
+# Load helper packages.
 library(ggplot2)
 library(dplyr)
 ```
@@ -100,7 +100,7 @@ this package. The years available are 1816 to 2014.
 
 ``` r
 
-# Summarize
+# Summarize values by year.
 igos_by_year <- igo_year_format3 %>%
   group_by(year) %>%
   summarise(value = n(), .groups = "keep") %>%
@@ -113,7 +113,7 @@ countries_by_year <- state_year_format3 %>%
 
 all_by_year <- igos_by_year %>%
   bind_rows(countries_by_year) %>%
-  # For labelling the plot
+  # Label the plot.
   mutate(
     variable = factor(
       variable,
@@ -121,8 +121,7 @@ all_by_year <- igos_by_year %>%
     )
   )
 
-
-# Plot
+# Plot the results.
 ggplot(all_by_year, aes(x = year, y = value)) +
   geom_line(color = "black", aes(linetype = variable)) +
   scale_x_continuous(limits = c(1800, 2014)) +
@@ -158,12 +157,11 @@ deads <- df %>%
   summarise(value = n(), .groups = "keep") %>%
   mutate(variable = "IGO Deaths")
 
-
 births_and_deads <- births %>%
   bind_rows(deads) %>%
   filter(!is.na(year))
 
-# Plot
+# Plot the results.
 ggplot(births_and_deads, aes(x = year, y = value)) +
   geom_line(color = "black", aes(linetype = variable)) +
   scale_linetype_manual(values = c("solid", "dashed")) +
@@ -543,14 +541,14 @@ regions <- igo_search() %>%
   select(ioname, region)
 ```
 
-After we have created a data frame with the regions, we can classify the
-IGOs by region.
+After creating a data frame with the regions, we can classify the IGOs
+by region.
 
 ``` r
 
 # The `regions` data set was created in the previous chunk.
 
-# All IGOs
+# Select all IGOs.
 alligos <- igo_year_format3 %>%
   select(ioname, year)
 
@@ -559,7 +557,7 @@ regionsum <- alligos %>%
   group_by(year, region) %>%
   summarise(value = n(), .groups = "keep") %>%
   filter(!is.na(region)) %>%
-  # For plotting
+  # Prepare for plotting.
   mutate(
     region = factor(
       region,
@@ -573,8 +571,7 @@ regionsum <- alligos %>%
     )
   )
 
-
-# Plot
+# Plot the results.
 ggplot(regionsum, aes(x = year, y = value)) +
   geom_line(color = "black", aes(linetype = region)) +
   scale_linetype_manual(
@@ -614,7 +611,7 @@ asia5 <- asia5_igos %>%
   summarise(values = n(), .groups = "keep") %>%
   mutate(statenme = factor(statenme, levels = asia5_cntries))
 
-# Plot
+# Plot the results.
 ggplot(asia5, aes(x = year, y = values)) +
   geom_line(color = "black", aes(linetype = statenme)) +
   scale_linetype_manual(
@@ -660,7 +657,7 @@ spain_selected <- spain_selected %>%
   rowwise() %>%
   mutate(values = sum(c_across(aaaid:wassen) == 1))
 
-# Plot
+# Plot the results.
 ggplot(spain_selected, aes(x = year, y = values)) +
   geom_line(color = "black", aes(linetype = statenme2)) +
   scale_linetype_manual(values = c("solid", "dashed", "dotted", "dotdash")) +

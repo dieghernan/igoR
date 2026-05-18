@@ -53,7 +53,7 @@ Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 ## Examples
 
 ``` r
-# Memberships on two different dates
+# Memberships on two different dates.
 igo_state_membership("Spain", year = 1850)
 #>   ccode stateabb statenme state year ioname value        category
 #> 1   230      SPN    Spain spain 1850    SCH     1 Full Membership
@@ -156,7 +156,7 @@ igo_state_membership("Spain", year = 1880:1882)
 #> 17      1        0
 #> 18      0        1
 
-# Last year
+# Last year.
 igo_state_membership("ZAN")[, 1:7]
 #>   ccode stateabb statenme    state year ioname value
 #> 1   511      ZAN Zanzibar zanzibar 1964    CEC     1
@@ -164,7 +164,7 @@ igo_state_membership("ZAN")[, 1:7]
 #> 3   511      ZAN Zanzibar zanzibar 1964     UN     1
 #> 4   511      ZAN Zanzibar zanzibar 1964    UPU     1
 
-# Use codes to get countries
+# Use codes to get countries.
 igo_state_membership("2", year = 1865)
 #>   ccode stateabb                 statenme state year ioname value
 #> 1     2      USA United States of America   usa 1865 ICCSLT     1
@@ -175,7 +175,7 @@ igo_state_membership("2", year = 1865)
 #>   social economic
 #> 1      0        1
 
-# Extract different statuses
+# Extract different statuses.
 igo_state_membership("kosovo", status = c(
   "Associate Membership", "Observer",
   "Full Membership"
@@ -209,7 +209,7 @@ igo_state_membership("kosovo", status = c(
 #> 5      0        1
 #> 6      1        0
 
-# Vectorized
+# Vectorized.
 igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #>   ccode stateabb                 statenme state year ioname value
 #> 1     2      USA United States of America   usa 1870 ICCSLT     1
@@ -248,7 +248,7 @@ igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #> 7      0        1
 #> 8      1        0
 
-# Use the countrycode package to get additional codes
+# Use the countrycode package to get additional codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   IT <- igo_state_membership("Italy", year = 1880)

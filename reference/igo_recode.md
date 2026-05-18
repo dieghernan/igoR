@@ -4,16 +4,13 @@ These functions convert the numerical codes of
 [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
 and
 [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
-into [factors](https://rdrr.io/r/base/factor.html).
-
-- `igo_recode_igoyear()` is intended to work with values from
-  [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
-
-- `igo_recode_stateyear()` is intended to work with values from
-  [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
-
-- `igo_recode_dyadic()` is intended to work with values from
-  [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md).
+into [factors](https://rdrr.io/r/base/factor.html). Use
+`igo_recode_igoyear()` with values from
+[igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
+`igo_recode_stateyear()` with values from
+[state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
+and `igo_recode_dyadic()` with values from
+[`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md).
 
 ## Usage
 
@@ -47,7 +44,7 @@ Other datasets:
 ``` r
 data("igo_year_format3")
 
-# Recode memberships for some countries
+# Recode memberships for some countries.
 
 library(dplyr)
 
@@ -65,7 +62,7 @@ glimpse(samp)
 #> $ spain   <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0,…
 #> $ france  <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
 
-# Recode
+# Recode.
 samp %>%
   mutate(
     spain = igo_recode_igoyear(spain),

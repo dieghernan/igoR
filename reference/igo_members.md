@@ -110,7 +110,7 @@ igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
 #> 11 NAFTA     20 canada Canada                    1998     1 Full Member… North …
 #> 12 NAFTA     70 mexico Mexico                    1998     1 Full Member… North …
 
-# Extract different statuses
+# Extract different statuses.
 igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
   as_tibble()
 #> # A tibble: 25 × 8
@@ -128,7 +128,7 @@ igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
 #> 10 ACCT     310 hungary     Hungary             2014     3 Observer      Franco…
 #> # ℹ 15 more rows
 
-# States that are not members of the UN
+# States that are not members of the UN.
 igo_members("UN", status = "No Membership") %>%
   as_tibble()
 #> # A tibble: 2 × 8
@@ -137,7 +137,7 @@ igo_members("UN", status = "No Membership") %>%
 #> 1 UN       347 kosovo Kosovo    2014     0 No Membership United Nations
 #> 2 UN       713 taiwan Taiwan    2014     0 No Membership United Nations
 
-# Vectorized
+# Vectorized.
 igo_members(c("NAFTA", "EU"), year = 1993) %>%
   as_tibble() %>%
   arrange(state)
@@ -160,7 +160,7 @@ igo_members(c("NAFTA", "EU"), year = 1993) %>%
 #> 14 EU       200 uk          United Kingdom           1993     1 Full Me… Europe…
 #> 15 NAFTA      2 usa         United States of Ameri…  1993     1 Full Me… North …
 
-# Use the countrycode package to get additional codes
+# Use the countrycode package to get additional codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")
