@@ -7,9 +7,9 @@
 #' @inherit igo_dyadic references
 #'
 #' @description
-#' Data on IGOs from 1815-2014 at the IGO-year level. Contains one record per
-#' IGO-year, with years listed at 5-year intervals through 1965 and annually
-#' thereafter.
+#' Data on IGOs from 1815 to 2014 at the IGO-year level. Contains one record
+#' per IGO-year, with years listed at five-year intervals through 1965 and
+#' annually thereafter.
 #'
 #' @source
 #' [Intergovernmental Organizations
@@ -46,8 +46,8 @@
 #' - **year**: Calendar year.
 #' - **afghanistan...zimbabwe**: Status of that state in the IGO. See
 #'   **Details**.
-#' - **sdate**: Start date (year) when the IGO started.
-#' - **deaddate**: End date (year) when the IGO ceased to exist.
+#' - **sdate**: Start year for the IGO.
+#' - **deaddate**: End year for the IGO.
 #' - **longorgname**: Longer version of the IGO name, including previous
 #'   names.
 #' - **ionum**: IGO ID number in v2.1 and v3.0 of the data.
@@ -95,9 +95,9 @@ NULL
 #' @inherit igo_year_format3 source references note
 #'
 #' @description
-#' Data on IGOs from 1815-2014 at the country-year level. Contains one record
-#' per country-year, with years listed at 5-year intervals through 1965 and
-#' annually thereafter.
+#' Data on IGOs from 1815 to 2014 at the country-year level. Contains one
+#' record per country-year, with years listed at five-year intervals through
+#' 1965 and annually thereafter.
 #'
 #' @details
 #' Possible values for the status of a state in the IGO are:
@@ -183,7 +183,7 @@ NULL
 #' powers in the international system.
 #'
 #' The Correlates of War Project includes a state in the international system
-#' from 1816-2016 according to the following criteria:
+#' from 1816 to 2016 according to the following criteria:
 #'
 #' - **Before 1920**, the entity must have had a population greater than
 #'   500,000 and have had diplomatic missions at or above the rank of charge

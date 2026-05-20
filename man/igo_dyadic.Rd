@@ -11,33 +11,32 @@
 igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 }
 \arguments{
-\item{country1, country2}{A state or vector of states to be compared. It can
-be any valid name or code of a state as specified in \link{states2016}.}
+\item{country1, country2}{State or vector of states to compare. Values can be
+any valid state name or code as specified in \link{states2016}.}
 
-\item{year}{Year to be assessed, as an integer or vector of years.}
+\item{year}{Year to assess, as an integer or vector of years.}
 
 \item{ioname}{Optional. \code{ioname} or vector of \code{ioname} corresponding to the
-IGOs to be assessed. If \code{NULL} (the default), all IGOs will be extracted.
+IGOs to assess. If \code{NULL} (the default), all IGOs will be extracted.
 See codes in \code{\link[=igo_search]{igo_search()}}.}
 }
 \value{
-A coded \code{\link{data.frame}} representing the years and country dyad
-(rows) and the IGOs selected (columns). See \strong{Details}.
+A coded \code{\link{data.frame}} with years and country dyads as rows
+and selected IGOs as columns. See \strong{Details}.
 }
 \description{
-Dyadic version of the data. The unit of observation is a dyad of countries.
-It provides a summary of the joint memberships of two countries across IGOs
-over time.
+Create a dyadic version of the data. The unit of observation is a country
+dyad. The result summarizes joint memberships across IGOs over time.
 }
 \details{
 This function tries to replicate the information contained in the original
 file distributed by The Correlates of War Project (\code{dyadic_format3.dta}).
 That file is not included in this package due to its size.
 
-The result is a \code{\link{data.frame}} containing one row for each
-common year selected via \code{country1}, \code{country2} and \code{year}.
+The result is a \code{\link{data.frame}} with one row for each common
+year selected via \code{country1}, \code{country2} and \code{year}.
 
-An additional column \code{dyadid}, computed as \code{(1000 * ccode1) + ccode2}, is
+An additional column, \code{dyadid}, computed as \code{(1000 * ccode1) + ccode2}, is
 provided to identify relationships.
 
 For each IGO selected via \code{ioname}, or all IGOs if the default option is
@@ -57,11 +56,10 @@ numerical values into \link[base:factor]{factors}.
 If one state in an IGO is a full member but the other is an associate member
 or observer, that IGO is not coded as a joint membership.
 }
-\section{Differences with the original data set}{
-There are some differences between the results provided by this function and
-the original data set for some IGOs regarding "Missing data" (\code{-9}) and
-"State Not System Member" (\code{-1}). However, it is not clear how to fully
-replicate those values.
+\section{Differences from the original data set}{
+Some results from this function differ from the original data set for some
+IGOs regarding "Missing data" (\code{-9}) and "State Not System Member" (\code{-1}).
+However, it is not clear how to fully replicate those values.
 
 See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}.
 }

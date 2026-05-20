@@ -1,6 +1,6 @@
 # igoR 1.0.1
 
-- `COPYRIGHTS` file updated.
+- Updated the `COPYRIGHTS` file.
 - Migrated documentation and vignettes to Quarto.
 
 # igoR 1.0.0
@@ -15,12 +15,10 @@ First major version of the package.
 
 # igoR 0.2.0
 
-- Internal code refactor. Users should not notice any visible change.
-- `igo_dyadic()` now also accepts a vector of countries in the `country1`
-  argument.
-- New helper functions for converting numerical values to labels:
-  `igo_recode_igoyear()`, `igo_recode_stateyear()`, `igo_recode_dyadic()`.
+- Refactored internal code. Users should not notice any visible change.
 - Updated documentation and basic package maintenance.
+- `igo_dyadic()` now also accepts a vector of countries in the `country1` argument.
+- `igo_recode_igoyear()`, `igo_recode_stateyear()` and `igo_recode_dyadic()` are new helper functions for converting numerical values to labels.
 
 # igoR 0.1.5
 
@@ -36,9 +34,8 @@ First major version of the package.
 
 # igoR 0.1.2
 
-- Compiled the "Mapping IGOs" article into a vignette.
-- Updated documentation. It is now in Markdown format using
-  `roxygen2md::roxygen2md()`.
+- Compiled the "Mapping IGOs" article as a vignette.
+- Updated documentation. It is now in Markdown format using `roxygen2md::roxygen2md()`.
 - Moved tests to **testthat**.
 
 # igoR 0.1.1
@@ -47,11 +44,11 @@ First major version of the package.
 
 # igoR 0.1.0
 
-- Vectorized `igo_members()`.
 - Generalized search to ignore case.
-- Added `igo_state_membership()`.
+- More vignettes are available on the [website](https://dieghernan.github.io/igoR/).
 - `cow_country_codes` is now internal.
-- Added `igoR::states2016` as a replacement for `cow_country_codes`.
-- Added `igo_dyadic()`.
-- Added `igo_search_states()`.
-- More vignettes on the [website](https://dieghernan.github.io/igoR/).
+- `igo_dyadic()` was added.
+- `igo_members()` was vectorized.
+- `igo_search_states()` was added.
+- `igo_state_membership()` was added.
+- `igoR::states2016` was added as a replacement for `cow_country_codes`.

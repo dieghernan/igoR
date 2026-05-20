@@ -10,8 +10,8 @@
 #' @inherit igo_members source references return
 #' @encoding UTF-8
 #'
-#' @param state Any valid name or code of a state as specified in
-#'   [states2016]. It can also be a vector of states.
+#' @param state Any valid state name or code as specified in [states2016]. This
+#'   can also be a vector of states.
 #'
 #' @examples
 #' library(dplyr)
@@ -28,7 +28,6 @@
 #' @export
 igo_search_states <- function(state) {
   # Vectorize the lookup.
-
   find_v <- lapply(state, function(x) {
     # Initialize the lookup.
     find_state <- vector(mode = "numeric")
@@ -49,7 +48,7 @@ igo_search_states <- function(state) {
     find_state <- sort(find_state)[1]
 
     if (is.na(find_state)) {
-      message("State not found: ", paste0("'", x, "'", collapse = ", "))
+      message("State not found: ", paste0("'", x, "'", collapse = ", "), ".")
       return(invisible(NULL))
     }
 
@@ -58,13 +57,13 @@ igo_search_states <- function(state) {
     df_states
   })
 
-  # Check results.
+  # Identify empty results.
   has_results <- vapply(find_v, is.null, logical(1))
 
-  # Clean results.
+  # Keep successful results.
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
-    warning("No states found with the required arguments")
+    warning("No states found with the required arguments.")
     return(invisible(NULL))
   }
 

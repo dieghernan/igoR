@@ -19,7 +19,7 @@ template:
 home:
   title: igoR | R package for intergovernmental organizations
   description: >
-    Tools for accessing and extracting information from the
+    Tools for searching, extracting and recoding information from the
     Intergovernmental Organizations Database (v3), distributed by the
     Correlates of War Project.
 
@@ -31,13 +31,13 @@ reference:
   - state_year_format3
   - states2016
 - title: Query and extraction functions
-  desc: Search IGOs and extract membership information.
+  desc: Search IGOs and states, then extract membership information.
   contents:
-  - igo_dyadic
-  - igo_members
   - igo_search
   - igo_search_states
+  - igo_members
   - igo_state_membership
+  - igo_dyadic
 - title: Recode helpers
   desc: Convert numerical membership codes into factors.
   contents:
@@ -47,7 +47,7 @@ reference:
   - igoR-package
 
 articles:
-- title: Articles
+- title: Articles and annexes
   navbar: Articles
   contents:
   - mapping

@@ -13,7 +13,7 @@ knitr:
 ---
 
 This annex lists the IGOs [@pevehouse2020] and countries
-[@correlatesofwarproject2017] included in this package.
+[@correlatesofwarproject2017] included with the package.
 
 ## List of IGOs
 

@@ -3,7 +3,7 @@
 #' @name igo_members
 #'
 #' @description
-#' Extract all countries belonging to an IGO on a specific date.
+#' Extract all countries that belong to an IGO on a specific date.
 #'
 #' @return A [`data.frame`][data.frame()].
 #'
@@ -15,9 +15,9 @@
 #'
 #' @export
 #'
-#' @param ioname Any valid `ioname` of an IGO as specified in
-#'   [igo_year_format3]. It can also be a vector of IGOs.
-#' @param year Year to be assessed, as an integer or vector of years. If
+#' @param ioname Any valid `ioname` for an IGO as specified in
+#'   [igo_year_format3]. This can also be a vector of IGOs.
+#' @param year Year to assess, as an integer or vector of years. If
 #'   `NULL`, the latest year available for the IGO is extracted.
 #' @param status Character or vector with the membership status to be extracted.
 #'   See **Details** in [state_year_format3].
@@ -57,7 +57,7 @@
 igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Check inputs.
   if (missing(ioname)) {
-    stop("You must enter a value for 'ioname'")
+    stop("You must enter a value for 'ioname'.")
   }
 
   levls <- levels(igo_recode_stateyear(1))
@@ -65,24 +65,24 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   checkstatus <- match(status, levls)
   if (isTRUE(anyNA(checkstatus))) {
     warning(
-      "status ",
+      "Status ",
       paste0("'", status[is.na(checkstatus)], "'", collapse = ", "),
       " is not valid. Valid values are ",
       paste0("'", levls, collapse = "', "),
-      "'"
+      "'."
     )
   }
 
   # Run the vectorized search.
   find_v <- lapply(ioname, igo_member_single, year = year, status = status)
 
-  # Check results.
+  # Identify empty results.
   has_results <- vapply(find_v, is.null, logical(1))
 
-  # Clean results.
+  # Keep successful results.
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
-    warning("No IGO results found with the required arguments")
+    warning("No IGO results found with the required arguments.")
     return(invisible(NULL))
   }
 
@@ -97,7 +97,7 @@ igo_member_single <- function(ioname, year, status) {
   igo_db <- igo_db[tolower(igo_db$ioname) %in% tolower(ioname), ]
 
   if (nrow(igo_db) == 0) {
-    message("ioname '", ioname, "' not found in the database")
+    message("ioname '", ioname, "' not found in the database.")
     return(NULL)
   }
 
@@ -123,7 +123,8 @@ igo_member_single <- function(ioname, year, status) {
       "ioname '",
       ioname,
       "' was available only between ",
-      paste0(dates, collapse = " and ")
+      paste0(dates, collapse = " and "),
+      "."
     )
     return(NULL)
   }
@@ -136,7 +137,6 @@ igo_member_single <- function(ioname, year, status) {
   state_igo$category <- igo_recode_stateyear(state_igo$value)
 
   # Merge with `igo_db`.
-
   igo_w_year <- merge(igo_db2, state_igo)
   igo_w_year <- igo_w_year[igo_w_year$category %in% status, ]
 

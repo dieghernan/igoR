@@ -15,8 +15,8 @@ fields:
 \item \strong{year}: Calendar year.
 \item \strong{afghanistan...zimbabwe}: Status of that state in the IGO. See
 \strong{Details}.
-\item \strong{sdate}: Start date (year) when the IGO started.
-\item \strong{deaddate}: End date (year) when the IGO ceased to exist.
+\item \strong{sdate}: Start year for the IGO.
+\item \strong{deaddate}: End year for the IGO.
 \item \strong{longorgname}: Longer version of the IGO name, including previous
 names.
 \item \strong{ionum}: IGO ID number in v2.1 and v3.0 of the data.
@@ -30,9 +30,9 @@ See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 
 Project (IGO Data Stata Files).
 }
 \description{
-Data on IGOs from 1815-2014 at the IGO-year level. Contains one record per
-IGO-year, with years listed at 5-year intervals through 1965 and annually
-thereafter.
+Data on IGOs from 1815 to 2014 at the IGO-year level. Contains one record
+per IGO-year, with years listed at five-year intervals through 1965 and
+annually thereafter.
 }
 \details{
 Possible values for the status of a state in the IGO are:\tabular{lr}{

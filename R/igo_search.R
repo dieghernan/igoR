@@ -114,7 +114,7 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
     if (length(lon) > 0) {
       db_end <- db_end[lon, ]
     } else {
-      warning("Pattern '", pattern, "' does not match any IGO")
+      warning("Pattern '", pattern, "' does not match any IGO.")
       return(invisible(NULL))
     }
   }

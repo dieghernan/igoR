@@ -11,8 +11,8 @@
 igo_search_states(state)
 }
 \arguments{
-\item{state}{Any valid name or code of a state as specified in
-\link{states2016}. It can also be a vector of states.}
+\item{state}{Any valid state name or code as specified in \link{states2016}. This
+can also be a vector of states.}
 }
 \value{
 A \code{\link{data.frame}}.

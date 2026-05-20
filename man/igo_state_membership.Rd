@@ -11,10 +11,10 @@
 igo_state_membership(state, year = NULL, status = "Full Membership")
 }
 \arguments{
-\item{state}{Any valid name or code of a state as specified in
-\link{states2016}. It can also be a vector of states.}
+\item{state}{Any valid state name or code as specified in \link{states2016}. This
+can also be a vector of states.}
 
-\item{year}{Year to be assessed, as an integer or vector of years. If
+\item{year}{Year to assess, as an integer or vector of years. If
 \code{NULL}, the latest year available for the state is extracted.}
 
 \item{status}{Character or vector with the membership status to be extracted.
@@ -24,7 +24,7 @@ See \strong{Details} in \link{igo_year_format3}.}
 A \code{\link{data.frame}}.
 }
 \description{
-Extract all memberships of a state on a specific date.
+Extract all IGO memberships of a state on a specific date.
 }
 \examples{
 # Memberships on two different dates.

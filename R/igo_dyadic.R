@@ -4,13 +4,12 @@
 #'
 #' @encoding UTF-8
 #' @description
-#' Dyadic version of the data. The unit of observation is a dyad of countries.
-#' It provides a summary of the joint memberships of two countries across IGOs
-#' over time.
+#' Create a dyadic version of the data. The unit of observation is a country
+#' dyad. The result summarizes joint memberships across IGOs over time.
 #'
 #' @return
-#' A coded [`data.frame`][data.frame()] representing the years and country dyad
-#' (rows) and the IGOs selected (columns). See **Details**.
+#' A coded [`data.frame`][data.frame()] with years and country dyads as rows
+#' and selected IGOs as columns. See **Details**.
 #'
 #' @seealso
 #' [state_year_format3], [states2016], [igo_search()].
@@ -25,11 +24,11 @@
 #' data sets. *Journal of Peace Research, 57*(3), 492–503.
 #' \doi{10.1177/0022343319881175}.
 #'
-#' @param country1,country2 A state or vector of states to be compared. It can
-#'   be any valid name or code of a state as specified in [states2016].
-#' @param year Year to be assessed, as an integer or vector of years.
+#' @param country1,country2 State or vector of states to compare. Values can be
+#'   any valid state name or code as specified in [states2016].
+#' @param year Year to assess, as an integer or vector of years.
 #' @param ioname Optional. `ioname` or vector of `ioname` corresponding to the
-#'   IGOs to be assessed. If `NULL` (the default), all IGOs will be extracted.
+#'   IGOs to assess. If `NULL` (the default), all IGOs will be extracted.
 #'   See codes in [igo_search()].
 #'
 #' @details
@@ -37,10 +36,10 @@
 #' file distributed by The Correlates of War Project (`dyadic_format3.dta`).
 #' That file is not included in this package due to its size.
 #'
-#' The result is a [`data.frame`][data.frame()] containing one row for each
-#' common year selected via `country1`, `country2` and `year`.
+#' The result is a [`data.frame`][data.frame()] with one row for each common
+#' year selected via `country1`, `country2` and `year`.
 #'
-#' An additional column `dyadid`, computed as `(1000 * ccode1) + ccode2`, is
+#' An additional column, `dyadid`, computed as `(1000 * ccode1) + ccode2`, is
 #' provided to identify relationships.
 #'
 #' For each IGO selected via `ioname`, or all IGOs if the default option is
@@ -67,12 +66,11 @@
 #' If one state in an IGO is a full member but the other is an associate member
 #' or observer, that IGO is not coded as a joint membership.
 #'
-#' # Differences with the original data set
+#' # Differences from the original data set
 #'
-#' There are some differences between the results provided by this function and
-#' the original data set for some IGOs regarding "Missing data" (`-9`) and
-#' "State Not System Member" (`-1`). However, it is not clear how to fully
-#' replicate those values.
+#' Some results from this function differ from the original data set for some
+#' IGOs regarding "Missing data" (`-9`) and "State Not System Member" (`-1`).
+#' However, it is not clear how to fully replicate those values.
 #'
 #' See [**Codebook Version 3
 #' IGO Data**](https://correlatesofwar.org/data-sets/IGOs/).
@@ -98,7 +96,8 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   if (!is.numeric(year)) {
     warning(
       "year must be numeric, not ",
-      paste0(class(year), collapse = ", ")
+      paste0(class(year), collapse = ", "),
+      "."
     )
     return(invisible(NULL))
   }
@@ -108,7 +107,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   c2s <- igo_search_states(country2)
 
   if (any(is.null(c1s), is.null(c2s))) {
-    warning("No countries found for comparison")
+    warning("No countries found for comparison.")
     return(invisible(NULL))
   }
 
@@ -127,13 +126,12 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   if (nrow(base_df) == 0) {
     warning(
       "No different countries found for comparison ",
-      "in 'country1' and 'country2' values"
+      "in 'country1' and 'country2' values."
     )
     return(invisible(NULL))
   }
 
   # Run the vectorized search.
-
   iter <- seq_len(nrow(base_df))
 
   find_v <- lapply(
@@ -144,13 +142,13 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
     ioname = ioname
   )
 
-  # Check results.
+  # Identify empty results.
   has_results <- vapply(find_v, is.null, logical(1))
 
-  # Clean results.
+  # Keep successful results.
   clean <- find_v[!has_results]
   if (length(clean) < 1) {
-    warning("No dyadic results found with the required arguments")
+    warning("No dyadic results found with the required arguments.")
     return(invisible(NULL))
   }
 
@@ -173,7 +171,8 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
   if (length(ioname_ext) == 0) {
     message(
       "No valid ionames used with ",
-      paste0("'", ioname, "'", collapse = ", ")
+      paste0("'", ioname, "'", collapse = ", "),
+      "."
     )
     return(NULL)
   }
@@ -184,7 +183,7 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
   all_igos <- all_igos[all_igos$year %in% year, ]
 
   if (nrow(all_igos) == 0) {
-    message("No ionames found for the selected years")
+    message("No ionames found for the selected years.")
     return(NULL)
   }
 
@@ -195,7 +194,7 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
     message(
       "Country '",
       this_iter_df$state1,
-      "' was not alive in the selected years"
+      "' was not alive in the selected years."
     )
     return(NULL)
   }
@@ -204,7 +203,7 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
     message(
       "Country '",
       this_iter_df$state2,
-      "' was not alive in the selected years"
+      "' was not alive in the selected years."
     )
     return(NULL)
   }

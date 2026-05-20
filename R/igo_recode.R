@@ -23,7 +23,6 @@
 #' data("igo_year_format3")
 #'
 #' # Recode memberships for some countries.
-#'
 #' library(dplyr)
 #'
 #' samp <- igo_year_format3 %>%

@@ -11,10 +11,10 @@
 igo_members(ioname, year = NULL, status = "Full Membership")
 }
 \arguments{
-\item{ioname}{Any valid \code{ioname} of an IGO as specified in
-\link{igo_year_format3}. It can also be a vector of IGOs.}
+\item{ioname}{Any valid \code{ioname} for an IGO as specified in
+\link{igo_year_format3}. This can also be a vector of IGOs.}
 
-\item{year}{Year to be assessed, as an integer or vector of years. If
+\item{year}{Year to assess, as an integer or vector of years. If
 \code{NULL}, the latest year available for the IGO is extracted.}
 
 \item{status}{Character or vector with the membership status to be extracted.
@@ -24,7 +24,7 @@ See \strong{Details} in \link{state_year_format3}.}
 A \code{\link{data.frame}}.
 }
 \description{
-Extract all countries belonging to an IGO on a specific date.
+Extract all countries that belong to an IGO on a specific date.
 }
 \examples{
 library(dplyr)

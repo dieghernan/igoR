@@ -37,12 +37,12 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-igoR provides access to the Intergovernmental Organizations Database (v3) from
-the Correlates of War Project [@pevehouse2020].
+**igoR** provides access to the Intergovernmental Organizations Database (v3)
+from the Correlates of War Project [@pevehouse2020].
 
 The data set (v3) includes information on **`r nrow(igoR::igo_search())`** IGOs
 from `r min(igoR::igo_year_format3$year)` to
-`r max(igoR::igo_year_format3$year)`, as well as membership information.
+`r max(igoR::igo_year_format3$year)`, plus membership information.
 
 - Source: [Intergovernmental Organizations
   (v3)](https://correlatesofwar.org/data-sets/IGOs/).
@@ -93,7 +93,7 @@ install.packages(
 
 ### Search an IGO by name
 
-Search all IGOs related to "sugar":
+Search for all IGOs related to "sugar":
 
 ```{r}
 #| label: search
@@ -112,7 +112,8 @@ cat("<p class=\"caption\">Table 1: IGOs related to sugar</p>")
 ### IGO members
 
 Composition of the [European Economic
-Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time:
+Community](https://en.wikipedia.org/wiki/European_Economic_Community) over
+time:
 
 ```{r}
 #| label: eec

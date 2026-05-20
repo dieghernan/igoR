@@ -20,9 +20,9 @@
           "name": "The Correlates of War Project"
         }
       ],
-      "description": "Tools for accessing and extracting information from the Intergovernmental Organizations ('IGO') Database (v3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.",
+      "description": "Tools for searching, extracting and recoding information from the Intergovernmental Organizations ('IGO') Database (v3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.",
       "license": "https://spdx.org/licenses/GPL-3.0",
-      "name": "igoR: Intergovernmental Organizations Database",
+      "name": "igoR: Access the Intergovernmental Organizations Database",
       "programmingLanguage": {
         "type": "ComputerLanguage",
         "name": "R",
@@ -45,7 +45,7 @@
         "familyName": "Hernangómez",
         "givenName": "Diego"
       },
-      "name": "{igoR}: Intergovernmental Organizations Database"
+      "name": "{igoR}: Access the Intergovernmental Organizations Database"
     }
   ]
 }
