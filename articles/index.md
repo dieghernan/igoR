@@ -1,6 +1,6 @@
 # Articles
 
-### Articles
+### Articles and annexes
 
 - [Mapping IGOs](https://dieghernan.github.io/igoR/articles/mapping.md):
 

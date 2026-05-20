@@ -1,6 +1,6 @@
 # Extract members of an IGO
 
-Extract all countries belonging to an IGO on a specific date.
+Extract all countries that belong to an IGO on a specific date.
 
 ## Usage
 
@@ -17,13 +17,13 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - ioname:
 
-  Any valid `ioname` of an IGO as specified in
+  Any valid `ioname` for an IGO as specified in
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
-  It can also be a vector of IGOs.
+  This can also be a vector of IGOs.
 
 - year:
 
-  Year to be assessed, as an integer or vector of years. If `NULL`, the
+  Year to assess, as an integer or vector of years. If `NULL`, the
   latest year available for the IGO is extracted.
 
 - status:

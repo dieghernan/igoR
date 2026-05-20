@@ -1,6 +1,6 @@
 # Extract memberships of a state
 
-Extract all memberships of a state on a specific date.
+Extract all IGO memberships of a state on a specific date.
 
 ## Usage
 
@@ -17,13 +17,13 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - state:
 
-  Any valid name or code of a state as specified in
+  Any valid state name or code as specified in
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
-  It can also be a vector of states.
+  This can also be a vector of states.
 
 - year:
 
-  Year to be assessed, as an integer or vector of years. If `NULL`, the
+  Year to assess, as an integer or vector of years. If `NULL`, the
   latest year available for the state is extracted.
 
 - status:

@@ -1,7 +1,7 @@
 # Mapping IGOs
 
 Maps are a powerful tool for presenting data. Because **igoR** focuses
-on Intergovernmental Organizations, mapping and IGOs are a natural fit.
+on intergovernmental organizations, mapping and IGOs are a natural fit.
 
 This vignette provides geospatial visualizations using the IGO data sets
 ([Pevehouse et al. 2020](#ref-pevehouse2020)) included in this package.
@@ -11,7 +11,7 @@ It uses these packages for geospatial data:
 - **ggplot2** package for plotting.
 
 The **countrycode** package is useful for translating between coding
-schemes (COW, ISO3, NUTS, FIPS) and country names.
+schemes (COW, ISO3, NUTS and FIPS) and country names.
 
 ``` r
 
@@ -37,15 +37,14 @@ First, extract the data.
 # Extract shapes.
 world <- gisco_get_countries()
 
-# Extract three dates. Some errors occur because ISO does not include every
-# COW code.
+# Extract three dates. Some errors occur because ISO does not include every COW
+# code.
 un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
   # Add the ISO3 code.
   mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
   select(year, orgname, ISO3_CODE, category)
 
 # Build an auxiliary data frame to collect every ISO3-year pair.
-
 base_df <- expand.grid(
   ISO3_CODE = unique(world$ISO3_CODE),
   year = unique(un_all$year),
@@ -97,8 +96,8 @@ UN members (1950, 1980, 2010)
 ## Number of shared memberships
 
 Shared memberships are useful for identifying regional patterns. The
-following code produces a map showing how many full memberships each
-country shared with Australia in 2014.
+following code maps how many full memberships each country shared with
+Australia in 2014.
 
 ``` r
 
@@ -180,8 +179,7 @@ all <- igo_dyadic(cntries, cntries, years) %>%
   mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c")) %>%
   select(ISO3_CODE, year, value)
 
-# Create the map.
-# Get shapes.
+# Get shapes for the map.
 countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
   left_join(all, by = "ISO3_CODE")
 

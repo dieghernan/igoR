@@ -17,9 +17,9 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - state:
 
-  Any valid name or code of a state as specified in
+  Any valid state name or code as specified in
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
-  It can also be a vector of states.
+  This can also be a vector of states.
 
 ## Value
 

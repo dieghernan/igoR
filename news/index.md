@@ -4,7 +4,7 @@
 
 CRAN release: 2026-03-13
 
-- `COPYRIGHTS` file updated.
+- Updated the `COPYRIGHTS` file.
 - Migrated documentation and vignettes to Quarto.
 
 ## igoR 1.0.0
@@ -26,14 +26,15 @@ CRAN release: 2024-12-17
 
 CRAN release: 2024-02-05
 
-- Internal code refactor. Users should not notice any visible change.
+- Refactored internal code. Users should not notice any visible change.
+- Updated documentation and basic package maintenance.
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
   now also accepts a vector of countries in the `country1` argument.
-- New helper functions for converting numerical values to labels:
-  [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
-  [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
-  [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_recode.md).
-- Updated documentation and basic package maintenance.
+- [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
+  [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
+  and
+  [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
+  are new helper functions for converting numerical values to labels.
 
 ## igoR 0.1.5
 
@@ -57,7 +58,7 @@ CRAN release: 2021-10-20
 
 CRAN release: 2021-08-04
 
-- Compiled the “Mapping IGOs” article into a vignette.
+- Compiled the “Mapping IGOs” article as a vignette.
 - Updated documentation. It is now in Markdown format using
   `roxygen2md::roxygen2md()`.
 - Moved tests to **testthat**.
@@ -70,17 +71,17 @@ CRAN release: 2021-01-27
 
 ## igoR 0.1.0
 
-- Vectorized
-  [`igo_members()`](https://dieghernan.github.io/igoR/reference/igo_members.md).
 - Generalized search to ignore case.
-- Added
-  [`igo_state_membership()`](https://dieghernan.github.io/igoR/reference/igo_state_membership.md).
+- More vignettes are available on the
+  [website](https://dieghernan.github.io/igoR/).
 - `cow_country_codes` is now internal.
-- Added
-  [`igoR::states2016`](https://dieghernan.github.io/igoR/reference/states2016.md)
-  as a replacement for `cow_country_codes`.
-- Added
-  [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md).
-- Added
-  [`igo_search_states()`](https://dieghernan.github.io/igoR/reference/igo_search_states.md).
-- More vignettes on the [website](https://dieghernan.github.io/igoR/).
+- [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
+  was added.
+- [`igo_members()`](https://dieghernan.github.io/igoR/reference/igo_members.md)
+  was vectorized.
+- [`igo_search_states()`](https://dieghernan.github.io/igoR/reference/igo_search_states.md)
+  was added.
+- [`igo_state_membership()`](https://dieghernan.github.io/igoR/reference/igo_state_membership.md)
+  was added.
+- [`igoR::states2016`](https://dieghernan.github.io/igoR/reference/states2016.md)
+  was added as a replacement for `cow_country_codes`.

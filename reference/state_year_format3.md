@@ -1,8 +1,8 @@
 # Country membership in IGOs by year
 
-Data on IGOs from 1815-2014 at the country-year level. Contains one
-record per country-year, with years listed at 5-year intervals through
-1965 and annually thereafter.
+Data on IGOs from 1815 to 2014 at the country-year level. Contains one
+record per country-year, with years listed at five-year intervals
+through 1965 and annually thereafter.
 
 ## Format
 

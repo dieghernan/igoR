@@ -2,7 +2,7 @@
 
 This annex lists the IGOs ([Pevehouse et al. 2020](#ref-pevehouse2020))
 and countries ([Correlates of War Project
-2017](#ref-correlatesofwarproject2017)) included in this package.
+2017](#ref-correlatesofwarproject2017)) included with the package.
 
 ## List of IGOs
 

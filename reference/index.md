@@ -13,18 +13,18 @@ Data objects included in the package.
 
 ## Query and extraction functions
 
-Search IGOs and extract membership information.
+Search IGOs and states, then extract membership information.
 
-- [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
-  : Extract joint membership for a pair of countries across IGOs
-- [`igo_members()`](https://dieghernan.github.io/igoR/reference/igo_members.md)
-  : Extract members of an IGO
 - [`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md)
   : Search for an IGO
 - [`igo_search_states()`](https://dieghernan.github.io/igoR/reference/igo_search_states.md)
   : Find codes and names of a state
+- [`igo_members()`](https://dieghernan.github.io/igoR/reference/igo_members.md)
+  : Extract members of an IGO
 - [`igo_state_membership()`](https://dieghernan.github.io/igoR/reference/igo_state_membership.md)
   : Extract memberships of a state
+- [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
+  : Extract joint membership for a pair of countries across IGOs
 
 ## Recode helpers
 
@@ -39,4 +39,4 @@ Convert numerical membership codes into factors.
 
 - [`igoR`](https://dieghernan.github.io/igoR/reference/igoR-package.md)
   [`igoR-package`](https://dieghernan.github.io/igoR/reference/igoR-package.md)
-  : igoR: Intergovernmental Organizations Database
+  : igoR: Access the Intergovernmental Organizations Database

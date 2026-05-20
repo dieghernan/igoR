@@ -1,8 +1,8 @@
 # Intergovernmental organizations by year
 
-Data on IGOs from 1815-2014 at the IGO-year level. Contains one record
-per IGO-year, with years listed at 5-year intervals through 1965 and
-annually thereafter.
+Data on IGOs from 1815 to 2014 at the IGO-year level. Contains one
+record per IGO-year, with years listed at five-year intervals through
+1965 and annually thereafter.
 
 ## Format
 
@@ -18,9 +18,9 @@ Relevant fields:
 - **afghanistan...zimbabwe**: Status of that state in the IGO. See
   **Details**.
 
-- **sdate**: Start date (year) when the IGO started.
+- **sdate**: Start year for the IGO.
 
-- **deaddate**: End date (year) when the IGO ceased to exist.
+- **deaddate**: End year for the IGO.
 
 - **longorgname**: Longer version of the IGO name, including previous
   names.

@@ -100,7 +100,7 @@
 
 
 
-    <!-- mapping.qmd is generated from mapping.qmd.orig. Please edit that file --><p>Maps are a powerful tool for presenting data. Because <strong>igoR</strong> focuses on Intergovernmental Organizations, mapping and IGOs are a natural fit.</p>
+    <!-- mapping.qmd is generated from mapping.qmd.orig. Please edit that file --><p>Maps are a powerful tool for presenting data. Because <strong>igoR</strong> focuses on intergovernmental organizations, mapping and IGOs are a natural fit.</p>
 <p>This vignette provides geospatial visualizations using the IGO data sets <span class="citation" data-cites="pevehouse2020">(<a href="#ref-pevehouse2020" role="doc-biblioref">Pevehouse et al. 2020</a>)</span> included in this package. It uses these packages for geospatial data:</p>
 <ul>
 <li>
@@ -108,7 +108,7 @@
 <li>
 <strong>ggplot2</strong> package for plotting.</li>
 </ul>
-<p>The <strong>countrycode</strong> package is useful for translating between coding schemes (COW, ISO3, NUTS, FIPS) and country names.</p>
+<p>The <strong>countrycode</strong> package is useful for translating between coding schemes (COW, ISO3, NUTS and FIPS) and country names.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span></span>
 <span></span>
@@ -127,15 +127,14 @@
 <code class="sourceCode R"><span><span class="co"># Extract shapes.</span></span>
 <span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get_countries.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Extract three dates. Some errors occur because ISO does not include every</span></span>
-<span><span class="co"># COW code.</span></span>
+<span><span class="co"># Extract three dates. Some errors occur because ISO does not include every COW</span></span>
+<span><span class="co"># code.</span></span>
 <span><span class="va">un_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="st">"UN"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1950</span>, <span class="fl">1980</span>, <span class="fl">2010</span><span class="op">)</span>, status <span class="op">=</span> <span class="st">"Full Membership"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="co"># Add the ISO3 code.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span>, warn <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">orgname</span>, <span class="va">ISO3_CODE</span>, <span class="va">category</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Build an auxiliary data frame to collect every ISO3-year pair.</span></span>
-<span></span>
 <span><span class="va">base_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span></span>
 <span>  ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">world</span><span class="op">$</span><span class="va">ISO3_CODE</span><span class="op">)</span>,</span>
 <span>  year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">un_all</span><span class="op">$</span><span class="va">year</span><span class="op">)</span>,</span>
@@ -178,7 +177,7 @@ UN members (1950, 1980, 2010)
 </div>
 </section><section class="level2"><h2 id="number-of-shared-memberships">Number of shared memberships<a class="anchor" aria-label="anchor" href="#number-of-shared-memberships"></a>
 </h2>
-<p>Shared memberships are useful for identifying regional patterns. The following code produces a map showing how many full memberships each country shared with Australia in 2014.</p>
+<p>Shared memberships are useful for identifying regional patterns. The following code maps how many full memberships each country shared with Australia in 2014.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Count IGOs shared in 2014.</span></span>
 <span><span class="co"># Find countries alive in 2014.</span></span>
@@ -253,8 +252,7 @@ Shared full memberships with Australia (2014)
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode1</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ISO3_CODE</span>, <span class="va">year</span>, <span class="va">value</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Create the map.</span></span>
-<span><span class="co"># Get shapes.</span></span>
+<span><span class="co"># Get shapes for the map.</span></span>
 <span><span class="va">countries_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get_countries.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">all</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span></span>
 <span></span>

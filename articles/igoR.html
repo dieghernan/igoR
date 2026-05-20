@@ -100,9 +100,9 @@
 
 
 
-    <p>This vignette provides a visual introduction to the capabilities of the <strong>igoR</strong> package.</p>
-<p>The analysis is based on examples provided in <span class="citation" data-cites="pevehouse2020">Pevehouse et al. (<a href="#ref-pevehouse2020" role="doc-biblioref">2020</a>)</span>. For more information about the IGO data sets and additional downloads, see <a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Intergovernmental Organizations (v3)</a>.</p>
-<p><em>Note that the dyadic data set is not included in the package due to its size (~500 MB in Stata <code>.dta</code> format). However, the function <code><a href="../reference/igo_dyadic.html">igo_dyadic()</a></code> provides similar results.</em></p>
+    <p>This vignette provides a visual introduction to the <strong>igoR</strong> package.</p>
+<p>The analysis is based on examples from <span class="citation" data-cites="pevehouse2020">Pevehouse et al. (<a href="#ref-pevehouse2020" role="doc-biblioref">2020</a>)</span>. For more information about the IGO data sets and additional downloads, see <a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Intergovernmental Organizations (v3)</a>.</p>
+<p><em>The dyadic data set is not included in the package due to its size (~500 MB in Stata <code>.dta</code> format). However, <code><a href="../reference/igo_dyadic.html">igo_dyadic()</a></code> provides similar results.</em></p>
 <section class="level2"><h2 id="definitions">Definitions<a class="anchor" aria-label="anchor" href="#definitions"></a>
 </h2>
 <p>From <span class="citation" data-cites="pevehouse2019">Pevehouse et al. (<a href="#ref-pevehouse2019" role="doc-biblioref">2019</a>)</span>:</p>
@@ -119,16 +119,7 @@
 <h3 id="when-does-an-igo-die">When does an IGO die?</h3>
 <p>Version 3.0 of the IGO data set uses the following criteria:</p>
 <ul>
-<li>An organization is considered terminated when the following words were used to describe the context of the organization:
-<ul>
-<li>Replaced;</li>
-<li>Succeeded;</li>
-<li>Superseded;</li>
-<li>Integrated;</li>
-<li>Merged;</li>
-<li>Dies.</li>
-</ul>
-</li>
+<li>An organization is considered terminated when the following words describe the context of the organization: replaced, succeeded, superseded, integrated, merged or dies.</li>
 </ul>
 </blockquote>
 </section><section class="level2"><h2 id="analysis">Analysis<a class="anchor" aria-label="anchor" href="#analysis"></a>
@@ -144,7 +135,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 </div>
-<p>First, we create a custom <code><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">ggplot2::theme()</a></code> named <code>theme_igor</code>, which we apply to all figures:</p>
+<p>First, we create a custom <code><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">ggplot2::theme()</a></code> named <code>theme_igor</code>, which is applied to all figures:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">theme_igor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
@@ -215,7 +206,7 @@ Figure 1: IGOs and states in the world system, 1816-2014
 </div>
 </section><section class="level3"><h3 id="igo-births-and-deaths">IGO births and deaths<a class="anchor" aria-label="anchor" href="#igo-births-and-deaths"></a>
 </h3>
-<p>This plot shows how many IGOs were “born” and “died” in each year.</p>
+<p>This plot shows how many IGOs were born or died in each year.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Summarize births and deaths by year.</span></span>
@@ -601,8 +592,8 @@ Figure 2: Birth and death rates of IGOs, 1816-2014
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># `africa`, `americas`, `asia`, `europe` and `middle_east` were created in</span></span>
-<span><span class="co"># the previous chunk, which is collapsed for readability.</span></span>
+<code class="sourceCode R"><span><span class="co"># `africa`, `americas`, `asia`, `europe` and `middle_east` were created in the</span></span>
+<span><span class="co"># previous chunk, which is collapsed for readability.</span></span>
 <span></span>
 <span><span class="va">regions</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_search.html">igo_search</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -617,7 +608,7 @@ Figure 2: Birth and death rates of IGOs, 1816-2014
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ioname</span>, <span class="va">region</span><span class="op">)</span></span></code></pre></div>
 </div>
-<p>After creating a data frame with the regions, we can classify the IGOs by region.</p>
+<p>After creating a data frame with the regions, we can classify IGOs by region.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># The `regions` data set was created in the previous chunk.</span></span>

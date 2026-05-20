@@ -1,15 +1,14 @@
 # Get started with the igoR package
 
-This vignette provides a visual introduction to the capabilities of the
-**igoR** package.
+This vignette provides a visual introduction to the **igoR** package.
 
-The analysis is based on examples provided in Pevehouse et al.
+The analysis is based on examples from Pevehouse et al.
 ([2020](#ref-pevehouse2020)). For more information about the IGO data
 sets and additional downloads, see [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*Note that the dyadic data set is not included in the package due to its
-size (~500 MB in Stata `.dta` format). However, the function
+*The dyadic data set is not included in the package due to its size
+(~500 MB in Stata `.dta` format). However,
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
 provides similar results.*
 
@@ -41,13 +40,8 @@ From Pevehouse et al. ([2019](#ref-pevehouse2019)):
 > Version 3.0 of the IGO data set uses the following criteria:
 >
 > - An organization is considered terminated when the following words
->   were used to describe the context of the organization:
->   - Replaced;
->   - Succeeded;
->   - Superseded;
->   - Integrated;
->   - Merged;
->   - Dies.
+>   describe the context of the organization: replaced, succeeded,
+>   superseded, integrated, merged or dies.
 
 ## Analysis
 
@@ -67,7 +61,7 @@ library(dplyr)
 
 First, we create a custom
 [`ggplot2::theme()`](https://ggplot2.tidyverse.org/reference/theme.html)
-named `theme_igor`, which we apply to all figures:
+named `theme_igor`, which is applied to all figures:
 
 ``` r
 
@@ -137,7 +131,7 @@ Figure 1: IGOs and states in the world system, 1816-2014
 
 ### IGO births and deaths
 
-This plot shows how many IGOs were “born” and “died” in each year.
+This plot shows how many IGOs were born or died in each year.
 
 ``` r
 
@@ -524,8 +518,8 @@ americas <- c(
 
 ``` r
 
-# `africa`, `americas`, `asia`, `europe` and `middle_east` were created in
-# the previous chunk, which is collapsed for readability.
+# `africa`, `americas`, `asia`, `europe` and `middle_east` were created in the
+# previous chunk, which is collapsed for readability.
 
 regions <- igo_search() %>%
   mutate(
@@ -541,8 +535,8 @@ regions <- igo_search() %>%
   select(ioname, region)
 ```
 
-After creating a data frame with the regions, we can classify the IGOs
-by region.
+After creating a data frame with the regions, we can classify IGOs by
+region.
 
 ``` r
 

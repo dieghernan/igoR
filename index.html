@@ -21,9 +21,9 @@
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="igoR | R package for intergovernmental organizations">
-<meta name="description" content="Tools for accessing and extracting information from the Intergovernmental Organizations Database (v3), distributed by the Correlates of War Project.
+<meta name="description" content="Tools for searching, extracting and recoding information from the Intergovernmental Organizations Database (v3), distributed by the Correlates of War Project.
 ">
-<meta property="og:description" content="Tools for accessing and extracting information from the Intergovernmental Organizations Database (v3), distributed by the Correlates of War Project.
+<meta property="og:description" content="Tools for searching, extracting and recoding information from the Intergovernmental Organizations Database (v3), distributed by the Correlates of War Project.
 ">
 <meta property="og:image" content="https://dieghernan.github.io/igoR/logo.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -96,8 +96,8 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>igoR provides access to the Intergovernmental Organizations Database (v3) from the Correlates of War Project (<a href="#ref-pevehouse2020">Pevehouse et al. 2020</a>).</p>
-<p>The data set (v3) includes information on <strong>534</strong> IGOs from 1816 to 2014, as well as membership information.</p>
+<p><strong>igoR</strong> provides access to the Intergovernmental Organizations Database (v3) from the Correlates of War Project (<a href="#ref-pevehouse2020">Pevehouse et al. 2020</a>).</p>
+<p>The data set (v3) includes information on <strong>534</strong> IGOs from 1816 to 2014, plus membership information.</p>
 <ul>
 <li>Source: <a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Intergovernmental Organizations (v3)</a>.</li>
 <li>Documentation and vignettes at <a href="https://dieghernan.github.io/igoR/" class="uri">https://dieghernan.github.io/igoR/</a>.</li>
@@ -119,7 +119,7 @@
 <div class="section level3">
 <h3 id="search-an-igo-by-name">Search an IGO by name<a class="anchor" aria-label="anchor" href="#search-an-igo-by-name"></a>
 </h3>
-<p>Search all IGOs related to “sugar”:</p>
+<p>Search for all IGOs related to “sugar”:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span></span>
 <span></span>
@@ -514,17 +514,17 @@ Table 3: EEC, members (1992)
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>
-Hernangómez D (2026). <em>igoR: Intergovernmental Organizations Database</em>. <a href="https://doi.org/10.32614/CRAN.package.igoR" class="external-link">doi:10.32614/CRAN.package.igoR</a>. <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
+Hernangómez D (2026). <em>igoR: Access the Intergovernmental Organizations Database</em>. <a href="https://doi.org/10.32614/CRAN.package.igoR" class="external-link">doi:10.32614/CRAN.package.igoR</a>. <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
 </p>
 <p>A BibTeX entry for LaTeX users:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>igoR,</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  title <span class="ot">=</span> {{igoR}<span class="sc">:</span> Intergovernmental Organizations Database},</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  title <span class="ot">=</span> {{igoR}<span class="sc">:</span> Access the Intergovernmental Organizations Database},</span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.igoR},</span>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
 <span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
 <span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">1</span>.<span class="fl">0.1</span>},</span>
 <span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>igoR<span class="sc">/</span>},</span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools <span class="cf">for</span> accessing and extracting information from the Intergovernmental <span class="fu">Organizations</span> (IGO) <span class="fu">Database</span> (v3), distributed by the Correlates of War Project <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>correlatesofwar.org<span class="sc">/</span><span class="er">&gt;</span>. See also Pevehouse, J. C. et <span class="fu">al.</span> (<span class="dv">2020</span>) <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1177</span><span class="sc">/</span><span class="dv">0022343319881175</span><span class="sc">&gt;</span>.},</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools <span class="cf">for</span> searching, extracting and recoding information from the Intergovernmental <span class="fu">Organizations</span> (IGO) <span class="fu">Database</span> (v3), distributed by the Correlates of War Project <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>correlatesofwar.org<span class="sc">/</span><span class="er">&gt;</span>. See also Pevehouse, J. C. et <span class="fu">al.</span> (<span class="dv">2020</span>) <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1177</span><span class="sc">/</span><span class="dv">0022343319881175</span><span class="sc">&gt;</span>.},</span>
 <span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="section level2">

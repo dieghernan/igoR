@@ -40,7 +40,7 @@ project data sets), state abbreviations, and dates of membership as
 states and major powers in the international system.
 
 The Correlates of War Project includes a state in the international
-system from 1816-2016 according to the following criteria:
+system from 1816 to 2016 according to the following criteria:
 
 - **Before 1920**, the entity must have had a population greater than
   500,000 and have had diplomatic missions at or above the rank of

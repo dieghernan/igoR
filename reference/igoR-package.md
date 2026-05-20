@@ -1,6 +1,6 @@
-# igoR: Intergovernmental Organizations Database
+# igoR: Access the Intergovernmental Organizations Database
 
-Tools for accessing and extracting information from the
+Tools for searching, extracting and recoding information from the
 Intergovernmental Organizations ('IGO') Database (v3), distributed by
 the Correlates of War Project <https://correlatesofwar.org/>. See also
 Pevehouse, J. C. et al. (2020)
