@@ -19,8 +19,8 @@ Maps are a powerful tool for presenting data. Because **igoR** focuses on
 intergovernmental organizations, mapping and IGOs are a natural fit.
 
 This vignette provides geospatial visualizations using the IGO data sets
-[@pevehouse2020] included in this package. It uses these packages for
-geospatial data:
+[@pevehouse2020] included in this package. It uses these packages for geospatial
+data:
 
 - **giscoR** package for extracting country shapefiles.
 - **ggplot2** package for plotting.
@@ -75,9 +75,9 @@ un_all_sf <- world %>%
   left_join(un_all, by = c("ISO3_CODE", "year"))
 ```
 
-The map is not completely accurate because the base shapefile contains
-countries that existed in 2016. Some countries, such as Czechoslovakia, East
-Germany and West Germany, are not included.
+The map is not completely accurate because the base shapefile contains countries
+that existed in 2016. Some countries, such as Czechoslovakia, East Germany and
+West Germany, are not included.
 
 Now we are ready to plot with **ggplot2**:
 

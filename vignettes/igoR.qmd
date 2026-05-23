@@ -23,12 +23,11 @@ knitr:
 This vignette provides a visual introduction to the **igoR** package.
 
 The analysis is based on examples from @pevehouse2020. For more information
-about the IGO data sets and additional downloads, see
-[Intergovernmental Organizations
-(v3)](https://correlatesofwar.org/data-sets/IGOs/).
+about the IGO data sets and additional downloads, see [Intergovernmental
+Organizations (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*The dyadic data set is not included in the package due to its size (\~500 MB
-in Stata `.dta` format). However, `igo_dyadic()` provides similar results.*
+*The dyadic data set is not included in the package due to its size (\~500 MB in
+Stata `.dta` format). However, `igo_dyadic()` provides similar results.*
 
 ## Definitions
 

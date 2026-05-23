@@ -112,8 +112,7 @@ cat("<p class=\"caption\">Table 1: IGOs related to sugar</p>")
 ### IGO members
 
 Composition of the [European Economic
-Community](https://en.wikipedia.org/wiki/European_Economic_Community) over
-time:
+Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time:
 
 ```{r}
 #| label: eec

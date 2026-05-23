@@ -1,6 +1,6 @@
 Package: igoR
 Title: Access the Intergovernmental Organizations Database
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),
