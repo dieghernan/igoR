@@ -2,6 +2,8 @@
 
 ## igoR 1.0.2
 
+CRAN release: 2026-05-23
+
 - Package documentation was reviewed and updated with AI-assisted
   editing.
 
