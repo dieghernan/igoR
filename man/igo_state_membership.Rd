@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_state_membership}
 \alias{igo_state_membership}
-\title{Extract memberships of a state}
+\title{Extract state memberships}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }
@@ -24,7 +24,7 @@ See \strong{Details} in \link{igo_year_format3}.}
 A \code{\link{data.frame}}.
 }
 \description{
-Extract all IGO memberships of a state on a specific date.
+Extract all IGO memberships for a state in one or more years.
 }
 \examples{
 # Memberships on two different dates.
@@ -35,7 +35,7 @@ igo_state_membership("Spain", year = 1880:1882)
 # Last year.
 igo_state_membership("ZAN")[, 1:7]
 
-# Use codes to get countries.
+# Use codes to get states.
 igo_state_membership("2", year = 1865)
 
 # Extract different statuses.
@@ -44,7 +44,7 @@ igo_state_membership("kosovo", status = c(
   "Full Membership"
 ))
 
-# Vectorized.
+# Vectorized search.
 igo_state_membership(c("usa", "spain"), year = 1870:1871)
 
 # Use the countrycode package to get additional codes.
@@ -54,9 +54,10 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
   IT$iso3c <- countrycode(IT$ccode, origin = "cown", destination = "iso3c")
   head(IT)
 }
+
 }
 \references{
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
 data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.

@@ -8,14 +8,15 @@ message: 'To cite package "igoR" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'igoR: Access the Intergovernmental Organizations Database'
-version: 1.0.2
+version: 1.0.2.9000
 doi: 10.32614/CRAN.package.igoR
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.igoR
 abstract: Tools for searching, extracting and recoding information from the Intergovernmental
   Organizations ('IGO') Database (v3), distributed by the Correlates of War Project
-  <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <https://doi.org/10.1177/0022343319881175>.
+  <https://correlatesofwar.org/>. The package includes IGO-year, state-year and joint
+  membership data. See also Pevehouse, J. C. et al. (2020) <https://doi.org/10.1177/0022343319881175>.
 authors:
 - family-names: Hernangómez
   given-names: Diego
@@ -31,11 +32,12 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
   doi: 10.32614/CRAN.package.igoR
   year: '2026'
-  version: 1.0.2
+  version: 1.0.2.9000
   url: https://dieghernan.github.io/igoR/
   abstract: Tools for searching, extracting and recoding information from the Intergovernmental
     Organizations (IGO) Database (v3), distributed by the Correlates of War Project
-    <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.
+    <https://correlatesofwar.org/>. The package includes IGO-year, state-year and
+    joint membership data. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.
 repository: https://CRAN.R-project.org/package=igoR
 repository-code: https://github.com/dieghernan/igoR
 url: https://dieghernan.github.io/igoR/

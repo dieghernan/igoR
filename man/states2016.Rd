@@ -54,9 +54,10 @@ across data sets in this package.
 # Example code.
 data("states2016")
 dplyr::glimpse(states2016)
+
 }
 \references{
-Correlates of War Project. 2017 "State System Membership List, v2016."
+Correlates of War Project. 2017. "State System Membership List, v2016."
 Online, \url{https://correlatesofwar.org/}.
 }
 \seealso{

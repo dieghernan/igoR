@@ -1,5 +1,5 @@
 ---
-title: "List of IGOs and countries"
+title: "List of IGOs and states"
 description: >
   Interactive exploration of the data included in the package.
 bibliography: REFERENCES.bib
@@ -12,7 +12,7 @@ knitr:
     message: false
 ---
 
-This annex lists the IGOs [@pevehouse2020] and countries
+This annex lists the IGOs [@pevehouse2020] and states
 [@correlatesofwarproject2017] included with the package.
 
 ## List of IGOs
@@ -36,7 +36,7 @@ reactable(
 )
 ```
 
-## List of countries
+## List of states
 
 ```{r}
 #| label: countries

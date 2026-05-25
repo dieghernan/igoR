@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_members}
 \alias{igo_members}
-\title{Extract members of an IGO}
+\title{Extract IGO members}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }
@@ -24,7 +24,7 @@ See \strong{Details} in \link{state_year_format3}.}
 A \code{\link{data.frame}}.
 }
 \description{
-Extract all countries that belong to an IGO on a specific date.
+Extract all states that belong to an IGO in one or more years.
 }
 \examples{
 library(dplyr)
@@ -40,7 +40,7 @@ igo_members("ACCT", status = c("Associate Membership", "Observer")) \%>\%
 igo_members("UN", status = "No Membership") \%>\%
   as_tibble()
 
-# Vectorized.
+# Vectorized search.
 igo_members(c("NAFTA", "EU"), year = 1993) \%>\%
   as_tibble() \%>\%
   arrange(state)
@@ -58,9 +58,10 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 
   tibble(EU)
 }
+
 }
 \references{
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
 data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.

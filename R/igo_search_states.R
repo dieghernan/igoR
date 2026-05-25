@@ -1,17 +1,18 @@
-#' Find codes and names of a state
+#' Find state codes and names
 #'
 #' @name igo_search_states
 #'
 #' @description
-#' Find codes and names of a state.
-#'
-#' @seealso [states2016].
-#'
-#' @inherit igo_members source references return
-#' @encoding UTF-8
+#' Find COW codes, abbreviations and names for one or more states.
 #'
 #' @param state Any valid state name or code as specified in [states2016]. This
 #'   can also be a vector of states.
+#'
+#' @returns A [`data.frame`][data.frame()].
+#'
+#' @inherit igo_members source references
+#'
+#' @seealso [states2016].
 #'
 #' @examples
 #' library(dplyr)
@@ -25,49 +26,31 @@
 #' igo_search_states(c("Germany", "papal states")) %>% as_tibble()
 #'
 #' igo_search_states(c("FRN", "United Kingdom", 240, "italy")) %>% as_tibble()
+#'
+#' @encoding UTF-8
 #' @export
 igo_search_states <- function(state) {
-  # Vectorize the lookup.
-  find_v <- lapply(state, function(x) {
-    # Initialize the lookup.
-    find_state <- vector(mode = "numeric")
-    # Search for the state.
-    df_states <- cow_country_codes
+  # Keep one lookup result for each input value.
+  find_v <- lapply(state, igo_search_state_single)
 
-    for (i in seq_len(ncol(df_states))) {
-      find_state <- sort(
-        unique(
-          c(
-            find_state,
-            match(tolower(x), tolower(df_states[, i]))
-          )
-        )
-      )
-    }
+  igo_bind_results(find_v, "No states found with the required arguments.")
+}
 
-    find_state <- sort(find_state)[1]
-
-    if (is.na(find_state)) {
-      message("State not found: ", paste0("'", x, "'", collapse = ", "), ".")
-      return(invisible(NULL))
-    }
-
-    df_states <- df_states[find_state, ]
-
-    df_states
+igo_search_state_single <- function(state) {
+  df_states <- cow_country_codes
+  matches <- lapply(df_states, function(column) {
+    match(tolower(state), tolower(column))
   })
+  find_state <- sort(unique(unlist(matches, use.names = FALSE)))[1]
 
-  # Identify empty results.
-  has_results <- vapply(find_v, is.null, logical(1))
-
-  # Keep successful results.
-  clean <- find_v[!has_results]
-  if (length(clean) < 1) {
-    warning("No states found with the required arguments.")
+  if (is.na(find_state)) {
+    message(
+      "State value not found: ",
+      paste0("'", state, "'", collapse = ", "),
+      "."
+    )
     return(invisible(NULL))
   }
 
-  end <- do.call("rbind", clean)
-  rownames(end) <- NULL
-  end
+  df_states[find_state, ]
 }

@@ -37,19 +37,19 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-**igoR** provides access to the Intergovernmental Organizations Database (v3)
-from the Correlates of War Project [@pevehouse2020].
+**igoR** provides access to the Intergovernmental Organizations (IGO) Database
+(v3) from the Correlates of War Project [@pevehouse2020].
 
-The data set (v3) includes information on **`r nrow(igoR::igo_search())`** IGOs
-from `r min(igoR::igo_year_format3$year)` to
-`r max(igoR::igo_year_format3$year)`, plus membership information.
+The IGO-year data set includes **`r nrow(igoR::igo_search())`** IGOs from
+`r min(igoR::igo_year_format3$year)` to `r max(igoR::igo_year_format3$year)`,
+plus state-year membership information.
 
 - Source: [Intergovernmental Organizations
   (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
 
-The package also includes a distribution of the State System Membership data
-[@correlatesofwarproject2017].
+The package also includes a distribution of the Correlates of War State System
+Membership data [@correlatesofwarproject2017].
 
 ## Installation
 
@@ -78,7 +78,7 @@ Alternatively, you can install **igoR** using
 
 ```{r}
 #| eval: false
-# Install igoR in R.
+# Install igoR from r-universe.
 install.packages(
   "igoR",
   repos = c(
@@ -91,9 +91,9 @@ install.packages(
 
 ## Basic usage
 
-### Search an IGO by name
+### Search for IGOs by name
 
-Search for all IGOs related to "sugar":
+Search for all IGOs related to "sugar".
 
 ```{r}
 #| label: search
@@ -111,8 +111,8 @@ cat("<p class=\"caption\">Table 1: IGOs related to sugar</p>")
 
 ### IGO members
 
-Composition of the [European Economic
-Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time:
+Extract members of the [European Economic
+Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time.
 
 ```{r}
 #| label: eec
@@ -137,7 +137,7 @@ cat(
 
 ```{r}
 #| label: eec_end
-# Get members at the latest available date.
+# Get members in the latest available year.
 eec_end <- igo_members(eec_code$ioname)
 ```
 
@@ -158,7 +158,7 @@ cat(
 ## Recommended packages
 
 - **countrycode** package for converting country names and codes across
-  different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.).
+  different systems, including ISO3, Eurostat, World Bank, UN and FIPS/GEC.
 - **dplyr** package for data manipulation.
 
 ## Citation
