@@ -69,9 +69,9 @@ with the following coding system:
 | Missing data            | -9                  |
 | State Not System Member | -1                  |
 
-See the
+See
 [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
-section for an easy way to recode the numerical values into
+for an easy way to recode the numerical values into
 [factors](https://rdrr.io/r/base/factor.html).
 
 If one state in an IGO is a full member but the other is an associate
@@ -98,7 +98,8 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 [state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md),
 [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md),
-[`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md).
+[`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md),
+[`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md).
 
 ## Examples
 
