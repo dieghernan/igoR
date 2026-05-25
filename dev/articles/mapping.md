@@ -1,80 +1,73 @@
 # Mapping IGOs
 
-Maps are a powerful tool to show data. As the scope of **igoR** is the
-Intergovernmental Organizations, mapping and IGOs are a perfect match.
+Maps are a powerful tool for presenting data. Because **igoR** focuses
+on intergovernmental organizations (IGOs), maps can help show how IGO
+membership changes across states and time.
 
-This vignette provides some geospatial visualizations using the IGO data
-sets ([Pevehouse et al. 2020](#ref-pevehouse2020)) included in this
-package. Specific packages used for geospatial data:
+This vignette provides geospatial visualizations using the IGO data sets
+([Pevehouse et al. 2020](#ref-pevehouse2020)) included in this package.
+It uses these packages for geospatial data:
 
-- **giscoR** for extracting the shapefiles of the countries.
-- **ggplot2** for plotting.
+- **giscoR** package for extracting country shapefiles.
+- **ggplot2** package for plotting.
 
-Also **countrycode** is a very handy package for translating between
-coding schemes (CoW, ISO3, NUTS, FIPS) and country names.
+The **countrycode** package is useful for translating between country
+names and coding schemes such as COW, ISO3, NUTS and FIPS.
 
 ``` r
+
 library(igoR)
 
-# Helper packages
+# Helper packages.
 library(dplyr)
 library(ggplot2)
 library(countrycode)
 
-# Geospatial packages
+# Geospatial packages.
 library(giscoR)
-#> Error in `library()`:
-#> ! there is no package called 'giscoR'
 library(sf)
-#> Error in `library()`:
-#> ! there is no package called 'sf'
 ```
 
-## Evolution of the composition of UN
+## Evolution of UN membership
 
-The following map shows the evolution of countries that are members of
-the United Nations. First we should extract the data:
+The following map shows the evolution of United Nations membership.
+First, extract the membership data.
 
 ``` r
-# Extract shapes
-world <- gisco_get_countries()
-#> Error in `gisco_get_countries()`:
-#> ! could not find function "gisco_get_countries"
 
-# Extract three dates - some errors given that ISO doesn't have every COW Code
+# Extract shapes.
+world <- gisco_get_countries()
+
+# Extract three years. Some COW codes do not have ISO equivalents.
 un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
-  # Add ISO3 Code
+  # Add the ISO3 code.
   mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
   select(year, orgname, ISO3_CODE, category)
 
-# Auxiliar data.frame to collect every ISO3-year pairs
-
+# Build an auxiliary data frame to collect every ISO3-year pair.
 base_df <- expand.grid(
   ISO3_CODE = unique(world$ISO3_CODE),
   year = unique(un_all$year),
   stringsAsFactors = FALSE
 ) %>%
   as_tibble()
-#> Error:
-#> ! object 'world' not found
 
-# Merge everything with the spatial object
+# Merge everything with the spatial object.
 un_all_sf <- world %>%
-  # Expand to all cases
+  # Expand to all cases.
   left_join(base_df, by = "ISO3_CODE") %>%
-  # Add info
+  # Add information.
   left_join(un_all, by = c("ISO3_CODE", "year"))
-#> Error:
-#> ! object 'world' not found
 ```
 
-Note that the map is not completely accurate, as the base shapefile
-contains the countries that existed in 2016. Some countries, such as
-Czechoslovakia, East Germany and West Germany are not included.
+The map is not completely accurate because the base shapefile contains
+countries that existed in 2016. Some historical states, such as
+Czechoslovakia, East Germany and West Germany, are not included.
 
-Now we are ready to plot with **ggplot2**:
+The data are now ready to plot with **ggplot2**.
 
 ``` r
+
 ggplot(un_all_sf) +
   geom_sf(aes(fill = category), color = NA, show.legend = FALSE) +
   # Robinson
@@ -85,7 +78,7 @@ ggplot(un_all_sf) +
     na.value = "#E0E0E0",
   ) +
   labs(
-    title = "UN Members",
+    title = "UN members",
     caption = gisco_attributions(),
   ) +
   theme_minimal() +
@@ -94,44 +87,44 @@ ggplot(un_all_sf) +
     axis.line = element_blank(),
     axis.text = element_blank()
   )
-#> Error:
-#> ! object 'un_all_sf' not found
 ```
+
+![UN members (1950, 1980, 2010)](./fig-UNMaps-1.png)
+
+UN members (1950, 1980, 2010)
 
 ## Number of shared memberships
 
 Shared memberships are useful for identifying regional patterns. The
-following code produces a map showing the number of full memberships
-shared with Australia for each country in the world:
+following code maps how many full memberships each state shared with
+Australia in 2014.
 
 ``` r
-# Number of igos shared - 2014
-# Countries alive in 2014
+
+# Count shared IGOs in 2014.
+# Find states in the state system in 2014.
 states2014 <- states2016 %>%
   filter(styear <= 2014 & endyear >= 2014)
 
-# Shared memberships with Australia
+# Find shared memberships with Australia.
 shared <- igo_dyadic("AUL", as.character(states2014$statenme), year = 2014) %>%
   rowwise() %>%
   mutate(shared = sum(c_across(aaaid:wassen) == 1)) %>%
   mutate(ISO3_CODE = countrycode(ccode2, "cown", "iso3c", warn = FALSE)) %>%
   select(ISO3_CODE, shared)
 
-
-# Merge with map
+# Merge with the map.
 sharedmap <- world %>%
   left_join(shared, by = "ISO3_CODE") %>%
   select(ISO3_CODE, shared)
-#> Error:
-#> ! object 'world' not found
 
-# Plot with custom palette
+# Plot with a custom palette.
 pal <- hcl.colors(10, palette = "Lajolla")
 
-# Plot
+# Plot the results.
 ggplot(sharedmap) +
   geom_sf(aes(fill = shared), color = NA) +
-  # Australia
+  # Highlight Australia.
   geom_sf(
     data = sharedmap %>% filter(ISO3_CODE == "AUS"),
     fill = "black",
@@ -142,7 +135,7 @@ ggplot(sharedmap) +
   scale_fill_gradientn(colours = pal, n.breaks = 10) +
   guides(fill = guide_legend(nrow = 1)) +
   labs(
-    title = "Shared Full Memberships with Australia (2014)",
+    title = "Shared full memberships with Australia (2014)",
     fill = "Number of IGOs shared",
     caption = gisco_attributions()
   ) +
@@ -161,21 +154,24 @@ ggplot(sharedmap) +
     legend.key.width = unit(1.5, "lines"),
     legend.key.height = unit(0.5, "lines")
   )
-#> Error:
-#> ! object 'sharedmap' not found
 ```
+
+![Shared full memberships with Australia (2014)](./fig-AustShared-1.png)
+
+Shared full memberships with Australia (2014)
 
 ## Cross-shared memberships
 
-The following map shows how the relationships between the countries of
-North America have flourished over the last 90 years, using a year as
-representative of each decade.
+The following map shows how joint memberships between North American
+states changed over the last 90 years, with one year representing each
+decade.
 
 ``` r
-# Select years
+
+# Select years.
 years <- seq(1930, 2010, 10)
 
-# Shared memberships
+# Find shared memberships.
 cntries <- c("USA", "CAN", "MEX")
 all <- igo_dyadic(cntries, cntries, years) %>%
   rowwise() %>%
@@ -183,14 +179,11 @@ all <- igo_dyadic(cntries, cntries, years) %>%
   mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c")) %>%
   select(ISO3_CODE, year, value)
 
-# Create map
-# Get shapes
+# Get shapes for the map.
 countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
   left_join(all, by = "ISO3_CODE")
-#> Error in `gisco_get_countries()`:
-#> ! could not find function "gisco_get_countries"
 
-# Map
+# Plot the map.
 ggplot(countries_sf) +
   geom_sf(aes(fill = value), color = NA) +
   coord_sf(crs = 9311, xlim = c(-3200000, 3333018)) +
@@ -201,7 +194,7 @@ ggplot(countries_sf) +
   ) +
   guides(fill = guide_legend(reverse = TRUE)) +
   labs(
-    title = "Shared Full Memberships on North America",
+    title = "Shared full memberships in North America",
     subtitle = "(1930-2010)",
     fill = "Shared IGOs",
     caption = gisco_attributions()
@@ -213,13 +206,16 @@ ggplot(countries_sf) +
     axis.text = element_blank(),
     strip.background = element_rect(fill = "grey90", colour = NA)
   )
-#> Error:
-#> ! object 'countries_sf' not found
 ```
+
+![Shared full memberships in North America
+(1930-2010)](./fig-NAShared-1.png)
+
+Shared full memberships in North America (1930-2010)
 
 ## References
 
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
+Pevehouse, Jon C. W., Timothy Nordstrom, Roseanne W. McManus, and Anne
 Spencer Jamison. 2020. “Tracking Organizations in the World: The
 Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 57 (3): 492–503. <https://doi.org/10.1177/0022343319881175>.

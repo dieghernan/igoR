@@ -1,36 +1,33 @@
-# Intergovernmental Organizations (IGO) by year
+# Intergovernmental organizations by year
 
-Data on IGOs from 1815-2014, at the IGO-year level. Contains one record
-per IGO-year (with years listed at 5 year intervals through 1965, and
-annually thereafter).
+Data on IGOs from 1815 to 2014 at the IGO-year level. Contains one
+record per IGO-year, with years listed at five-year intervals through
+1965 and annually thereafter.
 
 ## Format
 
 [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 19,335 rows.
 Relevant fields:
 
-- **ioname**: Short abbreviation of the IGO name.
+- **ioname**: Short abbreviation for the IGO name.
 
 - **orgname**: Full IGO name.
 
-- **year**: Calendar Year.
+- **year**: Calendar year.
 
-- **afghanistan...zimbabwe**: status of that state in the IGO. See
+- **afghanistan...zimbabwe**: Status of that state in the IGO. See
   **Details**.
 
-- **sdate**: start date (year) that the IGO started.
+- **sdate**: Start year for the IGO.
 
-- **deaddate**: dead date (year) that the IGO ceased to exist.
+- **deaddate**: End year for the IGO.
 
-- **longorgname**: a longer version of the IGOs name (including previous
-  names)
+- **longorgname**: Longer version of the IGO name, including previous
+  names.
 
-- **ionum**: IGO id number in v2.1 and v3.0 of the data.
+- **ionum**: IGO ID number in v2.1 and v3.0 of the data.
 
 - **version**: COW version number.
-
-See [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 ## Source
 
@@ -38,9 +35,13 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 (v3)](https://correlatesofwar.org/data-sets/IGOs/), The Correlates of
 War Project (IGO Data Stata Files).
 
+See the [**Codebook Version 3 IGO
+Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
+
 ## Details
 
-Possible values of the status of that state in the IGO are:
+Possible values for the status of a state in the IGO are:
 
 |                         |                     |
 |-------------------------|---------------------|
@@ -52,7 +53,7 @@ Possible values of the status of that state in the IGO are:
 | Missing data            | -9                  |
 | State Not System Member | -1                  |
 
-See
+See the
 [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
 section for an easy way to recode the numerical values into
 [factors](https://rdrr.io/r/base/factor.html).
@@ -64,9 +65,9 @@ Raw data used internally by
 
 ## References
 
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
-(2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 datasets. *Journal of Peace Research, 57*(3), 492–503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version
+3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -82,7 +83,7 @@ Other datasets:
 ``` r
 data("state_year_format3")
 
-# Show a glimpse
+# Show a glimpse.
 library(dplyr)
 
 state_year_format3 %>%
@@ -118,7 +119,7 @@ state_year_format3 %>%
 #> $ afeximb  <dbl> -1, -1, -9, -9, -9, -9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -…
 #> $ afgec    <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 
-# Recode numerical to factors: with a sample
+# Recode a sample of numerical values to factors.
 sample_state_year <- state_year_format3 %>%
   as_tibble() %>%
   select(ccode:afgec) %>%
@@ -154,7 +155,7 @@ sample_state_year %>% glimpse()
 #> $ afeximb  <dbl> -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -…
 #> $ afgec    <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 
-# Recode
+# Recode.
 sample_state_year_recoded <- sample_state_year %>%
   mutate(across(-c(ccode:state), igo_recode_stateyear))
 

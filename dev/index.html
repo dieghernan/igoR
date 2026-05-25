@@ -5,24 +5,25 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>igoR | R package for Intergovernmental Organizations (IGOs) • igoR</title>
+<title>igoR | R package for intergovernmental organizations • igoR</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" sizes="any" href="favicon.ico">
 <link rel="manifest" href="site.webmanifest">
-<script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Inter-0.4.10/font.css" rel="stylesheet">
+<!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="katex-auto.js"></script><script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/Inter-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Inter_Tight-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="igoR | R package for Intergovernmental Organizations (IGOs)">
-<meta name="description" content="This package provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project.
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="igoR | R package for intergovernmental organizations">
+<meta name="description" content="Tools for searching, extracting and recoding information from the Intergovernmental Organizations Database (v3), distributed by the Correlates of War Project. Includes IGO-year, state-year and joint membership data.
 ">
-<meta property="og:description" content="This package provide access and to extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project.
+<meta property="og:description" content="Tools for searching, extracting and recoding information from the Intergovernmental Organizations Database (v3), distributed by the Correlates of War Project. Includes IGO-year, state-year and joint membership data.
 ">
 <meta property="og:image" content="https://dieghernan.github.io/igoR/logo.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -45,7 +46,7 @@
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">igoR</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +63,7 @@
 <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
     <li><a class="dropdown-item" href="articles/mapping.html">Mapping IGOs</a></li>
-    <li><a class="dropdown-item" href="articles/list-igos.html">List of IGOs and Countries</a></li>
+    <li><a class="dropdown-item" href="articles/list-igos.html">List of IGOs and states</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -96,26 +97,25 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>The goal of <strong>igoR</strong> is to provide access to and extract information from the Intergovernmental Organizations Database (IGOs), version 3, provided by the Correlates of War Project (<a href="#ref-pevehouse2020">Pevehouse et al. 2020</a>).</p>
-<p>The dataset (V3) includes information on <strong>534</strong> IGOs from 1816 to 2014, as well as membership information.</p>
+<p><strong>igoR</strong> provides access to the Intergovernmental Organizations (IGO) Database (v3) from the Correlates of War Project (<a href="#ref-pevehouse2020">Pevehouse et al. 2020</a>).</p>
+<p>The IGO-year data set includes <strong>534</strong> IGOs from 1816 to 2014, plus state-year membership information.</p>
 <ul>
 <li>Source: <a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Intergovernmental Organizations (v3)</a>.</li>
-<li>Documentation and vignettes on <a href="https://dieghernan.github.io/igoR/" class="uri">https://dieghernan.github.io/igoR/</a>
-</li>
+<li>Documentation and vignettes at <a href="https://dieghernan.github.io/igoR/" class="uri">https://dieghernan.github.io/igoR/</a>.</li>
 </ul>
-<p>Additionally, a distribution of the State System Membership (<a href="#ref-correlatesofwarproject2017">Correlates of War Project 2017</a>) is included in this package.</p>
+<p>The package also includes a distribution of the Correlates of War State System Membership data (<a href="#ref-correlatesofwarproject2017">Correlates of War Project 2017</a>).</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 
 <div class="pkgdown-devel">
-<p>Check the docs of the developing version in <a href="https://dieghernan.github.io/igoR/dev/" class="uri">https://dieghernan.github.io/igoR/dev/</a>.</p>
-<p>You can install the developing version from GitHub:</p>
+<p>Check the documentation for the development version at <a href="https://dieghernan.github.io/igoR/dev/" class="uri">https://dieghernan.github.io/igoR/dev/</a>.</p>
+<p>You can install the development version from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"dieghernan/igoR"</span><span class="op">)</span></span></code></pre></div>
-<p>Alternatively, you can install <strong>igoR</strong> using the <a href="https://dieghernan.r-universe.dev/igoR" class="external-link">r-universe</a>:</p>
+<p>Alternatively, you can install <strong>igoR</strong> using <a href="https://dieghernan.r-universe.dev/igoR" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Install igoR in R</span></span>
+<code class="sourceCode R"><span><span class="co"># Install igoR from r-universe.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
 <span>  <span class="st">"igoR"</span>,</span>
 <span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
@@ -129,9 +129,9 @@
 <h2 id="basic-usage">Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
 </h2>
 <div class="section level3">
-<h3 id="search-an-igo-by-name">Search an IGO by name:<a class="anchor" aria-label="anchor" href="#search-an-igo-by-name"></a>
+<h3 id="search-for-igos-by-name">Search for IGOs by name<a class="anchor" aria-label="anchor" href="#search-for-igos-by-name"></a>
 </h3>
-<p>Search all IGOs related to “sugar”:</p>
+<p>Search for all IGOs related to “sugar”.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span></span>
 <span></span>
@@ -157,7 +157,7 @@
 <col width="5%">
 <col width="5%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="right">ionum</th>
 <th align="left">ioname</th>
 <th align="left">orgname</th>
@@ -178,7 +178,7 @@
 <th align="right">economic</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="right">40</td>
 <td align="left">AMSC</td>
 <td align="left">African/Malgasy Sugar Council</td>
@@ -198,7 +198,7 @@
 <td align="right">0</td>
 <td align="right">1</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="right">1920</td>
 <td align="left">GLACSEC</td>
 <td align="left">Group of L/A &amp; Carib. Sugar Exp. Countries</td>
@@ -218,7 +218,7 @@
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="right">3130</td>
 <td align="left">ISuC</td>
 <td align="left">Intl Sugar Council</td>
@@ -238,7 +238,7 @@
 <td align="right">1</td>
 <td align="right">0</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="right">4290</td>
 <td align="left">SugU</td>
 <td align="left">Sugar Union</td>
@@ -261,17 +261,17 @@
 </tbody>
 </table>
 <p class="caption">
-Table 1: IGOs related with sugar
+Table 1: IGOs related to sugar
 </p>
 </div>
 <div class="section level3">
-<h3 id="igo-members">IGO members:<a class="anchor" aria-label="anchor" href="#igo-members"></a>
+<h3 id="igo-members">IGO members<a class="anchor" aria-label="anchor" href="#igo-members"></a>
 </h3>
-<p>Composition of the <a href="https://en.wikipedia.org/wiki/European_Economic_Community" class="external-link">European Economic Community</a> over time:</p>
+<p>Extract members of the <a href="https://en.wikipedia.org/wiki/European_Economic_Community" class="external-link">European Economic Community</a> over time.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eec_code</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/igo_search.html">igo_search</a></span><span class="op">(</span><span class="st">"EEC"</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Founding</span></span>
+<span><span class="co"># Get founding members.</span></span>
 <span><span class="va">eec_init</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="va">eec_code</span><span class="op">$</span><span class="va">ioname</span>, year <span class="op">=</span> <span class="va">eec_code</span><span class="op">$</span><span class="va">sdate</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -284,7 +284,7 @@ Table 1: IGOs related with sugar
 <col width="12%">
 <col width="12%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="left">ioname</th>
 <th align="right">ccode</th>
 <th align="left">state</th>
@@ -295,7 +295,7 @@ Table 1: IGOs related with sugar
 <th align="left">orgname</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">EEC</td>
 <td align="right">210</td>
 <td align="left">netherlands</td>
@@ -305,7 +305,7 @@ Table 1: IGOs related with sugar
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">EEC</td>
 <td align="right">211</td>
 <td align="left">belgium</td>
@@ -315,7 +315,7 @@ Table 1: IGOs related with sugar
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">EEC</td>
 <td align="right">212</td>
 <td align="left">luxembourg</td>
@@ -325,7 +325,7 @@ Table 1: IGOs related with sugar
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">EEC</td>
 <td align="right">220</td>
 <td align="left">france</td>
@@ -335,7 +335,7 @@ Table 1: IGOs related with sugar
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">EEC</td>
 <td align="right">260</td>
 <td align="left">wgermany</td>
@@ -345,7 +345,7 @@ Table 1: IGOs related with sugar
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">EEC</td>
 <td align="right">325</td>
 <td align="left">italy</td>
@@ -361,7 +361,7 @@ Table 1: IGOs related with sugar
 Table 2: EEC, members (1958)
 </p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Latest date</span></span>
+<code class="sourceCode R"><span><span class="co"># Get members in the latest available year.</span></span>
 <span><span class="va">eec_end</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="va">eec_code</span><span class="op">$</span><span class="va">ioname</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -374,7 +374,7 @@ Table 2: EEC, members (1958)
 <col width="12%">
 <col width="12%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="left">ioname</th>
 <th align="right">ccode</th>
 <th align="left">state</th>
@@ -385,7 +385,7 @@ Table 2: EEC, members (1958)
 <th align="left">orgname</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">EEC</td>
 <td align="right">200</td>
 <td align="left">uk</td>
@@ -395,7 +395,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">EEC</td>
 <td align="right">205</td>
 <td align="left">ireland</td>
@@ -405,7 +405,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">EEC</td>
 <td align="right">210</td>
 <td align="left">netherlands</td>
@@ -415,7 +415,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">EEC</td>
 <td align="right">211</td>
 <td align="left">belgium</td>
@@ -425,7 +425,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">EEC</td>
 <td align="right">212</td>
 <td align="left">luxembourg</td>
@@ -435,7 +435,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">EEC</td>
 <td align="right">220</td>
 <td align="left">france</td>
@@ -445,7 +445,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">EEC</td>
 <td align="right">230</td>
 <td align="left">spain</td>
@@ -455,7 +455,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">EEC</td>
 <td align="right">235</td>
 <td align="left">portugal</td>
@@ -465,7 +465,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">EEC</td>
 <td align="right">255</td>
 <td align="left">germany</td>
@@ -475,7 +475,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">EEC</td>
 <td align="right">325</td>
 <td align="left">italy</td>
@@ -485,7 +485,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">EEC</td>
 <td align="right">350</td>
 <td align="left">greece</td>
@@ -495,7 +495,7 @@ Table 2: EEC, members (1958)
 <td align="left">Full Membership</td>
 <td align="left">European Economic Community</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">EEC</td>
 <td align="right">390</td>
 <td align="left">denmark</td>
@@ -517,37 +517,37 @@ Table 3: EEC, members (1992)
 </h2>
 <ul>
 <li>
-<strong>countrycode</strong> for converting country names and codes across different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.)</li>
+<strong>countrycode</strong> package for converting country names and codes across different systems, including ISO3, Eurostat, World Bank, UN and FIPS/GEC.</li>
 <li>
-<strong>dplyr</strong> for data manipulation.</li>
+<strong>dplyr</strong> package for data manipulation.</li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>
-Hernangómez D (2026). <em>igoR: Intergovernmental Organizations Database</em>. <a href="https://doi.org/10.32614/CRAN.package.igoR" class="external-link">doi:10.32614/CRAN.package.igoR</a>, <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
+Hernangómez D (2026). <em>igoR: Access the Intergovernmental Organizations Database</em>. <a href="https://doi.org/10.32614/CRAN.package.igoR" class="external-link">doi:10.32614/CRAN.package.igoR</a>. <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
 </p>
 <p>A BibTeX entry for LaTeX users:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>igoR,</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  title <span class="ot">=</span> {{igoR}<span class="sc">:</span> Intergovernmental Organizations Database},</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  title <span class="ot">=</span> {{igoR}<span class="sc">:</span> Access the Intergovernmental Organizations Database},</span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.igoR},</span>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
 <span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">1</span>.<span class="dv">0</span>.<span class="fl">0.9000</span>},</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">1</span>.<span class="dv">0</span>.<span class="fl">2.9000</span>},</span>
 <span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>igoR<span class="sc">/</span>},</span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools to extract information from the Intergovernmental <span class="fu">Organizations</span> (IGO) <span class="fu">Database</span> (v3), provided by the Correlates of War Project <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>correlatesofwar.org<span class="sc">/</span><span class="er">&gt;</span>. See also Pevehouse, J. C. et <span class="fu">al.</span> (<span class="dv">2020</span>) <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1177</span><span class="sc">/</span><span class="dv">0022343319881175</span><span class="sc">&gt;</span>.},</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools <span class="cf">for</span> searching, extracting and recoding information from the Intergovernmental <span class="fu">Organizations</span> (IGO) <span class="fu">Database</span> (v3), distributed by the Correlates of War Project <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>correlatesofwar.org<span class="sc">/</span><span class="er">&gt;</span>. The package includes IGO<span class="sc">-</span>year, state<span class="sc">-</span>year and joint membership data. See also Pevehouse, J. C. et <span class="fu">al.</span> (<span class="dv">2020</span>) <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1177</span><span class="sc">/</span><span class="dv">0022343319881175</span><span class="sc">&gt;</span>.},</span>
 <span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-correlatesofwarproject2017" class="csl-entry">
-Correlates of War Project. 2017. “State System Membership List, V2016.” <a href="https://correlatesofwar.org/data-sets/state-system-membership/" class="external-link uri">https://correlatesofwar.org/data-sets/state-system-membership/</a>.
+Correlates of War Project. 2017. <em>State System Membership List, V2016</em>. <a href="https://correlatesofwar.org/data-sets/state-system-membership/" class="external-link uri">https://correlatesofwar.org/data-sets/state-system-membership/</a>.
 </div>
 <div id="ref-pevehouse2020" class="csl-entry">
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne Spencer Jamison. 2020. “Tracking Organizations in the World: The <span class="nocase">Correlates of War IGO</span> Version 3.0 Datasets.” <em>Journal of Peace Research</em> 57 (3): 492–503. <a href="https://doi.org/10.1177/0022343319881175" class="external-link uri">https://doi.org/10.1177/0022343319881175</a>.
+Pevehouse, Jon C. W., Timothy Nordstrom, Roseanne W. McManus, and Anne Spencer Jamison. 2020. “Tracking Organizations in the World: The <span class="nocase">Correlates of War IGO</span> Version 3.0 Datasets.” <em>Journal of Peace Research</em> 57 (3): 492–503. <a href="https://doi.org/10.1177/0022343319881175" class="external-link uri">https://doi.org/10.1177/0022343319881175</a>.
 </div>
 </div>
 </div>

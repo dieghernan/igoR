@@ -1,6 +1,6 @@
-# Finds codes and names of a state
+# Find state codes and names
 
-Find codes and names of a state.
+Find COW codes, abbreviations and names for one or more states.
 
 ## Usage
 
@@ -17,9 +17,9 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - state:
 
-  Any valid name or code of a state as specified on
-  [`states2016()`](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
-  It can be also an array of states.
+  Any valid state name or code as specified in
+  [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
+  This can also be a vector of states.
 
 ## Value
 
@@ -27,15 +27,15 @@ A [`data.frame`](https://rdrr.io/r/base/data.frame.html).
 
 ## References
 
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
-(2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 datasets. *Journal of Peace Research, 57*(3), 492–503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version
+3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
 ## See also
 
-[`states2016()`](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
+[states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
 
 ## Examples
 

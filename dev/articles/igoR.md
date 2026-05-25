@@ -1,38 +1,37 @@
 # Get started with the igoR package
 
-This vignette is meant to provide **useRs** with a visual, explorable
-introduction to the capabilities of the **igoR** package.
+This vignette provides a visual introduction to **igoR**.
 
-The analysis is based on those provided in J. C. Pevehouse et al.
-([2020](#ref-pevehouse2020)). For more information on the IGO data sets
-and additional downloads, see [Intergovernmental Organizations
+The examples are based on Pevehouse et al. ([2020](#ref-pevehouse2020)).
+For more information about the IGO data sets and additional downloads,
+see [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*Note that the dyadic dataset is not provided in the package, due to its
-size (~500 MB in Stata `.dta` format). However,*
+*The dyadic data set is not included in the package due to its size
+(~500 MB in Stata `.dta` format), but
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
-*function provides similar results.*
+provides comparable joint membership results.*
 
 ## Definitions
 
-From J. Pevehouse, McManus, and Nordstrom ([2019](#ref-pevehouse2019)):
+From Pevehouse et al. ([2019](#ref-pevehouse2019)):
 
 > ### What is an IGO?
 >
-> The definition of an Intergovernmental Organization (IGO) on the
-> original dataset is based on the following criteria:
+> The original data set defines an Intergovernmental Organization (IGO)
+> using the following criteria:
 >
 > 1.  An IGO must consist of at least three members of the [COW-defined
 >     state
 >     system](https://correlatesofwar.org/data-sets/cow-country-codes/).
 > 2.  An IGO must hold regular plenary sessions at least once every ten
->     years
+>     years.
 > 3.  An IGO must possess a permanent secretariat and corresponding
 >     headquarters.
 >
 > ### When does an IGO actually begin?
 >
-> The data sets begins to code an IGO by identifying the first year in
+> The data set begins to code an IGO by identifying the first year in
 > which the organization functions. In some cases, individual members
 > are listed by year of accession or signature.
 >
@@ -40,35 +39,32 @@ From J. Pevehouse, McManus, and Nordstrom ([2019](#ref-pevehouse2019)):
 >
 > Version 3.0 of the IGO data set uses the following criteria:
 >
-> - An organization is considered terminated when the following words
->   were used to describe the context of the organization:
->   - Replaced;
->   - Succeeded;
->   - Superseded;
->   - Integrated;
->   - Merged;
->   - Dies.
+> - An organization is considered terminated when its context is
+>   described with one of the following terms: replaced, succeeded,
+>   superseded, integrated, merged or dies.
 
 ## Analysis
 
-This section provides some quick analysis based on the figures of J. C.
-Pevehouse et al. ([2020](#ref-pevehouse2020)).
+This section provides a short analysis based on figures in Pevehouse et
+al. ([2020](#ref-pevehouse2020)).
 
-### Initial Setup
+### Initial setup
 
 ``` r
+
 library(igoR)
 
-# Additional libraries
+# Load helper packages.
 library(ggplot2)
 library(dplyr)
 ```
 
-In the first place, we create a custom
+First, create a custom
 [`ggplot2::theme()`](https://ggplot2.tidyverse.org/reference/theme.html)
-named `theme_igor`, which we apply to all our figures:
+named `theme_igor`. The figures in this vignette use this theme.
 
 ``` r
+
 theme_igor <- theme(
   axis.title = element_blank(),
   axis.line.x.bottom = element_line("black"),
@@ -93,11 +89,12 @@ theme_igor <- theme(
 
 ### IGOs overview
 
-The following code extracts the number of IGOs and states included in
-this package. The years available are 1816 to 2014.
+The following code counts IGOs and states included in the package. The
+available years are 1816 to 2014.
 
 ``` r
-# Summarize
+
+# Summarize values by year.
 igos_by_year <- igo_year_format3 %>%
   group_by(year) %>%
   summarise(value = n(), .groups = "keep") %>%
@@ -110,7 +107,7 @@ countries_by_year <- state_year_format3 %>%
 
 all_by_year <- igos_by_year %>%
   bind_rows(countries_by_year) %>%
-  # For labelling the plot
+  # Label the plot.
   mutate(
     variable = factor(
       variable,
@@ -118,8 +115,7 @@ all_by_year <- igos_by_year %>%
     )
   )
 
-
-# Plot
+# Plot the results.
 ggplot(all_by_year, aes(x = year, y = value)) +
   geom_line(color = "black", aes(linetype = variable)) +
   scale_x_continuous(limits = c(1800, 2014)) +
@@ -133,12 +129,13 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 Figure 1: IGOs and states in the world system, 1816-2014
 
-### IGO Births and deaths
+### IGO births and deaths
 
-This plot shows how many IGOs were “born” and “died” in each year
+This plot shows how many IGOs started or ended in each year.
 
 ``` r
-# Births and deaths by year
+
+# Summarize IGO starts and endings by year.
 
 df <- igo_search()
 
@@ -154,12 +151,11 @@ deads <- df %>%
   summarise(value = n(), .groups = "keep") %>%
   mutate(variable = "IGO Deaths")
 
-
 births_and_deads <- births %>%
   bind_rows(deads) %>%
   filter(!is.na(year))
 
-# Plot
+# Plot the results.
 ggplot(births_and_deads, aes(x = year, y = value)) +
   geom_line(color = "black", aes(linetype = variable)) +
   scale_linetype_manual(values = c("solid", "dashed")) +
@@ -177,15 +173,15 @@ Figure 2: Birth and death rates of IGOs, 1816-2014
 
 ### IGOs across regions
 
-A plot with the number of IGOs by region. The definition of region is
-based on the original definition by J. C. Pevehouse et al.
-([2020](#ref-pevehouse2020)), as provided in the complementary
-replication data set ([PRIO 2020](#ref-priorep)):
+This plot shows the number of IGOs by region. The region definitions are
+based on Pevehouse et al. ([2020](#ref-pevehouse2020)) and the
+complementary replication data set ([PRIO 2020](#ref-priorep)).
 
 IGOs across regions: codes
 
 ``` r
-# crossreg and universal codes not included
+
+# Cross-regional and universal codes are not included.
 
 asia <- c(
   550,
@@ -521,8 +517,9 @@ americas <- c(
 ```
 
 ``` r
-# africa, americas, asia, europe, middle_east created in previous chunk
-# collapsed for readability.
+
+# `africa`, `americas`, `asia`, `europe` and `middle_east` were created in the
+# previous chunk, which is collapsed for readability.
 
 regions <- igo_search() %>%
   mutate(
@@ -538,13 +535,13 @@ regions <- igo_search() %>%
   select(ioname, region)
 ```
 
-After we have created a data frame with the regions, we can classify the
-IGOs by region.
+After creating a data frame with the regions, classify IGOs by region.
 
 ``` r
-# regions dataset created on previous chunk
 
-# All IGOs
+# The `regions` data set was created in the previous chunk.
+
+# Select all IGOs.
 alligos <- igo_year_format3 %>%
   select(ioname, year)
 
@@ -553,7 +550,7 @@ regionsum <- alligos %>%
   group_by(year, region) %>%
   summarise(value = n(), .groups = "keep") %>%
   filter(!is.na(region)) %>%
-  # For plotting
+  # Prepare for plotting.
   mutate(
     region = factor(
       region,
@@ -567,8 +564,7 @@ regionsum <- alligos %>%
     )
   )
 
-
-# Plot
+# Plot the results.
 ggplot(regionsum, aes(x = year, y = value)) +
   geom_line(color = "black", aes(linetype = region)) +
   scale_linetype_manual(
@@ -587,15 +583,16 @@ ggplot(regionsum, aes(x = year, y = value)) +
 
 Figure 3: IGO counts across regions, 1816-2014
 
-### Selected Countries: Asia
+### Selected states in Asia
 
-Number of memberships for a country. We select here five countries in
-Asia: India, China, Pakistan, Indonesia and Bangladesh.
+This plot shows the number of full memberships for five states in Asia:
+India, China, Pakistan, Indonesia and Bangladesh.
 
 ``` r
+
 asia5_cntries <- c("China", "India", "Pakistan", "Indonesia", "Bangladesh")
 
-# Five countries of Asia
+# Use five states in Asia.
 asia5_igos <- igo_state_membership(
   state = asia5_cntries,
   year = 1865:2014,
@@ -607,7 +604,7 @@ asia5 <- asia5_igos %>%
   summarise(values = n(), .groups = "keep") %>%
   mutate(statenme = factor(statenme, levels = asia5_cntries))
 
-# Plot
+# Plot the results.
 ggplot(asia5, aes(x = year, y = values)) +
   geom_line(color = "black", aes(linetype = statenme)) +
   scale_linetype_manual(
@@ -639,20 +636,21 @@ Figure 4: IGO membership: five states in Asia, 1865-2014
 
 ### Shared memberships
 
-Number of shared full memberships between Spain and four selected
-countries:
+The final plot counts shared full memberships between Spain and four
+selected states.
 
 ``` r
+
 selected_countries <- c("France", "Morocco", "China", "USA")
 
 spain_selected <- igo_dyadic("Spain", selected_countries)
 
-# Compute number of shared memberships
+# Compute the number of shared memberships.
 spain_selected <- spain_selected %>%
   rowwise() %>%
   mutate(values = sum(c_across(aaaid:wassen) == 1))
 
-# Plot
+# Plot the results.
 ggplot(spain_selected, aes(x = year, y = values)) +
   geom_line(color = "black", aes(linetype = statenme2)) +
   scale_linetype_manual(values = c("solid", "dashed", "dotted", "dotdash")) +
@@ -689,21 +687,21 @@ ggplot(spain_selected, aes(x = year, y = values)) +
 ![](igoR_files/figure-html/fig-f5-1.png)
 
 Figure 5: Number of IGOs with full shared memberships with Spain
-(selected countries), 1816-2014
+(selected states), 1816-2014
 
 ## References
 
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
+Pevehouse, Jon C. W., Timothy Nordstrom, Roseanne W. McManus, and Anne
 Spencer Jamison. 2020. “Tracking Organizations in the World: The
 Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 57 (3): 492–503. <https://doi.org/10.1177/0022343319881175>.
 
-Pevehouse, Jon, Roseanne McManus, and Timothy Nordstrom. 2019. “Codebook
+Pevehouse, Jon, Roseanne McManus, and Timothy Nordstrom. 2019. *Codebook
 for Correlates of War 3 International Governmental Organizations Data
 Set Version
-3.0.”[https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf](https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf%0A%09)
+3.0*.[https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf](https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf%0A%09)
 .
 
-PRIO. 2020. “Replication Datasets: Journal of Peace Research.” Peace
+PRIO. 2020. *Replication Datasets: Journal of Peace Research*. Peace
 Research Institute Oslo; Online.
 <https://www.prio.org/journals/jpr/replicationdata>.
