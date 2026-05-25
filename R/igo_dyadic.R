@@ -50,7 +50,7 @@
 #'
 #' ```
 #'
-#' See the [igo_recode_dyadic()] section for an easy way to recode the
+#' See [igo_recode_dyadic()] for an easy way to recode the
 #' numerical values into [factors][base::factor].
 #'
 #' If one state in an IGO is a full member but the other is an associate member
@@ -76,7 +76,7 @@
 #' \doi{10.1177/0022343319881175}.
 #'
 #' @seealso
-#' [state_year_format3], [states2016], [igo_search()].
+#' [state_year_format3], [states2016], [igo_search()], [igo_recode_dyadic()].
 #'
 #' @examples
 #' usa_esp <- igo_dyadic("USA", "Spain")

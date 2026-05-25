@@ -54,7 +54,7 @@ the following coding system:\tabular{lr}{
 }
 
 
-See the \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} section for an easy way to recode the
+See \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} for an easy way to recode the
 numerical values into \link[base:factor]{factors}.
 
 If one state in an IGO is a full member but the other is an associate member
@@ -91,5 +91,5 @@ data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\link{state_year_format3}, \link{states2016}, \code{\link[=igo_search]{igo_search()}}.
+\link{state_year_format3}, \link{states2016}, \code{\link[=igo_search]{igo_search()}}, \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}}.
 }
