@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_dyadic}
 \alias{igo_dyadic}
-\title{Extract joint membership for a pair of countries across IGOs}
+\title{Extract joint IGO membership for state pairs}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }
@@ -21,14 +21,18 @@ IGOs to assess. If \code{NULL} (the default), all IGOs will be extracted.
 See codes in \code{\link[=igo_search]{igo_search()}}.}
 }
 \value{
-A coded \code{\link{data.frame}} with years and country dyads as rows
+A coded \code{\link{data.frame}} with years and state dyads as rows
 and selected IGOs as columns. See \strong{Details}.
 }
 \description{
-Create a dyadic version of the data. The unit of observation is a country
-dyad. The result summarizes joint memberships across IGOs over time.
+Create a dyadic version of the data. The unit of observation is a state
+dyad, and the result summarizes joint memberships across IGOs over time.
 }
 \details{
+The arguments \code{country1} and \code{country2} are named for compatibility with
+earlier versions of \strong{igoR}. Values are matched against states in
+\link{states2016}.
+
 This function tries to replicate the information contained in the original
 file distributed by The Correlates of War Project (\code{dyadic_format3.dta}).
 That file is not included in this package due to its size.
@@ -78,9 +82,10 @@ custom <- igo_dyadic(
 )
 
 dplyr::glimpse(custom)
+
 }
 \references{
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
 data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.

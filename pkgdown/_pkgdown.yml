@@ -21,17 +21,18 @@ home:
   description: >
     Tools for searching, extracting and recoding information from the
     Intergovernmental Organizations Database (v3), distributed by the
-    Correlates of War Project.
+    Correlates of War Project. Includes IGO-year, state-year and joint
+    membership data.
 
 reference:
 - title: Data sets
-  desc: Data objects included in the package.
+  desc: IGO-year, state-year and state system membership data.
   contents:
   - igo_year_format3
   - state_year_format3
   - states2016
 - title: Query and extraction functions
-  desc: Search IGOs and states, then extract membership information.
+  desc: Search IGOs and states, then extract membership and joint membership information.
   contents:
   - igo_search
   - igo_search_states
@@ -39,7 +40,7 @@ reference:
   - igo_state_membership
   - igo_dyadic
 - title: Recode helpers
-  desc: Convert numerical membership codes into factors.
+  desc: Convert numerical membership status codes into factor labels.
   contents:
   - starts_with("igo_recode")
 - title: About the package

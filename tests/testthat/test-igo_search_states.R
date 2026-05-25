@@ -19,3 +19,12 @@ test_that("Search states", {
   expect_snapshot(n <- igo_search_states("aaaaa"))
   expect_null(n)
 })
+
+test_that("Search states accepts equivalent state identifiers", {
+  n <- igo_search_states(c("USA", "United States of America", 2))
+
+  expect_equal(nrow(n), 3)
+  expect_identical(unique(n$ccode), 2L)
+  expect_identical(unique(n$state), "usa")
+  expect_identical(row.names(n), as.character(seq_len(nrow(n))))
+})

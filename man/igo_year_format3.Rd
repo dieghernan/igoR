@@ -10,24 +10,24 @@
 19,335 rows. Relevant
 fields:
 \itemize{
-\item \strong{ioname}: Short abbreviation of the IGO name.
+\item \strong{ioname}: Short abbreviation for the IGO name.
 \item \strong{orgname}: Full IGO name.
 \item \strong{year}: Calendar year.
 \item \strong{afghanistan...zimbabwe}: Status of that state in the IGO. See
 \strong{Details}.
 \item \strong{sdate}: Start year for the IGO.
 \item \strong{deaddate}: End year for the IGO.
-\item \strong{longorgname}: Longer version of the IGO name, including previous
-names.
+\item \strong{longorgname}: Longer version of the IGO name, including previous names.
 \item \strong{ionum}: IGO ID number in v2.1 and v3.0 of the data.
 \item \strong{version}: COW version number.
 }
-
-See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{Intergovernmental Organizations (v3)}, The Correlates of War
 Project (IGO Data Stata Files).
+
+See the \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for the full
+reference.
 }
 \description{
 Data on IGOs from 1815 to 2014 at the IGO-year level. Contains one record
@@ -63,7 +63,7 @@ state_year_format3 \%>\%
   filter(year > 1990) \%>\%
   glimpse()
 
-# Recode numerical values to factors with a sample.
+# Recode a sample of numerical values to factors.
 sample_state_year <- state_year_format3 \%>\%
   as_tibble() \%>\%
   select(ccode:afgec) \%>\%
@@ -76,9 +76,10 @@ sample_state_year_recoded <- sample_state_year \%>\%
   mutate(across(-c(ccode:state), igo_recode_stateyear))
 
 sample_state_year_recoded \%>\% glimpse()
+
 }
 \references{
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
 data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.

@@ -4,7 +4,7 @@
 \encoding{UTF-8}
 \name{state_year_format3}
 \alias{state_year_format3}
-\title{Country membership in IGOs by year}
+\title{State membership in IGOs by year}
 \format{
 \code{\link{data.frame}} with
 15,557 rows. Relevant
@@ -17,16 +17,17 @@ fields:
 \item \strong{aaaid...wassen}: IGO variables containing information on state
 membership status. See \strong{Details}.
 }
-
-See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}.
 }
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{Intergovernmental Organizations (v3)}, The Correlates of War
 Project (IGO Data Stata Files).
+
+See the \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for the full
+reference.
 }
 \description{
-Data on IGOs from 1815 to 2014 at the country-year level. Contains one
-record per country-year, with years listed at five-year intervals through
+Data on IGOs from 1815 to 2014 at the state-year level. Contains one
+record per state-year, with years listed at five-year intervals through
 1965 and annually thereafter.
 }
 \details{
@@ -43,6 +44,8 @@ Possible values for the status of a state in the IGO are:\tabular{lr}{
 
 See the \code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} section for an easy way to recode the
 numerical values into \link[base:factor]{factors}.
+
+See the \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}.
 }
 \note{
 Raw data used internally by \CRANpkg{igoR}.
@@ -53,7 +56,7 @@ dplyr::tibble(state_year_format3)
 
 }
 \references{
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
 data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.

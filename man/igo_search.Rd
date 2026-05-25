@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_search}
 \alias{igo_search}
-\title{Search for an IGO}
+\title{Search for IGOs}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
 }
@@ -21,7 +21,7 @@ accepted.}
 A \code{\link{data.frame}}.
 }
 \description{
-Search for any IGO by name or string pattern.
+Search for IGOs by name or string pattern.
 }
 \details{
 The information for each IGO is retrieved from the last year available in
@@ -31,7 +31,7 @@ An additional column \code{label} is provided. This column is a clean version of
 \code{longorgname}.
 }
 \examples{
-# All values.
+# Return all values.
 library(dplyr)
 all <- igo_search()
 
@@ -67,7 +67,7 @@ igo_search("^NAFTA$|^UN$|^EU$") \%>\%
 
 }
 \references{
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S. (2020).
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
 data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.

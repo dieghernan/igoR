@@ -48,3 +48,32 @@ test_that("Test calls", {
   expect_true(ncol(n1) == ncol(n2))
   expect_false(ncol(n2) == ncol(n3))
 })
+
+test_that("Dyadic output keeps metadata before selected IGOs", {
+  res <- igo_dyadic("USA", "Spain", 1990, c("UN", "EU"))
+
+  expect_identical(
+    names(res)[1:10],
+    c(
+      "dyadid",
+      "ccode1",
+      "stateabb1",
+      "statenme1",
+      "state1",
+      "ccode2",
+      "stateabb2",
+      "statenme2",
+      "state2",
+      "year"
+    )
+  )
+  expect_identical(names(res)[11:12], c("un", "eu"))
+  expect_identical(row.names(res), as.character(seq_len(nrow(res))))
+})
+
+test_that("Dyadic identifiers use both state codes", {
+  res <- igo_dyadic("USA", "Spain", 1990, "UN")
+
+  expect_snapshot(res[, c("dyadid", "ccode1", "ccode2")])
+  expect_identical(res$dyadid, 1000 * res$ccode1 + res$ccode2)
+})
