@@ -25,8 +25,6 @@ jobs:
       github.event.workflow_run.conclusion == 'success'
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
-      COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
     steps:
     - uses: actions/checkout@v6
@@ -44,18 +42,13 @@ jobs:
 
     - name: Test coverage
       run: |
-
         cov <- covr::package_coverage(
           quiet = FALSE,
-          clean = FALSE
+          clean = FALSE,
+          install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
         )
-
-        # Show results
         print(cov)
-
-        # Generate files for upload in the working dir
         covr::to_cobertura(cov)
-
       shell: Rscript {0}
 
     - name: Coveralls
@@ -63,3 +56,17 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         file: cobertura.xml
+
+    - name: Show testthat output
+      if: always()
+      run: |
+        ## --------------------------------------------------------------------
+        find '${{ runner.temp }}/package' -name 'testthat.Rout*' -exec cat '{}' \; || true
+      shell: bash
+
+    - name: Upload test results
+      if: failure()
+      uses: actions/upload-artifact@v7
+      with:
+        name: coverage-test-failures
+        path: ${{ runner.temp }}/package
