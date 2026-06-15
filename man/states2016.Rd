@@ -6,7 +6,7 @@
 \alias{states2016}
 \title{State system membership (v2016)}
 \format{
-\code{\link{data.frame}} with
+A \code{\link{data.frame}} with
 243 rows. Relevant fields:
 \itemize{
 \item \strong{ccode}: COW country number.
@@ -23,17 +23,17 @@ tenure.
 The Correlates of War Project.
 }
 \description{
-The list of states with COW abbreviations and ID numbers, plus the field
+A list of states with COW abbreviations and ID numbers, plus the field
 \code{state} from \link{state_year_format3}.
 }
 \details{
 This data set contains the list of states in the international system as
 updated and distributed by the Correlates of War Project.
 
-These data sets identify states, their standard Correlates of War "country
-code" or state number (used throughout the Correlates of War project data
-sets), state abbreviations, and dates of membership as states and major
-powers in the international system.
+These data sets identify states, their standard Correlates of War country
+code or state number (used throughout Correlates of War project data sets),
+state abbreviations and dates of membership as states and major powers in
+the international system.
 
 The Correlates of War Project includes a state in the international system
 from 1816 to 2016 according to the following criteria:
@@ -51,7 +51,6 @@ The \code{state} variable was added to the original data to help comparisons
 across data sets in this package.
 }
 \examples{
-# Example code.
 data("states2016")
 dplyr::glimpse(states2016)
 
@@ -61,9 +60,8 @@ Correlates of War Project. 2017. "State System Membership List, v2016."
 Online, \url{https://correlatesofwar.org/}.
 }
 \seealso{
-Other datasets:
-\code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}},
+Other data sets:
 \code{\link{igo_year_format3}},
 \code{\link{state_year_format3}}
 }
-\concept{datasets}
+\concept{data sets}

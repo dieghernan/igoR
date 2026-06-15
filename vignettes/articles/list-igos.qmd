@@ -1,7 +1,8 @@
 ---
-title: "List of IGOs and states"
+title: "List of IGOs and COW states"
 description: >
-  Interactive exploration of the data included in the package.
+  Interactive exploration of the IGO and state system data included in the
+  package.
 bibliography: REFERENCES.bib
 link-citations: true
 knitr:
@@ -12,7 +13,7 @@ knitr:
     message: false
 ---
 
-This annex lists the IGOs [@pevehouse2020] and states
+This annex lists the IGOs [@pevehouse2020] and COW states
 [@correlatesofwarproject2017] included with the package.
 
 ## List of IGOs

@@ -3,25 +3,28 @@
 #' @name igo_search
 #'
 #' @description
-#' Search for IGOs by name or string pattern.
+#' Search for IGOs by name or regular expression pattern.
 #'
 #' @param pattern [regex][base::regex] pattern. If `NULL`, the function returns
 #'   a data set with all IGOs in [igo_year_format3]. Integer values are
 #'   accepted.
 #' @param exact Logical. When `TRUE`, only exact matches are returned.
 #'
-#' @returns A [`data.frame`][data.frame()].
+#' @returns
+#' A [`data.frame`][data.frame()] with IGO identifiers, names, dates and
+#' metadata from the latest available year for each IGO.
 #'
 #' @details
 #' The information for each IGO is retrieved from the last year available in
 #' [igo_year_format3].
 #'
-#' An additional column `label` is provided. This column is a clean version of
-#' `longorgname`.
+#' An additional column, `label`, provides a clean version of `longorgname`.
 #'
 #' @inherit igo_members source references
 #'
 #' @seealso [igo_year_format3].
+#'
+#' @family query functions
 #'
 #' @examples
 #' # Return all values.
@@ -112,7 +115,7 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
     if (length(lon) > 0) {
       db_end <- db_end[lon, ]
     } else {
-      warning("Pattern '", pattern, "' did not match any IGO.")
+      warning("No IGOs matched pattern '", pattern, "'.")
       return(invisible(NULL))
     }
   }

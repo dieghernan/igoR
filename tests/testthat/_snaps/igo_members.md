@@ -3,7 +3,7 @@
     Code
       res <- igo_members("Error")
     Message
-      `ioname` 'Error' was not found in the database.
+      Value for `ioname` not found: 'Error'.
     Condition
       Warning in `igo_members()`:
       No IGO results found with the required arguments.
@@ -13,7 +13,7 @@
     Code
       res <- igo_members("EU", year = 1900)
     Message
-      `ioname` 'EU' is available only between 1993 and 2014.
+      IGO 'EU' is available only between 1993 and 2014.
     Condition
       Warning in `igo_members()`:
       No IGO results found with the required arguments.
@@ -52,5 +52,5 @@
     Code
       var_err <- igo_members(c("EU", "an invented", "UN"))
     Message
-      `ioname` 'an invented' was not found in the database.
+      Value for `ioname` not found: 'an invented'.
 

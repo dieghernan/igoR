@@ -5,7 +5,8 @@
 \alias{igo_state_membership}
 \title{Extract state memberships}
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
+\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for the full
+reference.
 }
 \usage{
 igo_state_membership(state, year = NULL, status = "Full Membership")
@@ -17,11 +18,12 @@ can also be a vector of states.}
 \item{year}{Year to assess, as an integer or vector of years. If
 \code{NULL}, the latest year available for the state is extracted.}
 
-\item{status}{Character or vector with the membership status to be extracted.
-See \strong{Details} in \link{igo_year_format3}.}
+\item{status}{Character or vector with the membership status to extract. See
+\strong{Details} in \link{igo_year_format3}.}
 }
 \value{
-A \code{\link{data.frame}}.
+A \code{\link{data.frame}} with one row for each matching state, year,
+IGO and membership status.
 }
 \description{
 Extract all IGO memberships for a state in one or more years.
@@ -64,4 +66,9 @@ data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 }
 \seealso{
 \link{igo_year_format3}, \code{\link[=igo_search_states]{igo_search_states()}}, \link{states2016}.
+
+Other membership functions:
+\code{\link[=igo_dyadic]{igo_dyadic()}},
+\code{\link[=igo_members]{igo_members()}}
 }
+\concept{membership functions}

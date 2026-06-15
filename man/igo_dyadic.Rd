@@ -5,28 +5,29 @@
 \alias{igo_dyadic}
 \title{Extract joint IGO membership for state pairs}
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
+\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for the full
+reference.
 }
 \usage{
 igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 }
 \arguments{
-\item{country1, country2}{State or vector of states to compare. Values can be
-any valid state name or code as specified in \link{states2016}.}
+\item{country1, country2}{A state or vector of states to compare. Values can
+be any valid state name or code as specified in \link{states2016}.}
 
 \item{year}{Year to assess, as an integer or vector of years.}
 
-\item{ioname}{Optional. \code{ioname} or vector of \code{ioname} corresponding to the
-IGOs to assess. If \code{NULL} (the default), all IGOs will be extracted.
-See codes in \code{\link[=igo_search]{igo_search()}}.}
+\item{ioname}{An optional \code{ioname} or vector of \code{ioname} values
+corresponding to the IGOs to assess. If \code{NULL} (the default), the function
+extracts all IGOs. See codes in \code{\link[=igo_search]{igo_search()}}.}
 }
 \value{
-A coded \code{\link{data.frame}} with years and state dyads as rows
-and selected IGOs as columns. See \strong{Details}.
+A coded \code{\link{data.frame}} with years and state pairs as rows and
+selected IGOs as columns. See \strong{Details}.
 }
 \description{
-Create a dyadic version of the data. The unit of observation is a state
-dyad, and the result summarizes joint memberships across IGOs over time.
+Create the dyad-year form of the IGO data. The unit of analysis is a state
+pair in a year, and the result summarizes joint memberships across IGOs.
 }
 \details{
 The arguments \code{country1} and \code{country2} are named for compatibility with
@@ -34,8 +35,9 @@ earlier versions of \strong{igoR}. Values are matched against states in
 \link{states2016}.
 
 This function tries to replicate the information contained in the original
-file distributed by The Correlates of War Project (\code{dyadic_format3.dta}).
-That file is not included in this package due to its size.
+dyad-year file distributed by The Correlates of War Project
+(\code{dyadic_format3.dta}). That file is not included in this package due to its
+size.
 
 The result is a \code{\link{data.frame}} with one row for each common
 year selected via \code{country1}, \code{country2} and \code{year}.
@@ -43,9 +45,9 @@ year selected via \code{country1}, \code{country2} and \code{year}.
 An additional column, \code{dyadid}, computed as \code{(1000 * ccode1) + ccode2}, is
 provided to identify relationships.
 
-For each IGO selected via \code{ioname}, or all IGOs if the default option is
-used, a column using lowercase \code{ioname} as an identifier is provided with
-the following coding system:\tabular{lr}{
+For each IGO selected via \code{ioname}, or all IGOs when \code{ioname} is \code{NULL}, the
+result includes a column using lowercase \code{ioname} as an identifier and this
+coding system:\tabular{lr}{
    \strong{Category} \tab \strong{Numerical Value} \cr
    No Joint Membership \tab 0 \cr
    Joint Full Membership \tab 1 \cr
@@ -62,8 +64,8 @@ or observer, that IGO is not coded as a joint membership.
 }
 \section{Differences from the original data set}{
 Some results from this function differ from the original data set for some
-IGOs regarding "Missing data" (\code{-9}) and "State Not System Member" (\code{-1}).
-However, it is not clear how to fully replicate those values.
+IGOs regarding "Missing data" (\code{-9}) and "State Not System Member" (\code{-1}),
+and it is not clear how to fully replicate those values.
 
 See \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}.
 }
@@ -92,4 +94,9 @@ data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 }
 \seealso{
 \link{state_year_format3}, \link{states2016}, \code{\link[=igo_search]{igo_search()}}, \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}}.
+
+Other membership functions:
+\code{\link[=igo_members]{igo_members()}},
+\code{\link[=igo_state_membership]{igo_state_membership()}}
 }
+\concept{membership functions}

@@ -3,16 +3,20 @@
 #' @name igo_search_states
 #'
 #' @description
-#' Find COW codes, abbreviations and names for one or more states.
+#' Find COW codes, abbreviations and names for states.
 #'
 #' @param state Any valid state name or code as specified in [states2016]. This
 #'   can also be a vector of states.
 #'
-#' @returns A [`data.frame`][data.frame()].
+#' @returns
+#' A [`data.frame`][data.frame()] with COW country codes, abbreviations, names
+#' and the matching `state` identifier used by [state_year_format3].
 #'
 #' @inherit igo_members source references
 #'
 #' @seealso [states2016].
+#'
+#' @family query functions
 #'
 #' @examples
 #' library(dplyr)

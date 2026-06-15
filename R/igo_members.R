@@ -9,15 +9,19 @@
 #'   [igo_year_format3]. This can also be a vector of IGOs.
 #' @param year Year to assess, as an integer or vector of years. If
 #'   `NULL`, the latest year available for the IGO is extracted.
-#' @param status Character or vector with the membership status to be extracted.
-#'   See **Details** in [state_year_format3].
+#' @param status Character or vector with the membership status to extract. See
+#'   **Details** in [state_year_format3].
 #'
-#' @returns A [`data.frame`][data.frame()].
+#' @returns
+#' A [`data.frame`][data.frame()] with one row for each matching IGO member,
+#' year and membership status.
 #'
 #' @inherit igo_dyadic source references
 #'
 #' @seealso
 #' [igo_year_format3], [igo_search()], [state_year_format3].
+#'
+#' @family membership functions
 #'
 #' @examples
 #' library(dplyr)
@@ -75,7 +79,7 @@ igo_member_single <- function(ioname, year, status) {
   igo_db <- igo_db[tolower(igo_db$ioname) %in% tolower(ioname), ]
 
   if (nrow(igo_db) == 0) {
-    message("`ioname` '", ioname, "' was not found in the database.")
+    message("Value for `ioname` not found: '", ioname, "'.")
     return(NULL)
   }
 
@@ -98,7 +102,7 @@ igo_member_single <- function(ioname, year, status) {
   if (nrow(igo_db2) == 0) {
     dates <- range(igo_db$year, na.rm = TRUE)
     message(
-      "`ioname` '",
+      "IGO '",
       ioname,
       "' is available only between ",
       paste0(dates, collapse = " and "),

@@ -1,7 +1,7 @@
 # igoR (development version)
 
 - Internal code paths were simplified with AI-assisted refactoring to reduce
-  duplicated result handling, status validation and dyadic recoding logic.
+  duplicated result handling, status validation and dyad-year recoding logic.
 - `igo_dyadic()` now computes `dyadid` with both state codes, as documented.
 - User-facing messages were revised for clearer wording and consistent argument
   names.

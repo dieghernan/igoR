@@ -4,12 +4,12 @@
 #' @docType data
 #'
 #' @description
-#' Data on IGOs from 1815 to 2014 at the IGO-year level. Contains one record
-#' per IGO-year, with years listed at five-year intervals through 1965 and
+#' Data on IGOs from 1815 to 2014, at the IGO-year level. Contains one record
+#' per IGO-year, with years listed at 5-year intervals through 1965 and
 #' annually thereafter.
 #'
 #' @format
-#' [`data.frame`][data.frame()] with
+#' A [`data.frame`][data.frame()] with
 #' `r prettyNum(nrow(igoR::igo_year_format3), big.mark=",")` rows. Relevant
 #' fields:
 #'
@@ -41,8 +41,8 @@
 #'
 #' ```
 #'
-#' See the [igo_recode_igoyear()] section for an easy way to recode the
-#' numerical values into [factors][base::factor].
+#' See [igo_recode_igoyear()] for an easy way to recode the numerical values
+#' into [factors][base::factor].
 #'
 #' @source
 #' [Intergovernmental Organizations
@@ -55,7 +55,7 @@
 #'
 #' @inherit igo_dyadic references
 #'
-#' @family datasets
+#' @family data sets
 #'
 #' @note Raw data used internally by \CRANpkg{igoR}.
 #'
@@ -87,17 +87,18 @@
 #' @encoding UTF-8
 NULL
 
-#' State membership in IGOs by year
+#' Country-year IGO membership
 #'
 #' @name state_year_format3
 #' @docType data
 #'
 #' @description
-#' Data on IGOs from 1815 to 2014 at the state-year level. Contains one
-#' record per state-year, with years listed at five-year intervals through
-#' 1965 and annually thereafter.
+#' Data on IGOs from 1815 to 2014, at the country-year level. Contains one
+#' record per country-year, with years listed at 5-year intervals through 1965
+#' and annually thereafter.
 #'
-#' @format [`data.frame`][data.frame()] with
+#' @format
+#' A [`data.frame`][data.frame()] with
 #' `r prettyNum(nrow(igoR::state_year_format3), big.mark=",")` rows. Relevant
 #' fields:
 #'
@@ -125,8 +126,8 @@ NULL
 #'
 #' ```
 #'
-#' See the [igo_recode_stateyear()] section for an easy way to recode the
-#' numerical values into [factors][base::factor].
+#' See [igo_recode_stateyear()] for an easy way to recode the numerical values
+#' into [factors][base::factor].
 #'
 #' See the [**Codebook Version 3 IGO
 #' Data**](https://correlatesofwar.org/data-sets/IGOs/).
@@ -137,7 +138,7 @@ NULL
 #' [countrycode::countrycode()] to convert between different country code
 #' schemes.
 #'
-#' @family datasets
+#' @family data sets
 #'
 #' @examples
 #' data("state_year_format3")
@@ -152,10 +153,11 @@ NULL
 #' @docType data
 #'
 #' @description
-#' The list of states with COW abbreviations and ID numbers, plus the field
+#' A list of states with COW abbreviations and ID numbers, plus the field
 #' `state` from [state_year_format3].
 #'
-#' @format [`data.frame`][data.frame()] with
+#' @format
+#' A [`data.frame`][data.frame()] with
 #' `r prettyNum(nrow(igoR::states2016), big.mark=",")` rows. Relevant fields:
 #'
 #' - **ccode**: COW country number.
@@ -170,10 +172,10 @@ NULL
 #' This data set contains the list of states in the international system as
 #' updated and distributed by the Correlates of War Project.
 #'
-#' These data sets identify states, their standard Correlates of War "country
-#' code" or state number (used throughout the Correlates of War project data
-#' sets), state abbreviations, and dates of membership as states and major
-#' powers in the international system.
+#' These data sets identify states, their standard Correlates of War country
+#' code or state number (used throughout Correlates of War project data sets),
+#' state abbreviations and dates of membership as states and major powers in
+#' the international system.
 #'
 #' The Correlates of War Project includes a state in the international system
 #' from 1816 to 2016 according to the following criteria:
@@ -195,14 +197,13 @@ NULL
 #' Correlates of War Project. 2017. "State System Membership List, v2016."
 #' Online, <https://correlatesofwar.org/>.
 #'
-#' @family datasets
+#' @family data sets
 #'
 #' @note
 #' The `state` variable was added to the original data to help comparisons
 #' across data sets in this package.
 #'
 #' @examples
-#' # Example code.
 #' data("states2016")
 #' dplyr::glimpse(states2016)
 #'

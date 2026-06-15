@@ -5,7 +5,8 @@
 \alias{igo_search}
 \title{Search for IGOs}
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for full reference.
+\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for the full
+reference.
 }
 \usage{
 igo_search(pattern = NULL, exact = FALSE)
@@ -18,17 +19,17 @@ accepted.}
 \item{exact}{Logical. When \code{TRUE}, only exact matches are returned.}
 }
 \value{
-A \code{\link{data.frame}}.
+A \code{\link{data.frame}} with IGO identifiers, names, dates and
+metadata from the latest available year for each IGO.
 }
 \description{
-Search for IGOs by name or string pattern.
+Search for IGOs by name or regular expression pattern.
 }
 \details{
 The information for each IGO is retrieved from the last year available in
 \link{igo_year_format3}.
 
-An additional column \code{label} is provided. This column is a clean version of
-\code{longorgname}.
+An additional column, \code{label}, provides a clean version of \code{longorgname}.
 }
 \examples{
 # Return all values.
@@ -74,4 +75,8 @@ data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 }
 \seealso{
 \link{igo_year_format3}.
+
+Other query functions:
+\code{\link[=igo_search_states]{igo_search_states()}}
 }
+\concept{query functions}

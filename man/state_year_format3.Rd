@@ -4,9 +4,9 @@
 \encoding{UTF-8}
 \name{state_year_format3}
 \alias{state_year_format3}
-\title{State membership in IGOs by year}
+\title{Country-year IGO membership}
 \format{
-\code{\link{data.frame}} with
+A \code{\link{data.frame}} with
 15,557 rows. Relevant
 fields:
 \itemize{
@@ -26,9 +26,9 @@ See the \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Vers
 reference.
 }
 \description{
-Data on IGOs from 1815 to 2014 at the state-year level. Contains one
-record per state-year, with years listed at five-year intervals through
-1965 and annually thereafter.
+Data on IGOs from 1815 to 2014, at the country-year level. Contains one
+record per country-year, with years listed at 5-year intervals through 1965
+and annually thereafter.
 }
 \details{
 Possible values for the status of a state in the IGO are:\tabular{lr}{
@@ -42,8 +42,8 @@ Possible values for the status of a state in the IGO are:\tabular{lr}{
 }
 
 
-See the \code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} section for an easy way to recode the
-numerical values into \link[base:factor]{factors}.
+See \code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} for an easy way to recode the numerical values
+into \link[base:factor]{factors}.
 
 See the \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}}.
 }
@@ -65,9 +65,8 @@ data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}} to convert between different country code
 schemes.
 
-Other datasets:
-\code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}},
+Other data sets:
 \code{\link{igo_year_format3}},
 \code{\link{states2016}}
 }
-\concept{datasets}
+\concept{data sets}

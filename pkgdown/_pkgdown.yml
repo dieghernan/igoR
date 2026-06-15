@@ -21,37 +21,41 @@ home:
   description: >
     Tools for searching, extracting and recoding information from the
     Intergovernmental Organizations Database (v3), distributed by the
-    Correlates of War Project. Includes IGO-year, state-year and joint
-    membership data.
+    Correlates of War Project. Includes IGO-year and country-year data, state
+    system data and helpers for dyad-year joint membership results.
 
 reference:
 - title: Data sets
-  desc: IGO-year, state-year and state system membership data.
-  contents:
-  - igo_year_format3
-  - state_year_format3
-  - states2016
-- title: Query and extraction functions
-  desc: Search IGOs and states, then extract membership and joint membership information.
-  contents:
-  - igo_search
-  - igo_search_states
-  - igo_members
-  - igo_state_membership
-  - igo_dyadic
+  desc: IGO-year, country-year and state system data.
+- contents:
+  - has_concept("data sets")
+- title: Query functions
+  desc: Search IGOs and states.
+- contents:
+  - has_concept("query functions")
+- title: Membership functions
+  desc: >
+    Extract IGO memberships and dyad-year joint membership results.
+- contents:
+  - has_concept("membership functions")
 - title: Recode helpers
   desc: Convert numerical membership status codes into factor labels.
-  contents:
-  - starts_with("igo_recode")
+- contents:
+  - has_concept("recode helpers")
 - title: About the package
-  contents:
+- contents:
   - igoR-package
 
 articles:
-- title: Articles and annexes
+- title: Applied articles
+  desc: Examples that use IGO membership data in applied workflows.
   navbar: Articles
   contents:
   - mapping
+- title: Annexes
+  desc: Interactive reference tables for available IGOs and COW states.
+  navbar: Annexes
+  contents:
   - articles/list-igos
 
 authors:

@@ -8,15 +8,19 @@
 #' @inheritParams igo_search_states
 #' @param year Year to assess, as an integer or vector of years. If
 #'   `NULL`, the latest year available for the state is extracted.
-#' @param status Character or vector with the membership status to be extracted.
-#'   See **Details** in [igo_year_format3].
+#' @param status Character or vector with the membership status to extract. See
+#'   **Details** in [igo_year_format3].
 #'
-#' @returns A [`data.frame`][data.frame()].
+#' @returns
+#' A [`data.frame`][data.frame()] with one row for each matching state, year,
+#' IGO and membership status.
 #'
 #' @inherit igo_members source references
 #'
 #' @seealso
 #' [igo_year_format3], [igo_search_states()], [states2016].
+#'
+#' @family membership functions
 #'
 #' @examples
 #' # Memberships on two different dates.
@@ -99,7 +103,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
   year <- sort(unique(year))
   ccode <- state_db$ccode[1]
 
-  # Build the requested state-year combinations.
+  # Build the requested country-year combinations.
   master_db <- expand.grid(ccode = ccode, year = year, stringsAsFactors = FALSE)
 
   igo_db2 <- merge(state_db, master_db)[, c("ccode", "year", "state")]
@@ -142,7 +146,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
   )
   state_igo$category <- igo_recode_igoyear(state_igo$value)
 
-  # Join membership status to the requested state-year combinations.
+  # Join membership status to the requested country-year combinations.
   igo_w_year <- merge(igo_db2, state_igo)
   igo_w_year <- igo_w_year[igo_w_year$category %in% status, ]
 

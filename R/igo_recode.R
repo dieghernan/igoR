@@ -15,7 +15,7 @@
 #' @returns
 #' The recoded values as [factors][base::factor].
 #'
-#' @family datasets
+#' @family recode helpers
 #'
 #' @examples
 #' data("igo_year_format3")

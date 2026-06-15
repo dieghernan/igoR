@@ -6,7 +6,7 @@
 \alias{igo_year_format3}
 \title{Intergovernmental organizations by year}
 \format{
-\code{\link{data.frame}} with
+A \code{\link{data.frame}} with
 19,335 rows. Relevant
 fields:
 \itemize{
@@ -30,8 +30,8 @@ See the \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Vers
 reference.
 }
 \description{
-Data on IGOs from 1815 to 2014 at the IGO-year level. Contains one record
-per IGO-year, with years listed at five-year intervals through 1965 and
+Data on IGOs from 1815 to 2014, at the IGO-year level. Contains one record
+per IGO-year, with years listed at 5-year intervals through 1965 and
 annually thereafter.
 }
 \details{
@@ -46,8 +46,8 @@ Possible values for the status of a state in the IGO are:\tabular{lr}{
 }
 
 
-See the \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} section for an easy way to recode the
-numerical values into \link[base:factor]{factors}.
+See \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} for an easy way to recode the numerical values
+into \link[base:factor]{factors}.
 }
 \note{
 Raw data used internally by \CRANpkg{igoR}.
@@ -85,9 +85,8 @@ data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-Other datasets:
-\code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}},
+Other data sets:
 \code{\link{state_year_format3}},
 \code{\link{states2016}}
 }
-\concept{datasets}
+\concept{data sets}
