@@ -32,13 +32,6 @@ igo_recode_dyadic(x)
 
 The recoded values as [factors](https://rdrr.io/r/base/factor.html).
 
-## See also
-
-Other datasets:
-[`igo_year_format3`](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
-[`state_year_format3`](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md),
-[`states2016`](https://dieghernan.github.io/igoR/dev/reference/states2016.md)
-
 ## Examples
 
 ``` r

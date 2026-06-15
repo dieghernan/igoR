@@ -3,7 +3,7 @@
 ## igoR (development version)
 
 - Internal code paths were simplified with AI-assisted refactoring to
-  reduce duplicated result handling, status validation and dyadic
+  reduce duplicated result handling, status validation and dyad-year
   recoding logic.
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
   now computes `dyadid` with both state codes, as documented.

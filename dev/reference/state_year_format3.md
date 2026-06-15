@@ -1,13 +1,13 @@
-# State membership in IGOs by year
+# Country-year IGO membership
 
-Data on IGOs from 1815 to 2014 at the state-year level. Contains one
-record per state-year, with years listed at five-year intervals through
+Data on IGOs from 1815 to 2014, at the country-year level. Contains one
+record per country-year, with years listed at 5-year intervals through
 1965 and annually thereafter.
 
 ## Format
 
-[`data.frame`](https://rdrr.io/r/base/data.frame.html) with 15,557 rows.
-Relevant fields:
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 15,557
+rows. Relevant fields:
 
 - **ccode**: COW country number, see
   [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
@@ -44,9 +44,9 @@ Possible values for the status of a state in the IGO are:
 | Missing data         | -9                  |
 | IGO Not In Existence | -1                  |
 
-See the
+See
 [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
-section for an easy way to recode the numerical values into
+for an easy way to recode the numerical values into
 [factors](https://rdrr.io/r/base/factor.html).
 
 See the [**Codebook Version 3 IGO
@@ -70,8 +70,7 @@ Tracking organizations in the world: The Correlates of War IGO Version
 [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
 to convert between different country code schemes.
 
-Other datasets:
-[`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md),
+Other data sets:
 [`igo_year_format3`](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
 [`states2016`](https://dieghernan.github.io/igoR/dev/reference/states2016.md)
 

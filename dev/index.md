@@ -5,14 +5,15 @@ Database (v3) from the Correlates of War Project ([Pevehouse et al.
 2020](#ref-pevehouse2020)).
 
 The IGO-year data set includes **534** IGOs from 1816 to 2014, plus
-state-year membership information.
+country-year membership information. The package also provides helpers
+for dyad-year joint membership results.
 
 - Source: [Intergovernmental Organizations
   (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
 
-The package also includes a distribution of the Correlates of War State
-System Membership data ([Correlates of War Project
+The package also includes a distribution of the Correlates of War state
+system membership data ([Correlates of War Project
 2017](#ref-correlatesofwarproject2017)).
 
 ## Installation
@@ -66,7 +67,7 @@ Table 1: IGOs related to sugar
 
 ### IGO members
 
-Extract members of the [European Economic
+Extract the members of the [European Economic
 Community](https://en.wikipedia.org/wiki/European_Economic_Community)
 over time.
 
@@ -115,8 +116,7 @@ Table 3: EEC, members (1992)
 ## Recommended packages
 
 - **countrycode** package for converting country names and codes across
-  different systems, including ISO3, Eurostat, World Bank, UN and
-  FIPS/GEC.
+  systems, including ISO3, Eurostat, World Bank, UN and FIPS/GEC.
 - **dplyr** package for data manipulation.
 
 ## Citation
@@ -136,7 +136,7 @@ A BibTeX entry for LaTeX users:
   year = {2026},
   version = {1.0.2.9000},
   url = {https://dieghernan.github.io/igoR/},
-  abstract = {Tools for searching, extracting and recoding information from the Intergovernmental Organizations (IGO) Database (v3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. The package includes IGO-year, state-year and joint membership data. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
+  abstract = {Tools for searching, extracting and recoding information from the Intergovernmental Organizations (IGO) Database (v3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. The package includes IGO-year and country-year data, state system data and helpers for dyad-year joint membership results. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
 }
 ```
 

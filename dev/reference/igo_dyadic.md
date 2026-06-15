@@ -1,7 +1,8 @@
 # Extract joint IGO membership for state pairs
 
-Create a dyadic version of the data. The unit of observation is a state
-dyad, and the result summarizes joint memberships across IGOs over time.
+Create the dyad-year form of the IGO data. The unit of analysis is a
+state pair in a year, and the result summarizes joint memberships across
+IGOs.
 
 ## Usage
 
@@ -12,13 +13,14 @@ igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 ## Source
 
 [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
+Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
 
 ## Arguments
 
 - country1, country2:
 
-  State or vector of states to compare. Values can be any valid state
+  A state or vector of states to compare. Values can be any valid state
   name or code as specified in
   [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
 
@@ -28,15 +30,15 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - ioname:
 
-  Optional. `ioname` or vector of `ioname` corresponding to the IGOs to
-  assess. If `NULL` (the default), all IGOs will be extracted. See codes
-  in
+  An optional `ioname` or vector of `ioname` values corresponding to the
+  IGOs to assess. If `NULL` (the default), the function extracts all
+  IGOs. See codes in
   [`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md).
 
 ## Value
 
 A coded [`data.frame`](https://rdrr.io/r/base/data.frame.html) with
-years and state dyads as rows and selected IGOs as columns. See
+years and state pairs as rows and selected IGOs as columns. See
 **Details**.
 
 ## Details
@@ -46,7 +48,7 @@ earlier versions of **igoR**. Values are matched against states in
 [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
 
 This function tries to replicate the information contained in the
-original file distributed by The Correlates of War Project
+original dyad-year file distributed by The Correlates of War Project
 (`dyadic_format3.dta`). That file is not included in this package due to
 its size.
 
@@ -57,9 +59,9 @@ and `year`.
 An additional column, `dyadid`, computed as `(1000 * ccode1) + ccode2`,
 is provided to identify relationships.
 
-For each IGO selected via `ioname`, or all IGOs if the default option is
-used, a column using lowercase `ioname` as an identifier is provided
-with the following coding system:
+For each IGO selected via `ioname`, or all IGOs when `ioname` is `NULL`,
+the result includes a column using lowercase `ioname` as an identifier
+and this coding system:
 
 |                         |                     |
 |-------------------------|---------------------|
@@ -81,7 +83,7 @@ member or observer, that IGO is not coded as a joint membership.
 
 Some results from this function differ from the original data set for
 some IGOs regarding "Missing data" (`-9`) and "State Not System Member"
-(`-1`). However, it is not clear how to fully replicate those values.
+(`-1`), and it is not clear how to fully replicate those values.
 
 See [**Codebook Version 3 IGO
 Data**](https://correlatesofwar.org/data-sets/IGOs/).
@@ -100,6 +102,10 @@ Tracking organizations in the world: The Correlates of War IGO Version
 [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md),
 [`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md),
 [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md).
+
+Other membership functions:
+[`igo_members()`](https://dieghernan.github.io/igoR/dev/reference/igo_members.md),
+[`igo_state_membership()`](https://dieghernan.github.io/igoR/dev/reference/igo_state_membership.md)
 
 ## Examples
 

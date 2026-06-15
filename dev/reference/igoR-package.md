@@ -3,8 +3,9 @@
 Tools for searching, extracting and recoding information from the
 Intergovernmental Organizations ('IGO') Database (v3), distributed by
 the Correlates of War Project <https://correlatesofwar.org/>. The
-package includes IGO-year, state-year and joint membership data. See
-also Pevehouse, J. C. et al. (2020)
+package includes IGO-year and country-year data, state system data and
+helpers for dyad-year joint membership results. See also Pevehouse, J.
+C. et al. (2020)
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 

@@ -1,7 +1,7 @@
-# List of IGOs and states
+# List of IGOs and COW states
 
 This annex lists the IGOs ([Pevehouse et al. 2020](#ref-pevehouse2020))
-and states ([Correlates of War Project
+and COW states ([Correlates of War Project
 2017](#ref-correlatesofwarproject2017)) included with the package.
 
 ## List of IGOs

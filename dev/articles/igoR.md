@@ -7,8 +7,8 @@ For more information about the IGO data sets and additional downloads,
 see [Intergovernmental Organizations
 (v3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*The dyadic data set is not included in the package due to its size
-(~500 MB in Stata `.dta` format), but
+*The dyad-year data set is not included in the package because of its
+size (~500 MB in Stata `.dta` format), but
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
 provides comparable joint membership results.*
 
@@ -89,8 +89,8 @@ theme_igor <- theme(
 
 ### IGOs overview
 
-The following code counts IGOs and states included in the package. The
-available years are 1816 to 2014.
+The following code counts IGOs and COW states included in the package.
+The available years are 1816 to 2014.
 
 ``` r
 
@@ -127,7 +127,7 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 ![](igoR_files/figure-html/fig-f1-1.png)
 
-Figure 1: IGOs and states in the world system, 1816-2014
+Figure 1: IGOs and COW states in the state system, 1816-2014
 
 ### IGO births and deaths
 
@@ -535,7 +535,7 @@ regions <- igo_search() %>%
   select(ioname, region)
 ```
 
-After creating a data frame with the regions, classify IGOs by region.
+After creating a data frame of regions, classify IGOs by region.
 
 ``` r
 
@@ -585,8 +585,8 @@ Figure 3: IGO counts across regions, 1816-2014
 
 ### Selected states in Asia
 
-This plot shows the number of full memberships for five states in Asia:
-India, China, Pakistan, Indonesia and Bangladesh.
+This plot shows the number of full IGO memberships for five states in
+Asia: India, China, Pakistan, Indonesia and Bangladesh.
 
 ``` r
 
@@ -636,8 +636,8 @@ Figure 4: IGO membership: five states in Asia, 1865-2014
 
 ### Shared memberships
 
-The final plot counts shared full memberships between Spain and four
-selected states.
+The final plot counts dyad-year full joint memberships between Spain and
+four selected states.
 
 ``` r
 
@@ -645,7 +645,7 @@ selected_countries <- c("France", "Morocco", "China", "USA")
 
 spain_selected <- igo_dyadic("Spain", selected_countries)
 
-# Compute the number of shared memberships.
+# Compute the number of full joint memberships.
 spain_selected <- spain_selected %>%
   rowwise() %>%
   mutate(values = sum(c_across(aaaid:wassen) == 1))

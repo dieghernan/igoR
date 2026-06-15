@@ -11,7 +11,8 @@ igo_state_membership(state, year = NULL, status = "Full Membership")
 ## Source
 
 [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
+Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
 
 ## Arguments
 
@@ -28,13 +29,14 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 - status:
 
-  Character or vector with the membership status to be extracted. See
+  Character or vector with the membership status to extract. See
   **Details** in
   [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
 
 ## Value
 
-A [`data.frame`](https://rdrr.io/r/base/data.frame.html).
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
+for each matching state, year, IGO and membership status.
 
 ## References
 
@@ -49,6 +51,10 @@ Tracking organizations in the world: The Correlates of War IGO Version
 [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
 [`igo_search_states()`](https://dieghernan.github.io/igoR/dev/reference/igo_search_states.md),
 [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
+
+Other membership functions:
+[`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md),
+[`igo_members()`](https://dieghernan.github.io/igoR/dev/reference/igo_members.md)
 
 ## Examples
 

@@ -1,7 +1,7 @@
 # Mapping IGOs
 
 Maps are a powerful tool for presenting data. Because **igoR** focuses
-on intergovernmental organizations (IGOs), maps can help show how IGO
+on intergovernmental organizations (IGOs), maps can show how IGO
 membership changes across states and time.
 
 This vignette provides geospatial visualizations using the IGO data sets
@@ -96,17 +96,17 @@ UN members (1950, 1980, 2010)
 ## Number of shared memberships
 
 Shared memberships are useful for identifying regional patterns. The
-following code maps how many full memberships each state shared with
-Australia in 2014.
+following code maps how many full joint memberships each state shared
+with Australia in 2014.
 
 ``` r
 
-# Count shared IGOs in 2014.
+# Count full joint memberships in 2014.
 # Find states in the state system in 2014.
 states2014 <- states2016 %>%
   filter(styear <= 2014 & endyear >= 2014)
 
-# Find shared memberships with Australia.
+# Find joint memberships with Australia.
 shared <- igo_dyadic("AUL", as.character(states2014$statenme), year = 2014) %>%
   rowwise() %>%
   mutate(shared = sum(c_across(aaaid:wassen) == 1)) %>%
@@ -136,7 +136,7 @@ ggplot(sharedmap) +
   guides(fill = guide_legend(nrow = 1)) +
   labs(
     title = "Shared full memberships with Australia (2014)",
-    fill = "Number of IGOs shared",
+    fill = "Number of joint memberships",
     caption = gisco_attributions()
   ) +
   theme_minimal() +
@@ -160,7 +160,7 @@ ggplot(sharedmap) +
 
 Shared full memberships with Australia (2014)
 
-## Cross-shared memberships
+## Cross-state shared memberships
 
 The following map shows how joint memberships between North American
 states changed over the last 90 years, with one year representing each
@@ -171,7 +171,7 @@ decade.
 # Select years.
 years <- seq(1930, 2010, 10)
 
-# Find shared memberships.
+# Find joint memberships.
 cntries <- c("USA", "CAN", "MEX")
 all <- igo_dyadic(cntries, cntries, years) %>%
   rowwise() %>%
@@ -196,7 +196,7 @@ ggplot(countries_sf) +
   labs(
     title = "Shared full memberships in North America",
     subtitle = "(1930-2010)",
-    fill = "Shared IGOs",
+    fill = "Joint memberships",
     caption = gisco_attributions()
   ) +
   theme_minimal() +

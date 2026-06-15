@@ -1,12 +1,12 @@
 # State system membership (v2016)
 
-The list of states with COW abbreviations and ID numbers, plus the field
+A list of states with COW abbreviations and ID numbers, plus the field
 `state` from
 [state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md).
 
 ## Format
 
-[`data.frame`](https://rdrr.io/r/base/data.frame.html) with 243 rows.
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 243 rows.
 Relevant fields:
 
 - **ccode**: COW country number.
@@ -35,9 +35,9 @@ This data set contains the list of states in the international system as
 updated and distributed by the Correlates of War Project.
 
 These data sets identify states, their standard Correlates of War
-"country code" or state number (used throughout the Correlates of War
-project data sets), state abbreviations, and dates of membership as
-states and major powers in the international system.
+country code or state number (used throughout Correlates of War project
+data sets), state abbreviations and dates of membership as states and
+major powers in the international system.
 
 The Correlates of War Project includes a state in the international
 system from 1816 to 2016 according to the following criteria:
@@ -62,15 +62,13 @@ Online, <https://correlatesofwar.org/>.
 
 ## See also
 
-Other datasets:
-[`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md),
+Other data sets:
 [`igo_year_format3`](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
 [`state_year_format3`](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md)
 
 ## Examples
 
 ``` r
-# Example code.
 data("states2016")
 dplyr::glimpse(states2016)
 #> Rows: 243

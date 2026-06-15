@@ -28,7 +28,9 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
     <li><a class="dropdown-item" href="../articles/mapping.html">Mapping IGOs</a></li>
-    <li><a class="dropdown-item" href="../articles/list-igos.html">List of IGOs and states</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Annexes</h6></li>
+    <li><a class="dropdown-item" href="../articles/list-igos.html">List of IGOs and COW states</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -53,7 +55,7 @@
     <div class="section level2">
       <h2 id="data-sets">Data sets<a class="anchor" aria-label="anchor" href="#data-sets"></a></h2>
 
-      <div class="section-desc"><p>IGO-year, state-year and state system membership data.</p></div>
+      <div class="section-desc"><p>IGO-year, country-year and state system data.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -72,7 +74,7 @@
           <code><a href="state_year_format3.html">state_year_format3</a></code>
 
         </dt>
-        <dd>State membership in IGOs by year</dd>
+        <dd>Country-year IGO membership</dd>
 
         <dt>
 
@@ -81,9 +83,9 @@
         </dt>
         <dd>State system membership (v2016)</dd>
       </dl></div><div class="section level2">
-      <h2 id="query-and-extraction-functions">Query and extraction functions<a class="anchor" aria-label="anchor" href="#query-and-extraction-functions"></a></h2>
+      <h2 id="query-functions">Query functions<a class="anchor" aria-label="anchor" href="#query-functions"></a></h2>
 
-      <div class="section-desc"><p>Search IGOs and states, then extract membership and joint membership information.</p></div>
+      <div class="section-desc"><p>Search IGOs and states.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -103,6 +105,22 @@
 
         </dt>
         <dd>Find state codes and names</dd>
+      </dl></div><div class="section level2">
+      <h2 id="membership-functions">Membership functions<a class="anchor" aria-label="anchor" href="#membership-functions"></a></h2>
+
+      <div class="section-desc"><p>Extract IGO memberships and dyad-year joint membership results.</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="igo_dyadic.html">igo_dyadic()</a></code>
+
+        </dt>
+        <dd>Extract joint IGO membership for state pairs</dd>
 
         <dt>
 
@@ -117,13 +135,6 @@
 
         </dt>
         <dd>Extract state memberships</dd>
-
-        <dt>
-
-          <code><a href="igo_dyadic.html">igo_dyadic()</a></code>
-
-        </dt>
-        <dd>Extract joint IGO membership for state pairs</dd>
       </dl></div><div class="section level2">
       <h2 id="recode-helpers">Recode helpers<a class="anchor" aria-label="anchor" href="#recode-helpers"></a></h2>
 

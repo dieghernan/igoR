@@ -1,13 +1,13 @@
 # Intergovernmental organizations by year
 
-Data on IGOs from 1815 to 2014 at the IGO-year level. Contains one
-record per IGO-year, with years listed at five-year intervals through
-1965 and annually thereafter.
+Data on IGOs from 1815 to 2014, at the IGO-year level. Contains one
+record per IGO-year, with years listed at 5-year intervals through 1965
+and annually thereafter.
 
 ## Format
 
-[`data.frame`](https://rdrr.io/r/base/data.frame.html) with 19,335 rows.
-Relevant fields:
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 19,335
+rows. Relevant fields:
 
 - **ioname**: Short abbreviation for the IGO name.
 
@@ -53,9 +53,9 @@ Possible values for the status of a state in the IGO are:
 | Missing data            | -9                  |
 | State Not System Member | -1                  |
 
-See the
+See
 [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
-section for an easy way to recode the numerical values into
+for an easy way to recode the numerical values into
 [factors](https://rdrr.io/r/base/factor.html).
 
 ## Note
@@ -73,8 +73,7 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-Other datasets:
-[`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md),
+Other data sets:
 [`state_year_format3`](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md),
 [`states2016`](https://dieghernan.github.io/igoR/dev/reference/states2016.md)
 

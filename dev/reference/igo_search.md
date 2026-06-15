@@ -1,6 +1,6 @@
 # Search for IGOs
 
-Search for IGOs by name or string pattern.
+Search for IGOs by name or regular expression pattern.
 
 ## Usage
 
@@ -11,7 +11,8 @@ igo_search(pattern = NULL, exact = FALSE)
 ## Source
 
 [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
+Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
 
 ## Arguments
 
@@ -28,7 +29,9 @@ Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
 
 ## Value
 
-A [`data.frame`](https://rdrr.io/r/base/data.frame.html).
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with IGO
+identifiers, names, dates and metadata from the latest available year
+for each IGO.
 
 ## Details
 
@@ -36,8 +39,8 @@ The information for each IGO is retrieved from the last year available
 in
 [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
 
-An additional column `label` is provided. This column is a clean version
-of `longorgname`.
+An additional column, `label`, provides a clean version of
+`longorgname`.
 
 ## References
 
@@ -50,6 +53,9 @@ Tracking organizations in the world: The Correlates of War IGO Version
 ## See also
 
 [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
+
+Other query functions:
+[`igo_search_states()`](https://dieghernan.github.io/igoR/dev/reference/igo_search_states.md)
 
 ## Examples
 
