@@ -1,33 +1,33 @@
-# Country-year IGO membership
+# Country-year IGO membership data
 
-Data on IGOs from 1815 to 2014, at the country-year level. Contains one
-record per country-year, with years listed at 5-year intervals through
-1965 and annually thereafter.
+Data on IGO membership from 1816 to 2014 at the country-year level. Each
+row represents one country in one year. Years are recorded at five-year
+intervals through 1965 and annually thereafter.
 
 ## Format
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 15,557
 rows. Relevant fields:
 
-- **ccode**: COW country number, see
+- `ccode`: Correlates of War country number. See
   [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
 
-- **year**: Calendar year.
+- `year`: Calendar year.
 
-- **state**: Abbreviated state name, identical to variable names in
+- `state`: Abbreviated state name, identical to variable names in
   [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
 
-- **aaaid...wassen**: IGO variables containing information on state
-  membership status. See **Details**.
+- `aaaid...wassen`: IGO variables containing state membership status.
+  See the Details section.
 
 ## Source
 
-[Intergovernmental Organizations
-(v3)](https://correlatesofwar.org/data-sets/IGOs/), The Correlates of
-War Project (IGO Data Stata Files).
+[Intergovernmental Organizations (version
+3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata Files
+from the Correlates of War Project.
 
-See the [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+See the [Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
 reference.
 
 ## Details
@@ -36,7 +36,7 @@ Possible values for the status of a state in the IGO are:
 
 |                      |                     |
 |----------------------|---------------------|
-| **Category**         | **Numerical Value** |
+| **Category**         | **Numerical value** |
 | No Membership        | 0                   |
 | Full Membership      | 1                   |
 | Associate Membership | 2                   |
@@ -44,18 +44,17 @@ Possible values for the status of a state in the IGO are:
 | Missing data         | -9                  |
 | IGO Not In Existence | -1                  |
 
-See
+Use
 [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
-for an easy way to recode the numerical values into
+to recode the numerical values as
 [factors](https://rdrr.io/r/base/factor.html).
 
-See the [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/).
+See the [Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/).
 
 ## Note
 
-Raw data used internally by
-[igoR](https://CRAN.R-project.org/package=igoR).
+Data distributed with [igoR](https://CRAN.R-project.org/package=igoR).
 
 ## References
 

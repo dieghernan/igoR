@@ -1,6 +1,6 @@
-# Find state codes and names
+# Find state codes, abbreviations and names
 
-Find COW codes, abbreviations and names for states.
+Finds Correlates of War codes, abbreviations and names for states.
 
 ## Usage
 
@@ -10,23 +10,22 @@ igo_search_states(state)
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
 reference.
 
 ## Arguments
 
 - state:
 
-  Any valid state name or code as specified in
+  A state name or code, or a vector of names or codes, as specified in
   [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
-  This can also be a vector of states.
 
 ## Value
 
-A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with COW
-country codes, abbreviations, names and the matching `state` identifier
-used by
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with Correlates
+of War country codes, abbreviations, names and the matching `state`
+identifiers used by
 [state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md).
 
 ## References

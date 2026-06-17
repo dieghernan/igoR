@@ -1,16 +1,18 @@
-# Get started with the igoR package
+# Get started with igoR
 
-This vignette provides a visual introduction to **igoR**.
+This vignette introduces the main data sets and functions in **igoR**
+through visual examples.
 
-The examples are based on Pevehouse et al. ([2020](#ref-pevehouse2020)).
-For more information about the IGO data sets and additional downloads,
-see [Intergovernmental Organizations
-(v3)](https://correlatesofwar.org/data-sets/IGOs/).
+The examples build on analyses from Pevehouse et al.
+([2020](#ref-pevehouse2020)). For more information about the IGO data
+sets and additional downloads, see [Intergovernmental Organizations
+(version 3)](https://correlatesofwar.org/data-sets/IGOs/).
 
-*The dyad-year data set is not included in the package because of its
-size (~500 MB in Stata `.dta` format), but
+*The original dyad-year data set is not included because of its size
+(about 500 MB in Stata `.dta` format). The
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
-provides comparable joint membership results.*
+function derives comparable joint membership results from the included
+data.*
 
 ## Definitions
 
@@ -18,35 +20,35 @@ From Pevehouse et al. ([2019](#ref-pevehouse2019)):
 
 > ### What is an IGO?
 >
-> The original data set defines an Intergovernmental Organization (IGO)
+> The original data set defines an intergovernmental organization (IGO)
 > using the following criteria:
 >
-> 1.  An IGO must consist of at least three members of the [COW-defined
->     state
+> 1.  An IGO must consist of at least three members of the [Correlates
+>     of War state
 >     system](https://correlatesofwar.org/data-sets/cow-country-codes/).
 > 2.  An IGO must hold regular plenary sessions at least once every ten
 >     years.
 > 3.  An IGO must possess a permanent secretariat and corresponding
 >     headquarters.
 >
-> ### When does an IGO actually begin?
+> ### When does an IGO begin?
 >
-> The data set begins to code an IGO by identifying the first year in
-> which the organization functions. In some cases, individual members
-> are listed by year of accession or signature.
+> The data set begins coding an IGO in the first year the organization
+> functions. In some cases, individual members are recorded by year of
+> accession or signature.
 >
-> ### When does an IGO die?
+> ### When does an IGO cease to exist?
 >
 > Version 3.0 of the IGO data set uses the following criteria:
 >
-> - An organization is considered terminated when its context is
->   described with one of the following terms: replaced, succeeded,
->   superseded, integrated, merged or dies.
+> - An organization is considered terminated when its description
+>   includes one of the following terms: `replaced`, `succeeded`,
+>   `superseded`, `integrated`, `merged` or `dies`.
 
 ## Analysis
 
-This section provides a short analysis based on figures in Pevehouse et
-al. ([2020](#ref-pevehouse2020)).
+This section reproduces selected analyses based on figures in Pevehouse
+et al. ([2020](#ref-pevehouse2020)).
 
 ### Initial setup
 
@@ -61,7 +63,7 @@ library(dplyr)
 
 First, create a custom
 [`ggplot2::theme()`](https://ggplot2.tidyverse.org/reference/theme.html)
-named `theme_igor`. The figures in this vignette use this theme.
+object named `theme_igor`. All figures in this vignette use this theme.
 
 ``` r
 
@@ -89,8 +91,8 @@ theme_igor <- theme(
 
 ### IGOs overview
 
-The following code counts IGOs and COW states included in the package.
-The available years are 1816 to 2014.
+The following code counts IGOs and states in the Correlates of War (COW)
+system by year. The data cover 1816 to 2014.
 
 ``` r
 
@@ -129,7 +131,7 @@ ggplot(all_by_year, aes(x = year, y = value)) +
 
 Figure 1: IGOs and COW states in the state system, 1816-2014
 
-### IGO births and deaths
+### IGO starts and endings
 
 This plot shows how many IGOs started or ended in each year.
 
@@ -169,7 +171,7 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
 
 ![](igoR_files/figure-html/fig-f2-1.png)
 
-Figure 2: Birth and death rates of IGOs, 1816-2014
+Figure 2: IGO starts and endings, 1816-2014
 
 ### IGOs across regions
 
@@ -535,7 +537,8 @@ regions <- igo_search() %>%
   select(ioname, region)
 ```
 
-After creating a data frame of regions, classify IGOs by region.
+The next step joins the region classifications to the IGO-year data and
+counts IGOs by region.
 
 ``` r
 
@@ -634,10 +637,10 @@ ggplot(asia5, aes(x = year, y = values)) +
 
 Figure 4: IGO membership: five states in Asia, 1865-2014
 
-### Shared memberships
+### Joint memberships
 
-The final plot counts dyad-year full joint memberships between Spain and
-four selected states.
+The final plot counts full joint memberships in dyad-year data for Spain
+and four selected states.
 
 ``` r
 
@@ -686,7 +689,7 @@ ggplot(spain_selected, aes(x = year, y = values)) +
 
 ![](igoR_files/figure-html/fig-f5-1.png)
 
-Figure 5: Number of IGOs with full shared memberships with Spain
+Figure 5: Number of IGOs with full joint memberships with Spain
 (selected states), 1816-2014
 
 ## References

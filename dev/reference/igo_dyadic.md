@@ -1,8 +1,7 @@
 # Extract joint IGO membership for state pairs
 
-Create the dyad-year form of the IGO data. The unit of analysis is a
-state pair in a year, and the result summarizes joint memberships across
-IGOs.
+Creates dyad-year IGO data. Each row represents a pair of states in one
+year and summarizes their joint memberships across IGOs.
 
 ## Usage
 
@@ -12,34 +11,34 @@ igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
 reference.
 
 ## Arguments
 
 - country1, country2:
 
-  A state or vector of states to compare. Values can be any valid state
-  name or code as specified in
+  A state or vector of states to compare. Each value can be any state
+  name or code in
   [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
 
 - year:
 
-  Year to assess, as an integer or vector of years.
+  An integer or vector of years to assess.
 
 - ioname:
 
-  An optional `ioname` or vector of `ioname` values corresponding to the
-  IGOs to assess. If `NULL` (the default), the function extracts all
-  IGOs. See codes in
-  [`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md).
+  An optional IGO identifier or vector of identifiers. If `NULL` (the
+  default), all IGOs are included. Use
+  [`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md)
+  to find valid identifiers.
 
 ## Value
 
-A coded [`data.frame`](https://rdrr.io/r/base/data.frame.html) with
-years and state pairs as rows and selected IGOs as columns. See
-**Details**.
+A coded [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one
+row per state pair and year and one column per selected IGO. See Details
+for the coding scheme.
 
 ## Details
 
@@ -47,33 +46,30 @@ The arguments `country1` and `country2` are named for compatibility with
 earlier versions of **igoR**. Values are matched against states in
 [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
 
-This function tries to replicate the information contained in the
-original dyad-year file distributed by The Correlates of War Project
-(`dyadic_format3.dta`). That file is not included in this package due to
-its size.
+This function reproduces the structure of the original dyad-year file
+distributed by the Correlates of War Project (`dyadic_format3.dta`).
+That file is not included in this package due to its size.
 
-The result is a [`data.frame`](https://rdrr.io/r/base/data.frame.html)
-with one row for each common year selected via `country1`, `country2`
-and `year`.
+The result contains one row for each common year selected by `country1`,
+`country2` and `year`.
 
-An additional column, `dyadid`, computed as `(1000 * ccode1) + ccode2`,
-is provided to identify relationships.
+The `dyadid` column identifies each relationship and is computed as
+`(1000 * ccode1) + ccode2`.
 
-For each IGO selected via `ioname`, or all IGOs when `ioname` is `NULL`,
-the result includes a column using lowercase `ioname` as an identifier
-and this coding system:
+For each selected IGO, the result includes a column named after its
+lowercase identifier and uses this coding scheme:
 
 |                         |                     |
 |-------------------------|---------------------|
-| **Category**            | **Numerical Value** |
+| **Category**            | **Numerical value** |
 | No Joint Membership     | 0                   |
 | Joint Full Membership   | 1                   |
 | Missing data            | -9                  |
 | State Not System Member | -1                  |
 
-See
+Use
 [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
-for an easy way to recode the numerical values into
+to recode the numerical values as
 [factors](https://rdrr.io/r/base/factor.html).
 
 If one state in an IGO is a full member but the other is an associate
@@ -81,12 +77,13 @@ member or observer, that IGO is not coded as a joint membership.
 
 ## Differences from the original data set
 
-Some results from this function differ from the original data set for
-some IGOs regarding "Missing data" (`-9`) and "State Not System Member"
-(`-1`), and it is not clear how to fully replicate those values.
+For some IGOs, results differ from the original data set in the coding
+of "Missing data" (`-9`) and "State Not System Member" (`-1`). The
+available documentation does not fully specify how to reproduce those
+values.
 
-See [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/).
+See [Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/).
 
 ## References
 

@@ -1,6 +1,6 @@
 # Search for IGOs
 
-Search for IGOs by name or regular expression pattern.
+Searches for IGOs by name or regular expression.
 
 ## Usage
 
@@ -10,37 +10,37 @@ igo_search(pattern = NULL, exact = FALSE)
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
 reference.
 
 ## Arguments
 
 - pattern:
 
-  [regex](https://rdrr.io/r/base/regex.html) pattern. If `NULL`, the
-  function returns a data set with all IGOs in
-  [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
-  Integer values are accepted.
+  A [regular expression](https://rdrr.io/r/base/regex.html) used to
+  match IGO names and identifiers. If `NULL`, all IGOs in
+  [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md)
+  are returned. Integer values are accepted.
 
 - exact:
 
-  Logical. When `TRUE`, only exact matches are returned.
+  A logical value. If `TRUE`, `pattern` is anchored to require a
+  complete match.
 
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with IGO
-identifiers, names, dates and metadata from the latest available year
-for each IGO.
+identifiers, names, dates and other metadata from the latest available
+year for each IGO.
 
 ## Details
 
-The information for each IGO is retrieved from the last year available
+The information for each IGO is retrieved from the latest year available
 in
 [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
 
-An additional column, `label`, provides a clean version of
-`longorgname`.
+The `label` column provides a cleaned version of `longorgname`.
 
 ## References
 
@@ -110,7 +110,7 @@ igo_search("EU", exact = TRUE) %>%
 #>   <dbl> <chr>  <chr>         
 #> 1  1830 EU     European Union
 
-# Use integers.
+# Search by numeric identifier.
 igo_search(10) %>%
   select(ionum:orgname) %>%
   tibble()
@@ -137,7 +137,7 @@ igo_search(10, exact = TRUE) %>%
 #>   <dbl> <chr>  <chr>                
 #> 1    10 ACPEU  ACP/EU Joint Assembly
 
-# Use several patterns (regex style).
+# Search with a regular expression.
 igo_search("NAFTA|UN|EU") %>%
   select(ionum:orgname) %>%
   tibble()
@@ -156,7 +156,7 @@ igo_search("NAFTA|UN|EU") %>%
 #> 10   110 AGC      African Groundnut Council                                
 #> # ℹ 186 more rows
 
-# Use several exact patterns (regex style).
+# Search for several exact identifiers.
 igo_search("^NAFTA$|^UN$|^EU$") %>%
   select(ionum:orgname) %>%
   tibble()

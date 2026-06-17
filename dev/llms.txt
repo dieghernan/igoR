@@ -1,20 +1,17 @@
 # igoR
 
-**igoR** provides access to the Intergovernmental Organizations (IGO)
-Database (v3) from the Correlates of War Project ([Pevehouse et al.
-2020](#ref-pevehouse2020)).
+**igoR** provides tools for searching, extracting and recoding the
+Intergovernmental Organizations Database (version 3), distributed by the
+Correlates of War Project ([Pevehouse et al. 2020](#ref-pevehouse2020)).
 
-The IGO-year data set includes **534** IGOs from 1816 to 2014, plus
-country-year membership information. The package also provides helpers
-for dyad-year joint membership results.
+The IGO-year data set contains **534** IGOs recorded from 1816 to 2014.
+The package also includes country-year membership data, state system
+data ([Correlates of War Project 2017](#ref-correlatesofwarproject2017))
+and functions for deriving dyad-year joint membership results.
 
-- Source: [Intergovernmental Organizations
-  (v3)](https://correlatesofwar.org/data-sets/IGOs/).
+- Source: [Intergovernmental Organizations (version
+  3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
-
-The package also includes a distribution of the Correlates of War state
-system membership data ([Correlates of War Project
-2017](#ref-correlatesofwarproject2017)).
 
 ## Installation
 
@@ -47,7 +44,7 @@ install.packages(
 
 ### Search for IGOs by name
 
-Search for all IGOs related to “sugar”.
+Search for IGOs related to “sugar”.
 
 ``` r
 
@@ -88,7 +85,7 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 | EEC | 260 | wgermany | German Federal Republic | 1958 | 1 | Full Membership | European Economic Community |
 | EEC | 325 | italy | Italy | 1958 | 1 | Full Membership | European Economic Community |
 
-Table 2: EEC, members (1958)
+Table 2: EEC members (1958)
 
 ``` r
 
@@ -111,7 +108,7 @@ eec_end <- igo_members(eec_code$ioname)
 | EEC | 350 | greece | Greece | 1992 | 1 | Full Membership | European Economic Community |
 | EEC | 390 | denmark | Denmark | 1992 | 1 | Full Membership | European Economic Community |
 
-Table 3: EEC, members (1992)
+Table 3: EEC members (1992)
 
 ## Recommended packages
 
@@ -126,7 +123,7 @@ Database*.
 [doi:10.32614/CRAN.package.igoR](https://doi.org/10.32614/CRAN.package.igoR).
 <https://dieghernan.github.io/igoR/>.
 
-A BibTeX entry for LaTeX users:
+For LaTeX users, a BibTeX entry is:
 
 ``` R
 @Manual{R-igoR,
@@ -136,7 +133,7 @@ A BibTeX entry for LaTeX users:
   year = {2026},
   version = {1.0.2.9000},
   url = {https://dieghernan.github.io/igoR/},
-  abstract = {Tools for searching, extracting and recoding information from the Intergovernmental Organizations (IGO) Database (v3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. The package includes IGO-year and country-year data, state system data and helpers for dyad-year joint membership results. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
+  abstract = {Provides tools for searching, extracting and recoding the Intergovernmental Organizations Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
 }
 ```
 
@@ -154,38 +151,39 @@ Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 
 ## Data sets
 
-IGO-year, country-year and state system data.
+IGO-year membership, country-year membership and state system data.
 
 - [`igo_year_format3`](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md)
-  : Intergovernmental organizations by year
+  : IGO-year membership data
 - [`state_year_format3`](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md)
-  : Country-year IGO membership
+  : Country-year IGO membership data
 - [`states2016`](https://dieghernan.github.io/igoR/dev/reference/states2016.md)
   : State system membership (v2016)
 
 ## Query functions
 
-Search IGOs and states.
+Search for IGOs and states.
 
 - [`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md)
   : Search for IGOs
 - [`igo_search_states()`](https://dieghernan.github.io/igoR/dev/reference/igo_search_states.md)
-  : Find state codes and names
+  : Find state codes, abbreviations and names
 
 ## Membership functions
 
-Extract IGO memberships and dyad-year joint membership results.
+Extract IGO membership records and derive dyad-year joint membership
+results.
 
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
   : Extract joint IGO membership for state pairs
 - [`igo_members()`](https://dieghernan.github.io/igoR/dev/reference/igo_members.md)
-  : Extract IGO members
+  : Extract IGO membership records
 - [`igo_state_membership()`](https://dieghernan.github.io/igoR/dev/reference/igo_state_membership.md)
-  : Extract state memberships
+  : Extract IGO membership records for states
 
 ## Recode helpers
 
-Convert numerical membership status codes into factor labels.
+Convert numerical membership codes to factor labels.
 
 - [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
   [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
@@ -200,6 +198,13 @@ Convert numerical membership status codes into factor labels.
 
 # Articles
 
+### Get started
+
+- [Get started with
+  igoR](https://dieghernan.github.io/igoR/dev/articles/igoR.md):
+
+  Visual introduction to IGO data and package workflows.
+
 ### Applied articles
 
 Examples that use IGO membership data in applied workflows.
@@ -207,14 +212,14 @@ Examples that use IGO membership data in applied workflows.
 - [Mapping
   IGOs](https://dieghernan.github.io/igoR/dev/articles/mapping.md):
 
-  Integrating IGO data into mapping projects.
+  Integrate IGO membership data into mapping workflows.
 
 ### Annexes
 
-Interactive reference tables for available IGOs and COW states.
+Interactive reference tables for available IGOs and states in the
+Correlates of War state system.
 
-- [List of IGOs and COW
-  states](https://dieghernan.github.io/igoR/dev/articles/list-igos.md):
+- [IGOs and states in the Correlates of War
+  system](https://dieghernan.github.io/igoR/dev/articles/list-igos.md):
 
-  Interactive exploration of the IGO and state system data included in
-  the package.
+  Interactive tables of the IGO and state system data included in igoR.

@@ -1,6 +1,6 @@
-# Extract IGO members
+# Extract IGO membership records
 
-Extract all states that belong to an IGO in one or more years.
+Extracts state-level membership records for one or more IGOs and years.
 
 ## Usage
 
@@ -10,33 +10,35 @@ igo_members(ioname, year = NULL, status = "Full Membership")
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
 reference.
 
 ## Arguments
 
 - ioname:
 
-  Any valid `ioname` for an IGO as specified in
+  An IGO identifier or vector of identifiers from
   [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
-  This can also be a vector of IGOs.
+  Use
+  [`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md)
+  to find valid identifiers.
 
 - year:
 
-  Year to assess, as an integer or vector of years. If `NULL`, the
-  latest year available for the IGO is extracted.
+  An integer or vector of years to assess. If `NULL`, the latest
+  available year for each IGO is used.
 
 - status:
 
-  Character or vector with the membership status to extract. See
-  **Details** in
-  [state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md).
+  A character vector of membership statuses to extract. See
+  [state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md)
+  for valid statuses.
 
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
-for each matching IGO member, year and membership status.
+per matching state, IGO, year and membership status.
 
 ## References
 
@@ -116,7 +118,7 @@ igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
 #> 11 NAFTA     20 canada Canada                    1998     1 Full Member… North …
 #> 12 NAFTA     70 mexico Mexico                    1998     1 Full Member… North …
 
-# Extract different statuses.
+# Extract multiple membership statuses.
 igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
   as_tibble()
 #> # A tibble: 25 × 8
@@ -166,7 +168,7 @@ igo_members(c("NAFTA", "EU"), year = 1993) %>%
 #> 14 EU       200 uk          United Kingdom           1993     1 Full Me… Europe…
 #> 15 NAFTA      2 usa         United States of Ameri…  1993     1 Full Me… North …
 
-# Use the countrycode package to get additional codes.
+# Use the countrycode package to add codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")

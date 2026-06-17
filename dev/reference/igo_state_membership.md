@@ -1,6 +1,6 @@
-# Extract state memberships
+# Extract IGO membership records for states
 
-Extract all IGO memberships for a state in one or more years.
+Extracts IGO membership records for one or more states and years.
 
 ## Usage
 
@@ -10,33 +10,32 @@ igo_state_membership(state, year = NULL, status = "Full Membership")
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
 reference.
 
 ## Arguments
 
 - state:
 
-  Any valid state name or code as specified in
+  A state name or code, or a vector of names or codes, as specified in
   [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
-  This can also be a vector of states.
 
 - year:
 
-  Year to assess, as an integer or vector of years. If `NULL`, the
-  latest year available for the state is extracted.
+  An integer or vector of years to assess. If `NULL`, the latest
+  available year for each state is used.
 
 - status:
 
-  Character or vector with the membership status to extract. See
-  **Details** in
-  [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
+  A character vector of membership statuses to extract. See
+  [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md)
+  for valid statuses.
 
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
-for each matching state, year, IGO and membership status.
+per matching state, year, IGO and membership status.
 
 ## References
 
@@ -162,7 +161,7 @@ igo_state_membership("Spain", year = 1880:1882)
 #> 17      1        0
 #> 18      0        1
 
-# Last year.
+# Use the latest available year.
 igo_state_membership("ZAN")[, 1:7]
 #>   ccode stateabb statenme    state year ioname value
 #> 1   511      ZAN Zanzibar zanzibar 1964    CEC     1
@@ -170,7 +169,7 @@ igo_state_membership("ZAN")[, 1:7]
 #> 3   511      ZAN Zanzibar zanzibar 1964     UN     1
 #> 4   511      ZAN Zanzibar zanzibar 1964    UPU     1
 
-# Use codes to get states.
+# Search by state code.
 igo_state_membership("2", year = 1865)
 #>   ccode stateabb                 statenme state year ioname value
 #> 1     2      USA United States of America   usa 1865 ICCSLT     1
@@ -181,7 +180,7 @@ igo_state_membership("2", year = 1865)
 #>   social economic
 #> 1      0        1
 
-# Extract different statuses.
+# Extract multiple membership statuses.
 igo_state_membership("kosovo", status = c(
   "Associate Membership", "Observer",
   "Full Membership"
@@ -254,7 +253,7 @@ igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #> 7      0        1
 #> 8      1        0
 
-# Use the countrycode package to get additional codes.
+# Use the countrycode package to add codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   IT <- igo_state_membership("Italy", year = 1880)

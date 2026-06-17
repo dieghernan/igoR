@@ -63,7 +63,9 @@
     <li><a class="dropdown-item" href="../articles/mapping.html">Mapping IGOs</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Annexes</h6></li>
-    <li><a class="dropdown-item" href="../articles/list-igos.html">List of IGOs and COW states</a></li>
+    <li><a class="dropdown-item" href="../articles/list-igos.html">IGOs and states in the Correlates of War system</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -103,15 +105,17 @@
 
 
 
-    <!-- mapping.qmd is generated from mapping.qmd.orig. Please edit that file --><p>Maps are a powerful tool for presenting data. Because <strong>igoR</strong> focuses on intergovernmental organizations (IGOs), maps can show how IGO membership changes across states and time.</p>
-<p>This vignette provides geospatial visualizations using the IGO data sets <span class="citation" data-cites="pevehouse2020">(<a href="#ref-pevehouse2020" role="doc-biblioref">Pevehouse et al. 2020</a>)</span> included in this package. It uses these packages for geospatial data:</p>
+    <!-- mapping.qmd is generated from mapping.qmd.orig. Please edit that file --><p>Maps can show how membership in intergovernmental organizations (IGOs) changes across states and time.</p>
+<p>This vignette presents geospatial visualizations using the IGO data sets <span class="citation" data-cites="pevehouse2020">(<a href="#ref-pevehouse2020" role="doc-biblioref">Pevehouse et al. 2020</a>)</span> included in <strong>igoR</strong>. It uses these packages for geospatial data:</p>
 <ul>
 <li>
-<strong>giscoR</strong> package for extracting country shapefiles.</li>
+<strong>giscoR</strong> package for extracting country geometries.</li>
 <li>
 <strong>ggplot2</strong> package for plotting.</li>
+<li>
+<strong>sf</strong> package for working with spatial features.</li>
 </ul>
-<p>The <strong>countrycode</strong> package is useful for translating between country names and coding schemes such as COW, ISO3, NUTS and FIPS.</p>
+<p>The <strong>countrycode</strong> package is useful for translating between country names and coding schemes such as Correlates of War (COW), ISO3, NUTS and FIPS.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span></span>
 <span></span>
@@ -150,7 +154,7 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">base_df</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="co"># Add information.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">un_all</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ISO3_CODE"</span>, <span class="st">"year"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>The map is not completely accurate because the base shapefile contains countries that existed in 2016. Some historical states, such as Czechoslovakia, East Germany and West Germany, are not included.</p>
+<p>The map is approximate because the base geometries represent modern states. Historical states such as Czechoslovakia, East Germany and West Germany are not included.</p>
 <p>The data are now ready to plot with <strong>ggplot2</strong>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">un_all_sf</span><span class="op">)</span> <span class="op">+</span></span>
@@ -177,9 +181,9 @@
 UN members (1950, 1980, 2010)
 </p>
 </div>
-</section><section class="level2"><h2 id="number-of-shared-memberships">Number of shared memberships<a class="anchor" aria-label="anchor" href="#number-of-shared-memberships"></a>
+</section><section class="level2"><h2 id="joint-memberships-with-australia">Joint memberships with Australia<a class="anchor" aria-label="anchor" href="#joint-memberships-with-australia"></a>
 </h2>
-<p>Shared memberships are useful for identifying regional patterns. The following code maps how many full joint memberships each state shared with Australia in 2014.</p>
+<p>Joint memberships are useful for identifying regional patterns. The following code maps the number of IGOs in which each state and Australia were both full members in 2014.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Count full joint memberships in 2014.</span></span>
 <span><span class="co"># Find states in the state system in 2014.</span></span>
@@ -235,13 +239,13 @@ UN members (1950, 1980, 2010)
 <span>    legend.key.height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"lines"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-AustShared-1.png" alt="Shared full memberships with Australia (2014)" width="100%"><p class="caption">
-Shared full memberships with Australia (2014)
+<img src="./fig-AustShared-1.png" alt="Full joint memberships with Australia (2014)" width="100%"><p class="caption">
+Full joint memberships with Australia (2014)
 </p>
 </div>
-</section><section class="level2"><h2 id="cross-state-shared-memberships">Cross-state shared memberships<a class="anchor" aria-label="anchor" href="#cross-state-shared-memberships"></a>
+</section><section class="level2"><h2 id="joint-memberships-across-north-america">Joint memberships across North America<a class="anchor" aria-label="anchor" href="#joint-memberships-across-north-america"></a>
 </h2>
-<p>The following map shows how joint memberships between North American states changed over the last 90 years, with one year representing each decade.</p>
+<p>The following map shows how the number of full joint memberships among North American states changed from 1930 to 2010 at ten-year intervals.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Select years.</span></span>
 <span><span class="va">years</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1930</span>, <span class="fl">2010</span>, <span class="fl">10</span><span class="op">)</span></span>
@@ -282,8 +286,8 @@ Shared full memberships with Australia (2014)
 <span>    strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"grey90"</span>, colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-NAShared-1.png" alt="Shared full memberships in North America (1930-2010)" width="100%"><p class="caption">
-Shared full memberships in North America (1930-2010)
+<img src="./fig-NAShared-1.png" alt="Full joint memberships in North America (1930-2010)" width="100%"><p class="caption">
+Full joint memberships in North America (1930-2010)
 </p>
 </div>
 </section><section class="level2 unnumbered"><h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>

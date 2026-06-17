@@ -1,9 +1,10 @@
 # Recode membership categories
 
-These functions convert the numerical codes in
-[igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md)
-and
+Converts the numerical membership codes in
+[igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
 [state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md)
+and
+[`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
 into [factors](https://rdrr.io/r/base/factor.html). Use
 `igo_recode_igoyear()` with values from
 [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
@@ -26,11 +27,12 @@ igo_recode_dyadic(x)
 
 - x:
 
-  Numerical value (or vector of values) to recode.
+  A numerical value or vector of values to recode.
 
 ## Value
 
-The recoded values as [factors](https://rdrr.io/r/base/factor.html).
+A [factor](https://rdrr.io/r/base/factor.html) with the recoded
+membership categories.
 
 ## Examples
 
@@ -54,7 +56,7 @@ glimpse(samp)
 #> $ spain   <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0,…
 #> $ france  <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
 
-# Recode.
+# Recode the membership columns.
 samp %>%
   mutate(
     spain = igo_recode_igoyear(spain),

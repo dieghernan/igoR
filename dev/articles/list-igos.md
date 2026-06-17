@@ -1,12 +1,12 @@
-# List of IGOs and COW states
+# IGOs and states in the Correlates of War system
 
 This annex lists the IGOs ([Pevehouse et al. 2020](#ref-pevehouse2020))
-and COW states ([Correlates of War Project
-2017](#ref-correlatesofwarproject2017)) included with the package.
+and states in the Correlates of War state system ([Correlates of War
+Project 2017](#ref-correlatesofwarproject2017)) included with **igoR**.
 
-## List of IGOs
+## IGOs
 
-## List of states
+## States
 
 ## References
 
