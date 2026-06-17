@@ -2,7 +2,7 @@
 
 ## Data sets
 
-IGO-year membership, country-year membership and state system data.
+Data included with igoR for IGO, country and state system analysis.
 
 - [`igo_year_format3`](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md)
   : IGO-year membership data
@@ -13,7 +13,7 @@ IGO-year membership, country-year membership and state system data.
 
 ## Query functions
 
-Search for IGOs and states.
+Search IGO metadata and resolve state names, abbreviations and codes.
 
 - [`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md)
   : Search for IGOs
@@ -22,8 +22,8 @@ Search for IGOs and states.
 
 ## Membership functions
 
-Extract IGO membership records and derive dyad-year joint membership
-results.
+Extract state-IGO membership records and derive dyad-year joint
+memberships.
 
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
   : Extract joint IGO membership for state pairs
@@ -34,7 +34,7 @@ results.
 
 ## Recode helpers
 
-Convert numerical membership codes to factor labels.
+Convert numerical membership codes to labelled factors.
 
 - [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
   [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
@@ -42,6 +42,8 @@ Convert numerical membership codes to factor labels.
   : Recode membership categories
 
 ## About the package
+
+Package overview, authors and links.
 
 - [`igoR`](https://dieghernan.github.io/igoR/dev/reference/igoR-package.md)
   [`igoR-package`](https://dieghernan.github.io/igoR/dev/reference/igoR-package.md)

@@ -2,21 +2,23 @@
 
 ### Get started
 
+Introduction to the data and the main igoR workflows.
+
 - [Get started with
   igoR](https://dieghernan.github.io/igoR/dev/articles/igoR.md):
 
   Visual introduction to IGO data and package workflows.
 
-### Applied articles
+### Workflows
 
-Examples that use IGO membership data in applied workflows.
+Applied examples using IGO membership data.
 
 - [Mapping
   IGOs](https://dieghernan.github.io/igoR/dev/articles/mapping.md):
 
   Integrate IGO membership data into mapping workflows.
 
-### Annexes
+### Data reference
 
 Interactive reference tables for available IGOs and states in the
 Correlates of War state system.
