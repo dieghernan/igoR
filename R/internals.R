@@ -34,7 +34,7 @@ igo_warn_invalid_status <- function(
   if (isTRUE(any(invalid))) {
     warning(simpleWarning(
       paste0(
-        "Invalid `status` value(s): ",
+        "Unknown values for `status`: ",
         paste0("'", status[invalid], "'", collapse = ", "),
         ". Valid values are ",
         paste0("'", valid_status, collapse = "', "),

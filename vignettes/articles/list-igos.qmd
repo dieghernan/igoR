@@ -1,8 +1,7 @@
 ---
-title: "List of IGOs and COW states"
+title: "IGOs and states in the Correlates of War system"
 description: >
-  Interactive exploration of the IGO and state system data included in the
-  package.
+  Interactive tables of the IGO and state system data included in igoR.
 bibliography: REFERENCES.bib
 link-citations: true
 knitr:
@@ -13,10 +12,10 @@ knitr:
     message: false
 ---
 
-This annex lists the IGOs [@pevehouse2020] and COW states
-[@correlatesofwarproject2017] included with the package.
+This annex lists the IGOs [@pevehouse2020] and states in the Correlates of War
+state system [@correlatesofwarproject2017] included with **igoR**.
 
-## List of IGOs
+## IGOs
 
 ```{r}
 #| label: igo
@@ -37,7 +36,7 @@ reactable(
 )
 ```
 
-## List of states
+## States
 
 ```{r}
 #| label: countries

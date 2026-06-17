@@ -3,39 +3,38 @@
 #' @name igo_dyadic
 #'
 #' @description
-#' Create the dyad-year form of the IGO data. The unit of analysis is a state
-#' pair in a year, and the result summarizes joint memberships across IGOs.
+#' Creates dyad-year IGO data. Each row represents a pair of states in one year
+#' and summarizes their joint memberships across IGOs.
 #'
-#' @param country1,country2 A state or vector of states to compare. Values can
-#'   be any valid state name or code as specified in [states2016].
-#' @param year Year to assess, as an integer or vector of years.
-#' @param ioname An optional `ioname` or vector of `ioname` values
-#'   corresponding to the IGOs to assess. If `NULL` (the default), the function
-#'   extracts all IGOs. See codes in [igo_search()].
+#' @param country1,country2 A state or vector of states to compare. Each value
+#'   can be any state name or code in [states2016].
+#' @param year An integer or vector of years to assess.
+#' @param ioname An optional IGO identifier or vector of identifiers. If `NULL`
+#'   (the default), all IGOs are included. Use [igo_search()] to find valid
+#'   identifiers.
 #'
 #' @returns
-#' A coded [`data.frame`][data.frame()] with years and state pairs as rows and
-#' selected IGOs as columns. See **Details**.
+#' A coded [`data.frame`][data.frame()] with one row per state pair and year and
+#' one column per selected IGO. See Details for the coding scheme.
 #'
 #' @details
 #' The arguments `country1` and `country2` are named for compatibility with
 #' earlier versions of **igoR**. Values are matched against states in
 #' [states2016].
 #'
-#' This function tries to replicate the information contained in the original
-#' dyad-year file distributed by The Correlates of War Project
+#' This function reproduces the structure of the original dyad-year file
+#' distributed by the Correlates of War Project
 #' (`dyadic_format3.dta`). That file is not included in this package due to its
 #' size.
 #'
-#' The result is a [`data.frame`][data.frame()] with one row for each common
-#' year selected via `country1`, `country2` and `year`.
+#' The result contains one row for each common year selected by `country1`,
+#' `country2` and `year`.
 #'
-#' An additional column, `dyadid`, computed as `(1000 * ccode1) + ccode2`, is
-#' provided to identify relationships.
+#' The `dyadid` column identifies each relationship and is computed as
+#' `(1000 * ccode1) + ccode2`.
 #'
-#' For each IGO selected via `ioname`, or all IGOs when `ioname` is `NULL`, the
-#' result includes a column using lowercase `ioname` as an identifier and this
-#' coding system:
+#' For each selected IGO, the result includes a column named after its
+#' lowercase identifier and uses this coding scheme:
 #'
 #' ```{r, echo=FALSE}
 #'
@@ -47,28 +46,28 @@
 #'   "Numerical" = c(0, 1, -9, -1)
 #' )
 #'
-#' knitr::kable(tb, col.names = c("**Category**", "**Numerical Value**"))
+#' knitr::kable(tb, col.names = c("**Category**", "**Numerical value**"))
 #'
 #' ```
 #'
-#' See [igo_recode_dyadic()] for an easy way to recode the
-#' numerical values into [factors][base::factor].
+#' Use [igo_recode_dyadic()] to recode the numerical values as
+#' [factors][base::factor].
 #'
 #' If one state in an IGO is a full member but the other is an associate member
 #' or observer, that IGO is not coded as a joint membership.
 #'
 #' # Differences from the original data set
 #'
-#' Some results from this function differ from the original data set for some
-#' IGOs regarding "Missing data" (`-9`) and "State Not System Member" (`-1`),
-#' and it is not clear how to fully replicate those values.
+#' For some IGOs, results differ from the original data set in the coding of
+#' "Missing data" (`-9`) and "State Not System Member" (`-1`). The available
+#' documentation does not fully specify how to reproduce those values.
 #'
-#' See [**Codebook Version 3
-#' IGO Data**](https://correlatesofwar.org/data-sets/IGOs/).
+#' See [Codebook Version 3 IGO
+#' Data](https://correlatesofwar.org/data-sets/IGOs/).
 #'
 #' @source
-#' [**Codebook Version 3
-#' IGO Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
+#' [Codebook Version 3 IGO
+#' Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
 #' reference.
 #'
 #' @references
@@ -128,7 +127,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
     stringsAsFactors = FALSE
   )
 
-  # Remove one-to-one comparisons.
+  # Remove self-pairs.
   base_df <- base_df[base_df$state1 != base_df$state2, ]
 
   if (nrow(base_df) == 0) {
@@ -152,7 +151,7 @@ igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
 
   igo_bind_results(
     find_v,
-    "No dyad-year results found with the required arguments."
+    "No dyad-year results were found for the supplied arguments."
   )
 }
 
@@ -169,7 +168,7 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
 
   if (length(ioname_ext) == 0) {
     message(
-      "No valid `ioname` values were found for ",
+      "Unknown values for `ioname`: ",
       paste0("'", ioname, "'", collapse = ", "),
       "."
     )
@@ -187,7 +186,6 @@ igo_dyadic_single <- function(iter, base_df, year, ioname) {
   }
 
   # Build comparable state-by-IGO matrices.
-
   mat1 <- all_igos[all_igos$state == this_iter_df$state1, ]
   if (nrow(mat1) == 0) {
     message(

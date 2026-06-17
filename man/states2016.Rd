@@ -9,37 +9,36 @@
 A \code{\link{data.frame}} with
 243 rows. Relevant fields:
 \itemize{
-\item \strong{ccode}: COW country number.
-\item \strong{stateabb}: COW state abbreviation (3 characters).
-\item \strong{statenme}: COW state name.
-\item \strong{styear...endday}: Fields that identify the beginning and end of each
+\item \code{ccode}: Correlates of War country number.
+\item \code{stateabb}: Three-character Correlates of War state abbreviation.
+\item \code{statenme}: Correlates of War state name.
+\item \code{styear...endday}: Fields that identify the beginning and end of each
 tenure.
-\item \strong{version}: Data file version number.
-\item \strong{state}: Abbreviated state name as it appears in \link{state_year_format3}.
+\item \code{version}: Data file version number.
+\item \code{state}: Abbreviated state name as it appears in \link{state_year_format3}.
 }
 }
 \source{
-\href{https://correlatesofwar.org/data-sets/state-system-membership/}{State System Membership (v2016)},
+\href{https://correlatesofwar.org/data-sets/state-system-membership/}{State System Membership (v2016)}.
 The Correlates of War Project.
 }
 \description{
-A list of states with COW abbreviations and ID numbers, plus the field
-\code{state} from \link{state_year_format3}.
+A list of states with Correlates of War abbreviations and identifiers, plus
+the \code{state} field from \link{state_year_format3}.
 }
 \details{
-This data set contains the list of states in the international system as
-updated and distributed by the Correlates of War Project.
+This data set contains the states in the international system as updated and
+distributed by the Correlates of War Project.
 
-These data sets identify states, their standard Correlates of War country
-code or state number (used throughout Correlates of War project data sets),
-state abbreviations and dates of membership as states and major powers in
-the international system.
+It identifies states, their standard Correlates of War country code or state
+number, state abbreviations and dates of membership as states and major
+powers in the international system.
 
 The Correlates of War Project includes a state in the international system
 from 1816 to 2016 according to the following criteria:
 \itemize{
 \item \strong{Before 1920}, the entity must have had a population greater than
-500,000 and have had diplomatic missions at or above the rank of charge
+500,000 and have had diplomatic missions at or above the rank of chargé
 d'affaires with Britain and France.
 \item \strong{After 1920}, the entity must be a member of the League of Nations or the
 United Nations, or have a population greater than 500,000 and receive
@@ -47,7 +46,7 @@ diplomatic missions from two major powers.
 }
 }
 \note{
-The \code{state} variable was added to the original data to help comparisons
+The \code{state} variable was added to the original data to support comparisons
 across data sets in this package.
 }
 \examples{

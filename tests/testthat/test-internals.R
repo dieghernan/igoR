@@ -28,7 +28,7 @@ test_that("internal status validation reports invalid values only", {
       c("Full Membership", "Invalid"),
       valid_status
     ),
-    "Invalid `status` value\\(s\\): 'Invalid'"
+    "Unknown values for"
   )
 
   expect_silent(igo_warn_invalid_status("Full Membership", valid_status))

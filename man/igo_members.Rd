@@ -3,30 +3,30 @@
 \encoding{UTF-8}
 \name{igo_members}
 \alias{igo_members}
-\title{Extract IGO members}
+\title{Extract IGO membership records}
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for the full
+\href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full
 reference.
 }
 \usage{
 igo_members(ioname, year = NULL, status = "Full Membership")
 }
 \arguments{
-\item{ioname}{Any valid \code{ioname} for an IGO as specified in
-\link{igo_year_format3}. This can also be a vector of IGOs.}
+\item{ioname}{An IGO identifier or vector of identifiers from
+\link{igo_year_format3}. Use \code{\link[=igo_search]{igo_search()}} to find valid identifiers.}
 
-\item{year}{Year to assess, as an integer or vector of years. If
-\code{NULL}, the latest year available for the IGO is extracted.}
+\item{year}{An integer or vector of years to assess. If \code{NULL}, the latest
+available year for each IGO is used.}
 
-\item{status}{Character or vector with the membership status to extract. See
-\strong{Details} in \link{state_year_format3}.}
+\item{status}{A character vector of membership statuses to extract. See
+\link{state_year_format3} for valid statuses.}
 }
 \value{
-A \code{\link{data.frame}} with one row for each matching IGO member,
-year and membership status.
+A \code{\link{data.frame}} with one row per matching state, IGO, year and
+membership status.
 }
 \description{
-Extract all states that belong to an IGO in one or more years.
+Extracts state-level membership records for one or more IGOs and years.
 }
 \examples{
 library(dplyr)
@@ -34,7 +34,7 @@ igo_members("EU", year = 1993) \%>\% as_tibble()
 igo_members("EU") \%>\% as_tibble()
 igo_members("NAFTA", year = c(1995:1998)) \%>\% as_tibble()
 
-# Extract different statuses.
+# Extract multiple membership statuses.
 igo_members("ACCT", status = c("Associate Membership", "Observer")) \%>\%
   as_tibble()
 
@@ -47,7 +47,7 @@ igo_members(c("NAFTA", "EU"), year = 1993) \%>\%
   as_tibble() \%>\%
   arrange(state)
 
-# Use the countrycode package to get additional codes.
+# Use the countrycode package to add codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")

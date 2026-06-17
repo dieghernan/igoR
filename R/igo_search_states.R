@@ -1,16 +1,17 @@
-#' Find state codes and names
+#' Find state codes, abbreviations and names
 #'
 #' @name igo_search_states
 #'
 #' @description
-#' Find COW codes, abbreviations and names for states.
+#' Finds Correlates of War codes, abbreviations and names for states.
 #'
-#' @param state Any valid state name or code as specified in [states2016]. This
-#'   can also be a vector of states.
+#' @param state A state name or code, or a vector of names or codes, as
+#'   specified in [states2016].
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with COW country codes, abbreviations, names
-#' and the matching `state` identifier used by [state_year_format3].
+#' A [`data.frame`][data.frame()] with Correlates of War country codes,
+#' abbreviations, names and the matching `state` identifiers used by
+#' [state_year_format3].
 #'
 #' @inherit igo_members source references
 #'
@@ -37,7 +38,7 @@ igo_search_states <- function(state) {
   # Keep one lookup result for each input value.
   find_v <- lapply(state, igo_search_state_single)
 
-  igo_bind_results(find_v, "No states found with the required arguments.")
+  igo_bind_results(find_v, "No states were found for the supplied arguments.")
 }
 
 igo_search_state_single <- function(state) {
@@ -49,7 +50,7 @@ igo_search_state_single <- function(state) {
 
   if (is.na(find_state)) {
     message(
-      "State value not found: ",
+      "Unknown value for `state`: ",
       paste0("'", state, "'", collapse = ", "),
       "."
     )

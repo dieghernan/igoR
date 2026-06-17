@@ -2,7 +2,7 @@
 title: "Mapping IGOs"
 author: Diego Hernangómez
 description: >
-  Integrating IGO data into mapping projects.
+  Integrate IGO membership data into mapping workflows.
 bibliography: REFERENCES.bib
 link-citations: true
 vignette: >
@@ -29,19 +29,19 @@ knitr::opts_chunk$set(
 )
 ```
 
-Maps are a powerful tool for presenting data. Because **igoR** focuses on
-intergovernmental organizations (IGOs), maps can show how IGO membership
-changes across states and time.
+Maps can show how membership in intergovernmental organizations (IGOs) changes
+across states and time.
 
-This vignette provides geospatial visualizations using the IGO data sets
-[@pevehouse2020] included in this package. It uses these packages for
-geospatial data:
+This vignette presents geospatial visualizations using the IGO data sets
+[@pevehouse2020] included in **igoR**. It uses these packages for geospatial
+data:
 
-- **giscoR** package for extracting country shapefiles.
+- **giscoR** package for extracting country geometries.
 - **ggplot2** package for plotting.
+- **sf** package for working with spatial features.
 
 The **countrycode** package is useful for translating between country names and
-coding schemes such as COW, ISO3, NUTS and FIPS.
+coding schemes such as Correlates of War (COW), ISO3, NUTS and FIPS.
 
 ```{r}
 #| label: libs
@@ -89,9 +89,9 @@ un_all_sf <- world %>%
   left_join(un_all, by = c("ISO3_CODE", "year"))
 ```
 
-The map is not completely accurate because the base shapefile contains
-countries that existed in 2016. Some historical states, such as
-Czechoslovakia, East Germany and West Germany, are not included.
+The map is approximate because the base geometries represent modern states.
+Historical states such as Czechoslovakia, East Germany and West Germany are not
+included.
 
 The data are now ready to plot with **ggplot2**.
 
@@ -120,16 +120,16 @@ ggplot(un_all_sf) +
   )
 ```
 
-## Number of shared memberships
+## Joint memberships with Australia
 
-Shared memberships are useful for identifying regional patterns. The following
-code maps how many full joint memberships each state shared with Australia in
-2014.
+Joint memberships are useful for identifying regional patterns. The following
+code maps the number of IGOs in which each state and Australia were both full
+members in 2014.
 
 ```{r}
 #| label: fig-AustShared
 #| fig-asp: 0.72
-#| fig-cap: "Shared full memberships with Australia (2014)"
+#| fig-cap: "Full joint memberships with Australia (2014)"
 # Count full joint memberships in 2014.
 # Find states in the state system in 2014.
 states2014 <- states2016 %>%
@@ -185,14 +185,14 @@ ggplot(sharedmap) +
   )
 ```
 
-## Cross-state shared memberships
+## Joint memberships across North America
 
-The following map shows how joint memberships between North American states
-changed over the last 90 years, with one year representing each decade.
+The following map shows how the number of full joint memberships among North
+American states changed from 1930 to 2010 at ten-year intervals.
 
 ```{r}
 #| label: fig-NAShared
-#| fig-cap: "Shared full memberships in North America (1930-2010)"
+#| fig-cap: "Full joint memberships in North America (1930-2010)"
 #| fig-asp: 1
 # Select years.
 years <- seq(1930, 2010, 10)

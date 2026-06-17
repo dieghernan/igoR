@@ -1,28 +1,28 @@
-#' Intergovernmental organizations by year
+#' IGO-year membership data
 #'
 #' @name igo_year_format3
 #' @docType data
 #'
 #' @description
-#' Data on IGOs from 1815 to 2014, at the IGO-year level. Contains one record
-#' per IGO-year, with years listed at 5-year intervals through 1965 and
-#' annually thereafter.
+#' Data on intergovernmental organizations (IGOs) from 1816 to 2014 at the
+#' IGO-year level. Each row represents one IGO in one year. Years are recorded
+#' at five-year intervals through 1965 and annually thereafter.
 #'
 #' @format
 #' A [`data.frame`][data.frame()] with
 #' `r prettyNum(nrow(igoR::igo_year_format3), big.mark=",")` rows. Relevant
 #' fields:
 #'
-#' - **ioname**: Short abbreviation for the IGO name.
-#' - **orgname**: Full IGO name.
-#' - **year**: Calendar year.
-#' - **afghanistan...zimbabwe**: Status of that state in the IGO. See
-#'   **Details**.
-#' - **sdate**: Start year for the IGO.
-#' - **deaddate**: End year for the IGO.
-#' - **longorgname**: Longer version of the IGO name, including previous names.
-#' - **ionum**: IGO ID number in v2.1 and v3.0 of the data.
-#' - **version**: COW version number.
+#' - `ioname`: Short abbreviation for the IGO name.
+#' - `orgname`: Full IGO name.
+#' - `year`: Calendar year.
+#' - `afghanistan...zimbabwe`: Membership status of each state in the IGO. See
+#'   the Details section.
+#' - `sdate`: Start year for the IGO.
+#' - `deaddate`: End year for the IGO.
+#' - `longorgname`: Longer IGO name, including previous names.
+#' - `ionum`: IGO identifier in versions 2.1 and 3.0 of the data.
+#' - `version`: Correlates of War version number.
 #'
 #' @details
 #' Possible values for the status of a state in the IGO are:
@@ -37,77 +37,78 @@
 #'   "Numerical" = c(0, 1, 2, 3, -9, -1)
 #' )
 #'
-#' knitr::kable(tb, col.names = c("**Category**", "**Numerical Value**"))
+#' knitr::kable(tb, col.names = c("**Category**", "**Numerical value**"))
 #'
 #' ```
 #'
-#' See [igo_recode_igoyear()] for an easy way to recode the numerical values
-#' into [factors][base::factor].
-#'
-#' @source
-#' [Intergovernmental Organizations
-#' (v3)](https://correlatesofwar.org/data-sets/IGOs/), The Correlates of War
-#' Project (IGO Data Stata Files).
-#'
-#' See the [**Codebook Version 3 IGO
-#' Data**](https://correlatesofwar.org/data-sets/IGOs/) for the full
-#' reference.
+#' Use [igo_recode_igoyear()] to recode the numerical values as
+#' [factors][base::factor].
 #'
 #' @inherit igo_dyadic references
 #'
+#' @source
+#' [Intergovernmental Organizations
+#' (version 3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata
+#' Files from
+#' the Correlates of War Project.
+#'
+#' See the [Codebook Version 3 IGO
+#' Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
+#' reference.
+#'
 #' @family data sets
 #'
-#' @note Raw data used internally by \CRANpkg{igoR}.
+#' @note Data distributed with \CRANpkg{igoR}.
 #'
 #' @examples
-#' data("state_year_format3")
+#' data("igo_year_format3")
 #'
 #' # Show a glimpse.
 #' library(dplyr)
 #'
-#' state_year_format3 %>%
-#'   select(ccode:afgec) %>%
+#' igo_year_format3 %>%
+#'   select(ioname:year, spain, france) %>%
 #'   filter(year > 1990) %>%
 #'   glimpse()
 #'
-#' # Recode a sample of numerical values to factors.
-#' sample_state_year <- state_year_format3 %>%
+#' # Prepare a sample of numerical membership values.
+#' sample_igo_year <- igo_year_format3 %>%
 #'   as_tibble() %>%
-#'   select(ccode:afgec) %>%
+#'   select(ioname:year, spain, france) %>%
 #'   filter(year == 1990)
 #'
-#' sample_state_year %>% glimpse()
+#' sample_igo_year %>% glimpse()
 #'
-#' # Recode.
-#' sample_state_year_recoded <- sample_state_year %>%
-#'   mutate(across(-c(ccode:state), igo_recode_stateyear))
+#' # Recode the membership columns.
+#' sample_igo_year_recoded <- sample_igo_year %>%
+#'   mutate(across(c(spain, france), igo_recode_igoyear))
 #'
-#' sample_state_year_recoded %>% glimpse()
+#' sample_igo_year_recoded %>% glimpse()
 #'
 #' @encoding UTF-8
 NULL
 
-#' Country-year IGO membership
+#' Country-year IGO membership data
 #'
 #' @name state_year_format3
 #' @docType data
 #'
 #' @description
-#' Data on IGOs from 1815 to 2014, at the country-year level. Contains one
-#' record per country-year, with years listed at 5-year intervals through 1965
-#' and annually thereafter.
+#' Data on IGO membership from 1816 to 2014 at the country-year level. Each row
+#' represents one country in one year. Years are recorded at five-year
+#' intervals through 1965 and annually thereafter.
 #'
 #' @format
 #' A [`data.frame`][data.frame()] with
 #' `r prettyNum(nrow(igoR::state_year_format3), big.mark=",")` rows. Relevant
 #' fields:
 #'
-#' - **ccode**: COW country number, see [states2016].
-#' - **year**: Calendar year.
-#' - **state**: Abbreviated state name, identical to variable names in
+#' - `ccode`: Correlates of War country number. See [states2016].
+#' - `year`: Calendar year.
+#' - `state`: Abbreviated state name, identical to variable names in
 #'   [igo_year_format3].
-#' - **aaaid...wassen**: IGO variables containing information on state
-#'   membership status. See **Details**.
+#' - `aaaid...wassen`: IGO variables containing state membership status. See
+#'   the Details section.
 #'
 #' @details
 #' Possible values for the status of a state in the IGO are:
@@ -122,15 +123,15 @@ NULL
 #'   "Numerical" = c(0, 1, 2, 3, -9, -1)
 #' )
 #'
-#' knitr::kable(tb, col.names = c("**Category**", "**Numerical Value**"))
+#' knitr::kable(tb, col.names = c("**Category**", "**Numerical value**"))
 #'
 #' ```
 #'
-#' See [igo_recode_stateyear()] for an easy way to recode the numerical values
-#' into [factors][base::factor].
+#' Use [igo_recode_stateyear()] to recode the numerical values as
+#' [factors][base::factor].
 #'
-#' See the [**Codebook Version 3 IGO
-#' Data**](https://correlatesofwar.org/data-sets/IGOs/).
+#' See the [Codebook Version 3 IGO
+#' Data](https://correlatesofwar.org/data-sets/IGOs/).
 #'
 #' @inherit igo_year_format3 source references note
 #'
@@ -153,35 +154,34 @@ NULL
 #' @docType data
 #'
 #' @description
-#' A list of states with COW abbreviations and ID numbers, plus the field
-#' `state` from [state_year_format3].
+#' A list of states with Correlates of War abbreviations and identifiers, plus
+#' the `state` field from [state_year_format3].
 #'
 #' @format
 #' A [`data.frame`][data.frame()] with
 #' `r prettyNum(nrow(igoR::states2016), big.mark=",")` rows. Relevant fields:
 #'
-#' - **ccode**: COW country number.
-#' - **stateabb**: COW state abbreviation (3 characters).
-#' - **statenme**: COW state name.
-#' - **styear...endday**: Fields that identify the beginning and end of each
+#' - `ccode`: Correlates of War country number.
+#' - `stateabb`: Three-character Correlates of War state abbreviation.
+#' - `statenme`: Correlates of War state name.
+#' - `styear...endday`: Fields that identify the beginning and end of each
 #'   tenure.
-#' - **version**: Data file version number.
-#' - **state**: Abbreviated state name as it appears in [state_year_format3].
+#' - `version`: Data file version number.
+#' - `state`: Abbreviated state name as it appears in [state_year_format3].
 #'
 #' @details
-#' This data set contains the list of states in the international system as
-#' updated and distributed by the Correlates of War Project.
+#' This data set contains the states in the international system as updated and
+#' distributed by the Correlates of War Project.
 #'
-#' These data sets identify states, their standard Correlates of War country
-#' code or state number (used throughout Correlates of War project data sets),
-#' state abbreviations and dates of membership as states and major powers in
-#' the international system.
+#' It identifies states, their standard Correlates of War country code or state
+#' number, state abbreviations and dates of membership as states and major
+#' powers in the international system.
 #'
 #' The Correlates of War Project includes a state in the international system
 #' from 1816 to 2016 according to the following criteria:
 #'
 #' - **Before 1920**, the entity must have had a population greater than
-#'   500,000 and have had diplomatic missions at or above the rank of charge
+#'   500,000 and have had diplomatic missions at or above the rank of chargé
 #'   d'affaires with Britain and France.
 #'
 #' - **After 1920**, the entity must be a member of the League of Nations or the
@@ -190,7 +190,7 @@ NULL
 #'
 #' @source
 #' [State System Membership
-#' (v2016)](https://correlatesofwar.org/data-sets/state-system-membership/),
+#' (v2016)](https://correlatesofwar.org/data-sets/state-system-membership/).
 #' The Correlates of War Project.
 #'
 #' @references
@@ -200,7 +200,7 @@ NULL
 #' @family data sets
 #'
 #' @note
-#' The `state` variable was added to the original data to help comparisons
+#' The `state` variable was added to the original data to support comparisons
 #' across data sets in this package.
 #'
 #' @examples

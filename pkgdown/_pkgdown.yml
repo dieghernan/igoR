@@ -17,29 +17,30 @@ template:
     ganalytics: G-S61Y539QDX
 
 home:
-  title: igoR | R package for intergovernmental organizations
+  title: igoR | Intergovernmental organization data in R
   description: >
-    Tools for searching, extracting and recoding information from the
-    Intergovernmental Organizations Database (v3), distributed by the
-    Correlates of War Project. Includes IGO-year and country-year data, state
-    system data and helpers for dyad-year joint membership results.
+    Tools for searching, extracting and recoding the Intergovernmental
+    Organizations Database (version 3), distributed by the Correlates of War
+    Project. Includes IGO-year and country-year membership data, state system
+    data and functions for deriving dyad-year joint membership results.
 
 reference:
 - title: Data sets
-  desc: IGO-year, country-year and state system data.
+  desc: IGO-year membership, country-year membership and state system data.
 - contents:
   - has_concept("data sets")
 - title: Query functions
-  desc: Search IGOs and states.
+  desc: Search for IGOs and states.
 - contents:
   - has_concept("query functions")
 - title: Membership functions
   desc: >
-    Extract IGO memberships and dyad-year joint membership results.
+    Extract IGO membership records and derive dyad-year joint membership
+    results.
 - contents:
   - has_concept("membership functions")
 - title: Recode helpers
-  desc: Convert numerical membership status codes into factor labels.
+  desc: Convert numerical membership codes to factor labels.
 - contents:
   - has_concept("recode helpers")
 - title: About the package
@@ -47,13 +48,18 @@ reference:
   - igoR-package
 
 articles:
+- title: Get started
+  contents:
+  - igoR
 - title: Applied articles
   desc: Examples that use IGO membership data in applied workflows.
   navbar: Articles
   contents:
   - mapping
 - title: Annexes
-  desc: Interactive reference tables for available IGOs and COW states.
+  desc: >
+    Interactive reference tables for available IGOs and states in the
+    Correlates of War state system.
   navbar: Annexes
   contents:
   - articles/list-igos

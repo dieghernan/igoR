@@ -4,16 +4,16 @@
 #' @rdname igo_recode
 #'
 #' @description
-#' These functions convert the numerical codes in [igo_year_format3] and
-#' [state_year_format3] into [factors][base::factor]. Use
+#' Converts the numerical membership codes in [igo_year_format3],
+#' [state_year_format3] and [igo_dyadic()] into [factors][base::factor]. Use
 #' [igo_recode_igoyear()] with values from [igo_year_format3],
 #' [igo_recode_stateyear()] with values from [state_year_format3] and
 #' [igo_recode_dyadic()] with values from [igo_dyadic()].
 #'
-#' @param x Numerical value (or vector of values) to recode.
+#' @param x A numerical value or vector of values to recode.
 #'
 #' @returns
-#' The recoded values as [factors][base::factor].
+#' A [factor][base::factor] with the recoded membership categories.
 #'
 #' @family recode helpers
 #'
@@ -30,7 +30,7 @@
 #'
 #' glimpse(samp)
 #'
-#' # Recode.
+#' # Recode the membership columns.
 #' samp %>%
 #'   mutate(
 #'     spain = igo_recode_igoyear(spain),

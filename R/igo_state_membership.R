@@ -1,19 +1,19 @@
-#' Extract state memberships
+#' Extract IGO membership records for states
 #'
 #' @name igo_state_membership
 #'
 #' @description
-#' Extract all IGO memberships for a state in one or more years.
+#' Extracts IGO membership records for one or more states and years.
 #'
 #' @inheritParams igo_search_states
-#' @param year Year to assess, as an integer or vector of years. If
-#'   `NULL`, the latest year available for the state is extracted.
-#' @param status Character or vector with the membership status to extract. See
-#'   **Details** in [igo_year_format3].
+#' @param year An integer or vector of years to assess. If `NULL`, the latest
+#'   available year for each state is used.
+#' @param status A character vector of membership statuses to extract. See
+#'   [igo_year_format3] for valid statuses.
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with one row for each matching state, year,
-#' IGO and membership status.
+#' A [`data.frame`][data.frame()] with one row per matching state, year, IGO and
+#' membership status.
 #'
 #' @inherit igo_members source references
 #'
@@ -28,13 +28,13 @@
 #' igo_state_membership("Spain", year = 1870)
 #' igo_state_membership("Spain", year = 1880:1882)
 #'
-#' # Last year.
+#' # Use the latest available year.
 #' igo_state_membership("ZAN")[, 1:7]
 #'
-#' # Use codes to get states.
+#' # Search by state code.
 #' igo_state_membership("2", year = 1865)
 #'
-#' # Extract different statuses.
+#' # Extract multiple membership statuses.
 #' igo_state_membership("kosovo", status = c(
 #'   "Associate Membership", "Observer",
 #'   "Full Membership"
@@ -43,7 +43,7 @@
 #' # Vectorized search.
 #' igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #'
-#' # Use the countrycode package to get additional codes.
+#' # Use the countrycode package to add codes.
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   IT <- igo_state_membership("Italy", year = 1880)
@@ -60,16 +60,16 @@ igo_state_membership <- function(
 ) {
   # Require an explicit state identifier.
   if (missing(state)) {
-    stop("You must provide a value for `state`.")
+    stop("`state` must be supplied.")
   }
 
   df_states <- suppressWarnings(igoR::igo_search_states(state))
 
   if (is.null(df_states)) {
     warning(
-      "State value(s) ",
+      "Unknown values for `state`: ",
       paste0("'", state, "'", collapse = ", "),
-      " were not found in the database."
+      "."
     )
     return(invisible(NULL))
   }
@@ -88,7 +88,10 @@ igo_state_membership <- function(
     status = status
   )
 
-  igo_bind_results(find_v, "No states found with the required arguments.")
+  igo_bind_results(
+    find_v,
+    "No IGO membership records were found for the supplied arguments."
+  )
 }
 
 igo_state_mmb_single <- function(state_names, year, status) {
@@ -113,8 +116,8 @@ igo_state_mmb_single <- function(state_names, year, status) {
     message(
       "State '",
       state_names,
-      "' is available only between ",
-      paste0(dates, collapse = " and "),
+      "' is available from ",
+      paste0(dates, collapse = " to "),
       "."
     )
     return(NULL)
@@ -152,9 +155,9 @@ igo_state_mmb_single <- function(state_names, year, status) {
 
   if (nrow(igo_w_year) == 0) {
     message(
-      "No IGOs were found for state '",
+      "No membership records for state '",
       state_names,
-      "' with the arguments provided."
+      "' matched the supplied arguments."
     )
     return(NULL)
   }

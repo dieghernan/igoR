@@ -3,24 +3,25 @@
 \encoding{UTF-8}
 \name{igo_search_states}
 \alias{igo_search_states}
-\title{Find state codes and names}
+\title{Find state codes, abbreviations and names}
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for the full
+\href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full
 reference.
 }
 \usage{
 igo_search_states(state)
 }
 \arguments{
-\item{state}{Any valid state name or code as specified in \link{states2016}. This
-can also be a vector of states.}
+\item{state}{A state name or code, or a vector of names or codes, as
+specified in \link{states2016}.}
 }
 \value{
-A \code{\link{data.frame}} with COW country codes, abbreviations, names
-and the matching \code{state} identifier used by \link{state_year_format3}.
+A \code{\link{data.frame}} with Correlates of War country codes,
+abbreviations, names and the matching \code{state} identifiers used by
+\link{state_year_format3}.
 }
 \description{
-Find COW codes, abbreviations and names for states.
+Finds Correlates of War codes, abbreviations and names for states.
 }
 \examples{
 library(dplyr)

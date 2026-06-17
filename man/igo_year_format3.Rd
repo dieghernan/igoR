@@ -4,39 +4,40 @@
 \encoding{UTF-8}
 \name{igo_year_format3}
 \alias{igo_year_format3}
-\title{Intergovernmental organizations by year}
+\title{IGO-year membership data}
 \format{
 A \code{\link{data.frame}} with
 19,335 rows. Relevant
 fields:
 \itemize{
-\item \strong{ioname}: Short abbreviation for the IGO name.
-\item \strong{orgname}: Full IGO name.
-\item \strong{year}: Calendar year.
-\item \strong{afghanistan...zimbabwe}: Status of that state in the IGO. See
-\strong{Details}.
-\item \strong{sdate}: Start year for the IGO.
-\item \strong{deaddate}: End year for the IGO.
-\item \strong{longorgname}: Longer version of the IGO name, including previous names.
-\item \strong{ionum}: IGO ID number in v2.1 and v3.0 of the data.
-\item \strong{version}: COW version number.
+\item \code{ioname}: Short abbreviation for the IGO name.
+\item \code{orgname}: Full IGO name.
+\item \code{year}: Calendar year.
+\item \code{afghanistan...zimbabwe}: Membership status of each state in the IGO. See
+the Details section.
+\item \code{sdate}: Start year for the IGO.
+\item \code{deaddate}: End year for the IGO.
+\item \code{longorgname}: Longer IGO name, including previous names.
+\item \code{ionum}: IGO identifier in versions 2.1 and 3.0 of the data.
+\item \code{version}: Correlates of War version number.
 }
 }
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs/}{Intergovernmental Organizations (v3)}, The Correlates of War
-Project (IGO Data Stata Files).
+\href{https://correlatesofwar.org/data-sets/IGOs/}{Intergovernmental Organizations (version 3)}, IGO Data Stata
+Files from
+the Correlates of War Project.
 
-See the \href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for the full
+See the \href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full
 reference.
 }
 \description{
-Data on IGOs from 1815 to 2014, at the IGO-year level. Contains one record
-per IGO-year, with years listed at 5-year intervals through 1965 and
-annually thereafter.
+Data on intergovernmental organizations (IGOs) from 1816 to 2014 at the
+IGO-year level. Each row represents one IGO in one year. Years are recorded
+at five-year intervals through 1965 and annually thereafter.
 }
 \details{
 Possible values for the status of a state in the IGO are:\tabular{lr}{
-   \strong{Category} \tab \strong{Numerical Value} \cr
+   \strong{Category} \tab \strong{Numerical value} \cr
    No Membership \tab 0 \cr
    Full Membership \tab 1 \cr
    Associate Membership \tab 2 \cr
@@ -46,36 +47,36 @@ Possible values for the status of a state in the IGO are:\tabular{lr}{
 }
 
 
-See \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} for an easy way to recode the numerical values
-into \link[base:factor]{factors}.
+Use \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} to recode the numerical values as
+\link[base:factor]{factors}.
 }
 \note{
-Raw data used internally by \CRANpkg{igoR}.
+Data distributed with \CRANpkg{igoR}.
 }
 \examples{
-data("state_year_format3")
+data("igo_year_format3")
 
 # Show a glimpse.
 library(dplyr)
 
-state_year_format3 \%>\%
-  select(ccode:afgec) \%>\%
+igo_year_format3 \%>\%
+  select(ioname:year, spain, france) \%>\%
   filter(year > 1990) \%>\%
   glimpse()
 
-# Recode a sample of numerical values to factors.
-sample_state_year <- state_year_format3 \%>\%
+# Prepare a sample of numerical membership values.
+sample_igo_year <- igo_year_format3 \%>\%
   as_tibble() \%>\%
-  select(ccode:afgec) \%>\%
+  select(ioname:year, spain, france) \%>\%
   filter(year == 1990)
 
-sample_state_year \%>\% glimpse()
+sample_igo_year \%>\% glimpse()
 
-# Recode.
-sample_state_year_recoded <- sample_state_year \%>\%
-  mutate(across(-c(ccode:state), igo_recode_stateyear))
+# Recode the membership columns.
+sample_igo_year_recoded <- sample_igo_year \%>\%
+  mutate(across(c(spain, france), igo_recode_igoyear))
 
-sample_state_year_recoded \%>\% glimpse()
+sample_igo_year_recoded \%>\% glimpse()
 
 }
 \references{

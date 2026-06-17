@@ -38,20 +38,19 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-**igoR** provides access to the Intergovernmental Organizations (IGO) Database
-(v3) from the Correlates of War Project [@pevehouse2020].
+**igoR** provides tools for searching, extracting and recoding the
+Intergovernmental Organizations Database (version 3), distributed by the
+Correlates of War Project [@pevehouse2020].
 
-The IGO-year data set includes **`r nrow(igoR::igo_search())`** IGOs from
-`r min(igoR::igo_year_format3$year)` to `r max(igoR::igo_year_format3$year)`,
-plus country-year membership information. The package also provides helpers for
-dyad-year joint membership results.
+The IGO-year data set contains **`r nrow(igoR::igo_search())`** IGOs recorded
+from `r min(igoR::igo_year_format3$year)` to
+`r max(igoR::igo_year_format3$year)`. The package also includes country-year
+membership data, state system data [@correlatesofwarproject2017] and functions
+for deriving dyad-year joint membership results.
 
-- Source: [Intergovernmental Organizations
-  (v3)](https://correlatesofwar.org/data-sets/IGOs/).
+- Source: [Intergovernmental Organizations (version
+  3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
-
-The package also includes a distribution of the Correlates of War state system
-membership data [@correlatesofwarproject2017].
 
 ## Installation
 
@@ -95,7 +94,7 @@ install.packages(
 
 ### Search for IGOs by name
 
-Search for all IGOs related to "sugar".
+Search for IGOs related to "sugar".
 
 ```{r}
 #| label: search
@@ -114,8 +113,7 @@ cat("<p class=\"caption\">Table 1: IGOs related to sugar</p>")
 ### IGO members
 
 Extract the members of the [European Economic
-Community](https://en.wikipedia.org/wiki/European_Economic_Community) over
-time.
+Community](https://en.wikipedia.org/wiki/European_Economic_Community) over time.
 
 ```{r}
 #| label: eec
@@ -131,7 +129,7 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 knitr::kable(eec_init)
 cat(
   paste0(
-    "<p class=\"caption\">Table 2: EEC, members (",
+    "<p class=\"caption\">Table 2: EEC members (",
     unique(eec_init$year),
     ")</p>"
   )
@@ -151,7 +149,7 @@ knitr::kable(eec_end)
 
 cat(
   paste0(
-    "<p class=\"caption\">Table 3: EEC, members (",
+    "<p class=\"caption\">Table 3: EEC members (",
     unique(eec_end$year),
     ")</p>"
   )
@@ -160,8 +158,8 @@ cat(
 
 ## Recommended packages
 
-- **countrycode** package for converting country names and codes across
-  systems, including ISO3, Eurostat, World Bank, UN and FIPS/GEC.
+- **countrycode** package for converting country names and codes across systems,
+  including ISO3, Eurostat, World Bank, UN and FIPS/GEC.
 - **dplyr** package for data manipulation.
 
 ## Citation
@@ -173,7 +171,7 @@ cat(
 print(citation("igoR")[1], style = "html")
 ```
 
-A BibTeX entry for LaTeX users:
+For LaTeX users, a BibTeX entry is:
 
 ```{r}
 #| echo: false

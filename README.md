@@ -23,21 +23,18 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-**igoR** provides access to the Intergovernmental Organizations (IGO)
-Database (v3) from the Correlates of War Project ([Pevehouse et al.
-2020](#ref-pevehouse2020)).
+**igoR** provides tools for searching, extracting and recoding the
+Intergovernmental Organizations Database (version 3), distributed by the
+Correlates of War Project ([Pevehouse et al. 2020](#ref-pevehouse2020)).
 
-The IGO-year data set includes **534** IGOs from 1816 to 2014, plus
-country-year membership information. The package also provides helpers
-for dyad-year joint membership results.
+The IGO-year data set contains **534** IGOs recorded from 1816 to 2014.
+The package also includes country-year membership data, state system
+data ([Correlates of War Project 2017](#ref-correlatesofwarproject2017))
+and functions for deriving dyad-year joint membership results.
 
-- Source: [Intergovernmental Organizations
-  (v3)](https://correlatesofwar.org/data-sets/IGOs/).
+- Source: [Intergovernmental Organizations (version
+  3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
-
-The package also includes a distribution of the Correlates of War state
-system membership data ([Correlates of War Project
-2017](#ref-correlatesofwarproject2017)).
 
 ## Installation
 
@@ -83,7 +80,7 @@ install.packages(
 
 ### Search for IGOs by name
 
-Search for all IGOs related to “sugar”.
+Search for IGOs related to “sugar”.
 
 ``` r
 library(igoR)
@@ -127,7 +124,7 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 
 <p class="caption">
 
-Table 2: EEC, members (1958)
+Table 2: EEC members (1958)
 </p>
 
 ``` r
@@ -152,7 +149,7 @@ eec_end <- igo_members(eec_code$ioname)
 
 <p class="caption">
 
-Table 3: EEC, members (1992)
+Table 3: EEC members (1992)
 </p>
 
 ## Recommended packages
@@ -171,7 +168,7 @@ Organizations Database</em>.
 <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
 </p>
 
-A BibTeX entry for LaTeX users:
+For LaTeX users, a BibTeX entry is:
 
     @Manual{R-igoR,
       title = {{igoR}: Access the Intergovernmental Organizations Database},
@@ -180,7 +177,7 @@ A BibTeX entry for LaTeX users:
       year = {2026},
       version = {1.0.2.9000},
       url = {https://dieghernan.github.io/igoR/},
-      abstract = {Tools for searching, extracting and recoding information from the Intergovernmental Organizations (IGO) Database (v3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. The package includes IGO-year and country-year data, state system data and helpers for dyad-year joint membership results. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
+      abstract = {Provides tools for searching, extracting and recoding the Intergovernmental Organizations Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
     }
 
 ## References

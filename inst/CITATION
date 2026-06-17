@@ -20,7 +20,7 @@ bibentry(
 # Pevehouse, Jon CW, et al.
 bibentry(
   "Article",
-  header = "Please cite also:",
+  header = "Please also cite:",
   author = c(
     person("Jon CW", "Pevehouse"),
     person("Timothy", "Nordstrom", comment = c(ORCID = "0000-0002-1264-9590")),

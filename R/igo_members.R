@@ -1,20 +1,20 @@
-#' Extract IGO members
+#' Extract IGO membership records
 #'
 #' @name igo_members
 #'
 #' @description
-#' Extract all states that belong to an IGO in one or more years.
+#' Extracts state-level membership records for one or more IGOs and years.
 #'
-#' @param ioname Any valid `ioname` for an IGO as specified in
-#'   [igo_year_format3]. This can also be a vector of IGOs.
-#' @param year Year to assess, as an integer or vector of years. If
-#'   `NULL`, the latest year available for the IGO is extracted.
-#' @param status Character or vector with the membership status to extract. See
-#'   **Details** in [state_year_format3].
+#' @param ioname An IGO identifier or vector of identifiers from
+#'   [igo_year_format3]. Use [igo_search()] to find valid identifiers.
+#' @param year An integer or vector of years to assess. If `NULL`, the latest
+#'   available year for each IGO is used.
+#' @param status A character vector of membership statuses to extract. See
+#'   [state_year_format3] for valid statuses.
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with one row for each matching IGO member,
-#' year and membership status.
+#' A [`data.frame`][data.frame()] with one row per matching state, IGO, year and
+#' membership status.
 #'
 #' @inherit igo_dyadic source references
 #'
@@ -29,7 +29,7 @@
 #' igo_members("EU") %>% as_tibble()
 #' igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
 #'
-#' # Extract different statuses.
+#' # Extract multiple membership statuses.
 #' igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
 #'   as_tibble()
 #'
@@ -42,7 +42,7 @@
 #'   as_tibble() %>%
 #'   arrange(state)
 #'
-#' # Use the countrycode package to get additional codes.
+#' # Use the countrycode package to add codes.
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   EU <- igo_members("EU")
@@ -61,7 +61,7 @@
 igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Require an explicit IGO identifier.
   if (missing(ioname)) {
-    stop("You must provide a value for `ioname`.")
+    stop("`ioname` must be supplied.")
   }
 
   levls <- igo_status_levels(igo_recode_stateyear)
@@ -70,7 +70,10 @@ igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Keep one lookup result for each IGO identifier.
   find_v <- lapply(ioname, igo_member_single, year = year, status = status)
 
-  igo_bind_results(find_v, "No IGO results found with the required arguments.")
+  igo_bind_results(
+    find_v,
+    "No IGO membership records were found for the supplied arguments."
+  )
 }
 
 igo_member_single <- function(ioname, year, status) {
@@ -79,7 +82,7 @@ igo_member_single <- function(ioname, year, status) {
   igo_db <- igo_db[tolower(igo_db$ioname) %in% tolower(ioname), ]
 
   if (nrow(igo_db) == 0) {
-    message("Value for `ioname` not found: '", ioname, "'.")
+    message("Unknown value for `ioname`: '", ioname, "'.")
     return(NULL)
   }
 
@@ -104,8 +107,8 @@ igo_member_single <- function(ioname, year, status) {
     message(
       "IGO '",
       ioname,
-      "' is available only between ",
-      paste0(dates, collapse = " and "),
+      "' is available from ",
+      paste0(dates, collapse = " to "),
       "."
     )
     return(NULL)
@@ -124,9 +127,9 @@ igo_member_single <- function(ioname, year, status) {
 
   if (nrow(igo_w_year) == 0) {
     message(
-      "No members were found for `ioname` '",
+      "No membership records for IGO '",
       ioname,
-      "' with the arguments provided."
+      "' matched the supplied arguments."
     )
     return(NULL)
   }

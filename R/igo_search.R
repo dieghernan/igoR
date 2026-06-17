@@ -3,22 +3,23 @@
 #' @name igo_search
 #'
 #' @description
-#' Search for IGOs by name or regular expression pattern.
+#' Searches for IGOs by name or regular expression.
 #'
-#' @param pattern [regex][base::regex] pattern. If `NULL`, the function returns
-#'   a data set with all IGOs in [igo_year_format3]. Integer values are
-#'   accepted.
-#' @param exact Logical. When `TRUE`, only exact matches are returned.
+#' @param pattern A [regular expression][base::regex] used to match IGO names
+#'   and identifiers. If `NULL`, all IGOs in [igo_year_format3] are returned.
+#'   Integer values are accepted.
+#' @param exact A logical value. If `TRUE`, `pattern` is anchored to require a
+#'   complete match.
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with IGO identifiers, names, dates and
+#' A [`data.frame`][data.frame()] with IGO identifiers, names, dates and other
 #' metadata from the latest available year for each IGO.
 #'
 #' @details
-#' The information for each IGO is retrieved from the last year available in
+#' The information for each IGO is retrieved from the latest year available in
 #' [igo_year_format3].
 #'
-#' An additional column, `label`, provides a clean version of `longorgname`.
+#' The `label` column provides a cleaned version of `longorgname`.
 #'
 #' @inherit igo_members source references
 #'
@@ -42,7 +43,7 @@
 #'   select(ionum:orgname) %>%
 #'   tibble()
 #'
-#' # Use integers.
+#' # Search by numeric identifier.
 #' igo_search(10) %>%
 #'   select(ionum:orgname) %>%
 #'   tibble()
@@ -51,12 +52,12 @@
 #'   select(ionum:orgname) %>%
 #'   tibble()
 #'
-#' # Use several patterns (regex style).
+#' # Search with a regular expression.
 #' igo_search("NAFTA|UN|EU") %>%
 #'   select(ionum:orgname) %>%
 #'   tibble()
 #'
-#' # Use several exact patterns (regex style).
+#' # Search for several exact identifiers.
 #' igo_search("^NAFTA$|^UN$|^EU$") %>%
 #'   select(ionum:orgname) %>%
 #'   tibble()
@@ -80,7 +81,7 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
   db_end$label <- gsub("\\((.*?)$", "", db_end$label)
   db_end$label <- gsub("  ", " ", db_end$label, fixed = TRUE)
 
-  # Reorder columns.
+  # Put primary identifiers before the remaining metadata.
   cols <- unique(c(
     "ionum",
     "ioname",
@@ -101,13 +102,10 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
       pattern <- paste0("^", pattern, "$")
     }
 
-    # Search in the long name.
+    # Search across IGO names and identifiers.
     lon <- grep(pattern, db_end$longorgname, ignore.case = TRUE)
-    # Search in the organization name.
     lon <- c(lon, grep(pattern, db_end$orgname, ignore.case = TRUE))
-    # Search in the IGO ID.
     lon <- c(lon, grep(pattern, db_end$ioname, ignore.case = TRUE))
-    # Search in `ionum`.
     lon <- c(lon, grep(pattern, as.character(db_end$ionum)))
 
     lon <- sort(unique(lon))
@@ -115,7 +113,7 @@ igo_search <- function(pattern = NULL, exact = FALSE) {
     if (length(lon) > 0) {
       db_end <- db_end[lon, ]
     } else {
-      warning("No IGOs matched pattern '", pattern, "'.")
+      warning("No IGOs matched `pattern`: '", pattern, "'.")
       return(invisible(NULL))
     }
   }

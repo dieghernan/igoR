@@ -14,7 +14,7 @@
       State 'cuba' was not in the state system in the selected years.
     Condition
       Warning in `igo_dyadic()`:
-      No dyad-year results found with the required arguments.
+      No dyad-year results were found for the supplied arguments.
 
 ---
 
@@ -29,18 +29,18 @@
     Code
       n <- igo_dyadic("USA", "Cuba", ioname = "Not an IGO")
     Message
-      No valid `ioname` values were found for 'not an igo'.
+      Unknown values for `ioname`: 'not an igo'.
     Condition
       Warning in `igo_dyadic()`:
-      No dyad-year results found with the required arguments.
+      No dyad-year results were found for the supplied arguments.
 
 ---
 
     Code
       n <- igo_dyadic("Not a country", "banana", 1900)
     Message
-      State value not found: 'Not a country'.
-      State value not found: 'banana'.
+      Unknown value for `state`: 'Not a country'.
+      Unknown value for `state`: 'banana'.
     Condition
       Warning in `igo_dyadic()`:
       No valid states were found for comparison.
@@ -53,7 +53,7 @@
       State 'cuba' was not in the state system in the selected years.
     Condition
       Warning in `igo_dyadic()`:
-      No dyad-year results found with the required arguments.
+      No dyad-year results were found for the supplied arguments.
 
 ---
 
@@ -63,7 +63,7 @@
       No IGO records were found for the selected years.
     Condition
       Warning in `igo_dyadic()`:
-      No dyad-year results found with the required arguments.
+      No dyad-year results were found for the supplied arguments.
 
 # Test calls
 

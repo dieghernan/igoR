@@ -5,31 +5,32 @@
 \alias{igo_search}
 \title{Search for IGOs}
 \source{
-\href{https://correlatesofwar.org/data-sets/IGOs/}{\strong{Codebook Version 3 IGO Data}} for the full
+\href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full
 reference.
 }
 \usage{
 igo_search(pattern = NULL, exact = FALSE)
 }
 \arguments{
-\item{pattern}{\link[base:regex]{regex} pattern. If \code{NULL}, the function returns
-a data set with all IGOs in \link{igo_year_format3}. Integer values are
-accepted.}
+\item{pattern}{A \link[base:regex]{regular expression} used to match IGO names
+and identifiers. If \code{NULL}, all IGOs in \link{igo_year_format3} are returned.
+Integer values are accepted.}
 
-\item{exact}{Logical. When \code{TRUE}, only exact matches are returned.}
+\item{exact}{A logical value. If \code{TRUE}, \code{pattern} is anchored to require a
+complete match.}
 }
 \value{
-A \code{\link{data.frame}} with IGO identifiers, names, dates and
+A \code{\link{data.frame}} with IGO identifiers, names, dates and other
 metadata from the latest available year for each IGO.
 }
 \description{
-Search for IGOs by name or regular expression pattern.
+Searches for IGOs by name or regular expression.
 }
 \details{
-The information for each IGO is retrieved from the last year available in
+The information for each IGO is retrieved from the latest year available in
 \link{igo_year_format3}.
 
-An additional column, \code{label}, provides a clean version of \code{longorgname}.
+The \code{label} column provides a cleaned version of \code{longorgname}.
 }
 \examples{
 # Return all values.
@@ -47,7 +48,7 @@ igo_search("EU", exact = TRUE) \%>\%
   select(ionum:orgname) \%>\%
   tibble()
 
-# Use integers.
+# Search by numeric identifier.
 igo_search(10) \%>\%
   select(ionum:orgname) \%>\%
   tibble()
@@ -56,12 +57,12 @@ igo_search(10, exact = TRUE) \%>\%
   select(ionum:orgname) \%>\%
   tibble()
 
-# Use several patterns (regex style).
+# Search with a regular expression.
 igo_search("NAFTA|UN|EU") \%>\%
   select(ionum:orgname) \%>\%
   tibble()
 
-# Use several exact patterns (regex style).
+# Search for several exact identifiers.
 igo_search("^NAFTA$|^UN$|^EU$") \%>\%
   select(ionum:orgname) \%>\%
   tibble()
