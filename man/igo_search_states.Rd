@@ -35,7 +35,6 @@ igo_search_states("congo") \%>\% as_tibble()
 igo_search_states(c("Germany", "papal states")) \%>\% as_tibble()
 
 igo_search_states(c("FRN", "United Kingdom", 240, "italy")) \%>\% as_tibble()
-
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

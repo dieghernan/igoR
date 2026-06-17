@@ -27,6 +27,9 @@
 #'
 #' @family query functions
 #'
+#' @export
+#' @encoding UTF-8
+#'
 #' @examples
 #' # Return all values.
 #' library(dplyr)
@@ -61,9 +64,6 @@
 #' igo_search("^NAFTA$|^UN$|^EU$") %>%
 #'   select(ionum:orgname) %>%
 #'   tibble()
-#'
-#' @encoding UTF-8
-#' @export
 igo_search <- function(pattern = NULL, exact = FALSE) {
   db <- igoR::igo_year_format3
 

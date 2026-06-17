@@ -83,7 +83,6 @@ custom <- igo_dyadic(
 )
 
 dplyr::glimpse(custom)
-
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

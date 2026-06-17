@@ -77,7 +77,6 @@ sample_igo_year_recoded <- sample_igo_year \%>\%
   mutate(across(c(spain, france), igo_recode_igoyear))
 
 sample_igo_year_recoded \%>\% glimpse()
-
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

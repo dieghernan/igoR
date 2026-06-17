@@ -81,6 +81,9 @@
 #'
 #' @family membership functions
 #'
+#' @export
+#' @encoding UTF-8
+#'
 #' @examples
 #' usa_esp <- igo_dyadic("USA", "Spain")
 #' nrow(usa_esp)
@@ -95,9 +98,6 @@
 #' )
 #'
 #' dplyr::glimpse(custom)
-#'
-#' @encoding UTF-8
-#' @export
 igo_dyadic <- function(country1, country2, year = 1816:2014, ioname = NULL) {
   # Require numeric years before building state combinations.
   if (!is.numeric(year)) {

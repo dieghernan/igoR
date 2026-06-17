@@ -19,6 +19,9 @@
 #'
 #' @family query functions
 #'
+#' @export
+#' @encoding UTF-8
+#'
 #' @examples
 #' library(dplyr)
 #'
@@ -31,9 +34,6 @@
 #' igo_search_states(c("Germany", "papal states")) %>% as_tibble()
 #'
 #' igo_search_states(c("FRN", "United Kingdom", 240, "italy")) %>% as_tibble()
-#'
-#' @encoding UTF-8
-#' @export
 igo_search_states <- function(state) {
   # Keep one lookup result for each input value.
   find_v <- lapply(state, igo_search_state_single)

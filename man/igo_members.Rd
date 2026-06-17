@@ -60,7 +60,6 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 
   tibble(EU)
 }
-
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

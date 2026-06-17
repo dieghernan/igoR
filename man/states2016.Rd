@@ -52,7 +52,6 @@ across data sets in this package.
 \examples{
 data("states2016")
 dplyr::glimpse(states2016)
-
 }
 \references{
 Correlates of War Project. 2017. "State System Membership List, v2016."

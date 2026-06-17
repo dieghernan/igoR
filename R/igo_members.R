@@ -23,6 +23,9 @@
 #'
 #' @family membership functions
 #'
+#' @export
+#' @encoding UTF-8
+#'
 #' @examples
 #' library(dplyr)
 #' igo_members("EU", year = 1993) %>% as_tibble()
@@ -55,9 +58,6 @@
 #'
 #'   tibble(EU)
 #' }
-#'
-#' @encoding UTF-8
-#' @export
 igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Require an explicit IGO identifier.
   if (missing(ioname)) {

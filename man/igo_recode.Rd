@@ -46,6 +46,5 @@ samp \%>\%
     france = igo_recode_igoyear(france)
   ) \%>\%
   glimpse()
-
 }
 \concept{recode helpers}

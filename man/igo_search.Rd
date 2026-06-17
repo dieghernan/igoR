@@ -66,7 +66,6 @@ igo_search("NAFTA|UN|EU") \%>\%
 igo_search("^NAFTA$|^UN$|^EU$") \%>\%
   select(ionum:orgname) \%>\%
   tibble()
-
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

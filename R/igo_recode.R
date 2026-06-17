@@ -17,6 +17,9 @@
 #'
 #' @family recode helpers
 #'
+#' @export
+#' @encoding UTF-8
+#'
 #' @examples
 #' data("igo_year_format3")
 #'
@@ -37,9 +40,6 @@
 #'     france = igo_recode_igoyear(france)
 #'   ) %>%
 #'   glimpse()
-#'
-#' @encoding UTF-8
-#' @export
 igo_recode_igoyear <- function(x) {
   igo_hlp_recode(x, what = "igoyear")
 }

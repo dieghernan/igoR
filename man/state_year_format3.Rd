@@ -54,7 +54,6 @@ Data distributed with \CRANpkg{igoR}.
 \examples{
 data("state_year_format3")
 dplyr::tibble(state_year_format3)
-
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

@@ -60,6 +60,8 @@
 #'
 #' @note Data distributed with \CRANpkg{igoR}.
 #'
+#' @encoding UTF-8
+#'
 #' @examples
 #' data("igo_year_format3")
 #'
@@ -84,8 +86,6 @@
 #'   mutate(across(c(spain, france), igo_recode_igoyear))
 #'
 #' sample_igo_year_recoded %>% glimpse()
-#'
-#' @encoding UTF-8
 NULL
 
 #' Country-year IGO membership data
@@ -141,11 +141,11 @@ NULL
 #'
 #' @family data sets
 #'
+#' @encoding UTF-8
+#'
 #' @examples
 #' data("state_year_format3")
 #' dplyr::tibble(state_year_format3)
-#'
-#' @encoding UTF-8
 NULL
 
 #' State system membership (v2016)
@@ -203,9 +203,9 @@ NULL
 #' The `state` variable was added to the original data to support comparisons
 #' across data sets in this package.
 #'
+#' @encoding UTF-8
+#'
 #' @examples
 #' data("states2016")
 #' dplyr::glimpse(states2016)
-#'
-#' @encoding UTF-8
 NULL

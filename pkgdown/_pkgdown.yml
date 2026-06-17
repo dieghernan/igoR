@@ -26,41 +26,48 @@ home:
 
 reference:
 - title: Data sets
-  desc: IGO-year membership, country-year membership and state system data.
+  desc: Data included with igoR for IGO, country and state system analysis.
 - contents:
   - has_concept("data sets")
+
 - title: Query functions
-  desc: Search for IGOs and states.
+  desc: Search IGO metadata and resolve state names, abbreviations and codes.
 - contents:
   - has_concept("query functions")
+
 - title: Membership functions
   desc: >
-    Extract IGO membership records and derive dyad-year joint membership
-    results.
+    Extract state-IGO membership records and derive dyad-year joint
+    memberships.
 - contents:
   - has_concept("membership functions")
+
 - title: Recode helpers
-  desc: Convert numerical membership codes to factor labels.
+  desc: Convert numerical membership codes to labelled factors.
 - contents:
   - has_concept("recode helpers")
+
 - title: About the package
+  desc: Package overview, authors and links.
 - contents:
   - igoR-package
 
 articles:
 - title: Get started
+  desc: Introduction to the data and the main igoR workflows.
+  navbar: ~
   contents:
   - igoR
-- title: Applied articles
-  desc: Examples that use IGO membership data in applied workflows.
-  navbar: Articles
+- title: Workflows
+  desc: Applied examples using IGO membership data.
+  navbar: Workflows
   contents:
   - mapping
-- title: Annexes
+- title: Data reference
   desc: >
     Interactive reference tables for available IGOs and states in the
     Correlates of War state system.
-  navbar: Annexes
+  navbar: Data
   contents:
   - articles/list-igos
 

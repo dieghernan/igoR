@@ -56,7 +56,6 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
   IT$iso3c <- countrycode(IT$ccode, origin = "cown", destination = "iso3c")
   head(IT)
 }
-
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

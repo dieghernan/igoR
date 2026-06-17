@@ -22,6 +22,9 @@
 #'
 #' @family membership functions
 #'
+#' @export
+#' @encoding UTF-8
+#'
 #' @examples
 #' # Memberships on two different dates.
 #' igo_state_membership("Spain", year = 1850)
@@ -50,9 +53,6 @@
 #'   IT$iso3c <- countrycode(IT$ccode, origin = "cown", destination = "iso3c")
 #'   head(IT)
 #' }
-#'
-#' @encoding UTF-8
-#' @export
 igo_state_membership <- function(
   state,
   year = NULL,
