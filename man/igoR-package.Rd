@@ -10,6 +10,12 @@
 
 Provides tools for searching, extracting and recoding the Intergovernmental Organizations Database (version 3), distributed by the Correlates of War Project \url{https://correlatesofwar.org/}. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) \doi{10.1177/0022343319881175}.
 }
+\references{
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version 3.0
+data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
+\doi{10.1177/0022343319881175}.
+}
 \seealso{
 Useful links:
 \itemize{
