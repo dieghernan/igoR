@@ -17,8 +17,7 @@ results](https://badges.cranchecks.info/worst/igoR.svg)](https://cran.r-project.
 [![coveralls](https://coveralls.io/repos/github/dieghernan/igoR/badge.svg)](https://coveralls.io/github/dieghernan/igoR)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
 [![DOI](https://img.shields.io/badge/DOI-10.32614/CRAN.package.igoR-blue)](https://doi.org/10.32614/CRAN.package.igoR)
-[![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 [![status](https://tinyverse.netlify.app/status/igoR)](https://CRAN.R-project.org/package=igoR)
 
 <!-- badges: end -->
