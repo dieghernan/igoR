@@ -144,7 +144,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "igo", "correlates-of-war", "intergovernmental-organisations", "cran", "intergovernmental-organizations", "r-package", "rstats", "cran-r"],
-  "fileSize": "798.745KB",
+  "fileSize": "798.899KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -208,5 +208,5 @@
   "releaseNotes": "https://github.com/dieghernan/igoR/blob/main/NEWS.md",
   "readme": "https://github.com/dieghernan/igoR/blob/main/README.md",
   "contIntegration": ["https://github.com/dieghernan/igoR/actions/workflows/check-full.yaml", "https://app.codecov.io/gh/dieghernan/igoR", "https://coveralls.io/github/dieghernan/igoR"],
-  "developmentStatus": "https://lifecycle.r-lib.org/articles/stages.html#stable"
+  "developmentStatus": "https://www.repostatus.org/#inactive"
 }
