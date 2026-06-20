@@ -37,6 +37,9 @@ results](https://badges.cranchecks.info/worst/igoR.svg)](https://cran.r-project.
 
 <!-- badges: end -->
 
+This package is stable and maintained on a best-effort basis. I currently 
+prioritize CRAN compatibility, bug fixes and regressions over new features.
+
 **igoR** provides tools for searching, extracting and recoding the
 Intergovernmental Organizations Database (version 3), distributed by the
 Correlates of War Project [@pevehouse2020].
