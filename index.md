@@ -1,6 +1,6 @@
 
 
-<!-- README.md is generated from README.qmd. Please edit that file -->
+<!-- index.md is generated from index.qmd. Please edit that file -->
 
 # igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" align="right" height="139"/></a>
 
@@ -38,11 +38,18 @@ and functions for deriving dyad-year joint membership results.
   3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
  
-> [!NOTE]
->
-> This package is stable and maintained on a best-effort basis. I
-> currently prioritize CRAN compatibility, bug fixes and regressions
-> over new features.
+<div class=“callout callout-style-default callout-note callout-titled”>
+<div class=“callout-header d-flex align-content-center”>
+<div class=“callout-icon-container”><i class=“callout-icon”></i></div>
+<div class=“callout-title-container flex-fill”>Note</div></div>
+<div class=“callout-body-container callout-body”>
+
+This package is stable and maintained on a best-effort basis. I
+currently prioritize CRAN compatibility, bug fixes and regressions over
+new features.
+
+</div>
+</div>
 
 ## Installation
 
