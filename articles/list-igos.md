@@ -1,19 +1,19 @@
-# List of IGOs and countries
+# IGOs and states in the Correlates of War system
 
 This annex lists the IGOs ([Pevehouse et al. 2020](#ref-pevehouse2020))
-and countries ([Correlates of War Project
-2017](#ref-correlatesofwarproject2017)) included with the package.
+and states in the Correlates of War state system ([Correlates of War
+Project 2017](#ref-correlatesofwarproject2017)) included with **igoR**.
 
-## List of IGOs
+## IGOs
 
-## List of countries
+## States
 
 ## References
 
 Correlates of War Project. 2017. *State System Membership List, V2016*.
 <https://correlatesofwar.org/data-sets/state-system-membership/>.
 
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
+Pevehouse, Jon C. W., Timothy Nordstrom, Roseanne W. McManus, and Anne
 Spencer Jamison. 2020. “Tracking Organizations in the World: The
 Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 57 (3): 492–503. <https://doi.org/10.1177/0022343319881175>.

@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,9 +26,11 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Workflows</h6></li>
     <li><a class="dropdown-item" href="../articles/mapping.html">Mapping IGOs</a></li>
-    <li><a class="dropdown-item" href="../articles/list-igos.html">List of IGOs and countries</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data</h6></li>
+    <li><a class="dropdown-item" href="../articles/list-igos.html">IGOs and states in the Correlates of War system</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -52,6 +54,13 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.0.3" id="igor-103">igoR 1.0.3<a class="anchor" aria-label="anchor" href="#igor-103"></a></h2>
+<ul><li>Internal code paths were simplified with AI-assisted refactoring to reduce duplicated result handling, status validation and dyad-year joint membership recoding.</li>
+<li>
+<code><a href="../reference/igo_dyadic.html">igo_dyadic()</a></code> now computes <code>dyadid</code> with both state codes, as documented.</li>
+<li>User-facing messages were revised for clearer wording and consistent argument names.</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.2" id="igor-102">igoR 1.0.2<a class="anchor" aria-label="anchor" href="#igor-102"></a></h2><p class="text-muted">CRAN release: 2026-05-23</p>
 <ul><li>Package documentation was reviewed and updated with AI-assisted editing.</li>
 </ul></div>
@@ -71,12 +80,12 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="igor-020">igoR 0.2.0<a class="anchor" aria-label="anchor" href="#igor-020"></a></h2><p class="text-muted">CRAN release: 2024-02-05</p>
-<ul><li>Refactored internal code. Users should not notice any visible change.</li>
+<ul><li>Refactored internal code without user-visible changes.</li>
 <li>Updated documentation and basic package maintenance.</li>
 <li>
-<code><a href="../reference/igo_dyadic.html">igo_dyadic()</a></code> now also accepts a vector of countries in the <code>country1</code> argument.</li>
+<code><a href="../reference/igo_dyadic.html">igo_dyadic()</a></code> now also accepts a vector of states in the <code>country1</code> argument.</li>
 <li>
-<code><a href="../reference/igo_recode.html">igo_recode_igoyear()</a></code>, <code><a href="../reference/igo_recode.html">igo_recode_stateyear()</a></code> and <code><a href="../reference/igo_recode.html">igo_recode_dyadic()</a></code> are new helper functions for converting numerical values to labels.</li>
+<code><a href="../reference/igo_recode.html">igo_recode_igoyear()</a></code>, <code><a href="../reference/igo_recode.html">igo_recode_stateyear()</a></code> and <code><a href="../reference/igo_recode.html">igo_recode_dyadic()</a></code> are new helper functions for converting numerical membership codes to factor labels.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.5" id="igor-015">igoR 0.1.5<a class="anchor" aria-label="anchor" href="#igor-015"></a></h2><p class="text-muted">CRAN release: 2023-04-14</p>

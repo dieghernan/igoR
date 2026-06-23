@@ -1,19 +1,23 @@
 # igoR
 
-**igoR** provides access to the Intergovernmental Organizations Database
-(v3) from the Correlates of War Project ([Pevehouse et al.
-2020](#ref-pevehouse2020)).
+**igoR** provides tools for searching, extracting and recoding the
+Intergovernmental Organizations Database (version 3), distributed by the
+Correlates of War Project ([Pevehouse et al. 2020](#ref-pevehouse2020)).
 
-The data set (v3) includes information on **534** IGOs from 1816 to
-2014, plus membership information.
+The IGO-year data set contains **534** IGOs recorded from 1816 to 2014.
+The package also includes country-year membership data, state system
+data ([Correlates of War Project 2017](#ref-correlatesofwarproject2017))
+and functions for deriving dyad-year joint membership results.
 
-- Source: [Intergovernmental Organizations
-  (v3)](https://correlatesofwar.org/data-sets/IGOs/).
+- Source: [Intergovernmental Organizations (version
+  3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
 
-The package also includes a distribution of the State System Membership
-data ([Correlates of War Project
-2017](#ref-correlatesofwarproject2017)).
+Note
+
+This package is stable and maintained on a best-effort basis. I
+currently prioritize CRAN compatibility, bug fixes and regressions over
+new features.
 
 ## Installation
 
@@ -27,9 +31,9 @@ install.packages("igoR")
 
 ## Basic usage
 
-### Search an IGO by name
+### Search for IGOs by name
 
-Search for all IGOs related to “sugar”:
+Search for IGOs related to “sugar”.
 
 ``` r
 
@@ -49,9 +53,9 @@ Table 1: IGOs related to sugar
 
 ### IGO members
 
-Composition of the [European Economic
+Extract the members of the [European Economic
 Community](https://en.wikipedia.org/wiki/European_Economic_Community)
-over time:
+over time.
 
 ``` r
 
@@ -70,11 +74,11 @@ eec_init <- igo_members(eec_code$ioname, year = eec_code$sdate)
 | EEC | 260 | wgermany | German Federal Republic | 1958 | 1 | Full Membership | European Economic Community |
 | EEC | 325 | italy | Italy | 1958 | 1 | Full Membership | European Economic Community |
 
-Table 2: EEC, members (1958)
+Table 2: EEC members (1958)
 
 ``` r
 
-# Get members at the latest available date.
+# Get members in the latest available year.
 eec_end <- igo_members(eec_code$ioname)
 ```
 
@@ -93,32 +97,32 @@ eec_end <- igo_members(eec_code$ioname)
 | EEC | 350 | greece | Greece | 1992 | 1 | Full Membership | European Economic Community |
 | EEC | 390 | denmark | Denmark | 1992 | 1 | Full Membership | European Economic Community |
 
-Table 3: EEC, members (1992)
+Table 3: EEC members (1992)
 
 ## Recommended packages
 
 - **countrycode** package for converting country names and codes across
-  different systems (ISO3, Eurostat, World Bank, UN, FIPS/GEC, etc.).
+  systems, including ISO3, Eurostat, World Bank, UN and FIPS/GEC.
 - **dplyr** package for data manipulation.
 
 ## Citation
 
 Hernangómez D (2026). *igoR: Access the Intergovernmental Organizations
-Database*.
+(IGO) Database*.
 [doi:10.32614/CRAN.package.igoR](https://doi.org/10.32614/CRAN.package.igoR).
 <https://dieghernan.github.io/igoR/>.
 
-A BibTeX entry for LaTeX users:
+For LaTeX users, a BibTeX entry is:
 
 ``` R
 @Manual{R-igoR,
-  title = {{igoR}: Access the Intergovernmental Organizations Database},
+  title = {{igoR}: Access the Intergovernmental Organizations ({IGO}) Database},
   doi = {10.32614/CRAN.package.igoR},
   author = {Diego Hernangómez},
   year = {2026},
-  version = {1.0.2},
+  version = {1.0.3},
   url = {https://dieghernan.github.io/igoR/},
-  abstract = {Tools for searching, extracting and recoding information from the Intergovernmental Organizations (IGO) Database (v3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
+  abstract = {Provides tools for searching, extracting and recoding the Intergovernmental Organizations (IGO) Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
 }
 ```
 
@@ -127,7 +131,7 @@ A BibTeX entry for LaTeX users:
 Correlates of War Project. 2017. *State System Membership List, V2016*.
 <https://correlatesofwar.org/data-sets/state-system-membership/>.
 
-Pevehouse, Jon CW, Timothy Nordstrom, Roseanne W McManus, and Anne
+Pevehouse, Jon C. W., Timothy Nordstrom, Roseanne W. McManus, and Anne
 Spencer Jamison. 2020. “Tracking Organizations in the World: The
 Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 57 (3): 492–503. <https://doi.org/10.1177/0022343319881175>.

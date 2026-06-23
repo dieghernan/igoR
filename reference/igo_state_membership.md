@@ -1,6 +1,6 @@
-# Extract memberships of a state
+# Extract IGO membership records for states
 
-Extract all IGO memberships of a state on a specific date.
+Extracts IGO membership records for one or more states and years.
 
 ## Usage
 
@@ -10,37 +10,38 @@ igo_state_membership(state, year = NULL, status = "Full Membership")
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
 
 ## Arguments
 
 - state:
 
-  Any valid state name or code as specified in
+  A state name or code, or a vector of names or codes, as specified in
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
-  This can also be a vector of states.
 
 - year:
 
-  Year to assess, as an integer or vector of years. If `NULL`, the
-  latest year available for the state is extracted.
+  An integer or vector of years to assess. If `NULL`, the latest
+  available year for each state is used.
 
 - status:
 
-  Character or vector with the membership status to be extracted. See
-  **Details** in
-  [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
+  A character vector of membership statuses to extract. See
+  [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
+  for valid statuses.
 
 ## Value
 
-A [`data.frame`](https://rdrr.io/r/base/data.frame.html).
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
+per matching state, year, IGO and membership status.
 
 ## References
 
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
-(2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version
+3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -49,6 +50,10 @@ Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
 [`igo_search_states()`](https://dieghernan.github.io/igoR/reference/igo_search_states.md),
 [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
+
+Other membership functions:
+[`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md),
+[`igo_members()`](https://dieghernan.github.io/igoR/reference/igo_members.md)
 
 ## Examples
 
@@ -156,7 +161,7 @@ igo_state_membership("Spain", year = 1880:1882)
 #> 17      1        0
 #> 18      0        1
 
-# Last year.
+# Use the latest available year.
 igo_state_membership("ZAN")[, 1:7]
 #>   ccode stateabb statenme    state year ioname value
 #> 1   511      ZAN Zanzibar zanzibar 1964    CEC     1
@@ -164,7 +169,7 @@ igo_state_membership("ZAN")[, 1:7]
 #> 3   511      ZAN Zanzibar zanzibar 1964     UN     1
 #> 4   511      ZAN Zanzibar zanzibar 1964    UPU     1
 
-# Use codes to get countries.
+# Search by state code.
 igo_state_membership("2", year = 1865)
 #>   ccode stateabb                 statenme state year ioname value
 #> 1     2      USA United States of America   usa 1865 ICCSLT     1
@@ -175,7 +180,7 @@ igo_state_membership("2", year = 1865)
 #>   social economic
 #> 1      0        1
 
-# Extract different statuses.
+# Extract multiple membership statuses.
 igo_state_membership("kosovo", status = c(
   "Associate Membership", "Observer",
   "Full Membership"
@@ -209,7 +214,7 @@ igo_state_membership("kosovo", status = c(
 #> 5      0        1
 #> 6      1        0
 
-# Vectorized.
+# Vectorized search.
 igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #>   ccode stateabb                 statenme state year ioname value
 #> 1     2      USA United States of America   usa 1870 ICCSLT     1
@@ -248,7 +253,7 @@ igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #> 7      0        1
 #> 8      1        0
 
-# Use the countrycode package to get additional codes.
+# Use the countrycode package to add codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   IT <- igo_state_membership("Italy", year = 1880)

@@ -1,50 +1,49 @@
 # State system membership (v2016)
 
-The list of states with COW abbreviations and ID numbers, plus the field
-`state` from
+A list of states with Correlates of War abbreviations and identifiers,
+plus the `state` field from
 [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
 
 ## Format
 
-[`data.frame`](https://rdrr.io/r/base/data.frame.html) with 243 rows.
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 243 rows.
 Relevant fields:
 
-- **ccode**: COW country number.
+- `ccode`: Correlates of War country number.
 
-- **stateabb**: COW state abbreviation (3 characters).
+- `stateabb`: Three-character Correlates of War state abbreviation.
 
-- **statenme**: COW state name.
+- `statenme`: Correlates of War state name.
 
-- **styear...endday**: Fields that identify the beginning and end of
-  each tenure.
+- `styear...endday`: Fields that identify the beginning and end of each
+  tenure.
 
-- **version**: Data file version number.
+- `version`: Data file version number.
 
-- **state**: Abbreviated state name as it appears in
+- `state`: Abbreviated state name as it appears in
   [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
 
 ## Source
 
 [State System Membership
-(v2016)](https://correlatesofwar.org/data-sets/state-system-membership/),
+(v2016)](https://correlatesofwar.org/data-sets/state-system-membership/).
 The Correlates of War Project.
 
 ## Details
 
-This data set contains the list of states in the international system as
-updated and distributed by the Correlates of War Project.
+This data set contains the states in the international system as updated
+and distributed by the Correlates of War Project.
 
-These data sets identify states, their standard Correlates of War
-"country code" or state number (used throughout the Correlates of War
-project data sets), state abbreviations, and dates of membership as
-states and major powers in the international system.
+It identifies states, their standard Correlates of War country code or
+state number, state abbreviations and dates of membership as states and
+major powers in the international system.
 
 The Correlates of War Project includes a state in the international
 system from 1816 to 2016 according to the following criteria:
 
 - **Before 1920**, the entity must have had a population greater than
   500,000 and have had diplomatic missions at or above the rank of
-  charge d'affaires with Britain and France.
+  chargé d'affaires with Britain and France.
 
 - **After 1920**, the entity must be a member of the League of Nations
   or the United Nations, or have a population greater than 500,000 and
@@ -52,25 +51,23 @@ system from 1816 to 2016 according to the following criteria:
 
 ## Note
 
-The `state` variable was added to the original data to help comparisons
-across data sets in this package.
+The `state` variable was added to the original data to support
+comparisons across data sets in this package.
 
 ## References
 
-Correlates of War Project. 2017 "State System Membership List, v2016."
+Correlates of War Project. 2017. "State System Membership List, v2016."
 Online, <https://correlatesofwar.org/>.
 
 ## See also
 
-Other datasets:
-[`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
+Other data sets:
 [`igo_year_format3`](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
 [`state_year_format3`](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
 
 ## Examples
 
 ``` r
-# Example code.
 data("states2016")
 dplyr::glimpse(states2016)
 #> Rows: 243

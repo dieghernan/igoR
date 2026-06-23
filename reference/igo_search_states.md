@@ -1,6 +1,6 @@
-# Find codes and names of a state
+# Find state codes, abbreviations and names
 
-Find codes and names of a state.
+Finds Correlates of War codes, abbreviations and names for states.
 
 ## Usage
 
@@ -10,32 +10,38 @@ igo_search_states(state)
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
 
 ## Arguments
 
 - state:
 
-  Any valid state name or code as specified in
+  A state name or code, or a vector of names or codes, as specified in
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
-  This can also be a vector of states.
 
 ## Value
 
-A [`data.frame`](https://rdrr.io/r/base/data.frame.html).
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with Correlates
+of War country codes, abbreviations, names and the matching `state`
+identifiers used by
+[state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
 
 ## References
 
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
-(2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version
+3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
 ## See also
 
 [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
+
+Other query functions:
+[`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md)
 
 ## Examples
 

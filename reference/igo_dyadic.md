@@ -1,8 +1,7 @@
-# Extract joint membership for a pair of countries across IGOs
+# Extract joint IGO membership for state pairs
 
-Create a dyadic version of the data. The unit of observation is a
-country dyad. The result summarizes joint memberships across IGOs over
-time.
+Creates dyad-year IGO data. Each row represents a pair of states in one
+year and summarizes their joint memberships across IGOs.
 
 ## Usage
 
@@ -12,63 +11,65 @@ igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
 
 ## Arguments
 
 - country1, country2:
 
-  State or vector of states to compare. Values can be any valid state
-  name or code as specified in
+  A state or vector of states to compare. Each value can be any state
+  name or code in
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
 
 - year:
 
-  Year to assess, as an integer or vector of years.
+  An integer or vector of years to assess.
 
 - ioname:
 
-  Optional. `ioname` or vector of `ioname` corresponding to the IGOs to
-  assess. If `NULL` (the default), all IGOs will be extracted. See codes
-  in
-  [`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md).
+  An optional IGO identifier or vector of identifiers. If `NULL` (the
+  default), all IGOs are included. Use
+  [`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md)
+  to find valid identifiers.
 
 ## Value
 
-A coded [`data.frame`](https://rdrr.io/r/base/data.frame.html) with
-years and country dyads as rows and selected IGOs as columns. See
-**Details**.
+A coded [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one
+row per state pair and year and one column per selected IGO. See Details
+for the coding scheme.
 
 ## Details
 
-This function tries to replicate the information contained in the
-original file distributed by The Correlates of War Project
-(`dyadic_format3.dta`). That file is not included in this package due to
-its size.
+The arguments `country1` and `country2` are named for compatibility with
+earlier versions of **igoR**. Values are matched against states in
+[states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
 
-The result is a [`data.frame`](https://rdrr.io/r/base/data.frame.html)
-with one row for each common year selected via `country1`, `country2`
-and `year`.
+This function reproduces the structure of the original dyad-year file
+distributed by the Correlates of War Project (`dyadic_format3.dta`).
+That file is not included in this package due to its size.
 
-An additional column, `dyadid`, computed as `(1000 * ccode1) + ccode2`,
-is provided to identify relationships.
+The result contains one row for each common year selected by `country1`,
+`country2` and `year`.
 
-For each IGO selected via `ioname`, or all IGOs if the default option is
-used, a column using lowercase `ioname` as an identifier is provided
-with the following coding system:
+The `dyadid` column identifies each relationship and is computed as
+`(1000 * ccode1) + ccode2`.
+
+For each selected IGO, the result includes a column named after its
+lowercase identifier and uses this coding scheme:
 
 |                         |                     |
 |-------------------------|---------------------|
-| **Category**            | **Numerical Value** |
+| **Category**            | **Numerical value** |
 | No Joint Membership     | 0                   |
 | Joint Full Membership   | 1                   |
 | Missing data            | -9                  |
 | State Not System Member | -1                  |
 
-See the
+Use
 [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
-section for an easy way to recode the numerical values into
+to recode the numerical values as
 [factors](https://rdrr.io/r/base/factor.html).
 
 If one state in an IGO is a full member but the other is an associate
@@ -76,18 +77,19 @@ member or observer, that IGO is not coded as a joint membership.
 
 ## Differences from the original data set
 
-Some results from this function differ from the original data set for
-some IGOs regarding "Missing data" (`-9`) and "State Not System Member"
-(`-1`). However, it is not clear how to fully replicate those values.
+For some IGOs, results differ from the original data set in the coding
+of "Missing data" (`-9`) and "State Not System Member" (`-1`). The
+available documentation does not fully specify how to reproduce those
+values.
 
-See [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/).
+See [Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/).
 
 ## References
 
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
-(2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version
+3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -95,7 +97,12 @@ Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 
 [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md),
 [states2016](https://dieghernan.github.io/igoR/reference/states2016.md),
-[`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md).
+[`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md),
+[`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_recode.md).
+
+Other membership functions:
+[`igo_members()`](https://dieghernan.github.io/igoR/reference/igo_members.md),
+[`igo_state_membership()`](https://dieghernan.github.io/igoR/reference/igo_state_membership.md)
 
 ## Examples
 
@@ -110,16 +117,16 @@ dplyr::tibble(usa_esp)
 #> # A tibble: 199 × 546
 #>    dyadid ccode1 stateabb1 statenme1    state1 ccode2 stateabb2 statenme2 state2
 #>     <dbl>  <int> <chr>     <chr>        <chr>   <int> <chr>     <chr>     <chr> 
-#>  1   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
-#>  2   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
-#>  3   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
-#>  4   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
-#>  5   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
-#>  6   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
-#>  7   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
-#>  8   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
-#>  9   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
-#> 10   2002      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#>  1   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#>  2   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#>  3   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#>  4   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#>  5   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#>  6   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#>  7   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#>  8   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#>  9   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
+#> 10   2230      2 USA       United Stat… usa       230 SPN       Spain     spain 
 #> # ℹ 189 more rows
 #> # ℹ 537 more variables: year <dbl>, ccode <dbl>, state <dbl>, aaaid <dbl>,
 #> #   aacb <dbl>, aalco <dbl>, aaro <dbl>, aata <dbl>, aatpo <dbl>, abeda <dbl>,
@@ -137,7 +144,7 @@ custom <- igo_dyadic(
 dplyr::glimpse(custom)
 #> Rows: 8
 #> Columns: 11
-#> $ dyadid    <dbl> 220220, 220220, 255255, 255255, 220220, 220220, 255255, 2552…
+#> $ dyadid    <dbl> 220380, 220380, 255380, 255380, 220305, 220305, 255305, 2553…
 #> $ ccode1    <int> 220, 220, 255, 255, 220, 220, 255, 255
 #> $ stateabb1 <chr> "FRN", "FRN", "GMY", "GMY", "FRN", "FRN", "GMY", "GMY"
 #> $ statenme1 <chr> "France", "France", "Germany", "Germany", "France", "France"…

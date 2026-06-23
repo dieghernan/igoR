@@ -1,6 +1,6 @@
-# Search for an IGO
+# Search for IGOs
 
-Search for any IGO by name or string pattern.
+Searches for IGOs by name or regular expression.
 
 ## Usage
 
@@ -10,40 +10,43 @@ igo_search(pattern = NULL, exact = FALSE)
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
 
 ## Arguments
 
 - pattern:
 
-  [regex](https://rdrr.io/r/base/regex.html) pattern. If `NULL`, the
-  function returns a data set with all IGOs in
-  [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
-  Integer values are accepted.
+  A [regular expression](https://rdrr.io/r/base/regex.html) used to
+  match IGO names and identifiers. If `NULL`, all IGOs in
+  [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
+  are returned. Integer values are accepted.
 
 - exact:
 
-  Logical. When `TRUE`, only exact matches are returned.
+  A logical value. If `TRUE`, `pattern` is anchored to require a
+  complete match.
 
 ## Value
 
-A [`data.frame`](https://rdrr.io/r/base/data.frame.html).
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with IGO
+identifiers, names, dates and other metadata from the latest available
+year for each IGO.
 
 ## Details
 
-The information for each IGO is retrieved from the last year available
+The information for each IGO is retrieved from the latest year available
 in
 [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
 
-An additional column `label` is provided. This column is a clean version
-of `longorgname`.
+The `label` column provides a cleaned version of `longorgname`.
 
 ## References
 
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
-(2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version
+3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -51,10 +54,13 @@ Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 
 [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
 
+Other query functions:
+[`igo_search_states()`](https://dieghernan.github.io/igoR/reference/igo_search_states.md)
+
 ## Examples
 
 ``` r
-# All values.
+# Return all values.
 library(dplyr)
 all <- igo_search()
 
@@ -104,7 +110,7 @@ igo_search("EU", exact = TRUE) %>%
 #>   <dbl> <chr>  <chr>         
 #> 1  1830 EU     European Union
 
-# Use integers.
+# Search by numeric identifier.
 igo_search(10) %>%
   select(ionum:orgname) %>%
   tibble()
@@ -131,7 +137,7 @@ igo_search(10, exact = TRUE) %>%
 #>   <dbl> <chr>  <chr>                
 #> 1    10 ACPEU  ACP/EU Joint Assembly
 
-# Use several patterns (regex style).
+# Search with a regular expression.
 igo_search("NAFTA|UN|EU") %>%
   select(ionum:orgname) %>%
   tibble()
@@ -150,7 +156,7 @@ igo_search("NAFTA|UN|EU") %>%
 #> 10   110 AGC      African Groundnut Council                                
 #> # ℹ 186 more rows
 
-# Use several exact patterns (regex style).
+# Search for several exact identifiers.
 igo_search("^NAFTA$|^UN$|^EU$") %>%
   select(ionum:orgname) %>%
   tibble()

@@ -1,33 +1,34 @@
-# Country membership in IGOs by year
+# Country-year IGO membership data
 
-Data on IGOs from 1815 to 2014 at the country-year level. Contains one
-record per country-year, with years listed at five-year intervals
-through 1965 and annually thereafter.
+Data on IGO membership from 1816 to 2014 at the country-year level. Each
+row represents one country in one year. Years are recorded at five-year
+intervals through 1965 and annually thereafter.
 
 ## Format
 
-[`data.frame`](https://rdrr.io/r/base/data.frame.html) with 15,557 rows.
-Relevant fields:
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 15,557
+rows. Relevant fields:
 
-- **ccode**: COW country number, see
+- `ccode`: Correlates of War country number. See
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
 
-- **year**: Calendar year.
+- `year`: Calendar year.
 
-- **state**: Abbreviated state name, identical to variable names in
+- `state`: Abbreviated state name, identical to variable names in
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
 
-- **aaaid...wassen**: IGO variables containing information on state
-  membership status. See **Details**.
-
-See [**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/).
+- `aaaid...wassen`: IGO variables containing state membership status.
+  See the Details section.
 
 ## Source
 
-[Intergovernmental Organizations
-(v3)](https://correlatesofwar.org/data-sets/IGOs/), The Correlates of
-War Project (IGO Data Stata Files).
+[Intergovernmental Organizations (version
+3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata Files
+from the Correlates of War Project.
+
+See the [Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
 
 ## Details
 
@@ -35,7 +36,7 @@ Possible values for the status of a state in the IGO are:
 
 |                      |                     |
 |----------------------|---------------------|
-| **Category**         | **Numerical Value** |
+| **Category**         | **Numerical value** |
 | No Membership        | 0                   |
 | Full Membership      | 1                   |
 | Associate Membership | 2                   |
@@ -43,21 +44,23 @@ Possible values for the status of a state in the IGO are:
 | Missing data         | -9                  |
 | IGO Not In Existence | -1                  |
 
-See the
+Use
 [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
-section for an easy way to recode the numerical values into
+to recode the numerical values as
 [factors](https://rdrr.io/r/base/factor.html).
+
+See the [Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/).
 
 ## Note
 
-Raw data used internally by
-[igoR](https://CRAN.R-project.org/package=igoR).
+Data distributed with [igoR](https://CRAN.R-project.org/package=igoR).
 
 ## References
 
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
-(2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version
+3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -66,8 +69,7 @@ Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
 to convert between different country code schemes.
 
-Other datasets:
-[`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
+Other data sets:
 [`igo_year_format3`](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
 [`states2016`](https://dieghernan.github.io/igoR/reference/states2016.md)
 

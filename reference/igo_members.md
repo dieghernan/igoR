@@ -1,6 +1,6 @@
-# Extract members of an IGO
+# Extract IGO membership records
 
-Extract all countries that belong to an IGO on a specific date.
+Extracts state-level membership records for one or more IGOs and years.
 
 ## Usage
 
@@ -10,37 +10,41 @@ igo_members(ioname, year = NULL, status = "Full Membership")
 
 ## Source
 
-[**Codebook Version 3 IGO
-Data**](https://correlatesofwar.org/data-sets/IGOs/) for full reference.
+[Codebook Version 3 IGO
+Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
+reference.
 
 ## Arguments
 
 - ioname:
 
-  Any valid `ioname` for an IGO as specified in
+  An IGO identifier or vector of identifiers from
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
-  This can also be a vector of IGOs.
+  Use
+  [`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md)
+  to find valid identifiers.
 
 - year:
 
-  Year to assess, as an integer or vector of years. If `NULL`, the
-  latest year available for the IGO is extracted.
+  An integer or vector of years to assess. If `NULL`, the latest
+  available year for each IGO is used.
 
 - status:
 
-  Character or vector with the membership status to be extracted. See
-  **Details** in
-  [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
+  A character vector of membership statuses to extract. See
+  [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
+  for valid statuses.
 
 ## Value
 
-A [`data.frame`](https://rdrr.io/r/base/data.frame.html).
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
+per matching state, IGO, year and membership status.
 
 ## References
 
-Pevehouse, J. C., Nordstrom, T., McManus, R. W., & Jamison, A. S.
-(2020). Tracking organizations in the world: The Correlates of War IGO
-Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
+Tracking organizations in the world: The Correlates of War IGO Version
+3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -49,6 +53,10 @@ Version 3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
 [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
 [`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md),
 [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
+
+Other membership functions:
+[`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md),
+[`igo_state_membership()`](https://dieghernan.github.io/igoR/reference/igo_state_membership.md)
 
 ## Examples
 
@@ -110,7 +118,7 @@ igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
 #> 11 NAFTA     20 canada Canada                    1998     1 Full Member… North …
 #> 12 NAFTA     70 mexico Mexico                    1998     1 Full Member… North …
 
-# Extract different statuses.
+# Extract multiple membership statuses.
 igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
   as_tibble()
 #> # A tibble: 25 × 8
@@ -137,7 +145,7 @@ igo_members("UN", status = "No Membership") %>%
 #> 1 UN       347 kosovo Kosovo    2014     0 No Membership United Nations
 #> 2 UN       713 taiwan Taiwan    2014     0 No Membership United Nations
 
-# Vectorized.
+# Vectorized search.
 igo_members(c("NAFTA", "EU"), year = 1993) %>%
   as_tibble() %>%
   arrange(state)
@@ -160,7 +168,7 @@ igo_members(c("NAFTA", "EU"), year = 1993) %>%
 #> 14 EU       200 uk          United Kingdom           1993     1 Full Me… Europe…
 #> 15 NAFTA      2 usa         United States of Ameri…  1993     1 Full Me… North …
 
-# Use the countrycode package to get additional codes.
+# Use the countrycode package to add codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")

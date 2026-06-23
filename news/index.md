@@ -1,5 +1,15 @@
 # Changelog
 
+## igoR 1.0.3
+
+- Internal code paths were simplified with AI-assisted refactoring to
+  reduce duplicated result handling, status validation and dyad-year
+  joint membership recoding.
+- [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
+  now computes `dyadid` with both state codes, as documented.
+- User-facing messages were revised for clearer wording and consistent
+  argument names.
+
 ## igoR 1.0.2
 
 CRAN release: 2026-05-23
@@ -33,15 +43,16 @@ CRAN release: 2024-12-17
 
 CRAN release: 2024-02-05
 
-- Refactored internal code. Users should not notice any visible change.
+- Refactored internal code without user-visible changes.
 - Updated documentation and basic package maintenance.
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
-  now also accepts a vector of countries in the `country1` argument.
+  now also accepts a vector of states in the `country1` argument.
 - [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md),
   [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
   and
   [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
-  are new helper functions for converting numerical values to labels.
+  are new helper functions for converting numerical membership codes to
+  factor labels.
 
 ## igoR 0.1.5
 
