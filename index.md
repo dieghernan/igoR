@@ -37,12 +37,12 @@ and functions for deriving dyad-year joint membership results.
 - Source: [Intergovernmental Organizations (version
   3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
- 
-<div class=“callout callout-style-default callout-note callout-titled”>
-<div class=“callout-header d-flex align-content-center”>
-<div class=“callout-icon-container”><i class=“callout-icon”></i></div>
-<div class=“callout-title-container flex-fill”>Note</div></div>
-<div class=“callout-body-container callout-body”>
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Note</div></div>
+<div class="callout-body-container callout-body">
 
 This package is stable and maintained on a best-effort basis. I
 currently prioritize CRAN compatibility, bug fixes and regressions over

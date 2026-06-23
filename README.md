@@ -37,7 +37,7 @@ and functions for deriving dyad-year joint membership results.
 - Source: [Intergovernmental Organizations (version
   3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
- 
+
 > [!NOTE]
 >
 > This package is stable and maintained on a best-effort basis. I
