@@ -1,4 +1,4 @@
-# igoR (development version)
+# igoR 1.0.3
 
 - Internal code paths were simplified with AI-assisted refactoring to reduce
   duplicated result handling, status validation and dyad-year joint membership

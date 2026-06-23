@@ -60,3 +60,4 @@
 ^\.positai$
 ^\.claude$
 ^\.gitattributes$
+^vignettes/\.lintr$

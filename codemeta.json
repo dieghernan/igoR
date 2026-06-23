@@ -2,13 +2,13 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "igoR",
-  "description": "Provides tools for searching, extracting and recoding the Intergovernmental Organizations Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.",
-  "name": "igoR: Access the Intergovernmental Organizations Database",
+  "description": "Provides tools for searching, extracting and recoding the Intergovernmental Organizations ('IGO') Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes 'IGO'-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.",
+  "name": "igoR: Access the Intergovernmental Organizations ('IGO') Database",
   "relatedLink": ["https://dieghernan.github.io/igoR/", "https://CRAN.R-project.org/package=igoR"],
   "codeRepository": "https://github.com/dieghernan/igoR",
   "issueTracker": "https://github.com/dieghernan/igoR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.0.2.9000",
+  "version": "1.0.3",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -144,7 +144,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "igo", "correlates-of-war", "intergovernmental-organisations", "cran", "intergovernmental-organizations", "r-package", "rstats", "cran-r"],
-  "fileSize": "798.932KB",
+  "fileSize": "799.139KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -156,7 +156,7 @@
           "familyName": "Hernangómez"
         }
       ],
-      "name": "{igoR}: Access the Intergovernmental Organizations Database",
+      "name": "{igoR}: Access the Intergovernmental Organizations ({IGO}) Database",
       "identifier": "10.32614/CRAN.package.igoR",
       "url": "https://dieghernan.github.io/igoR/",
       "@id": "https://doi.org/10.32614/CRAN.package.igoR",

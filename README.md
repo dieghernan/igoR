@@ -171,7 +171,7 @@ Table 3: EEC members (1992)
 <p>
 
 Hernangómez D (2026). <em>igoR: Access the Intergovernmental
-Organizations Database</em>.
+Organizations (IGO) Database</em>.
 <a href="https://doi.org/10.32614/CRAN.package.igoR">doi:10.32614/CRAN.package.igoR</a>.
 <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
 </p>
@@ -179,13 +179,13 @@ Organizations Database</em>.
 For LaTeX users, a BibTeX entry is:
 
     @Manual{R-igoR,
-      title = {{igoR}: Access the Intergovernmental Organizations Database},
+      title = {{igoR}: Access the Intergovernmental Organizations ({IGO}) Database},
       doi = {10.32614/CRAN.package.igoR},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {1.0.2.9000},
+      version = {1.0.3},
       url = {https://dieghernan.github.io/igoR/},
-      abstract = {Provides tools for searching, extracting and recoding the Intergovernmental Organizations Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
+      abstract = {Provides tools for searching, extracting and recoding the Intergovernmental Organizations (IGO) Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
     }
 
 ## References

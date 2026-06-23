@@ -5,11 +5,11 @@
 \name{igoR-package}
 \alias{igoR}
 \alias{igoR-package}
-\title{igoR: Access the Intergovernmental Organizations Database}
+\title{igoR: Access the Intergovernmental Organizations ('IGO') Database}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Provides tools for searching, extracting and recoding the Intergovernmental Organizations Database (version 3), distributed by the Correlates of War Project \url{https://correlatesofwar.org/}. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) \doi{10.1177/0022343319881175}.
+Provides tools for searching, extracting and recoding the Intergovernmental Organizations ('IGO') Database (version 3), distributed by the Correlates of War Project \url{https://correlatesofwar.org/}. Includes 'IGO'-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) \doi{10.1177/0022343319881175}.
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

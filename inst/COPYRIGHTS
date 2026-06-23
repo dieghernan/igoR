@@ -1,5 +1,8 @@
 (Extracted from <https://correlatesofwar.org/data-sets/igos/>)
 
+Citation
+--------
+
 In any papers or publications that utilize this data set, users are asked to
 give the version number and cite the documentation for the data set, as follows
 (this citation will be replaced by the article of record for the data set when
@@ -9,3 +12,9 @@ information is available):
   Jamison, "Tracking Organizations in the World: The Correlates of War IGO
   Version 3.0 datasets", Journal of Peace Research.
 
+The original IGO data set was collected by Michael Wallace and J. David Singer
+and is described in:
+
+  Wallace, Michael, and J. David Singer. 1970. "International Governmental
+  Organization in the Global System, 1815-1964." International Organization
+  24: 239-87.
