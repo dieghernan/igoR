@@ -1,9 +1,5 @@
 # igoR
 
-This package is stable and maintained on a best-effort basis. I
-currently prioritize CRAN compatibility, bug fixes and regressions over
-new features.
-
 **igoR** provides tools for searching, extracting and recoding the
 Intergovernmental Organizations Database (version 3), distributed by the
 Correlates of War Project ([Pevehouse et al. 2020](#ref-pevehouse2020)).
@@ -16,6 +12,12 @@ and functions for deriving dyad-year joint membership results.
 - Source: [Intergovernmental Organizations (version
   3)](https://correlatesofwar.org/data-sets/IGOs/).
 - Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
+
+Note
+
+This package is stable and maintained on a best-effort basis. I
+currently prioritize CRAN compatibility, bug fixes and regressions over
+new features.
 
 ## Installation
 
