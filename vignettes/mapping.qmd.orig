@@ -98,7 +98,7 @@ The data are now ready to plot with **ggplot2**.
 ```{r}
 #| label: fig-UNMaps
 #| fig-asp: 1.5
-#| fig-cap: "UN members (1950, 1980, 2010)"
+#| fig-cap: "Figure 1: UN members (1950, 1980, 2010)"
 ggplot(un_all_sf) +
   geom_sf(aes(fill = category), color = NA, show.legend = FALSE) +
   # Robinson
@@ -129,7 +129,7 @@ members in 2014.
 ```{r}
 #| label: fig-AustShared
 #| fig-asp: 0.72
-#| fig-cap: "Full joint memberships with Australia (2014)"
+#| fig-cap: "Figure 2: Full joint memberships with Australia (2014)"
 # Count full joint memberships in 2014.
 # Find states in the state system in 2014.
 states2014 <- states2016 %>%
@@ -192,7 +192,7 @@ American states changed from 1930 to 2010 at ten-year intervals.
 
 ```{r}
 #| label: fig-NAShared
-#| fig-cap: "Full joint memberships in North America (1930-2010)"
+#| fig-cap: "Figure 3: Full joint memberships in North America (1930-2010)"
 #| fig-asp: 1
 # Select years.
 years <- seq(1930, 2010, 10)

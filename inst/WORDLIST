@@ -10,7 +10,6 @@ IGOs
 ISuC
 Intl
 Jamison
-Lifecycle
 Malgasy
 McManus
 Nordstrom
@@ -19,12 +18,12 @@ Pevehouse
 Roseanne
 Stata
 SugU
-aaaid
 accuracyofpre
-afghanistan
 al
 belgium
+callout
 ccode
+chargé
 codecov
 countrycode
 d'affaires
@@ -33,7 +32,6 @@ denmark
 doi
 dplyr
 dyad
-endday
 et
 france
 geospatial
@@ -57,11 +55,7 @@ portugal
 sdate
 sourcesandnotes
 spain
-stateabb
 statenme
-styear
 testthat
 uk
-wassen
 wgermany
-zimbabwe

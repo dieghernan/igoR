@@ -14,7 +14,7 @@ fields:
 \item \code{orgname}: Full IGO name.
 \item \code{year}: Calendar year.
 \item \code{afghanistan...zimbabwe}: Membership status of each state in the IGO. See
-the Details section.
+the \strong{Details} section.
 \item \code{sdate}: Start year for the IGO.
 \item \code{deaddate}: End year for the IGO.
 \item \code{longorgname}: Longer IGO name, including previous names.
@@ -24,11 +24,9 @@ the Details section.
 }
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{Intergovernmental Organizations (version 3)}, IGO Data Stata
-Files from
-the Correlates of War Project.
+Files from the Correlates of War Project.
 
-See the \href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full
-reference.
+See the \href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full reference.
 }
 \description{
 Data on intergovernmental organizations (IGOs) from 1816 to 2014 at the
@@ -90,3 +88,5 @@ Other data sets:
 \code{\link{states2016}}
 }
 \concept{data sets}
+\concept{datasets}
+\keyword{datasets}

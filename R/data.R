@@ -10,14 +10,14 @@
 #'
 #' @format
 #' A [`data.frame`][data.frame()] with
-#' `r prettyNum(nrow(igoR::igo_year_format3), big.mark=",")` rows. Relevant
+#' `r prettyNum(nrow(igoR::igo_year_format3), big.mark = ",")` rows. Relevant
 #' fields:
 #'
 #' - `ioname`: Short abbreviation for the IGO name.
 #' - `orgname`: Full IGO name.
 #' - `year`: Calendar year.
 #' - `afghanistan...zimbabwe`: Membership status of each state in the IGO. See
-#'   the Details section.
+#'   the **Details** section.
 #' - `sdate`: Start year for the IGO.
 #' - `deaddate`: End year for the IGO.
 #' - `longorgname`: Longer IGO name, including previous names.
@@ -49,14 +49,14 @@
 #' @source
 #' [Intergovernmental Organizations
 #' (version 3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata
-#' Files from
-#' the Correlates of War Project.
+#' Files from the Correlates of War Project.
 #'
 #' See the [Codebook Version 3 IGO
-#' Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
-#' reference.
+#' Data](https://correlatesofwar.org/data-sets/IGOs/) for the full reference.
 #'
 #' @family data sets
+#' @keywords datasets
+#' @concept datasets
 #'
 #' @note Data distributed with \CRANpkg{igoR}.
 #'
@@ -108,7 +108,7 @@ NULL
 #' - `state`: Abbreviated state name, identical to variable names in
 #'   [igo_year_format3].
 #' - `aaaid...wassen`: IGO variables containing state membership status. See
-#'   the Details section.
+#'   the **Details** section.
 #'
 #' @details
 #' Possible values for the status of a state in the IGO are:
@@ -140,6 +140,8 @@ NULL
 #' schemes.
 #'
 #' @family data sets
+#' @keywords datasets
+#' @concept datasets
 #'
 #' @encoding UTF-8
 #'
@@ -198,6 +200,8 @@ NULL
 #' Online, <https://correlatesofwar.org/>.
 #'
 #' @family data sets
+#' @keywords datasets
+#' @concept datasets
 #'
 #' @note
 #' The `state` variable was added to the original data to support comparisons
