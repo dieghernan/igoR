@@ -6,22 +6,52 @@ plus the `state` field from
 
 ## Format
 
-A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 243 rows.
-Relevant fields:
+A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 243 rows
+and 11 variables:
 
-- `ccode`: Correlates of War country number.
+- `ccode`:
 
-- `stateabb`: Three-character Correlates of War state abbreviation.
+  COW state number.
 
-- `statenme`: Correlates of War state name.
+- `stateabb`:
 
-- `styear...endday`: Fields that identify the beginning and end of each
-  tenure.
+  COW state abbreviation.
 
-- `version`: Data file version number.
+- `statenme`:
 
-- `state`: Abbreviated state name as it appears in
-  [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
+  Primary COW state name.
+
+- `styear`:
+
+  Beginning year of state tenure.
+
+- `stmonth`:
+
+  Beginning month of state tenure.
+
+- `stday`:
+
+  Beginning day of state tenure.
+
+- `endyear`:
+
+  Ending year of state tenure.
+
+- `endmonth`:
+
+  Ending month of state tenure.
+
+- `endday`:
+
+  Ending day of state tenure.
+
+- `version`:
+
+  Data file version number.
+
+- `state`:
+
+  Abbreviated state name as it appears in `state_year_format3`.
 
 ## Source
 

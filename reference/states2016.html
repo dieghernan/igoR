@@ -65,14 +65,43 @@ the <code>state</code> field from <a href="state_year_format3.html">state_year_f
     <div class="section level2">
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
     <p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></code> with
-243 rows. Relevant fields:</p><ul><li><p><code>ccode</code>: Correlates of War country number.</p></li>
-<li><p><code>stateabb</code>: Three-character Correlates of War state abbreviation.</p></li>
-<li><p><code>statenme</code>: Correlates of War state name.</p></li>
-<li><p><code>styear...endday</code>: Fields that identify the beginning and end of each
-tenure.</p></li>
-<li><p><code>version</code>: Data file version number.</p></li>
-<li><p><code>state</code>: Abbreviated state name as it appears in <a href="state_year_format3.html">state_year_format3</a>.</p></li>
-</ul></div>
+243 rows and 11 variables:</p>
+<dl><dt><code>ccode</code></dt>
+<dd><p>COW state number.</p></dd>
+
+<dt><code>stateabb</code></dt>
+<dd><p>COW state abbreviation.</p></dd>
+
+<dt><code>statenme</code></dt>
+<dd><p>Primary COW state name.</p></dd>
+
+<dt><code>styear</code></dt>
+<dd><p>Beginning year of state tenure.</p></dd>
+
+<dt><code>stmonth</code></dt>
+<dd><p>Beginning month of state tenure.</p></dd>
+
+<dt><code>stday</code></dt>
+<dd><p>Beginning day of state tenure.</p></dd>
+
+<dt><code>endyear</code></dt>
+<dd><p>Ending year of state tenure.</p></dd>
+
+<dt><code>endmonth</code></dt>
+<dd><p>Ending month of state tenure.</p></dd>
+
+<dt><code>endday</code></dt>
+<dd><p>Ending day of state tenure.</p></dd>
+
+<dt><code>version</code></dt>
+<dd><p>Data file version number.</p></dd>
+
+<dt><code>state</code></dt>
+<dd><p>Abbreviated state name as it appears in
+<code>state_year_format3</code>.</p></dd>
+
+
+</dl></div>
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
     <p><a href="https://correlatesofwar.org/data-sets/state-system-membership/" class="external-link">State System Membership (v2016)</a>.

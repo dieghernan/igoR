@@ -2,6 +2,8 @@
 
 ## igoR 1.0.3
 
+CRAN release: 2026-06-24
+
 - Internal code paths were simplified with AI-assisted refactoring to
   reduce duplicated result handling, status validation and dyad-year
   joint membership recoding.
