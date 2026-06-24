@@ -90,9 +90,9 @@ ggplot(un_all_sf) +
   )
 ```
 
-![UN members (1950, 1980, 2010)](./fig-UNMaps-1.png)
+![Figure 1: UN members (1950, 1980, 2010)](./fig-UNMaps-1.png)
 
-UN members (1950, 1980, 2010)
+Figure 1: UN members (1950, 1980, 2010)
 
 ## Joint memberships with Australia
 
@@ -157,9 +157,10 @@ ggplot(sharedmap) +
   )
 ```
 
-![Full joint memberships with Australia (2014)](./fig-AustShared-1.png)
+![Figure 2: Full joint memberships with Australia
+(2014)](./fig-AustShared-1.png)
 
-Full joint memberships with Australia (2014)
+Figure 2: Full joint memberships with Australia (2014)
 
 ## Joint memberships across North America
 
@@ -208,10 +209,10 @@ ggplot(countries_sf) +
   )
 ```
 
-![Full joint memberships in North America
+![Figure 3: Full joint memberships in North America
 (1930-2010)](./fig-NAShared-1.png)
 
-Full joint memberships in North America (1930-2010)
+Figure 3: Full joint memberships in North America (1930-2010)
 
 ## References
 

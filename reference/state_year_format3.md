@@ -18,7 +18,7 @@ rows. Relevant fields:
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md).
 
 - `aaaid...wassen`: IGO variables containing state membership status.
-  See the Details section.
+  See the **Details** section.
 
 ## Source
 

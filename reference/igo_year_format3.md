@@ -16,7 +16,7 @@ rows. Relevant fields:
 - `year`: Calendar year.
 
 - `afghanistan...zimbabwe`: Membership status of each state in the IGO.
-  See the Details section.
+  See the **Details** section.
 
 - `sdate`: Start year for the IGO.
 
