@@ -158,7 +158,7 @@ igo_member_single <- function(ioname, year, status) {
 }
 
 
-cow_cntr_codes <- function(col_names = names(states2016)) {
+cow_cntr_codes <- function(col_names = names(igoR::states2016)) {
   df <- unique(igoR::states2016[, c("ccode", "stateabb", "statenme", "state")])
   df <- df[order(df$ccode), ]
   df[, intersect(col_names, names(df))]
