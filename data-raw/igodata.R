@@ -1,15 +1,12 @@
-getwd()
-pkgdev::update_docs()
-
 # Download
 rm(list = ls())
 
 library(dplyr)
 
-curl::curl_download(
-  "https://correlatesofwar.org/data-sets/IGOs/codebook-version-3-igo-data/@@download/file/IGO%20Codebook_v3_short%20copy.pdf",
-  "./data-raw/IGO Codebook_v3_short copy.pdf"
-)
+# curl::curl_download(
+#   "https://correlatesofwar.org/data-sets/IGOs/codebook-version-3-igo-data/@@download/file/IGO%20Codebook_v3_short%20copy.pdf",
+#   "./data-raw/IGO Codebook_v3_short copy.pdf"
+# )
 
 # Files
 
@@ -21,7 +18,6 @@ curl::curl_download(
 # unzip("./data-raw/igo_year_formatv3.zip", exdir = "./data-raw/igo_year_formatv3")
 
 # Read
-
 igo_year_format3 <- haven::read_dta("data-raw/igo_year_format_3.dta") %>%
   as.data.frame()
 

@@ -42,7 +42,7 @@ igo_search_states <- function(state) {
 }
 
 igo_search_state_single <- function(state) {
-  df_states <- cow_country_codes
+  df_states <- cow_cntr_codes()
   matches <- lapply(df_states, function(column) {
     match(tolower(state), tolower(column))
   })

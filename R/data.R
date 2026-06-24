@@ -161,15 +161,22 @@ NULL
 #'
 #' @format
 #' A [`data.frame`][data.frame()] with
-#' `r prettyNum(nrow(igoR::states2016), big.mark=",")` rows. Relevant fields:
+#' `r prettyNum(nrow(igoR::states2016), big.mark=",")` rows and 11 variables:
 #'
-#' - `ccode`: Correlates of War country number.
-#' - `stateabb`: Three-character Correlates of War state abbreviation.
-#' - `statenme`: Correlates of War state name.
-#' - `styear...endday`: Fields that identify the beginning and end of each
-#'   tenure.
-#' - `version`: Data file version number.
-#' - `state`: Abbreviated state name as it appears in [state_year_format3].
+#' \describe{
+#'   \item{`ccode`}{COW state number.}
+#'   \item{`stateabb`}{COW state abbreviation.}
+#'   \item{`statenme`}{Primary COW state name.}
+#'   \item{`styear`}{Beginning year of state tenure.}
+#'   \item{`stmonth`}{Beginning month of state tenure.}
+#'   \item{`stday`}{Beginning day of state tenure.}
+#'   \item{`endyear`}{Ending year of state tenure.}
+#'   \item{`endmonth`}{Ending month of state tenure.}
+#'   \item{`endday`}{Ending day of state tenure.}
+#'   \item{`version`}{Data file version number.}
+#'   \item{`state`}{Abbreviated state name as it appears in
+#'     `state_year_format3`.}
+#' }
 #'
 #' @details
 #' This data set contains the states in the international system as updated and

@@ -7,15 +7,21 @@
 \title{State system membership (v2016)}
 \format{
 A \code{\link{data.frame}} with
-243 rows. Relevant fields:
-\itemize{
-\item \code{ccode}: Correlates of War country number.
-\item \code{stateabb}: Three-character Correlates of War state abbreviation.
-\item \code{statenme}: Correlates of War state name.
-\item \code{styear...endday}: Fields that identify the beginning and end of each
-tenure.
-\item \code{version}: Data file version number.
-\item \code{state}: Abbreviated state name as it appears in \link{state_year_format3}.
+243 rows and 11 variables:
+
+\describe{
+\item{\code{ccode}}{COW state number.}
+\item{\code{stateabb}}{COW state abbreviation.}
+\item{\code{statenme}}{Primary COW state name.}
+\item{\code{styear}}{Beginning year of state tenure.}
+\item{\code{stmonth}}{Beginning month of state tenure.}
+\item{\code{stday}}{Beginning day of state tenure.}
+\item{\code{endyear}}{Ending year of state tenure.}
+\item{\code{endmonth}}{Ending month of state tenure.}
+\item{\code{endday}}{Ending day of state tenure.}
+\item{\code{version}}{Data file version number.}
+\item{\code{state}}{Abbreviated state name as it appears in
+\code{state_year_format3}.}
 }
 }
 \source{

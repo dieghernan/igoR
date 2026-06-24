@@ -135,7 +135,7 @@ igo_member_single <- function(ioname, year, status) {
   }
 
   # Add final state metadata.
-  dfnames <- cow_country_codes[, c("ccode", "statenme")]
+  dfnames <- cow_cntr_codes(c("ccode", "statenme"))
   cntriesend <- merge(igo_w_year, dfnames)
   # Arrange columns for the public return value.
   rearcol <- unique(c(
@@ -155,4 +155,11 @@ igo_member_single <- function(ioname, year, status) {
   ]
 
   igo_reset_rows(cntriesend)
+}
+
+
+cow_cntr_codes <- function(col_names = names(states2016)) {
+  df <- unique(igoR::states2016[, c("ccode", "stateabb", "statenme", "state")])
+  df <- df[order(df$ccode), ]
+  df[, intersect(col_names, names(df))]
 }
