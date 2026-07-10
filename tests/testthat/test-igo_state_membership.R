@@ -1,5 +1,5 @@
 test_that("Testing messages ", {
-  expect_error(igo_state_membership())
+  expect_snapshot(error = TRUE, s <- igo_state_membership())
   expect_snapshot(res <- igo_state_membership("Error"))
   expect_null(res)
 

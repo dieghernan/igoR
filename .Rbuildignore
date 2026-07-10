@@ -61,3 +61,4 @@
 ^\.claude$
 ^\.gitattributes$
 ^vignettes/\.lintr$
+^AGENTS\.md$

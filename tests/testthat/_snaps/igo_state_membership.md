@@ -1,6 +1,14 @@
 # Testing messages 
 
     Code
+      s <- igo_state_membership()
+    Condition
+      Error in `igo_state_membership()`:
+      ! `state` must be supplied.
+
+---
+
+    Code
       res <- igo_state_membership("Error")
     Message
       Unknown value for `state`: 'Error'.

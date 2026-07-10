@@ -1,6 +1,14 @@
 # Testing messages 
 
     Code
+      s <- igo_members()
+    Condition
+      Error in `igo_members()`:
+      ! `ioname` must be supplied.
+
+---
+
+    Code
       res <- igo_members("Error")
     Message
       Unknown value for `ioname`: 'Error'.
