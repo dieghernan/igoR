@@ -67,8 +67,7 @@ igo_recode_dyadic <- function(x) {
     x,
     function(y) {
       yc <- as.character(y)
-      switch(
-        yc,
+      switch(yc,
         "0" = "No Joint Membership",
         "1" = "Joint Full Membership",
         "-9" = "Missing data",
@@ -104,8 +103,7 @@ igo_hlp_recode <- function(x, what = "igoyear") {
     x,
     function(y) {
       yc <- as.character(y)
-      switch(
-        yc,
+      switch(yc,
         "0" = "No Membership",
         "1" = "Full Membership",
         "2" = "Associate Membership",
