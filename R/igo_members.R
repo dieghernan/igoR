@@ -26,7 +26,7 @@
 #' @export
 #' @encoding UTF-8
 #'
-#' @examples
+#' @examplesIf requireNamespace("dplyr", quietly = TRUE)
 #' library(dplyr)
 #' igo_members("EU", year = 1993) %>% as_tibble()
 #' igo_members("EU") %>% as_tibble()

@@ -22,7 +22,7 @@
 #' @export
 #' @encoding UTF-8
 #'
-#' @examples
+#' @examplesIf requireNamespace("dplyr", quietly = TRUE)
 #' library(dplyr)
 #'
 #' igo_search_states("Spain") %>% as_tibble()

@@ -56,8 +56,10 @@ The \code{state} variable was added to the original data to support comparisons
 across data sets in this package.
 }
 \examples{
+\dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 data("states2016")
 dplyr::glimpse(states2016)
+\dontshow{\}) # examplesIf}
 }
 \references{
 Correlates of War Project. 2017. "State System Membership List, v2016."

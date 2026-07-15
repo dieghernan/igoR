@@ -33,6 +33,7 @@ The information for each IGO is retrieved from the latest year available in
 The \code{label} column provides a cleaned version of \code{longorgname}.
 }
 \examples{
+\dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 # Return all values.
 library(dplyr)
 all <- igo_search()
@@ -66,6 +67,7 @@ igo_search("NAFTA|UN|EU") \%>\%
 igo_search("^NAFTA$|^UN$|^EU$") \%>\%
   select(ionum:orgname) \%>\%
   tibble()
+\dontshow{\}) # examplesIf}
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

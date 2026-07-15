@@ -62,7 +62,7 @@
 #'
 #' @encoding UTF-8
 #'
-#' @examples
+#' @examplesIf requireNamespace("dplyr", quietly = TRUE)
 #' data("igo_year_format3")
 #'
 #' # Show a glimpse.
@@ -145,7 +145,7 @@ NULL
 #'
 #' @encoding UTF-8
 #'
-#' @examples
+#' @examplesIf requireNamespace("dplyr", quietly = TRUE)
 #' data("state_year_format3")
 #' dplyr::tibble(state_year_format3)
 NULL
@@ -216,7 +216,7 @@ NULL
 #'
 #' @encoding UTF-8
 #'
-#' @examples
+#' @examplesIf requireNamespace("dplyr", quietly = TRUE)
 #' data("states2016")
 #' dplyr::glimpse(states2016)
 NULL

@@ -30,7 +30,7 @@
 #' @export
 #' @encoding UTF-8
 #'
-#' @examples
+#' @examplesIf requireNamespace("dplyr", quietly = TRUE)
 #' # Return all values.
 #' library(dplyr)
 #' all <- igo_search()

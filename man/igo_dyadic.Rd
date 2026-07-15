@@ -70,6 +70,7 @@ See \href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Da
 }
 
 \examples{
+\dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 usa_esp <- igo_dyadic("USA", "Spain")
 nrow(usa_esp)
 ncol(usa_esp)
@@ -83,6 +84,7 @@ custom <- igo_dyadic(
 )
 
 dplyr::glimpse(custom)
+\dontshow{\}) # examplesIf}
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

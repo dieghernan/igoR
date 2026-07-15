@@ -29,6 +29,7 @@ membership status.
 Extracts state-level membership records for one or more IGOs and years.
 }
 \examples{
+\dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 library(dplyr)
 igo_members("EU", year = 1993) \%>\% as_tibble()
 igo_members("EU") \%>\% as_tibble()
@@ -60,6 +61,7 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 
   tibble(EU)
 }
+\dontshow{\}) # examplesIf}
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

@@ -27,6 +27,7 @@ Converts the numerical membership codes in \link{igo_year_format3},
 \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}} with values from \code{\link[=igo_dyadic]{igo_dyadic()}}.
 }
 \examples{
+\dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 data("igo_year_format3")
 
 # Recode memberships for some states.
@@ -46,5 +47,6 @@ samp \%>\%
     france = igo_recode_igoyear(france)
   ) \%>\%
   glimpse()
+\dontshow{\}) # examplesIf}
 }
 \concept{recode helpers}

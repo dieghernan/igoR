@@ -52,6 +52,7 @@ Use \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} to recode the numeri
 Data distributed with \CRANpkg{igoR}.
 }
 \examples{
+\dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 data("igo_year_format3")
 
 # Show a glimpse.
@@ -75,6 +76,7 @@ sample_igo_year_recoded <- sample_igo_year \%>\%
   mutate(across(c(spain, france), igo_recode_igoyear))
 
 sample_igo_year_recoded \%>\% glimpse()
+\dontshow{\}) # examplesIf}
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

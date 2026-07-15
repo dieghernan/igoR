@@ -50,8 +50,10 @@ See the \href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IG
 Data distributed with \CRANpkg{igoR}.
 }
 \examples{
+\dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 data("state_year_format3")
 dplyr::tibble(state_year_format3)
+\dontshow{\}) # examplesIf}
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

@@ -24,6 +24,7 @@ abbreviations, names and the matching \code{state} identifiers used by
 Finds Correlates of War codes, abbreviations and names for states.
 }
 \examples{
+\dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 library(dplyr)
 
 igo_search_states("Spain") \%>\% as_tibble()
@@ -35,6 +36,7 @@ igo_search_states("congo") \%>\% as_tibble()
 igo_search_states(c("Germany", "papal states")) \%>\% as_tibble()
 
 igo_search_states(c("FRN", "United Kingdom", 240, "italy")) \%>\% as_tibble()
+\dontshow{\}) # examplesIf}
 }
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).

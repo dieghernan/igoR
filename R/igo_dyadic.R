@@ -84,7 +84,7 @@
 #' @export
 #' @encoding UTF-8
 #'
-#' @examples
+#' @examplesIf requireNamespace("dplyr", quietly = TRUE)
 #' usa_esp <- igo_dyadic("USA", "Spain")
 #' nrow(usa_esp)
 #' ncol(usa_esp)
