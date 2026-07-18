@@ -1,30 +1,51 @@
-test_that("Search states", {
-  expect_silent(n <- igo_search_states("Spain"))
-  expect_equal(nrow(n), 1)
+test_that("state names return matching COW identifiers", {
+  res <- igo_search_states("Spain")
 
-  expect_snapshot(n <- igo_search_states(c("Spain", "aaa", "france")))
-  expect_equal(nrow(n), 2)
+  expect_identical(res$ccode, 230L)
+  expect_identical(res$stateabb, "SPN")
+  expect_identical(res$statenme, "Spain")
+  expect_identical(res$state, "spain")
+  expect_identical(row.names(res), "1")
+})
 
-  expect_silent(n <- igo_search_states(c(20, 150)))
-  expect_equal(nrow(n), 2)
+test_that("invalid state values are dropped from vectorized searches", {
+  expect_snapshot(res <- igo_search_states(c("Spain", "aaa", "france")))
 
-  expect_silent(n <- igo_search_states(c("congo")))
-  expect_equal(nrow(n), 1)
+  expect_identical(res$state, c("spain", "france"))
+  expect_identical(res$ccode, c(230L, 220L))
+})
 
-  expect_silent(
-    n <- igo_search_states(c("FRN", "United Kingdom", 240, "italy"))
-  )
-  expect_equal(nrow(n), 4)
+test_that("numeric COW codes return matching states", {
+  res <- igo_search_states(c(20, 150))
 
-  expect_snapshot(n <- igo_search_states("aaaaa"))
-  expect_null(n)
+  expect_identical(res$ccode, c(20L, 150L))
+  expect_identical(res$state, c("canada", "paraguay"))
+})
+
+test_that("ambiguous state names return the first matching COW state", {
+  res <- igo_search_states("congo")
+
+  expect_identical(res$ccode, 484L)
+  expect_identical(res$state, "congobrazz")
+})
+
+test_that("state abbreviations, names and codes can be combined", {
+  res <- igo_search_states(c("FRN", "United Kingdom", 240, "italy"))
+
+  expect_identical(res$ccode, c(220L, 200L, 240L, 325L))
+  expect_identical(res$state, c("france", "uk", "hanover", "italy"))
+})
+
+test_that("unknown states return NULL", {
+  expect_snapshot(res <- igo_search_states("aaaaa"))
+
+  expect_null(res)
 })
 
 test_that("Search states accepts equivalent state identifiers", {
   n <- igo_search_states(c("USA", "United States of America", 2))
 
-  expect_equal(nrow(n), 3)
-  expect_identical(unique(n$ccode), 2L)
-  expect_identical(unique(n$state), "usa")
+  expect_identical(n$ccode, c(2L, 2L, 2L))
+  expect_identical(n$state, c("usa", "usa", "usa"))
   expect_identical(row.names(n), as.character(seq_len(nrow(n))))
 })

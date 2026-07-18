@@ -1,4 +1,4 @@
-# Testing messages 
+# missing or unknown IGO identifiers return informative conditions
 
     Code
       s <- igo_members()
@@ -16,7 +16,7 @@
       Warning in `igo_members()`:
       No IGO membership records were found for the supplied arguments.
 
----
+# years outside an IGO lifetime return NULL
 
     Code
       res <- igo_members("EU", year = 1900)
@@ -26,16 +26,15 @@
       Warning in `igo_members()`:
       No IGO membership records were found for the supplied arguments.
 
----
+# invalid statuses warn and valid statuses are still used
 
     Code
-      res <- igo_members("IOLM", status = c("Nope", "IGO Not In Existence",
-        "Full Membership", "Observer"))
+      res <- igo_members("IOLM", status = c("Nope", "Full Membership", "Observer"))
     Condition
       Warning in `igo_members()`:
       Unknown values for `status`: 'Nope'. Valid values are 'No Membership', 'Full Membership', 'Associate Membership', 'Observer', 'Missing data', 'IGO Not In Existence'.
 
----
+# filters with no matching members return NULL
 
     Code
       res <- igo_members("EU", status = "Observer")

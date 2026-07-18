@@ -1,28 +1,87 @@
-test_that("recode igo year", {
-  expect_snapshot(igo_recode_igoyear(c(0, 1, 2, 3)))
+test_that("IGO-year values are recoded to membership labels", {
+  recoded <- igo_recode_igoyear(c(0, 1, 2, 3, -9, -1, NA, -3))
 
-  checkl <- igo_recode_igoyear(c(-3, NA, -9, -1))
-  expect_snapshot(checkl)
-  expect_length(levels(checkl), 7)
-  expect_snapshot(igo_recode_igoyear(-1))
+  expect_identical(
+    as.character(recoded),
+    c(
+      "No Membership",
+      "Full Membership",
+      "Associate Membership",
+      "Observer",
+      "Missing data",
+      "State Not System Member",
+      NA_character_,
+      NA_character_
+    )
+  )
+  expect_identical(
+    levels(recoded),
+    c(
+      "No Membership",
+      "Full Membership",
+      "Associate Membership",
+      "Observer",
+      "Missing data",
+      "State Not System Member",
+      NA_character_
+    )
+  )
 })
 
-test_that("recode state year", {
-  expect_snapshot(igo_recode_stateyear(c(0, 1, 2, 3)))
+test_that("state-year values are recoded to membership labels", {
+  recoded <- igo_recode_stateyear(c(0, 1, 2, 3, -9, -1, NA, -3))
 
-  checkl <- igo_recode_stateyear(c(-3, NA, -9, -1))
-  expect_snapshot(checkl)
-  expect_length(levels(checkl), 7)
-  expect_snapshot(igo_recode_stateyear(-1))
+  expect_identical(
+    as.character(recoded),
+    c(
+      "No Membership",
+      "Full Membership",
+      "Associate Membership",
+      "Observer",
+      "Missing data",
+      "IGO Not In Existence",
+      NA_character_,
+      NA_character_
+    )
+  )
+  expect_identical(
+    levels(recoded),
+    c(
+      "No Membership",
+      "Full Membership",
+      "Associate Membership",
+      "Observer",
+      "Missing data",
+      "IGO Not In Existence",
+      NA_character_
+    )
+  )
 })
 
-test_that("recode dyadic", {
-  expect_snapshot(igo_recode_dyadic(c(0, 1, -9, -1)))
+test_that("dyadic values are recoded to joint membership labels", {
+  recoded <- igo_recode_dyadic(c(0, 1, -9, -1, NA, -3))
 
-  checkl <- igo_recode_dyadic(c(-3, NA, -9, -1))
-  expect_snapshot(checkl)
-  expect_length(levels(checkl), 5)
-  expect_snapshot(igo_recode_dyadic(-1))
+  expect_identical(
+    as.character(recoded),
+    c(
+      "No Joint Membership",
+      "Joint Full Membership",
+      "Missing data",
+      "State Not System Member",
+      NA_character_,
+      NA_character_
+    )
+  )
+  expect_identical(
+    levels(recoded),
+    c(
+      "No Joint Membership",
+      "Joint Full Membership",
+      "Missing data",
+      "State Not System Member",
+      NA_character_
+    )
+  )
 })
 
 test_that("internal dyadic recoding preserves membership precedence", {

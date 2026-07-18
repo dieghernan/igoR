@@ -1,4 +1,4 @@
-# Testing messages 
+# missing or unknown states return informative conditions
 
     Code
       s <- igo_state_membership()
@@ -16,7 +16,7 @@
       Warning in `igo_state_membership()`:
       Unknown values for `state`: 'Error'.
 
----
+# years outside a state lifetime return NULL
 
     Code
       res <- igo_state_membership("modena", year = 1900)
@@ -26,16 +26,16 @@
       Warning in `igo_state_membership()`:
       No IGO membership records were found for the supplied arguments.
 
----
+# invalid statuses warn and valid statuses are still used
 
     Code
-      res <- igo_state_membership("uk", status = c("Nope", "IGO Not In Existence",
-        "Full Membership", "Observer"))
+      res <- igo_state_membership("uk", status = c("Nope", "Full Membership",
+        "Observer"))
     Condition
       Warning in `igo_state_membership()`:
-      Unknown values for `status`: 'Nope', 'IGO Not In Existence'. Valid values are 'No Membership', 'Full Membership', 'Associate Membership', 'Observer', 'Missing data', 'State Not System Member'.
+      Unknown values for `status`: 'Nope'. Valid values are 'No Membership', 'Full Membership', 'Associate Membership', 'Observer', 'Missing data', 'State Not System Member'.
 
----
+# filters with no matching state memberships return NULL
 
     Code
       res <- igo_state_membership("spain", year = 1900, status = "Observer")
@@ -45,7 +45,7 @@
       Warning in `igo_state_membership()`:
       No IGO membership records were found for the supplied arguments.
 
-# Extract several cntries
+# several countries can be extracted in one call
 
     Code
       sev <- igo_state_membership(c("UnitEd KingDom", "SPAIN", "aga haha", "1298",

@@ -1,4 +1,4 @@
-# Testing messages 
+# non-numeric years return NULL with a warning
 
     Code
       n <- igo_dyadic("USA", "CUBA", year = NULL)
@@ -6,7 +6,7 @@
       Warning in `igo_dyadic()`:
       `year` must be numeric, not NULL.
 
----
+# state pairs outside the state system return NULL
 
     Code
       n <- igo_dyadic("USA", "Cuba", 1900)
@@ -16,7 +16,7 @@
       Warning in `igo_dyadic()`:
       No dyad-year results were found for the supplied arguments.
 
----
+# self-pairs return NULL
 
     Code
       n <- igo_dyadic("USA", "USA")
@@ -24,7 +24,7 @@
       Warning in `igo_dyadic()`:
       No distinct states were found between `country1` and `country2`.
 
----
+# unknown IGO names return NULL
 
     Code
       n <- igo_dyadic("USA", "Cuba", ioname = "Not an IGO")
@@ -34,7 +34,7 @@
       Warning in `igo_dyadic()`:
       No dyad-year results were found for the supplied arguments.
 
----
+# unknown states return NULL
 
     Code
       n <- igo_dyadic("Not a country", "banana", 1900)
@@ -45,7 +45,7 @@
       Warning in `igo_dyadic()`:
       No valid states were found for comparison.
 
----
+# partially unavailable state pairs return NULL
 
     Code
       n <- igo_dyadic("Cuba", "USa", 1900)
@@ -55,7 +55,7 @@
       Warning in `igo_dyadic()`:
       No dyad-year results were found for the supplied arguments.
 
----
+# years outside the IGO data return NULL
 
     Code
       n <- igo_dyadic("France", "Spain", 2200)
@@ -65,23 +65,10 @@
       Warning in `igo_dyadic()`:
       No dyad-year results were found for the supplied arguments.
 
-# Test calls
+# unknown selected IGOs are ignored when at least one IGO is valid
 
     Code
-      aa[, c("state1", "state2", "year")]
-    Output
-        state1 state2 year
-      1    usa   cuba 1991
-      2    usa   cuba 1992
-      3    usa mexico 1991
-      4    usa mexico 1992
-      5   cuba mexico 1991
-      6   cuba mexico 1992
-
----
-
-    Code
-      aa <- igo_dyadic("USA", "Spain", 1990, c("un", "random"))
+      res <- igo_dyadic("USA", "Spain", 1990, c("un", "random"))
 
 # Dyadic identifiers use both state codes
 

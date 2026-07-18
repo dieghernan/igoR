@@ -1,14 +1,14 @@
-# Search states
+# invalid state values are dropped from vectorized searches
 
     Code
-      n <- igo_search_states(c("Spain", "aaa", "france"))
+      res <- igo_search_states(c("Spain", "aaa", "france"))
     Message
       Unknown value for `state`: 'aaa'.
 
----
+# unknown states return NULL
 
     Code
-      n <- igo_search_states("aaaaa")
+      res <- igo_search_states("aaaaa")
     Message
       Unknown value for `state`: 'aaaaa'.
     Condition
