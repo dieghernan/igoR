@@ -1,19 +1,19 @@
-#' Recode membership categories
+#' Recode membership status values
 #'
 #' @name igo_recode_igoyear
 #' @rdname igo_recode
 #'
 #' @description
-#' Converts the numerical membership codes in [igo_year_format3],
+#' Converts the numeric membership status values in [igo_year_format3],
 #' [state_year_format3] and [igo_dyadic()] into [factors][base::factor]. Use
 #' [igo_recode_igoyear()] with values from [igo_year_format3],
 #' [igo_recode_stateyear()] with values from [state_year_format3] and
 #' [igo_recode_dyadic()] with values from [igo_dyadic()].
 #'
-#' @param x A numerical value or vector of values to recode.
+#' @param x A numeric membership status value or vector of values to recode.
 #'
 #' @returns
-#' A [factor][base::factor] with the recoded membership categories.
+#' A [factor][base::factor] with the recoded membership status values.
 #'
 #' @family recode helpers
 #'
@@ -23,7 +23,7 @@
 #' @examplesIf requireNamespace("dplyr", quietly = TRUE)
 #' data("igo_year_format3")
 #'
-#' # Recode memberships for some states.
+#' # Recode membership status values for selected states.
 #' library(dplyr)
 #'
 #' samp <- igo_year_format3 %>%

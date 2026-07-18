@@ -13,7 +13,7 @@
 #' `r prettyNum(nrow(igoR::igo_year_format3), big.mark = ",")` rows. Relevant
 #' fields:
 #'
-#' - `ioname`: Short abbreviation for the IGO name.
+#' - `ioname`: Short identifier for the IGO name.
 #' - `orgname`: Full IGO name.
 #' - `year`: Calendar year.
 #' - `afghanistan...zimbabwe`: Membership status of each state in the IGO. See
@@ -49,7 +49,7 @@
 #' @source
 #' [Intergovernmental Organizations
 #' (version 3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata
-#' Files from the Correlates of War Project.
+#' files from the Correlates of War Project.
 #'
 #' See the [Codebook Version 3 IGO
 #' Data](https://correlatesofwar.org/data-sets/IGOs/) for the full reference.
@@ -164,9 +164,9 @@ NULL
 #' `r prettyNum(nrow(igoR::states2016), big.mark = ",")` rows and 11 variables:
 #'
 #' \describe{
-#'   \item{`ccode`}{COW state number.}
-#'   \item{`stateabb`}{COW state abbreviation.}
-#'   \item{`statenme`}{Primary COW state name.}
+#'   \item{`ccode`}{Correlates of War state number.}
+#'   \item{`stateabb`}{Correlates of War state abbreviation.}
+#'   \item{`statenme`}{Primary Correlates of War state name.}
 #'   \item{`styear`}{Beginning year of state tenure.}
 #'   \item{`stmonth`}{Beginning month of state tenure.}
 #'   \item{`stday`}{Beginning day of state tenure.}

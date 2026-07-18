@@ -1,9 +1,9 @@
-#' Find state codes, abbreviations and names
+#' Find Correlates of War state codes, abbreviations and names
 #'
 #' @name igo_search_states
 #'
 #' @description
-#' Finds Correlates of War codes, abbreviations and names for states.
+#' Finds Correlates of War country codes, abbreviations and names for states.
 #'
 #' @param state A state name or code, or a vector of names or codes, as
 #'   specified in [states2016].

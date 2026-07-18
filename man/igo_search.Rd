@@ -14,14 +14,14 @@ igo_search(pattern = NULL, exact = FALSE)
 \arguments{
 \item{pattern}{A \link[base:regex]{regular expression} used to match IGO names
 and identifiers. If \code{NULL}, all IGOs in \link{igo_year_format3} are returned.
-Integer values are accepted.}
+Numeric identifiers are accepted.}
 
 \item{exact}{A logical value. If \code{TRUE}, \code{pattern} is anchored to require a
 complete match.}
 }
 \value{
-A \code{\link{data.frame}} with IGO identifiers, names, dates and other
-metadata from the latest available year for each IGO.
+A \code{\link{data.frame}} with IGO identifiers, names, years and other
+metadata from the latest available IGO-year for each IGO.
 }
 \description{
 Searches for IGOs by name or regular expression.
@@ -72,7 +72,7 @@ igo_search("^NAFTA$|^UN$|^EU$") \%>\%
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{

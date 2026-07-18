@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_dyadic}
 \alias{igo_dyadic}
-\title{Extract joint IGO membership for state pairs}
+\title{Extract dyad-year joint IGO membership}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full
 reference.
@@ -13,7 +13,7 @@ igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 }
 \arguments{
 \item{country1, country2}{A state or vector of states to compare. Each value
-can be any state name or code in \link{states2016}.}
+can be any state name or Correlates of War code in \link{states2016}.}
 
 \item{year}{An integer or vector of years to assess.}
 
@@ -23,7 +23,8 @@ identifiers.}
 }
 \value{
 A coded \code{\link{data.frame}} with one row per state pair and year and
-one column per selected IGO. See Details for the coding scheme.
+one column per selected IGO. See Details for the membership status coding
+scheme.
 }
 \description{
 Creates dyad-year IGO data. Each row represents a pair of states in one year
@@ -39,7 +40,7 @@ distributed by the Correlates of War Project
 (\code{dyadic_format3.dta}). That file is not included in this package due to its
 size.
 
-The result contains one row for each common year selected by \code{country1},
+The result contains one row for each common dyad-year selected by \code{country1},
 \code{country2} and \code{year}.
 
 The \code{dyadid} column identifies each relationship and is computed as
@@ -89,7 +90,7 @@ dplyr::glimpse(custom)
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{

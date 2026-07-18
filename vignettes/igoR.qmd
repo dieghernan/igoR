@@ -20,16 +20,17 @@ knitr:
     out.height: "60%"
 ---
 
-This vignette introduces the main data sets and functions in **igoR** through
+This vignette introduces the main data sets and functions in **igoR** with
 visual examples.
 
 The examples build on analyses from @pevehouse2020. For more information about
-the IGO data sets and additional downloads, see [Intergovernmental Organizations
-(version 3)](https://correlatesofwar.org/data-sets/IGOs/).
+the IGO data sets and additional downloads, see
+[Intergovernmental Organizations (version
+3)](https://correlatesofwar.org/data-sets/IGOs/).
 
 *The original dyad-year data set is not included because of its size (about 500
-MB in Stata `.dta` format). The `igo_dyadic()` function derives comparable joint
-membership results from the included data.*
+MB in Stata `.dta` format). The `igo_dyadic()` function derives comparable
+joint membership results from the included data.*
 
 ## Definitions
 
@@ -75,8 +76,8 @@ library(ggplot2)
 library(dplyr)
 ```
 
-First, create a custom `ggplot2::theme()` object named `theme_igor`. All figures
-in this vignette use this theme.
+First, create a custom `ggplot2::theme()` object named `theme_igor`. All
+figures in this vignette use this theme.
 
 ```{r}
 #| label: custom-theme
@@ -183,8 +184,8 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
 
 ### IGOs across regions
 
-This plot shows the number of IGOs by region. The region definitions are based
-on @pevehouse2020 and the complementary replication data set [@priorep].
+This plot shows the number of IGOs by region. The regional definitions are
+based on @pevehouse2020 and the complementary replication data set [@priorep].
 
 ```{r}
 #| label: loncodes

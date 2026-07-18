@@ -10,7 +10,7 @@ A \code{\link{data.frame}} with
 19,335 rows. Relevant
 fields:
 \itemize{
-\item \code{ioname}: Short abbreviation for the IGO name.
+\item \code{ioname}: Short identifier for the IGO name.
 \item \code{orgname}: Full IGO name.
 \item \code{year}: Calendar year.
 \item \code{afghanistan...zimbabwe}: Membership status of each state in the IGO. See
@@ -24,7 +24,7 @@ the \strong{Details} section.
 }
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{Intergovernmental Organizations (version 3)}, IGO Data Stata
-Files from the Correlates of War Project.
+files from the Correlates of War Project.
 
 See the \href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full reference.
 }
@@ -81,7 +81,7 @@ sample_igo_year_recoded \%>\% glimpse()
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{

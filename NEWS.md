@@ -61,7 +61,7 @@ First major version of the package.
 # igoR 0.1.0
 
 - Generalized search to ignore case.
-- More vignettes are available on the
+- Additional vignettes are available on the
   [website](https://dieghernan.github.io/igoR/).
 - `cow_country_codes` is now internal.
 - `igo_dyadic()` was added.

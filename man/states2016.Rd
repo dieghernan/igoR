@@ -10,9 +10,9 @@ A \code{\link{data.frame}} with
 243 rows and 11 variables:
 
 \describe{
-\item{\code{ccode}}{COW state number.}
-\item{\code{stateabb}}{COW state abbreviation.}
-\item{\code{statenme}}{Primary COW state name.}
+\item{\code{ccode}}{Correlates of War state number.}
+\item{\code{stateabb}}{Correlates of War state abbreviation.}
+\item{\code{statenme}}{Primary Correlates of War state name.}
 \item{\code{styear}}{Beginning year of state tenure.}
 \item{\code{stmonth}}{Beginning month of state tenure.}
 \item{\code{stday}}{Beginning day of state tenure.}

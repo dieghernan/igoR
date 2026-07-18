@@ -7,13 +7,13 @@
 #'
 #' @param pattern A [regular expression][base::regex] used to match IGO names
 #'   and identifiers. If `NULL`, all IGOs in [igo_year_format3] are returned.
-#'   Integer values are accepted.
+#'   Numeric identifiers are accepted.
 #' @param exact A logical value. If `TRUE`, `pattern` is anchored to require a
 #'   complete match.
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with IGO identifiers, names, dates and other
-#' metadata from the latest available year for each IGO.
+#' A [`data.frame`][data.frame()] with IGO identifiers, names, years and other
+#' metadata from the latest available IGO-year for each IGO.
 #'
 #' @details
 #' The information for each IGO is retrieved from the latest year available in

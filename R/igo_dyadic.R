@@ -1,4 +1,4 @@
-#' Extract joint IGO membership for state pairs
+#' Extract dyad-year joint IGO membership
 #'
 #' @name igo_dyadic
 #'
@@ -7,7 +7,7 @@
 #' and summarizes their joint memberships across IGOs.
 #'
 #' @param country1,country2 A state or vector of states to compare. Each value
-#'   can be any state name or code in [states2016].
+#'   can be any state name or Correlates of War code in [states2016].
 #' @param year An integer or vector of years to assess.
 #' @param ioname An optional IGO identifier or vector of identifiers. If `NULL`
 #'   (the default), all IGOs are included. Use [igo_search()] to find valid
@@ -15,7 +15,8 @@
 #'
 #' @returns
 #' A coded [`data.frame`][data.frame()] with one row per state pair and year and
-#' one column per selected IGO. See Details for the coding scheme.
+#' one column per selected IGO. See Details for the membership status coding
+#' scheme.
 #'
 #' @details
 #' The arguments `country1` and `country2` are named for compatibility with
@@ -27,7 +28,7 @@
 #' (`dyadic_format3.dta`). That file is not included in this package due to its
 #' size.
 #'
-#' The result contains one row for each common year selected by `country1`,
+#' The result contains one row for each common dyad-year selected by `country1`,
 #' `country2` and `year`.
 #'
 #' The `dyadid` column identifies each relationship and is computed as
@@ -73,7 +74,7 @@
 #' @references
 #' Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 #' Tracking organizations in the world: The Correlates of War IGO Version 3.0
-#' data sets. *Journal of Peace Research, 57*(3), 492–503.
+#' data sets. *Journal of Peace Research*, **57**(3), 492–503.
 #' \doi{10.1177/0022343319881175}.
 #'
 #' @seealso

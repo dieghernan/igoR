@@ -1,4 +1,4 @@
-#' Extract IGO membership records
+#' Extract IGO membership records by organization
 #'
 #' @name igo_members
 #'
@@ -14,7 +14,7 @@
 #'   statuses.
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with one row per matching state, IGO, year and
+#' A [`data.frame`][data.frame()] with one row per matching state, IGO-year and
 #' membership status.
 #'
 #' @inherit igo_dyadic source references
@@ -115,7 +115,7 @@ igo_member_single <- function(ioname, year, status) {
     return(NULL)
   }
 
-  # Add state-level membership status.
+  # Add state-level IGO membership status.
   state_igo <- igoR::state_year_format3
   state_igo <- state_igo[, tolower(c("ccode", "state", "year", ioname))]
   colnames(state_igo) <- c("ccode", "state", "year", "value")

@@ -5,7 +5,7 @@
 \alias{igo_recode_igoyear}
 \alias{igo_recode_stateyear}
 \alias{igo_recode_dyadic}
-\title{Recode membership categories}
+\title{Recode membership status values}
 \usage{
 igo_recode_igoyear(x)
 
@@ -14,13 +14,13 @@ igo_recode_stateyear(x)
 igo_recode_dyadic(x)
 }
 \arguments{
-\item{x}{A numerical value or vector of values to recode.}
+\item{x}{A numeric membership status value or vector of values to recode.}
 }
 \value{
-A \link[base:factor]{factor} with the recoded membership categories.
+A \link[base:factor]{factor} with the recoded membership status values.
 }
 \description{
-Converts the numerical membership codes in \link{igo_year_format3},
+Converts the numeric membership status values in \link{igo_year_format3},
 \link{state_year_format3} and \code{\link[=igo_dyadic]{igo_dyadic()}} into \link[base:factor]{factors}. Use
 \code{\link[=igo_recode_igoyear]{igo_recode_igoyear()}} with values from \link{igo_year_format3},
 \code{\link[=igo_recode_stateyear]{igo_recode_stateyear()}} with values from \link{state_year_format3} and
@@ -30,7 +30,7 @@ Converts the numerical membership codes in \link{igo_year_format3},
 \dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 data("igo_year_format3")
 
-# Recode memberships for some states.
+# Recode membership status values for selected states.
 library(dplyr)
 
 samp <- igo_year_format3 \%>\%

@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_state_membership}
 \alias{igo_state_membership}
-\title{Extract IGO membership records for states}
+\title{Extract IGO membership records by state}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full
 reference.
@@ -23,14 +23,14 @@ IGO-level state membership records. See \link{igo_year_format3} for valid
 statuses.}
 }
 \value{
-A \code{\link{data.frame}} with one row per matching state, year, IGO and
+A \code{\link{data.frame}} with one row per matching state, IGO-year and
 membership status.
 }
 \description{
 Extracts IGO membership records for one or more states and years.
 }
 \examples{
-# Memberships on two different dates.
+# Memberships in selected years.
 igo_state_membership("Spain", year = 1850)
 igo_state_membership("Spain", year = 1870)
 igo_state_membership("Spain", year = 1880:1882)
@@ -61,7 +61,7 @@ if (requireNamespace("countrycode", quietly = TRUE)) {
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{

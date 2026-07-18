@@ -40,7 +40,7 @@ allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.rep
 
 <!-- badges: end -->
 
-**igoR** provides tools for searching, extracting and recoding the
+**igoR** provides tools for searching, extracting and recoding data from the
 Intergovernmental Organizations Database (version 3), distributed by the
 Correlates of War Project [@pevehouse2020].
 

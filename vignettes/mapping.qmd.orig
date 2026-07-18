@@ -40,8 +40,8 @@ data:
 - **ggplot2** package for plotting.
 - **sf** package for working with spatial features.
 
-The **countrycode** package is useful for translating between country names and
-coding schemes such as Correlates of War (COW), ISO3, NUTS and FIPS.
+The **countrycode** package is useful for translating country names and codes
+across schemes such as Correlates of War (COW), ISO3, NUTS and FIPS.
 
 ```{r}
 #| label: libs
@@ -90,8 +90,8 @@ un_all_sf <- world %>%
 ```
 
 The map is approximate because the base geometries represent modern states.
-Historical states such as Czechoslovakia, East Germany and West Germany are not
-included.
+Historical states such as Czechoslovakia, East Germany and West Germany are
+not included.
 
 The data are now ready to plot with **ggplot2**.
 

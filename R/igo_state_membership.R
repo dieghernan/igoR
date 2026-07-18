@@ -1,4 +1,4 @@
-#' Extract IGO membership records for states
+#' Extract IGO membership records by state
 #'
 #' @name igo_state_membership
 #'
@@ -13,7 +13,7 @@
 #'   statuses.
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with one row per matching state, year, IGO and
+#' A [`data.frame`][data.frame()] with one row per matching state, IGO-year and
 #' membership status.
 #'
 #' @inherit igo_members source references
@@ -27,7 +27,7 @@
 #' @encoding UTF-8
 #'
 #' @examples
-#' # Memberships on two different dates.
+#' # Memberships in selected years.
 #' igo_state_membership("Spain", year = 1850)
 #' igo_state_membership("Spain", year = 1870)
 #' igo_state_membership("Spain", year = 1880:1882)

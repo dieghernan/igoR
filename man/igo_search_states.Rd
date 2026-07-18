@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{igo_search_states}
 \alias{igo_search_states}
-\title{Find state codes, abbreviations and names}
+\title{Find Correlates of War state codes, abbreviations and names}
 \source{
 \href{https://correlatesofwar.org/data-sets/IGOs/}{Codebook Version 3 IGO Data} for the full
 reference.
@@ -21,7 +21,7 @@ abbreviations, names and the matching \code{state} identifiers used by
 \link{state_year_format3}.
 }
 \description{
-Finds Correlates of War codes, abbreviations and names for states.
+Finds Correlates of War country codes, abbreviations and names for states.
 }
 \examples{
 \dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -41,7 +41,7 @@ igo_search_states(c("FRN", "United Kingdom", 240, "italy")) \%>\% as_tibble()
 \references{
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-data sets. \emph{Journal of Peace Research, 57}(3), 492–503.
+data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
