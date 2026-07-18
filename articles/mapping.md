@@ -11,8 +11,8 @@ uses these packages for geospatial data:
 - **ggplot2** package for plotting.
 - **sf** package for working with spatial features.
 
-The **countrycode** package is useful for translating between country
-names and coding schemes such as Correlates of War (COW), ISO3, NUTS and
+The **countrycode** package is useful for translating country names and
+codes across schemes such as Correlates of War (COW), ISO3, NUTS and
 FIPS.
 
 ``` r

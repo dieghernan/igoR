@@ -9,7 +9,7 @@ recorded at five-year intervals through 1965 and annually thereafter.
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 19,335
 rows. Relevant fields:
 
-- `ioname`: Short abbreviation for the IGO name.
+- `ioname`: Short identifier for the IGO name.
 
 - `orgname`: Full IGO name.
 
@@ -31,7 +31,7 @@ rows. Relevant fields:
 ## Source
 
 [Intergovernmental Organizations (version
-3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata Files
+3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata files
 from the Correlates of War Project.
 
 See the [Codebook Version 3 IGO
@@ -65,7 +65,7 @@ Data distributed with [igoR](https://CRAN.R-project.org/package=igoR).
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 

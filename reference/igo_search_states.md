@@ -1,6 +1,7 @@
-# Find state codes, abbreviations and names
+# Find Correlates of War state codes, abbreviations and names
 
-Finds Correlates of War codes, abbreviations and names for states.
+Finds Correlates of War country codes, abbreviations and names for
+states.
 
 ## Usage
 
@@ -32,7 +33,7 @@ identifiers used by
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 

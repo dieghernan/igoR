@@ -21,7 +21,7 @@ reference.
   A [regular expression](https://rdrr.io/r/base/regex.html) used to
   match IGO names and identifiers. If `NULL`, all IGOs in
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
-  are returned. Integer values are accepted.
+  are returned. Numeric identifiers are accepted.
 
 - exact:
 
@@ -31,8 +31,8 @@ reference.
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with IGO
-identifiers, names, dates and other metadata from the latest available
-year for each IGO.
+identifiers, names, years and other metadata from the latest available
+IGO-year for each IGO.
 
 ## Details
 
@@ -46,7 +46,7 @@ The `label` column provides a cleaned version of `longorgname`.
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 

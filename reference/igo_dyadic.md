@@ -1,4 +1,4 @@
-# Extract joint IGO membership for state pairs
+# Extract dyad-year joint IGO membership
 
 Creates dyad-year IGO data. Each row represents a pair of states in one
 year and summarizes their joint memberships across IGOs.
@@ -20,7 +20,7 @@ reference.
 - country1, country2:
 
   A state or vector of states to compare. Each value can be any state
-  name or code in
+  name or Correlates of War code in
   [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
 
 - year:
@@ -38,7 +38,7 @@ reference.
 
 A coded [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one
 row per state pair and year and one column per selected IGO. See Details
-for the coding scheme.
+for the membership status coding scheme.
 
 ## Details
 
@@ -50,8 +50,8 @@ This function reproduces the structure of the original dyad-year file
 distributed by the Correlates of War Project (`dyadic_format3.dta`).
 That file is not included in this package due to its size.
 
-The result contains one row for each common year selected by `country1`,
-`country2` and `year`.
+The result contains one row for each common dyad-year selected by
+`country1`, `country2` and `year`.
 
 The `dyadid` column identifies each relationship and is computed as
 `(1000 * ccode1) + ccode2`.
@@ -89,7 +89,7 @@ Data](https://correlatesofwar.org/data-sets/IGOs/).
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 

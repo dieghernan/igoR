@@ -1,7 +1,7 @@
 # Get started with igoR
 
 This vignette introduces the main data sets and functions in **igoR**
-through visual examples.
+with visual examples.
 
 The examples build on analyses from Pevehouse et al.
 ([2020](#ref-pevehouse2020)). For more information about the IGO data
@@ -175,8 +175,8 @@ Figure 2: IGO starts and endings, 1816-2014
 
 ### IGOs across regions
 
-This plot shows the number of IGOs by region. The region definitions are
-based on Pevehouse et al. ([2020](#ref-pevehouse2020)) and the
+This plot shows the number of IGOs by region. The regional definitions
+are based on Pevehouse et al. ([2020](#ref-pevehouse2020)) and the
 complementary replication data set ([PRIO 2020](#ref-priorep)).
 
 IGOs across regions: codes

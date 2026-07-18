@@ -1,4 +1,4 @@
-# Extract IGO membership records
+# Extract IGO membership records by organization
 
 Extracts state-level membership records for one or more IGOs and years.
 
@@ -39,13 +39,13 @@ reference.
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
-per matching state, IGO, year and membership status.
+per matching state, IGO-year and membership status.
 
 ## References
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 

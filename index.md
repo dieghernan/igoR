@@ -1,8 +1,9 @@
 # igoR
 
-**igoR** provides tools for searching, extracting and recoding the
-Intergovernmental Organizations Database (version 3), distributed by the
-Correlates of War Project ([Pevehouse et al. 2020](#ref-pevehouse2020)).
+**igoR** provides tools for searching, extracting and recoding data from
+the Intergovernmental Organizations Database (version 3), distributed by
+the Correlates of War Project ([Pevehouse et al.
+2020](#ref-pevehouse2020)).
 
 The IGO-year data set contains **534** IGOs recorded from 1816 to 2014.
 The package also includes country-year membership data, state system

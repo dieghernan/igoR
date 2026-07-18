@@ -1,6 +1,6 @@
-# Recode membership categories
+# Recode membership status values
 
-Converts the numerical membership codes in
+Converts the numeric membership status values in
 [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
 [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
 and
@@ -27,19 +27,19 @@ igo_recode_dyadic(x)
 
 - x:
 
-  A numerical value or vector of values to recode.
+  A numeric membership status value or vector of values to recode.
 
 ## Value
 
 A [factor](https://rdrr.io/r/base/factor.html) with the recoded
-membership categories.
+membership status values.
 
 ## Examples
 
 ``` r
 data("igo_year_format3")
 
-# Recode memberships for some states.
+# Recode membership status values for selected states.
 library(dplyr)
 
 samp <- igo_year_format3 %>%

@@ -11,15 +11,15 @@ and 11 variables:
 
 - `ccode`:
 
-  COW state number.
+  Correlates of War state number.
 
 - `stateabb`:
 
-  COW state abbreviation.
+  Correlates of War state abbreviation.
 
 - `statenme`:
 
-  Primary COW state name.
+  Primary Correlates of War state name.
 
 - `styear`:
 

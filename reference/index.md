@@ -18,7 +18,7 @@ Search IGO metadata and resolve state names, abbreviations and codes.
 - [`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md)
   : Search for IGOs
 - [`igo_search_states()`](https://dieghernan.github.io/igoR/reference/igo_search_states.md)
-  : Find state codes, abbreviations and names
+  : Find Correlates of War state codes, abbreviations and names
 
 ## Membership functions
 
@@ -26,11 +26,11 @@ Extract state-IGO membership records and derive dyad-year joint
 memberships.
 
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
-  : Extract joint IGO membership for state pairs
+  : Extract dyad-year joint IGO membership
 - [`igo_members()`](https://dieghernan.github.io/igoR/reference/igo_members.md)
-  : Extract IGO membership records
+  : Extract IGO membership records by organization
 - [`igo_state_membership()`](https://dieghernan.github.io/igoR/reference/igo_state_membership.md)
-  : Extract IGO membership records for states
+  : Extract IGO membership records by state
 
 ## Recode helpers
 
@@ -39,7 +39,7 @@ Convert numerical membership codes to labelled factors.
 - [`igo_recode_igoyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
   [`igo_recode_stateyear()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
   [`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_recode.md)
-  : Recode membership categories
+  : Recode membership status values
 
 ## About the package
 
