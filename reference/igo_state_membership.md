@@ -28,7 +28,8 @@ reference.
 
 - status:
 
-  A character vector of membership statuses to extract. See
+  A character vector of membership statuses to extract from IGO-level
+  state membership records. See
   [igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
   for valid statuses.
 
