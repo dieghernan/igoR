@@ -100,7 +100,7 @@ NULL
 #'
 #' @format
 #' A [`data.frame`][data.frame()] with
-#' `r prettyNum(nrow(igoR::state_year_format3), big.mark=",")` rows. Relevant
+#' `r prettyNum(nrow(igoR::state_year_format3), big.mark = ",")` rows. Relevant
 #' fields:
 #'
 #' - `ccode`: Correlates of War country number. See [states2016].
@@ -161,7 +161,7 @@ NULL
 #'
 #' @format
 #' A [`data.frame`][data.frame()] with
-#' `r prettyNum(nrow(igoR::states2016), big.mark=",")` rows and 11 variables:
+#' `r prettyNum(nrow(igoR::states2016), big.mark = ",")` rows and 11 variables:
 #'
 #' \describe{
 #'   \item{`ccode`}{COW state number.}

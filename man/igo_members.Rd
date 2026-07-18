@@ -18,8 +18,9 @@ igo_members(ioname, year = NULL, status = "Full Membership")
 \item{year}{An integer or vector of years to assess. If \code{NULL}, the latest
 available year for each IGO is used.}
 
-\item{status}{A character vector of membership statuses to extract. See
-\link{state_year_format3} for valid statuses.}
+\item{status}{A character vector of membership statuses to extract from
+state-level IGO membership records. See \link{state_year_format3} for valid
+statuses.}
 }
 \value{
 A \code{\link{data.frame}} with one row per matching state, IGO, year and

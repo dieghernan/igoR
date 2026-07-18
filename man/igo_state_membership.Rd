@@ -18,8 +18,9 @@ specified in \link{states2016}.}
 \item{year}{An integer or vector of years to assess. If \code{NULL}, the latest
 available year for each state is used.}
 
-\item{status}{A character vector of membership statuses to extract. See
-\link{igo_year_format3} for valid statuses.}
+\item{status}{A character vector of membership statuses to extract from
+IGO-level state membership records. See \link{igo_year_format3} for valid
+statuses.}
 }
 \value{
 A \code{\link{data.frame}} with one row per matching state, year, IGO and

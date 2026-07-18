@@ -8,8 +8,9 @@
 #' @inheritParams igo_search_states
 #' @param year An integer or vector of years to assess. If `NULL`, the latest
 #'   available year for each state is used.
-#' @param status A character vector of membership statuses to extract. See
-#'   [igo_year_format3] for valid statuses.
+#' @param status A character vector of membership statuses to extract from
+#'   IGO-level state membership records. See [igo_year_format3] for valid
+#'   statuses.
 #'
 #' @returns
 #' A [`data.frame`][data.frame()] with one row per matching state, year, IGO and

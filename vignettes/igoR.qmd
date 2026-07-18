@@ -157,13 +157,13 @@ births <- df %>%
   mutate(year = sdate) %>%
   group_by(year) %>%
   summarise(value = n(), .groups = "keep") %>%
-  mutate(variable = "IGO Births")
+  mutate(variable = "IGO births")
 
 deads <- df %>%
   mutate(year = deaddate) %>%
   group_by(year) %>%
   summarise(value = n(), .groups = "keep") %>%
-  mutate(variable = "IGO Deaths")
+  mutate(variable = "IGO deaths")
 
 births_and_deads <- births %>%
   bind_rows(deads) %>%

@@ -9,8 +9,9 @@
 #'   [igo_year_format3]. Use [igo_search()] to find valid identifiers.
 #' @param year An integer or vector of years to assess. If `NULL`, the latest
 #'   available year for each IGO is used.
-#' @param status A character vector of membership statuses to extract. See
-#'   [state_year_format3] for valid statuses.
+#' @param status A character vector of membership statuses to extract from
+#'   state-level IGO membership records. See [state_year_format3] for valid
+#'   statuses.
 #'
 #' @returns
 #' A [`data.frame`][data.frame()] with one row per matching state, IGO, year and
