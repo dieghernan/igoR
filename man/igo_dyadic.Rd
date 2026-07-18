@@ -23,8 +23,8 @@ identifiers.}
 }
 \value{
 A coded \code{\link{data.frame}} with one row per state pair and year and
-one column per selected IGO. See Details for the membership status coding
-scheme.
+one column per selected IGO. See \strong{Details} for the membership status
+coding scheme.
 }
 \description{
 Creates dyad-year IGO data. Each row represents a pair of states in one year

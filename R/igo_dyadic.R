@@ -15,8 +15,8 @@
 #'
 #' @returns
 #' A coded [`data.frame`][data.frame()] with one row per state pair and year and
-#' one column per selected IGO. See Details for the membership status coding
-#' scheme.
+#' one column per selected IGO. See **Details** for the membership status
+#' coding scheme.
 #'
 #' @details
 #' The arguments `country1` and `country2` are named for compatibility with
