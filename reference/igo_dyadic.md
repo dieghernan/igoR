@@ -37,8 +37,8 @@ reference.
 ## Value
 
 A coded [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one
-row per state pair and year and one column per selected IGO. See Details
-for the membership status coding scheme.
+row per state pair and year and one column per selected IGO. See
+**Details** for the membership status coding scheme.
 
 ## Details
 
