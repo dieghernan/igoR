@@ -48,7 +48,8 @@ test_that("dyadic search keeps only years where both states are comparable", {
     data.frame(
       state1 = c("usa", "usa", "usa", "usa"),
       state2 = c("cuba", "mexico", "mexico", "mexico"),
-      year = c(1902, 1900, 1901, 1902)
+      year = c(1902, 1900, 1901, 1902),
+      stringsAsFactors = FALSE
     )
   )
 })
@@ -61,7 +62,8 @@ test_that("dyadic search expands vectorized country pairs", {
     data.frame(
       state1 = c("usa", "usa", "usa", "usa", "cuba", "cuba"),
       state2 = c("cuba", "cuba", "mexico", "mexico", "mexico", "mexico"),
-      year = c(1991, 1992, 1991, 1992, 1991, 1992)
+      year = c(1991, 1992, 1991, 1992, 1991, 1992),
+      stringsAsFactors = FALSE
     )
   )
 })
