@@ -14,6 +14,7 @@ vignette: >
 <!-- mapping.qmd is generated from mapping.qmd.orig. Please edit that file -->
 
 
+
 Maps can show how membership in intergovernmental organizations (IGOs) changes
 across states and time.
 
@@ -27,6 +28,7 @@ data:
 
 The **countrycode** package is useful for translating country names and codes
 across schemes such as Correlates of War (COW), ISO3, NUTS and FIPS.
+
 
 ``` r
 library(igoR)
@@ -45,6 +47,7 @@ library(sf)
 
 The following map shows the evolution of United Nations membership. First,
 extract the membership data.
+
 
 ``` r
 # Extract shapes.
@@ -78,6 +81,7 @@ not included.
 
 The data are now ready to plot with **ggplot2**.
 
+
 ``` r
 ggplot(un_all_sf) +
   geom_sf(aes(fill = category), color = NA, show.legend = FALSE) +
@@ -110,6 +114,7 @@ ggplot(un_all_sf) +
 Joint memberships are useful for identifying regional patterns. The following
 code maps the number of IGOs in which each state and Australia were both full
 members in 2014.
+
 
 ``` r
 # Count full joint memberships in 2014.
@@ -176,6 +181,7 @@ ggplot(sharedmap) +
 
 The following map shows how the number of full joint memberships among North
 American states changed from 1930 to 2010 at ten-year intervals.
+
 
 ``` r
 # Select years.
