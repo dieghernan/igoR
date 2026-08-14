@@ -66,7 +66,7 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-[`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+[`countrycode::countrycode()`](https://rdrr.io/pkg/countrycode/man/countrycode.html)
 to convert between different country code schemes.
 
 Other data sets:
