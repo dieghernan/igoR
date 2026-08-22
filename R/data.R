@@ -103,7 +103,7 @@ NULL
 #' `r prettyNum(nrow(igoR::state_year_format3), big.mark = ",")` rows. Relevant
 #' fields:
 #'
-#' - `ccode`: Correlates of War country number. See [states2016].
+#' - `ccode`: Correlates of War country number. See [states2024].
 #' - `year`: Calendar year.
 #' - `state`: Abbreviated state name, identical to variable names in
 #'   [igo_year_format3].
@@ -150,9 +150,9 @@ NULL
 #' dplyr::tibble(state_year_format3)
 NULL
 
-#' State system membership (v2016)
+#' State system membership (v2024)
 #'
-#' @name states2016
+#' @name states2024
 #' @docType data
 #'
 #' @description
@@ -161,7 +161,7 @@ NULL
 #'
 #' @format
 #' A [`data.frame`][data.frame()] with
-#' `r prettyNum(nrow(igoR::states2016), big.mark = ",")` rows and 11 variables:
+#' `r prettyNum(nrow(igoR::states2024), big.mark = ",")` rows and 11 variables:
 #'
 #' \describe{
 #'   \item{`ccode`}{Correlates of War state number.}
@@ -187,7 +187,7 @@ NULL
 #' powers in the international system.
 #'
 #' The Correlates of War Project includes a state in the international system
-#' from 1816 to 2016 according to the following criteria:
+#' from 1816 to 2024 according to the following criteria:
 #'
 #' - **Before 1920**, the entity must have had a population greater than
 #'   500,000 and have had diplomatic missions at or above the rank of chargé
@@ -199,11 +199,11 @@ NULL
 #'
 #' @source
 #' [State System Membership
-#' (v2016)](https://correlatesofwar.org/data-sets/state-system-membership/).
+#' (v2024)](https://correlatesofwar.org/data-sets/state-system-membership/).
 #' The Correlates of War Project.
 #'
 #' @references
-#' Correlates of War Project. 2017. "State System Membership List, v2016."
+#' Correlates of War Project. 2025. "State System Membership, v2024."
 #' Online, <https://correlatesofwar.org/>.
 #'
 #' @family data sets
@@ -217,6 +217,6 @@ NULL
 #' @encoding UTF-8
 #'
 #' @examplesIf requireNamespace("dplyr", quietly = TRUE)
-#' data("states2016")
-#' dplyr::glimpse(states2016)
+#' data("states2024")
+#' dplyr::glimpse(states2024)
 NULL

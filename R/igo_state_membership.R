@@ -19,7 +19,7 @@
 #' @inherit igo_members source references
 #'
 #' @seealso
-#' [igo_year_format3], [igo_search_states()], [states2016].
+#' [igo_year_format3], [igo_search_states()], [states2024].
 #'
 #' @family membership functions
 #'

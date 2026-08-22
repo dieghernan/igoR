@@ -46,7 +46,7 @@ Correlates of War Project [@pevehouse2020].
 The IGO-year data set contains **`r nrow(igoR::igo_search())`** IGOs recorded
 from `r min(igoR::igo_year_format3$year)` to
 `r max(igoR::igo_year_format3$year)`. The package also includes country-year
-membership data, state system data [@correlatesofwarproject2017] and functions
+membership data, state system data [@correlatesofwarproject2025] and functions
 for deriving dyad-year joint membership results.
 
 - Source: [Intergovernmental Organizations (version

@@ -13,7 +13,7 @@ knitr:
 ---
 
 This annex lists the IGOs [@pevehouse2020] and states in the Correlates of War
-state system [@correlatesofwarproject2017] included in **igoR**.
+state system [@correlatesofwarproject2025] included in **igoR**.
 
 ## IGOs
 
@@ -41,7 +41,7 @@ reactable(
 ```{r}
 #| label: countries
 #| echo: false
-cc <- states2016
+cc <- states2024
 reactable(
   cc,
   filterable = TRUE,

@@ -10,7 +10,7 @@ A \code{\link{data.frame}} with
 15,557 rows. Relevant
 fields:
 \itemize{
-\item \code{ccode}: Correlates of War country number. See \link{states2016}.
+\item \code{ccode}: Correlates of War country number. See \link{states2024}.
 \item \code{year}: Calendar year.
 \item \code{state}: Abbreviated state name, identical to variable names in
 \link{igo_year_format3}.
@@ -67,7 +67,7 @@ schemes.
 
 Other data sets:
 \code{\link{igo_year_format3}},
-\code{\link{states2016}}
+\code{\link{states2024}}
 }
 \concept{data sets}
 \concept{datasets}

@@ -13,7 +13,7 @@ igo_search_states(state)
 }
 \arguments{
 \item{state}{A state name or code, or a vector of names or codes, as
-specified in \link{states2016}.}
+specified in \link{states2024}.}
 }
 \value{
 A \code{\link{data.frame}} with Correlates of War country codes,
@@ -45,7 +45,7 @@ data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\link{states2016}.
+\link{states2024}.
 
 Other query functions:
 \code{\link[=igo_search]{igo_search()}}

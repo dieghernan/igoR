@@ -8,7 +8,7 @@ test_that("data sets expose stable schemas and column types", {
     c("ccode", "year", "state", "un", "eu")
   )
   expect_named(
-    states2016,
+    states2024,
     c(
       "ccode",
       "stateabb",
@@ -36,7 +36,7 @@ test_that("data sets expose stable schemas and column types", {
     "double"
   )
   expect_identical(
-    vapply(states2016, typeof, character(1)),
+    vapply(states2024, typeof, character(1)),
     c(
       ccode = "integer",
       stateabb = "character",
@@ -62,10 +62,13 @@ test_that("data sets have unique compound keys and expected year ranges", {
     anyDuplicated(state_year_format3[c("state", "year")]),
     0L
   )
-  expect_identical(anyDuplicated(states2016[c("ccode", "styear")]), 0L)
+  expect_identical(anyDuplicated(states2024[c("ccode", "styear")]), 0L)
 
   expect_identical(range(igo_year_format3$year), c(1816, 2014))
   expect_identical(range(state_year_format3$year), c(1816, 2014))
+  expect_identical(range(states2024$styear), c(1816L, 2011L))
+  expect_identical(range(states2024$endyear), c(1860L, 2024L))
+  expect_identical(unique(states2024$version), 2024L)
 })
 
 test_that("membership columns contain only documented status values", {
@@ -89,7 +92,7 @@ test_that("identifiers are consistent across package data sets", {
   state_columns <- names(igo_year_format3)[4:220]
   igo_columns <- names(state_year_format3)[4:ncol(state_year_format3)]
 
-  expect_setequal(state_columns, unique(states2016$state))
+  expect_setequal(state_columns, unique(states2024$state))
   expect_setequal(igo_columns, tolower(unique(igo_year_format3$ioname)))
-  expect_setequal(unique(state_year_format3$ccode), unique(states2016$ccode))
+  expect_setequal(unique(state_year_format3$ccode), unique(states2024$ccode))
 })

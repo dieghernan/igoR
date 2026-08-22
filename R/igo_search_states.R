@@ -6,7 +6,7 @@
 #' Finds Correlates of War country codes, abbreviations and names for states.
 #'
 #' @param state A state name or code, or a vector of names or codes, as
-#'   specified in [states2016].
+#'   specified in [states2024].
 #'
 #' @returns
 #' A [`data.frame`][data.frame()] with Correlates of War country codes,
@@ -15,7 +15,7 @@
 #'
 #' @inherit igo_members source references
 #'
-#' @seealso [states2016].
+#' @seealso [states2024].
 #'
 #' @family query functions
 #'

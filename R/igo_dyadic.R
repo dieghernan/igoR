@@ -7,7 +7,7 @@
 #' and summarizes their joint memberships across IGOs.
 #'
 #' @param country1,country2 A state or a vector of states to compare. Each value
-#'   can be any state name or Correlates of War code in [states2016].
+#'   can be any state name or Correlates of War code in [states2024].
 #' @param year An integer or vector of years to assess.
 #' @param ioname An optional IGO identifier or vector of identifiers. If `NULL`
 #'   (the default), all IGOs are included. Use [igo_search()] to find valid
@@ -21,7 +21,7 @@
 #' @details
 #' The arguments `country1` and `country2` are named for compatibility with
 #' earlier versions of **igoR**. Values are matched against states in
-#' [states2016].
+#' [states2024].
 #'
 #' This function reproduces the structure of the original dyad-year file
 #' distributed by the Correlates of War Project
@@ -78,7 +78,7 @@
 #' \doi{10.1177/0022343319881175}.
 #'
 #' @seealso
-#' [state_year_format3], [states2016], [igo_search()], [igo_recode_dyadic()].
+#' [state_year_format3], [states2024], [igo_search()], [igo_recode_dyadic()].
 #'
 #' @family membership functions
 #'

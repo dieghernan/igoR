@@ -13,7 +13,7 @@ igo_state_membership(state, year = NULL, status = "Full Membership")
 }
 \arguments{
 \item{state}{A state name or code, or a vector of names or codes, as
-specified in \link{states2016}.}
+specified in \link{states2024}.}
 
 \item{year}{An integer or vector of years to assess. If \code{NULL}, the latest
 available year for each state is used.}
@@ -65,7 +65,7 @@ data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\link{igo_year_format3}, \code{\link[=igo_search_states]{igo_search_states()}}, \link{states2016}.
+\link{igo_year_format3}, \code{\link[=igo_search_states]{igo_search_states()}}, \link{states2024}.
 
 Other membership functions:
 \code{\link[=igo_dyadic]{igo_dyadic()}},

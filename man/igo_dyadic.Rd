@@ -13,7 +13,7 @@ igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 }
 \arguments{
 \item{country1, country2}{A state or a vector of states to compare. Each value
-can be any state name or Correlates of War code in \link{states2016}.}
+can be any state name or Correlates of War code in \link{states2024}.}
 
 \item{year}{An integer or vector of years to assess.}
 
@@ -33,7 +33,7 @@ and summarizes their joint memberships across IGOs.
 \details{
 The arguments \code{country1} and \code{country2} are named for compatibility with
 earlier versions of \strong{igoR}. Values are matched against states in
-\link{states2016}.
+\link{states2024}.
 
 This function reproduces the structure of the original dyad-year file
 distributed by the Correlates of War Project
@@ -94,7 +94,7 @@ data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-\link{state_year_format3}, \link{states2016}, \code{\link[=igo_search]{igo_search()}}, \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}}.
+\link{state_year_format3}, \link{states2024}, \code{\link[=igo_search]{igo_search()}}, \code{\link[=igo_recode_dyadic]{igo_recode_dyadic()}}.
 
 Other membership functions:
 \code{\link[=igo_members]{igo_members()}},

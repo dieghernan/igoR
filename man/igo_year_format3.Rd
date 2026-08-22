@@ -87,7 +87,7 @@ data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \seealso{
 Other data sets:
 \code{\link{state_year_format3}},
-\code{\link{states2016}}
+\code{\link{states2024}}
 }
 \concept{data sets}
 \concept{datasets}
