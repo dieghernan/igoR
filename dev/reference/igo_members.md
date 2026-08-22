@@ -122,7 +122,7 @@ igo_members("NAFTA", year = c(1995:1998)) |> as_tibble()
 # Extract multiple membership statuses.
 igo_members("ACCT", status = c("Associate Membership", "Observer")) |>
   as_tibble()
-#> # A tibble: 25 × 8
+#> # A tibble: 26 × 8
 #>    ioname ccode state       statenme            year value category      orgname
 #>    <chr>  <dbl> <chr>       <chr>              <dbl> <dbl> <fct>         <chr>  
 #>  1 ACCT     347 kosovo      Kosovo              2014     2 Associate Me… Franco…
@@ -135,7 +135,7 @@ igo_members("ACCT", status = c("Associate Membership", "Observer")) |>
 #>  8 ACCT     290 poland      Poland              2014     3 Observer      Franco…
 #>  9 ACCT     305 austria     Austria             2014     3 Observer      Franco…
 #> 10 ACCT     310 hungary     Hungary             2014     3 Observer      Franco…
-#> # ℹ 15 more rows
+#> # ℹ 16 more rows
 
 # States that are not members of the UN.
 igo_members("UN", status = "No Membership") |>

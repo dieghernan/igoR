@@ -104,7 +104,7 @@ were both full members in 2014.
 
 # Count full joint memberships in 2014.
 # Find states in the state system in 2014.
-states2014 <- states2016 |>
+states2014 <- states2024 |>
   filter(styear <= 2014 & endyear >= 2014)
 
 # Find joint memberships with Australia.

@@ -8,8 +8,8 @@ Data included with igoR for IGO, country and state system analysis.
   : IGO-year membership data
 - [`state_year_format3`](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md)
   : Country-year IGO membership data
-- [`states2016`](https://dieghernan.github.io/igoR/dev/reference/states2016.md)
-  : State system membership (v2016)
+- [`states2024`](https://dieghernan.github.io/igoR/dev/reference/states2024.md)
+  : State system membership (v2024)
 
 ## Query functions
 

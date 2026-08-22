@@ -73,7 +73,7 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 Other data sets:
 [`state_year_format3`](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md),
-[`states2016`](https://dieghernan.github.io/igoR/dev/reference/states2016.md)
+[`states2024`](https://dieghernan.github.io/igoR/dev/reference/states2024.md)
 
 ## Examples
 

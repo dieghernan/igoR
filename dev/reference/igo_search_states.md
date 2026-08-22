@@ -20,7 +20,7 @@ reference.
 - state:
 
   A state name or code, or a vector of names or codes, as specified in
-  [states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
+  [states2024](https://dieghernan.github.io/igoR/dev/reference/states2024.md).
 
 ## Value
 
@@ -39,7 +39,7 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-[states2016](https://dieghernan.github.io/igoR/dev/reference/states2016.md).
+[states2024](https://dieghernan.github.io/igoR/dev/reference/states2024.md).
 
 Other query functions:
 [`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md)
