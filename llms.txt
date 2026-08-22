@@ -17,8 +17,8 @@ and functions for deriving dyad-year joint membership results.
 Note
 
 This package is stable and maintained on a best-effort basis. I
-currently prioritize CRAN compatibility, bug fixes and regressions over
-new features.
+currently prioritize **CRAN** compatibility, bug fixes and regressions
+over new features.
 
 ## Installation
 
@@ -113,7 +113,7 @@ Hernangómez D (2026). *igoR: Access the Intergovernmental Organizations
 [doi:10.32614/CRAN.package.igoR](https://doi.org/10.32614/CRAN.package.igoR).
 <https://dieghernan.github.io/igoR/>.
 
-For LaTeX users, a BibTeX entry is:
+For **LaTeX** users, a **BibTeX** entry is:
 
 ``` R
 @Manual{R-igoR,

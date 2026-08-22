@@ -76,7 +76,7 @@ reference.</p>
 
 
 <dl><dt id="arg-country-country-">country1, country2<a class="anchor" aria-label="anchor" href="#arg-country-country-"></a></dt>
-<dd><p>A state or vector of states to compare. Each value
+<dd><p>A state or a vector of states to compare. Each value
 can be any state name or Correlates of War code in <a href="states2016.html">states2016</a>.</p></dd>
 
 
@@ -92,8 +92,8 @@ identifiers.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A coded <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></code> with one row per state pair and year and
-one column per selected IGO. See <strong>Details</strong> for the membership status
+    <p>A coded <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></code> with one row per state-pair-year and one
+column per selected IGO. See <strong>Details</strong> for the membership status
 coding scheme.</p>
     </div>
     <div class="section level2">
@@ -105,8 +105,8 @@ earlier versions of <strong>igoR</strong>. Values are matched against states in
 distributed by the Correlates of War Project
 (<code>dyadic_format3.dta</code>). That file is not included in this package due to its
 size.</p>
-<p>The result contains one row for each common dyad-year selected by <code>country1</code>,
-<code>country2</code> and <code>year</code>.</p>
+<p>The result contains one row for each dyad-year selected by <code>country1</code>,
+<code>country2</code> and <code>year</code> that is available for both states.</p>
 <p>The <code>dyadid</code> column identifies each relationship and is computed as
 <code>(1000 * ccode1) + ccode2</code>.</p>
 <p>For each selected IGO, the result includes a column named after its

@@ -9,7 +9,7 @@ sets and additional downloads, see [Intergovernmental Organizations
 (version 3)](https://correlatesofwar.org/data-sets/IGOs/).
 
 *The original dyad-year data set is not included because of its size
-(about 500 MB in Stata `.dta` format). The
+(about 500 MB in **Stata** `.dta` format). The
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
 function derives comparable joint membership results from the included
 data.*

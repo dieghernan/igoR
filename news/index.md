@@ -24,7 +24,7 @@ CRAN release: 2026-05-23
 CRAN release: 2026-03-13
 
 - Updated the `COPYRIGHTS` file.
-- Migrated documentation and vignettes to Quarto.
+- Migrated documentation and vignettes to **Quarto**.
 
 ## igoR 1.0.0
 
@@ -79,7 +79,7 @@ CRAN release: 2021-10-20
 CRAN release: 2021-08-04
 
 - Compiled the “Mapping IGOs” article as a vignette.
-- Updated documentation. It is now in Markdown format using
+- Updated documentation. It is now in **Markdown** format using
   `roxygen2md::roxygen2md()`.
 - Moved tests to **testthat**.
 
