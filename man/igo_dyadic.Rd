@@ -12,7 +12,7 @@ reference.
 igo_dyadic(country1, country2, year = 1816:2014, ioname = NULL)
 }
 \arguments{
-\item{country1, country2}{A state or vector of states to compare. Each value
+\item{country1, country2}{A state or a vector of states to compare. Each value
 can be any state name or Correlates of War code in \link{states2016}.}
 
 \item{year}{An integer or vector of years to assess.}
@@ -22,8 +22,8 @@ can be any state name or Correlates of War code in \link{states2016}.}
 identifiers.}
 }
 \value{
-A coded \code{\link{data.frame}} with one row per state pair and year and
-one column per selected IGO. See \strong{Details} for the membership status
+A coded \code{\link{data.frame}} with one row per state-pair-year and one
+column per selected IGO. See \strong{Details} for the membership status
 coding scheme.
 }
 \description{
@@ -40,8 +40,8 @@ distributed by the Correlates of War Project
 (\code{dyadic_format3.dta}). That file is not included in this package due to its
 size.
 
-The result contains one row for each common dyad-year selected by \code{country1},
-\code{country2} and \code{year}.
+The result contains one row for each dyad-year selected by \code{country1},
+\code{country2} and \code{year} that is available for both states.
 
 The \code{dyadid} column identifies each relationship and is computed as
 \code{(1000 * ccode1) + ccode2}.

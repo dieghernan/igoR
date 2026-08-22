@@ -29,7 +29,7 @@ the IGO data sets and additional downloads, see
 3)](https://correlatesofwar.org/data-sets/IGOs/).
 
 *The original dyad-year data set is not included because of its size (about 500
-MB in Stata `.dta` format). The `igo_dyadic()` function derives comparable
+MB in **Stata** `.dta` format). The `igo_dyadic()` function derives comparable
 joint membership results from the included data.*
 
 ## Definitions

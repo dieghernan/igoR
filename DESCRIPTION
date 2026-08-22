@@ -28,7 +28,7 @@ Suggests:
     ggplot2,
     knitr,
     quarto,
-    testthat (>= 3.0.0)
+    testthat (>= 3.3.0)
 VignetteBuilder:
     quarto
 Config/Needs/website: dieghernan/gitdevr, reactable, giscoR, devtools,
@@ -36,7 +36,6 @@ Config/Needs/website: dieghernan/gitdevr, reactable, giscoR, devtools,
 Config/roxygen2/markdown: TRUE
 Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
-Config/testthat/parallel: true
 Copyright: © 2000-2021 by the Correlates of War. See file COPYRIGHTS.
 Encoding: UTF-8
 LazyData: true

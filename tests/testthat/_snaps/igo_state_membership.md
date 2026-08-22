@@ -1,12 +1,12 @@
-# missing or unknown states return informative conditions
+# missing states produce an informative error
 
     Code
-      s <- igo_state_membership()
+      igo_state_membership()
     Condition
       Error in `igo_state_membership()`:
       ! `state` must be supplied.
 
----
+# unknown states return NULL with a warning
 
     Code
       res <- igo_state_membership("Error")
@@ -15,6 +15,24 @@
     Condition
       Warning in `igo_state_membership()`:
       Unknown values for `state`: 'Error'.
+
+# empty state vectors return NULL with a warning
+
+    Code
+      res <- igo_state_membership(character())
+    Condition
+      Warning in `igo_state_membership()`:
+      Unknown values for `state`: ''.
+
+# missing state values return NULL with a warning
+
+    Code
+      res <- igo_state_membership(NA)
+    Message
+      Unknown value for `state`: 'NA'.
+    Condition
+      Warning in `igo_state_membership()`:
+      Unknown values for `state`: 'NA'.
 
 # years outside a state lifetime return NULL
 
@@ -35,6 +53,26 @@
       Warning in `igo_state_membership()`:
       Unknown values for `status`: 'Nope'. Valid values are 'No Membership', 'Full Membership', 'Associate Membership', 'Observer', 'Missing data', 'State Not System Member'.
 
+# unsupported years return NULL with a warning
+
+    Code
+      res <- igo_state_membership("spain", year = c(NA, Inf, 1990.5))
+    Message
+      State 'spain' is available from 1816 to 2014.
+    Condition
+      Warning in `igo_state_membership()`:
+      No IGO membership records were found for the supplied arguments.
+
+# NULL status filters return NULL with a warning
+
+    Code
+      res <- igo_state_membership("spain", status = NULL)
+    Message
+      No membership records for state 'spain' matched the supplied arguments.
+    Condition
+      Warning in `igo_state_membership()`:
+      No IGO membership records were found for the supplied arguments.
+
 # filters with no matching state memberships return NULL
 
     Code
@@ -54,19 +92,7 @@
       Unknown value for `state`: 'aga haha'.
       Unknown value for `state`: '1298'.
 
-# Object classes
-
-    Code
-      vapply(sev, class, character(1))
-    Output
-            ccode    stateabb    statenme       state        year      ioname 
-        "numeric" "character" "character" "character"   "numeric" "character" 
-            value    category     orgname longorgname   political      social 
-        "numeric"    "factor" "character" "character"   "numeric"   "numeric" 
-         economic 
-        "numeric" 
-
-# Cleanup
+# unknown states are omitted from vectorized results
 
     Code
       var_err <- igo_state_membership(c("uk", "invented", "usa"))

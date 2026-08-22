@@ -119,7 +119,7 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
-      "version": ">= 3.0.0",
+      "version": ">= 3.3.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -144,7 +144,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "igo", "correlates-of-war", "intergovernmental-organisations", "cran", "intergovernmental-organizations", "r-package", "rstats", "cran-r"],
-  "fileSize": "802.239KB",
+  "fileSize": "810.775KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

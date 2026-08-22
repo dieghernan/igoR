@@ -6,6 +6,26 @@
       Warning in `igo_dyadic()`:
       `year` must be numeric, not NULL.
 
+# unsupported numeric years return NULL with a warning
+
+    Code
+      res <- igo_dyadic("USA", "Spain", c(NA, NaN, Inf, 1990.5), "UN")
+    Message
+      No IGO records were found for the selected years.
+    Condition
+      Warning in `igo_dyadic()`:
+      No dyad-year results were found for the supplied arguments.
+
+# empty year vectors return NULL with a warning
+
+    Code
+      res <- igo_dyadic("USA", "Spain", numeric(), "UN")
+    Message
+      No IGO records were found for the selected years.
+    Condition
+      Warning in `igo_dyadic()`:
+      No dyad-year results were found for the supplied arguments.
+
 # state pairs outside the state system return NULL
 
     Code
@@ -64,17 +84,4 @@
     Condition
       Warning in `igo_dyadic()`:
       No dyad-year results were found for the supplied arguments.
-
-# unknown selected IGOs are ignored when at least one IGO is valid
-
-    Code
-      res <- igo_dyadic("USA", "Spain", 1990, c("un", "random"))
-
-# Dyadic identifiers use both state codes
-
-    Code
-      res[, c("dyadid", "ccode1", "ccode2")]
-    Output
-        dyadid ccode1 ccode2
-      1   2230      2    230
 

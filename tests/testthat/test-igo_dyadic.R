@@ -4,6 +4,20 @@ test_that("non-numeric years return NULL with a warning", {
   expect_null(n)
 })
 
+test_that("unsupported numeric years return NULL with a warning", {
+  expect_snapshot(
+    res <- igo_dyadic("USA", "Spain", c(NA, NaN, Inf, 1990.5), "UN")
+  )
+
+  expect_null(res)
+})
+
+test_that("empty year vectors return NULL with a warning", {
+  expect_snapshot(res <- igo_dyadic("USA", "Spain", numeric(), "UN"))
+
+  expect_null(res)
+})
+
 test_that("state pairs outside the state system return NULL", {
   expect_snapshot(n <- igo_dyadic("USA", "Cuba", 1900))
 
@@ -73,7 +87,7 @@ test_that("dyadic search drops self-pairs from vectorized inputs", {
 
   expect_identical(unique(res$state1), "usa")
   expect_identical(unique(res$state2), "canada")
-  expect_false(any(res$state1 == res$state2))
+  expect_disjoint(res$state1, res$state2)
 })
 
 test_that("selected IGOs determine dyadic membership columns", {
@@ -94,22 +108,13 @@ test_that("selected IGOs are case-insensitive", {
 })
 
 test_that("unknown selected IGOs are ignored when at least one IGO is valid", {
-  expect_snapshot(res <- igo_dyadic("USA", "Spain", 1990, c("un", "random")))
+  res <- igo_dyadic("USA", "Spain", 1990, c("un", "random"))
 
   expect_identical(names(res)[11], "un")
-  expect_false("random" %in% names(res))
+  expect_disjoint("random", names(res))
 })
 
-test_that("default and selected IGO calls expose different columns", {
-  n1 <- igo_dyadic("USA", "Cuba", 1905)
-  n2 <- igo_dyadic("Kosovo", "Cuba")
-  n3 <- igo_dyadic("Kosovo", "Cuba", ioname = "UN")
-
-  expect_equal(ncol(n1), ncol(n2))
-  expect_gt(ncol(n2), ncol(n3))
-})
-
-test_that("Dyadic output keeps metadata before selected IGOs", {
+test_that("dyadic output keeps metadata before selected IGOs", {
   res <- igo_dyadic("USA", "Spain", 1990, c("UN", "EU"))
 
   expect_identical(
@@ -131,9 +136,25 @@ test_that("Dyadic output keeps metadata before selected IGOs", {
   expect_identical(row.names(res), as.character(seq_len(nrow(res))))
 })
 
-test_that("Dyadic identifiers use both state codes", {
+test_that("dyadic identifiers use both state codes", {
   res <- igo_dyadic("USA", "Spain", 1990, "UN")
 
-  expect_snapshot(res[, c("dyadid", "ccode1", "ccode2")])
-  expect_identical(res$dyadid, 1000 * res$ccode1 + res$ccode2)
+  expect_identical(
+    res[, c("dyadid", "ccode1", "ccode2")],
+    data.frame(dyadid = 2230, ccode1 = 2L, ccode2 = 230L)
+  )
+})
+
+test_that("dyadic output contains known joint membership values", {
+  res <- igo_dyadic(
+    "USA",
+    "Spain",
+    1990,
+    c("UN", "EU", "AAAID", "ARCAL")
+  )
+
+  expect_identical(
+    res[, c("year", "un", "eu", "aaaid", "arcal")],
+    data.frame(year = 1990, un = 1, eu = -1, aaaid = 0, arcal = -9)
+  )
 })

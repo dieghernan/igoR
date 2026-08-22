@@ -15,3 +15,21 @@
       Warning in `igo_search_states()`:
       No states were found for the supplied arguments.
 
+# empty state vectors return NULL with a warning
+
+    Code
+      res <- igo_search_states(character())
+    Condition
+      Warning in `igo_search_states()`:
+      No states were found for the supplied arguments.
+
+# missing state values return NULL with a warning
+
+    Code
+      res <- igo_search_states(NA)
+    Message
+      Unknown value for `state`: 'NA'.
+    Condition
+      Warning in `igo_search_states()`:
+      No states were found for the supplied arguments.
+

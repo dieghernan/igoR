@@ -18,7 +18,7 @@ results](https://badges.cranchecks.info/worst/igoR.svg)](https://cran.r-project.
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/igor/badge)](https://www.codefactor.io/repository/github/dieghernan/igor)
 [![DOI](https://img.shields.io/badge/DOI-10.32614/CRAN.package.igoR-blue)](https://doi.org/10.32614/CRAN.package.igoR)
 [![Project Status: Inactive – The project has reached a stable, usable
-state but is no longer being actively developed; support/maintenance
+state but is no longer being actively developed, support and maintenance
 will be provided as time
 allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 [![status](https://tinyverse.netlify.app/status/igoR)](https://CRAN.R-project.org/package=igoR)
@@ -42,7 +42,7 @@ and functions for deriving dyad-year joint membership results.
 > [!NOTE]
 >
 > This package is stable and maintained on a best-effort basis. I
-> currently prioritize CRAN compatibility, bug fixes and regressions
+> currently prioritize **CRAN** compatibility, bug fixes and regressions
 > over new features.
 
 ## Installation
@@ -63,14 +63,14 @@ install.packages("igoR")
 Check the documentation for the development version at
 <https://dieghernan.github.io/igoR/dev/>.
 
-You can install the development version from GitHub:
+You can install the development version from **GitHub**:
 
 ``` r
 pak::pak("dieghernan/igoR")
 ```
 
 Alternatively, you can install **igoR** using
-[r-universe](https://dieghernan.r-universe.dev/igoR):
+[**r-universe**](https://dieghernan.r-universe.dev/igoR):
 
 ``` r
 # Install igoR from r-universe.
@@ -177,7 +177,7 @@ Organizations (IGO) Database</em>.
 <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
 </p>
 
-For LaTeX users, a BibTeX entry is:
+For **LaTeX** users, a **BibTeX** entry is:
 
     @Manual{R-igoR,
       title = {{igoR}: Access the Intergovernmental Organizations ({IGO}) Database},

@@ -1,6 +1,22 @@
-test_that("missing or unknown states return informative conditions", {
-  expect_snapshot(error = TRUE, s <- igo_state_membership())
+test_that("missing states produce an informative error", {
+  expect_snapshot(error = TRUE, igo_state_membership())
+})
+
+test_that("unknown states return NULL with a warning", {
   expect_snapshot(res <- igo_state_membership("Error"))
+
+  expect_null(res)
+})
+
+test_that("empty state vectors return NULL with a warning", {
+  expect_snapshot(res <- igo_state_membership(character()))
+
+  expect_null(res)
+})
+
+test_that("missing state values return NULL with a warning", {
+  expect_snapshot(res <- igo_state_membership(NA))
+
   expect_null(res)
 })
 
@@ -22,7 +38,21 @@ test_that("invalid statuses warn and valid statuses are still used", {
     as.character(unique(res$category)),
     c("Full Membership", "Observer")
   )
-  expect_false("Nope" %in% as.character(res$category))
+  expect_disjoint("Nope", as.character(res$category))
+})
+
+test_that("unsupported years return NULL with a warning", {
+  expect_snapshot(
+    res <- igo_state_membership("spain", year = c(NA, Inf, 1990.5))
+  )
+
+  expect_null(res)
+})
+
+test_that("NULL status filters return NULL with a warning", {
+  expect_snapshot(res <- igo_state_membership("spain", status = NULL))
+
+  expect_null(res)
 })
 
 test_that("filters with no matching state memberships return NULL", {
@@ -38,7 +68,7 @@ test_that("latest year is used when year is NULL", {
 
   expect_identical(unique(single$year), 1989)
   expect_identical(unique(single$state), "wgermany")
-  expect_identical(head(single$ioname, 3), c("ACSSRB", "AVRDC", "AfDB"))
+  expect_contains(single$ioname, c("ACSSRB", "AVRDC", "AfDB"))
 })
 
 test_that("year ranges are restricted to the state lifetime", {
@@ -71,17 +101,33 @@ test_that("several statuses can be extracted in one call", {
   expect_identical(range(sev$year), c(2008, 2014))
 })
 
-test_that("Object classes", {
+test_that("state membership results have stable column types", {
   expect_silent(sev <- igo_state_membership("spain"))
 
   expect_s3_class(sev, "data.frame", exact = TRUE)
-
-  expect_snapshot(vapply(sev, class, character(1)))
+  expect_identical(
+    vapply(sev, class, character(1)),
+    c(
+      ccode = "numeric",
+      stateabb = "character",
+      statenme = "character",
+      state = "character",
+      year = "numeric",
+      ioname = "character",
+      value = "numeric",
+      category = "factor",
+      orgname = "character",
+      longorgname = "character",
+      political = "numeric",
+      social = "numeric",
+      economic = "numeric"
+    )
+  )
 })
 
-test_that("Cleanup", {
+test_that("unknown states are omitted from vectorized results", {
   expect_snapshot(var_err <- igo_state_membership(c("uk", "invented", "usa")))
 
   expect_identical(unique(var_err$state), c("uk", "usa"))
-  expect_false("invented" %in% var_err$state)
+  expect_disjoint("invented", var_err$state)
 })

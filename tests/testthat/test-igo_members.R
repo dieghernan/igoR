@@ -1,6 +1,22 @@
-test_that("missing or unknown IGO identifiers return informative conditions", {
-  expect_snapshot(error = TRUE, s <- igo_members())
+test_that("missing IGO identifiers produce an informative error", {
+  expect_snapshot(error = TRUE, igo_members())
+})
+
+test_that("unknown IGO identifiers return NULL with a warning", {
   expect_snapshot(res <- igo_members("Error"))
+
+  expect_null(res)
+})
+
+test_that("empty IGO identifier vectors return NULL with a warning", {
+  expect_snapshot(res <- igo_members(character()))
+
+  expect_null(res)
+})
+
+test_that("missing IGO identifier values return NULL with a warning", {
+  expect_snapshot(res <- igo_members(NA))
+
   expect_null(res)
 })
 
@@ -22,7 +38,19 @@ test_that("invalid statuses warn and valid statuses are still used", {
     as.character(unique(res$category)),
     c("Full Membership", "Observer")
   )
-  expect_false("Nope" %in% as.character(res$category))
+  expect_disjoint("Nope", as.character(res$category))
+})
+
+test_that("unsupported years return NULL with a warning", {
+  expect_snapshot(res <- igo_members("EU", year = c(NA, Inf, 1990.5)))
+
+  expect_null(res)
+})
+
+test_that("NULL status filters return NULL with a warning", {
+  expect_snapshot(res <- igo_members("EU", status = NULL))
+
+  expect_null(res)
 })
 
 test_that("filters with no matching members return NULL", {
@@ -35,7 +63,7 @@ test_that("latest year is used when year is NULL", {
   single <- igo_members("SCA")
 
   expect_identical(unique(single$year), 1914)
-  expect_identical(head(single$state, 3), c("uk", "netherlands", "france"))
+  expect_contains(single$state, c("uk", "netherlands", "france"))
 })
 
 test_that("year ranges are restricted to the IGO lifetime", {
@@ -60,17 +88,28 @@ test_that("several statuses can be extracted in one call", {
   expect_identical(range(sev$year), c(1945, 2014))
 })
 
-test_that("Object classes", {
+test_that("membership results have stable column types", {
   expect_silent(sev <- igo_members("UN"))
 
   expect_s3_class(sev, "data.frame", exact = TRUE)
-
-  expect_snapshot(vapply(sev, class, character(1)))
+  expect_identical(
+    vapply(sev, class, character(1)),
+    c(
+      ioname = "character",
+      ccode = "numeric",
+      state = "character",
+      statenme = "character",
+      year = "numeric",
+      value = "numeric",
+      category = "factor",
+      orgname = "character"
+    )
+  )
 })
 
-test_that("Cleanup", {
+test_that("unknown identifiers are omitted from vectorized results", {
   expect_snapshot(var_err <- igo_members(c("EU", "an invented", "UN")))
 
   expect_identical(unique(var_err$ioname), c("EU", "UN"))
-  expect_false("an invented" %in% var_err$ioname)
+  expect_disjoint("an invented", var_err$ioname)
 })

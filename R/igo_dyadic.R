@@ -6,7 +6,7 @@
 #' Creates dyad-year IGO data. Each row represents a pair of states in one year
 #' and summarizes their joint memberships across IGOs.
 #'
-#' @param country1,country2 A state or vector of states to compare. Each value
+#' @param country1,country2 A state or a vector of states to compare. Each value
 #'   can be any state name or Correlates of War code in [states2016].
 #' @param year An integer or vector of years to assess.
 #' @param ioname An optional IGO identifier or vector of identifiers. If `NULL`
@@ -14,8 +14,8 @@
 #'   identifiers.
 #'
 #' @returns
-#' A coded [`data.frame`][data.frame()] with one row per state pair and year and
-#' one column per selected IGO. See **Details** for the membership status
+#' A coded [`data.frame`][data.frame()] with one row per state-pair-year and one
+#' column per selected IGO. See **Details** for the membership status
 #' coding scheme.
 #'
 #' @details
@@ -28,8 +28,8 @@
 #' (`dyadic_format3.dta`). That file is not included in this package due to its
 #' size.
 #'
-#' The result contains one row for each common dyad-year selected by `country1`,
-#' `country2` and `year`.
+#' The result contains one row for each dyad-year selected by `country1`,
+#' `country2` and `year` that is available for both states.
 #'
 #' The `dyadid` column identifies each relationship and is computed as
 #' `(1000 * ccode1) + ccode2`.

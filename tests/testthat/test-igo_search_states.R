@@ -42,7 +42,19 @@ test_that("unknown states return NULL", {
   expect_null(res)
 })
 
-test_that("Search states accepts equivalent state identifiers", {
+test_that("empty state vectors return NULL with a warning", {
+  expect_snapshot(res <- igo_search_states(character()))
+
+  expect_null(res)
+})
+
+test_that("missing state values return NULL with a warning", {
+  expect_snapshot(res <- igo_search_states(NA))
+
+  expect_null(res)
+})
+
+test_that("equivalent state identifiers return the same state", {
   n <- igo_search_states(c("USA", "United States of America", 2))
 
   expect_identical(n$ccode, c(2L, 2L, 2L))
