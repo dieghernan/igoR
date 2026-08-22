@@ -1,7 +1,7 @@
 # Get started with igoR
 
 This vignette introduces the main data sets and functions in **igoR**
-through visual examples.
+with visual examples.
 
 The examples build on analyses from Pevehouse et al.
 ([2020](#ref-pevehouse2020)). For more information about the IGO data
@@ -9,7 +9,7 @@ sets and additional downloads, see [Intergovernmental Organizations
 (version 3)](https://correlatesofwar.org/data-sets/IGOs/).
 
 *The original dyad-year data set is not included because of its size
-(about 500 MB in Stata `.dta` format). The
+(about 500 MB in **Stata** `.dta` format). The
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
 function derives comparable joint membership results from the included
 data.*
@@ -97,18 +97,18 @@ system by year. The data cover 1816 to 2014.
 ``` r
 
 # Summarize values by year.
-igos_by_year <- igo_year_format3 %>%
-  group_by(year) %>%
-  summarise(value = n(), .groups = "keep") %>%
+igos_by_year <- igo_year_format3 |>
+  group_by(year) |>
+  summarise(value = n(), .groups = "keep") |>
   mutate(variable = "Total IGOs")
 
-countries_by_year <- state_year_format3 %>%
-  group_by(year) %>%
-  summarise(value = n(), .groups = "keep") %>%
+countries_by_year <- state_year_format3 |>
+  group_by(year) |>
+  summarise(value = n(), .groups = "keep") |>
   mutate(variable = "Number of COW states")
 
-all_by_year <- igos_by_year %>%
-  bind_rows(countries_by_year) %>%
+all_by_year <- igos_by_year |>
+  bind_rows(countries_by_year) |>
   # Label the plot.
   mutate(
     variable = factor(
@@ -141,20 +141,20 @@ This plot shows how many IGOs started or ended in each year.
 
 df <- igo_search()
 
-births <- df %>%
-  mutate(year = sdate) %>%
-  group_by(year) %>%
-  summarise(value = n(), .groups = "keep") %>%
-  mutate(variable = "IGO Births")
+births <- df |>
+  mutate(year = sdate) |>
+  group_by(year) |>
+  summarise(value = n(), .groups = "keep") |>
+  mutate(variable = "IGO births")
 
-deads <- df %>%
-  mutate(year = deaddate) %>%
-  group_by(year) %>%
-  summarise(value = n(), .groups = "keep") %>%
-  mutate(variable = "IGO Deaths")
+deads <- df |>
+  mutate(year = deaddate) |>
+  group_by(year) |>
+  summarise(value = n(), .groups = "keep") |>
+  mutate(variable = "IGO deaths")
 
-births_and_deads <- births %>%
-  bind_rows(deads) %>%
+births_and_deads <- births |>
+  bind_rows(deads) |>
   filter(!is.na(year))
 
 # Plot the results.
@@ -175,8 +175,8 @@ Figure 2: IGO starts and endings, 1816-2014
 
 ### IGOs across regions
 
-This plot shows the number of IGOs by region. The region definitions are
-based on Pevehouse et al. ([2020](#ref-pevehouse2020)) and the
+This plot shows the number of IGOs by region. The regional definitions
+are based on Pevehouse et al. ([2020](#ref-pevehouse2020)) and the
 complementary replication data set ([PRIO 2020](#ref-priorep)).
 
 IGOs across regions: codes
@@ -523,7 +523,7 @@ americas <- c(
 # `africa`, `americas`, `asia`, `europe` and `middle_east` were created in the
 # previous chunk, which is collapsed for readability.
 
-regions <- igo_search() %>%
+regions <- igo_search() |>
   mutate(
     region = case_when(
       ionum %in% africa ~ "Africa",
@@ -533,7 +533,7 @@ regions <- igo_search() %>%
       ionum %in% middle_east ~ "Middle East",
       TRUE ~ NA
     )
-  ) %>%
+  ) |>
   select(ioname, region)
 ```
 
@@ -545,14 +545,14 @@ counts IGOs by region.
 # The `regions` data set was created in the previous chunk.
 
 # Select all IGOs.
-alligos <- igo_year_format3 %>%
+alligos <- igo_year_format3 |>
   select(ioname, year)
 
-regionsum <- alligos %>%
-  left_join(regions) %>%
-  group_by(year, region) %>%
-  summarise(value = n(), .groups = "keep") %>%
-  filter(!is.na(region)) %>%
+regionsum <- alligos |>
+  left_join(regions) |>
+  group_by(year, region) |>
+  summarise(value = n(), .groups = "keep") |>
+  filter(!is.na(region)) |>
   # Prepare for plotting.
   mutate(
     region = factor(
@@ -602,9 +602,9 @@ asia5_igos <- igo_state_membership(
   status = "Full Membership"
 )
 
-asia5 <- asia5_igos %>%
-  group_by(statenme, year) %>%
-  summarise(values = n(), .groups = "keep") %>%
+asia5 <- asia5_igos |>
+  group_by(statenme, year) |>
+  summarise(values = n(), .groups = "keep") |>
   mutate(statenme = factor(statenme, levels = asia5_cntries))
 
 # Plot the results.
@@ -649,8 +649,8 @@ selected_countries <- c("France", "Morocco", "China", "USA")
 spain_selected <- igo_dyadic("Spain", selected_countries)
 
 # Compute the number of full joint memberships.
-spain_selected <- spain_selected %>%
-  rowwise() %>%
+spain_selected <- spain_selected |>
+  rowwise() |>
   mutate(values = sum(c_across(aaaid:wassen) == 1))
 
 # Plot the results.

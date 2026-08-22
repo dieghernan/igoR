@@ -2,7 +2,7 @@
 
 This annex lists the IGOs ([Pevehouse et al. 2020](#ref-pevehouse2020))
 and states in the Correlates of War state system ([Correlates of War
-Project 2017](#ref-correlatesofwarproject2017)) included with **igoR**.
+Project 2017](#ref-correlatesofwarproject2017)) included in **igoR**.
 
 ## IGOs
 

@@ -1,4 +1,4 @@
-# Extract IGO membership records for states
+# Extract IGO membership records by state
 
 Extracts IGO membership records for one or more states and years.
 
@@ -28,20 +28,21 @@ reference.
 
 - status:
 
-  A character vector of membership statuses to extract. See
+  A character vector of membership statuses to extract from IGO-level
+  state membership records. See
   [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md)
   for valid statuses.
 
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
-per matching state, year, IGO and membership status.
+per matching state, IGO-year and membership status.
 
 ## References
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -58,7 +59,7 @@ Other membership functions:
 ## Examples
 
 ``` r
-# Memberships on two different dates.
+# Memberships in selected years.
 igo_state_membership("Spain", year = 1850)
 #>   ccode stateabb statenme state year ioname value        category
 #> 1   230      SPN    Spain spain 1850    SCH     1 Full Membership

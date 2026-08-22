@@ -9,14 +9,14 @@ recorded at five-year intervals through 1965 and annually thereafter.
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 19,335
 rows. Relevant fields:
 
-- `ioname`: Short abbreviation for the IGO name.
+- `ioname`: Short identifier for the IGO name.
 
 - `orgname`: Full IGO name.
 
 - `year`: Calendar year.
 
 - `afghanistan...zimbabwe`: Membership status of each state in the IGO.
-  See the Details section.
+  See the **Details** section.
 
 - `sdate`: Start year for the IGO.
 
@@ -31,7 +31,7 @@ rows. Relevant fields:
 ## Source
 
 [Intergovernmental Organizations (version
-3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata Files
+3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata files
 from the Correlates of War Project.
 
 See the [Codebook Version 3 IGO
@@ -65,7 +65,7 @@ Data distributed with [igoR](https://CRAN.R-project.org/package=igoR).
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -83,9 +83,9 @@ data("igo_year_format3")
 # Show a glimpse.
 library(dplyr)
 
-igo_year_format3 %>%
-  select(ioname:year, spain, france) %>%
-  filter(year > 1990) %>%
+igo_year_format3 |>
+  select(ioname:year, spain, france) |>
+  filter(year > 1990) |>
   glimpse()
 #> Rows: 8,019
 #> Columns: 5
@@ -96,12 +96,12 @@ igo_year_format3 %>%
 #> $ france  <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
 
 # Prepare a sample of numerical membership values.
-sample_igo_year <- igo_year_format3 %>%
-  as_tibble() %>%
-  select(ioname:year, spain, france) %>%
+sample_igo_year <- igo_year_format3 |>
+  as_tibble() |>
+  select(ioname:year, spain, france) |>
   filter(year == 1990)
 
-sample_igo_year %>% glimpse()
+sample_igo_year |> glimpse()
 #> Rows: 314
 #> Columns: 5
 #> $ ioname  <chr> "ACPEU", "ACSSRB", "CAMES", "ACI", "AfDB", "AFGEC", "AIPO", "A…
@@ -111,10 +111,10 @@ sample_igo_year %>% glimpse()
 #> $ france  <dbl> 1, 1, -9, 0, 1, 0, 0, 0, -9, 0, 0, 0, 0, 1, -9, -9, 0, 0, 0, 0…
 
 # Recode the membership columns.
-sample_igo_year_recoded <- sample_igo_year %>%
+sample_igo_year_recoded <- sample_igo_year |>
   mutate(across(c(spain, france), igo_recode_igoyear))
 
-sample_igo_year_recoded %>% glimpse()
+sample_igo_year_recoded |> glimpse()
 #> Rows: 314
 #> Columns: 5
 #> $ ioname  <chr> "ACPEU", "ACSSRB", "CAMES", "ACI", "AfDB", "AFGEC", "AIPO", "A…

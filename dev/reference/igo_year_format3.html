@@ -17,7 +17,7 @@ at five-year intervals through 1965 and annually thereafter."><meta property="og
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">igoR</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.3.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,11 +69,11 @@ at five-year intervals through 1965 and annually thereafter.</p>
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
     <p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></code> with
 19,335 rows. Relevant
-fields:</p><ul><li><p><code>ioname</code>: Short abbreviation for the IGO name.</p></li>
+fields:</p><ul><li><p><code>ioname</code>: Short identifier for the IGO name.</p></li>
 <li><p><code>orgname</code>: Full IGO name.</p></li>
 <li><p><code>year</code>: Calendar year.</p></li>
 <li><p><code>afghanistan...zimbabwe</code>: Membership status of each state in the IGO. See
-the Details section.</p></li>
+the <strong>Details</strong> section.</p></li>
 <li><p><code>sdate</code>: Start year for the IGO.</p></li>
 <li><p><code>deaddate</code>: End year for the IGO.</p></li>
 <li><p><code>longorgname</code>: Longer IGO name, including previous names.</p></li>
@@ -83,10 +83,8 @@ the Details section.</p></li>
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
     <p><a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Intergovernmental Organizations (version 3)</a>, IGO Data Stata
-Files from
-the Correlates of War Project.</p>
-<p>See the <a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Codebook Version 3 IGO Data</a> for the full
-reference.</p>
+files from the Correlates of War Project.</p>
+<p>See the <a href="https://correlatesofwar.org/data-sets/IGOs/" class="external-link">Codebook Version 3 IGO Data</a> for the full reference.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -101,7 +99,7 @@ reference.</p>
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Pevehouse, J. C., Nordstrom, T., McManus, R. W. &amp; Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
+data sets. <em>Journal of Peace Research</em>, <strong>57</strong>(3), 492–503.
 <a href="https://doi.org/10.1177/0022343319881175" class="external-link">doi:10.1177/0022343319881175</a>
 .</p>
     </div>
@@ -119,9 +117,9 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-in"><span><span class="co"># Show a glimpse.</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">igo_year_format3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">year</span>, <span class="va">spain</span>, <span class="va">france</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">&gt;</span> <span class="fl">1990</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">igo_year_format3</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">year</span>, <span class="va">spain</span>, <span class="va">france</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">&gt;</span> <span class="fl">1990</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 8,019</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 5</span>
@@ -132,12 +130,12 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ france  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">,</span>…</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Prepare a sample of numerical membership values.</span></span></span>
-<span class="r-in"><span><span class="va">sample_igo_year</span> <span class="op">&lt;-</span> <span class="va">igo_year_format3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">year</span>, <span class="va">spain</span>, <span class="va">france</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">sample_igo_year</span> <span class="op">&lt;-</span> <span class="va">igo_year_format3</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ioname</span><span class="op">:</span><span class="va">year</span>, <span class="va">spain</span>, <span class="va">france</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">==</span> <span class="fl">1990</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">sample_igo_year</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sample_igo_year</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 314</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ ioname  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACPEU"<span style="color: #949494;">, </span>"ACSSRB"<span style="color: #949494;">, </span>"CAMES"<span style="color: #949494;">, </span>"ACI"<span style="color: #949494;">, </span>"AfDB"<span style="color: #949494;">, </span>"AFGEC"<span style="color: #949494;">, </span>"AIPO"<span style="color: #949494;">, </span>"A…</span>
@@ -147,10 +145,10 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ france  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>-9<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>-9<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>-9<span style="color: #949494;">, </span>-9<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>0<span style="color: #949494;">, </span>0…</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Recode the membership columns.</span></span></span>
-<span class="r-in"><span><span class="va">sample_igo_year_recoded</span> <span class="op">&lt;-</span> <span class="va">sample_igo_year</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">sample_igo_year_recoded</span> <span class="op">&lt;-</span> <span class="va">sample_igo_year</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">spain</span>, <span class="va">france</span><span class="op">)</span>, <span class="va">igo_recode_igoyear</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">sample_igo_year_recoded</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sample_igo_year_recoded</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 314</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ ioname  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ACPEU"<span style="color: #949494;">, </span>"ACSSRB"<span style="color: #949494;">, </span>"CAMES"<span style="color: #949494;">, </span>"ACI"<span style="color: #949494;">, </span>"AfDB"<span style="color: #949494;">, </span>"AFGEC"<span style="color: #949494;">, </span>"AIPO"<span style="color: #949494;">, </span>"A…</span>

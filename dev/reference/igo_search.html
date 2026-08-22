@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">igoR</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.3.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,7 +75,7 @@ reference.</p>
 <dl><dt id="arg-pattern">pattern<a class="anchor" aria-label="anchor" href="#arg-pattern"></a></dt>
 <dd><p>A <a href="https://rdrr.io/r/base/regex.html" class="external-link">regular expression</a> used to match IGO names
 and identifiers. If <code>NULL</code>, all IGOs in <a href="igo_year_format3.html">igo_year_format3</a> are returned.
-Integer values are accepted.</p></dd>
+Numeric identifiers are accepted.</p></dd>
 
 
 <dt id="arg-exact">exact<a class="anchor" aria-label="anchor" href="#arg-exact"></a></dt>
@@ -85,8 +85,8 @@ complete match.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></code> with IGO identifiers, names, dates and other
-metadata from the latest available year for each IGO.</p>
+    <p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></code> with IGO identifiers, names, years and other
+metadata from the latest available IGO-year for each IGO.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -98,7 +98,7 @@ metadata from the latest available year for each IGO.</p>
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Pevehouse, J. C., Nordstrom, T., McManus, R. W. &amp; Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version 3.0
-data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
+data sets. <em>Journal of Peace Research</em>, <strong>57</strong>(3), 492–503.
 <a href="https://doi.org/10.1177/0022343319881175" class="external-link">doi:10.1177/0022343319881175</a>
 .</p>
     </div>
@@ -115,7 +115,7 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">all</span> <span class="op">&lt;-</span> <span class="fu">igo_search</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">all</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">all</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 534 × 18</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ionum ioname   orgname      longorgname label sdate deaddate  dead integrated</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -135,8 +135,8 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   imputed &lt;dbl&gt;, political &lt;dbl&gt;, social &lt;dbl&gt;, economic &lt;dbl&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Search by pattern.</span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"EU"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"EU"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 55 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ionum ioname   orgname                                         </span>
@@ -153,8 +153,8 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">1</span>300 CONFEJES Conference des Ministres jeunesse...Francais    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 45 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"EU"</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"EU"</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ionum ioname orgname       </span>
@@ -162,8 +162,8 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">1</span>830 EU     European Union</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Search by numeric identifier.</span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 62 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ionum ioname orgname                             </span>
@@ -180,8 +180,8 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   810 BIS    Bank for International Settlements  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 52 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="fl">10</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="fl">10</span>, exact <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ionum ioname orgname              </span>
@@ -189,8 +189,8 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>    10 ACPEU  ACP/EU Joint Assembly</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Search with a regular expression.</span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"NAFTA|UN|EU"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"NAFTA|UN|EU"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 196 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ionum ioname   orgname                                                  </span>
@@ -208,8 +208,8 @@ data sets. <em>Journal of Peace Research, 57</em>(3), 492–503.
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 186 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Search for several exact identifiers.</span></span></span>
-<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"^NAFTA$|^UN$|^EU$"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">igo_search</span><span class="op">(</span><span class="st">"^NAFTA$|^UN$|^EU$"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ionum</span><span class="op">:</span><span class="va">orgname</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ionum ioname orgname           </span>

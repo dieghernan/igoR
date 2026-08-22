@@ -44,7 +44,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">igoR</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.3.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,7 +113,7 @@
 <li>
 <strong>sf</strong> package for working with spatial features.</li>
 </ul>
-<p>The <strong>countrycode</strong> package is useful for translating between country names and coding schemes such as Correlates of War (COW), ISO3, NUTS and FIPS.</p>
+<p>The <strong>countrycode</strong> package is useful for translating country names and codes across schemes such as Correlates of War (COW), ISO3, NUTS and FIPS.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/igoR/">igoR</a></span><span class="op">)</span></span>
 <span></span>
@@ -133,9 +133,9 @@
 <span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get_countries.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract three years. Some COW codes do not have ISO equivalents.</span></span>
-<span><span class="va">un_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="st">"UN"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1950</span>, <span class="fl">1980</span>, <span class="fl">2010</span><span class="op">)</span>, status <span class="op">=</span> <span class="st">"Full Membership"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">un_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_members.html">igo_members</a></span><span class="op">(</span><span class="st">"UN"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1950</span>, <span class="fl">1980</span>, <span class="fl">2010</span><span class="op">)</span>, status <span class="op">=</span> <span class="st">"Full Membership"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Add the ISO3 code.</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span>, warn <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span>, warn <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">orgname</span>, <span class="va">ISO3_CODE</span>, <span class="va">category</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Build an auxiliary data frame to collect every ISO3-year pair.</span></span>
@@ -143,13 +143,13 @@
 <span>  ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">world</span><span class="op">$</span><span class="va">ISO3_CODE</span><span class="op">)</span>,</span>
 <span>  year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">un_all</span><span class="op">$</span><span class="va">year</span><span class="op">)</span>,</span>
 <span>  stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Merge everything with the spatial object.</span></span>
-<span><span class="va">un_all_sf</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">un_all_sf</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Expand to all cases.</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">base_df</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">base_df</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Add information.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">un_all</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ISO3_CODE"</span>, <span class="st">"year"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The map is approximate because the base geometries represent modern states. Historical states such as Czechoslovakia, East Germany and West Germany are not included.</p>
@@ -175,8 +175,8 @@
 <span>    axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-UNMaps-1.png" alt="UN members (1950, 1980, 2010)" width="100%"><p class="caption">
-UN members (1950, 1980, 2010)
+<img src="./fig-UNMaps-1.png" alt="Figure 1: UN members (1950, 1980, 2010)" width="100%"><p class="caption">
+Figure 1: UN members (1950, 1980, 2010)
 </p>
 </div>
 </section><section class="level2"><h2 id="joint-memberships-with-australia">Joint memberships with Australia<a class="anchor" aria-label="anchor" href="#joint-memberships-with-australia"></a>
@@ -185,19 +185,19 @@ UN members (1950, 1980, 2010)
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Count full joint memberships in 2014.</span></span>
 <span><span class="co"># Find states in the state system in 2014.</span></span>
-<span><span class="va">states2014</span> <span class="op">&lt;-</span> <span class="va">states2016</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">states2014</span> <span class="op">&lt;-</span> <span class="va">states2016</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">styear</span> <span class="op">&lt;=</span> <span class="fl">2014</span> <span class="op">&amp;</span> <span class="va">endyear</span> <span class="op">&gt;=</span> <span class="fl">2014</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Find joint memberships with Australia.</span></span>
-<span><span class="va">shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="st">"AUL"</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">states2014</span><span class="op">$</span><span class="va">statenme</span><span class="op">)</span>, year <span class="op">=</span> <span class="fl">2014</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>shared <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html" class="external-link">c_across</a></span><span class="op">(</span><span class="va">aaaid</span><span class="op">:</span><span class="va">wassen</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode2</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span>, warn <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="st">"AUL"</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">states2014</span><span class="op">$</span><span class="va">statenme</span><span class="op">)</span>, year <span class="op">=</span> <span class="fl">2014</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>shared <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html" class="external-link">c_across</a></span><span class="op">(</span><span class="va">aaaid</span><span class="op">:</span><span class="va">wassen</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode2</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span>, warn <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ISO3_CODE</span>, <span class="va">shared</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Merge with the map.</span></span>
-<span><span class="va">sharedmap</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">shared</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">sharedmap</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">shared</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ISO3_CODE</span>, <span class="va">shared</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Plot with a custom palette.</span></span>
@@ -208,7 +208,7 @@ UN members (1950, 1980, 2010)
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">shared</span><span class="op">)</span>, color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co"># Highlight Australia.</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span></span>
-<span>    data <span class="op">=</span> <span class="va">sharedmap</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">ISO3_CODE</span> <span class="op">==</span> <span class="st">"AUS"</span><span class="op">)</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">sharedmap</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">ISO3_CODE</span> <span class="op">==</span> <span class="st">"AUS"</span><span class="op">)</span>,</span>
 <span>    fill <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>    color <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
@@ -237,8 +237,8 @@ UN members (1950, 1980, 2010)
 <span>    legend.key.height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"lines"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-AustShared-1.png" alt="Full joint memberships with Australia (2014)" width="100%"><p class="caption">
-Full joint memberships with Australia (2014)
+<img src="./fig-AustShared-1.png" alt="Figure 2: Full joint memberships with Australia (2014)" width="100%"><p class="caption">
+Figure 2: Full joint memberships with Australia (2014)
 </p>
 </div>
 </section><section class="level2"><h2 id="joint-memberships-across-north-america">Joint memberships across North America<a class="anchor" aria-label="anchor" href="#joint-memberships-across-north-america"></a>
@@ -250,14 +250,14 @@ Full joint memberships with Australia (2014)
 <span></span>
 <span><span class="co"># Find joint memberships.</span></span>
 <span><span class="va">cntries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"CAN"</span>, <span class="st">"MEX"</span><span class="op">)</span></span>
-<span><span class="va">all</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="va">cntries</span>, <span class="va">cntries</span>, <span class="va">years</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html" class="external-link">c_across</a></span><span class="op">(</span><span class="va">aaaid</span><span class="op">:</span><span class="va">wassen</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode1</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">all</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/igo_dyadic.html">igo_dyadic</a></span><span class="op">(</span><span class="va">cntries</span>, <span class="va">cntries</span>, <span class="va">years</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html" class="external-link">c_across</a></span><span class="op">(</span><span class="va">aaaid</span><span class="op">:</span><span class="va">wassen</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ISO3_CODE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html" class="external-link">countrycode</a></span><span class="op">(</span><span class="va">ccode1</span>, <span class="st">"cown"</span>, <span class="st">"iso3c"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ISO3_CODE</span>, <span class="va">year</span>, <span class="va">value</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Get shapes for the map.</span></span>
-<span><span class="va">countries_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get_countries.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">countries_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/giscoR/reference/gisco_get_countries.html" class="external-link">gisco_get_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USA"</span>, <span class="st">"MEX"</span>, <span class="st">"CAN"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">all</span>, by <span class="op">=</span> <span class="st">"ISO3_CODE"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Plot the map.</span></span>
@@ -284,8 +284,8 @@ Full joint memberships with Australia (2014)
 <span>    strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"grey90"</span>, colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-NAShared-1.png" alt="Full joint memberships in North America (1930-2010)" width="100%"><p class="caption">
-Full joint memberships in North America (1930-2010)
+<img src="./fig-NAShared-1.png" alt="Figure 3: Full joint memberships in North America (1930-2010)" width="100%"><p class="caption">
+Figure 3: Full joint memberships in North America (1930-2010)
 </p>
 </div>
 </section><section class="level2 unnumbered"><h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>

@@ -1,6 +1,7 @@
-# Find state codes, abbreviations and names
+# Find Correlates of War state codes, abbreviations and names
 
-Finds Correlates of War codes, abbreviations and names for states.
+Finds Correlates of War country codes, abbreviations and names for
+states.
 
 ## Usage
 
@@ -32,7 +33,7 @@ identifiers used by
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -48,33 +49,33 @@ Other query functions:
 ``` r
 library(dplyr)
 
-igo_search_states("Spain") %>% as_tibble()
+igo_search_states("Spain") |> as_tibble()
 #> # A tibble: 1 × 4
 #>   ccode stateabb statenme state
 #>   <int> <chr>    <chr>    <chr>
 #> 1   230 SPN      Spain    spain
 
-igo_search_states(c(20, 150)) %>% as_tibble()
+igo_search_states(c(20, 150)) |> as_tibble()
 #> # A tibble: 2 × 4
 #>   ccode stateabb statenme state   
 #>   <int> <chr>    <chr>    <chr>   
 #> 1    20 CAN      Canada   canada  
 #> 2   150 PAR      Paraguay paraguay
 
-igo_search_states("congo") %>% as_tibble()
+igo_search_states("congo") |> as_tibble()
 #> # A tibble: 1 × 4
 #>   ccode stateabb statenme state     
 #>   <int> <chr>    <chr>    <chr>     
 #> 1   484 CON      Congo    congobrazz
 
-igo_search_states(c("Germany", "papal states")) %>% as_tibble()
+igo_search_states(c("Germany", "papal states")) |> as_tibble()
 #> # A tibble: 2 × 4
 #>   ccode stateabb statenme     state      
 #>   <int> <chr>    <chr>        <chr>      
 #> 1   255 GMY      Germany      germany    
 #> 2   327 PAP      Papal States papalstates
 
-igo_search_states(c("FRN", "United Kingdom", 240, "italy")) %>% as_tibble()
+igo_search_states(c("FRN", "United Kingdom", 240, "italy")) |> as_tibble()
 #> # A tibble: 4 × 4
 #>   ccode stateabb statenme       state  
 #>   <int> <chr>    <chr>          <chr>  

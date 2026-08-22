@@ -1,8 +1,9 @@
 # igoR
 
-**igoR** provides tools for searching, extracting and recoding the
-Intergovernmental Organizations Database (version 3), distributed by the
-Correlates of War Project ([Pevehouse et al. 2020](#ref-pevehouse2020)).
+**igoR** provides tools for searching, extracting and recoding data from
+the Intergovernmental Organizations Database (version 3), distributed by
+the Correlates of War Project ([Pevehouse et al.
+2020](#ref-pevehouse2020)).
 
 The IGO-year data set contains **534** IGOs recorded from 1816 to 2014.
 The package also includes country-year membership data, state system
@@ -16,15 +17,15 @@ and functions for deriving dyad-year joint membership results.
 Note
 
 This package is stable and maintained on a best-effort basis. I
-currently prioritize CRAN compatibility, bug fixes and regressions over
-new features.
+currently prioritize **CRAN** compatibility, bug fixes and regressions
+over new features.
 
 ## Installation
 
 Check the documentation for the development version at
 <https://dieghernan.github.io/igoR/dev/>.
 
-You can install the development version from GitHub:
+You can install the development version from **GitHub**:
 
 ``` r
 
@@ -32,7 +33,7 @@ pak::pak("dieghernan/igoR")
 ```
 
 Alternatively, you can install **igoR** using
-[r-universe](https://dieghernan.r-universe.dev/igoR):
+[**r-universe**](https://dieghernan.r-universe.dev/igoR):
 
 ``` r
 
@@ -125,21 +126,21 @@ Table 3: EEC members (1992)
 ## Citation
 
 Hernangómez D (2026). *igoR: Access the Intergovernmental Organizations
-Database*.
+(IGO) Database*.
 [doi:10.32614/CRAN.package.igoR](https://doi.org/10.32614/CRAN.package.igoR).
 <https://dieghernan.github.io/igoR/>.
 
-For LaTeX users, a BibTeX entry is:
+For **LaTeX** users, a **BibTeX** entry is:
 
 ``` R
 @Manual{R-igoR,
-  title = {{igoR}: Access the Intergovernmental Organizations Database},
+  title = {{igoR}: Access the Intergovernmental Organizations ({IGO}) Database},
   doi = {10.32614/CRAN.package.igoR},
   author = {Diego Hernangómez},
   year = {2026},
-  version = {1.0.2.9000},
+  version = {1.0.3.9000},
   url = {https://dieghernan.github.io/igoR/},
-  abstract = {Provides tools for searching, extracting and recoding the Intergovernmental Organizations Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
+  abstract = {Provides tools for searching, extracting and recoding the Intergovernmental Organizations (IGO) Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
 }
 ```
 

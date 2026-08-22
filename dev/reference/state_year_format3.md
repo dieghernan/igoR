@@ -18,12 +18,12 @@ rows. Relevant fields:
   [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
 
 - `aaaid...wassen`: IGO variables containing state membership status.
-  See the Details section.
+  See the **Details** section.
 
 ## Source
 
 [Intergovernmental Organizations (version
-3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata Files
+3)](https://correlatesofwar.org/data-sets/IGOs/), IGO Data Stata files
 from the Correlates of War Project.
 
 See the [Codebook Version 3 IGO
@@ -60,13 +60,13 @@ Data distributed with [igoR](https://CRAN.R-project.org/package=igoR).
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
 ## See also
 
-[`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+[`countrycode::countrycode()`](https://rdrr.io/pkg/countrycode/man/countrycode.html)
 to convert between different country code schemes.
 
 Other data sets:

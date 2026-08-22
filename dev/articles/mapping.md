@@ -11,8 +11,8 @@ uses these packages for geospatial data:
 - **ggplot2** package for plotting.
 - **sf** package for working with spatial features.
 
-The **countrycode** package is useful for translating between country
-names and coding schemes such as Correlates of War (COW), ISO3, NUTS and
+The **countrycode** package is useful for translating country names and
+codes across schemes such as Correlates of War (COW), ISO3, NUTS and
 FIPS.
 
 ``` r
@@ -40,9 +40,9 @@ First, extract the membership data.
 world <- gisco_get_countries()
 
 # Extract three years. Some COW codes do not have ISO equivalents.
-un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") %>%
+un_all <- igo_members("UN", c(1950, 1980, 2010), status = "Full Membership") |>
   # Add the ISO3 code.
-  mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) %>%
+  mutate(ISO3_CODE = countrycode(ccode, "cown", "iso3c", warn = FALSE)) |>
   select(year, orgname, ISO3_CODE, category)
 
 # Build an auxiliary data frame to collect every ISO3-year pair.
@@ -50,13 +50,13 @@ base_df <- expand.grid(
   ISO3_CODE = unique(world$ISO3_CODE),
   year = unique(un_all$year),
   stringsAsFactors = FALSE
-) %>%
+) |>
   as_tibble()
 
 # Merge everything with the spatial object.
-un_all_sf <- world %>%
+un_all_sf <- world |>
   # Expand to all cases.
-  left_join(base_df, by = "ISO3_CODE") %>%
+  left_join(base_df, by = "ISO3_CODE") |>
   # Add information.
   left_join(un_all, by = c("ISO3_CODE", "year"))
 ```
@@ -90,9 +90,9 @@ ggplot(un_all_sf) +
   )
 ```
 
-![UN members (1950, 1980, 2010)](./fig-UNMaps-1.png)
+![Figure 1: UN members (1950, 1980, 2010)](./fig-UNMaps-1.png)
 
-UN members (1950, 1980, 2010)
+Figure 1: UN members (1950, 1980, 2010)
 
 ## Joint memberships with Australia
 
@@ -104,19 +104,19 @@ were both full members in 2014.
 
 # Count full joint memberships in 2014.
 # Find states in the state system in 2014.
-states2014 <- states2016 %>%
+states2014 <- states2016 |>
   filter(styear <= 2014 & endyear >= 2014)
 
 # Find joint memberships with Australia.
-shared <- igo_dyadic("AUL", as.character(states2014$statenme), year = 2014) %>%
-  rowwise() %>%
-  mutate(shared = sum(c_across(aaaid:wassen) == 1)) %>%
-  mutate(ISO3_CODE = countrycode(ccode2, "cown", "iso3c", warn = FALSE)) %>%
+shared <- igo_dyadic("AUL", as.character(states2014$statenme), year = 2014) |>
+  rowwise() |>
+  mutate(shared = sum(c_across(aaaid:wassen) == 1)) |>
+  mutate(ISO3_CODE = countrycode(ccode2, "cown", "iso3c", warn = FALSE)) |>
   select(ISO3_CODE, shared)
 
 # Merge with the map.
-sharedmap <- world %>%
-  left_join(shared, by = "ISO3_CODE") %>%
+sharedmap <- world |>
+  left_join(shared, by = "ISO3_CODE") |>
   select(ISO3_CODE, shared)
 
 # Plot with a custom palette.
@@ -127,7 +127,7 @@ ggplot(sharedmap) +
   geom_sf(aes(fill = shared), color = NA) +
   # Highlight Australia.
   geom_sf(
-    data = sharedmap %>% filter(ISO3_CODE == "AUS"),
+    data = sharedmap |> filter(ISO3_CODE == "AUS"),
     fill = "black",
     color = NA,
   ) +
@@ -157,9 +157,10 @@ ggplot(sharedmap) +
   )
 ```
 
-![Full joint memberships with Australia (2014)](./fig-AustShared-1.png)
+![Figure 2: Full joint memberships with Australia
+(2014)](./fig-AustShared-1.png)
 
-Full joint memberships with Australia (2014)
+Figure 2: Full joint memberships with Australia (2014)
 
 ## Joint memberships across North America
 
@@ -173,14 +174,14 @@ years <- seq(1930, 2010, 10)
 
 # Find joint memberships.
 cntries <- c("USA", "CAN", "MEX")
-all <- igo_dyadic(cntries, cntries, years) %>%
-  rowwise() %>%
-  mutate(value = sum(c_across(aaaid:wassen) == 1)) %>%
-  mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c")) %>%
+all <- igo_dyadic(cntries, cntries, years) |>
+  rowwise() |>
+  mutate(value = sum(c_across(aaaid:wassen) == 1)) |>
+  mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c")) |>
   select(ISO3_CODE, year, value)
 
 # Get shapes for the map.
-countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) %>%
+countries_sf <- gisco_get_countries(country = c("USA", "MEX", "CAN")) |>
   left_join(all, by = "ISO3_CODE")
 
 # Plot the map.
@@ -208,10 +209,10 @@ ggplot(countries_sf) +
   )
 ```
 
-![Full joint memberships in North America
+![Figure 3: Full joint memberships in North America
 (1930-2010)](./fig-NAShared-1.png)
 
-Full joint memberships in North America (1930-2010)
+Figure 3: Full joint memberships in North America (1930-2010)
 
 ## References
 

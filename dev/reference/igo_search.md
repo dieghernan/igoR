@@ -21,7 +21,7 @@ reference.
   A [regular expression](https://rdrr.io/r/base/regex.html) used to
   match IGO names and identifiers. If `NULL`, all IGOs in
   [igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md)
-  are returned. Integer values are accepted.
+  are returned. Numeric identifiers are accepted.
 
 - exact:
 
@@ -31,8 +31,8 @@ reference.
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with IGO
-identifiers, names, dates and other metadata from the latest available
-year for each IGO.
+identifiers, names, years and other metadata from the latest available
+IGO-year for each IGO.
 
 ## Details
 
@@ -46,7 +46,7 @@ The `label` column provides a cleaned version of `longorgname`.
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -64,7 +64,7 @@ Other query functions:
 library(dplyr)
 all <- igo_search()
 
-all %>% tibble()
+all |> tibble()
 #> # A tibble: 534 × 18
 #>    ionum ioname   orgname      longorgname label sdate deaddate  dead integrated
 #>    <dbl> <chr>    <chr>        <chr>       <chr> <dbl>    <dbl> <dbl>      <dbl>
@@ -84,8 +84,8 @@ all %>% tibble()
 #> #   imputed <dbl>, political <dbl>, social <dbl>, economic <dbl>
 
 # Search by pattern.
-igo_search("EU") %>%
-  select(ionum:orgname) %>%
+igo_search("EU") |>
+  select(ionum:orgname) |>
   tibble()
 #> # A tibble: 55 × 3
 #>    ionum ioname   orgname                                         
@@ -102,8 +102,8 @@ igo_search("EU") %>%
 #> 10  1300 CONFEJES Conference des Ministres jeunesse...Francais    
 #> # ℹ 45 more rows
 
-igo_search("EU", exact = TRUE) %>%
-  select(ionum:orgname) %>%
+igo_search("EU", exact = TRUE) |>
+  select(ionum:orgname) |>
   tibble()
 #> # A tibble: 1 × 3
 #>   ionum ioname orgname       
@@ -111,8 +111,8 @@ igo_search("EU", exact = TRUE) %>%
 #> 1  1830 EU     European Union
 
 # Search by numeric identifier.
-igo_search(10) %>%
-  select(ionum:orgname) %>%
+igo_search(10) |>
+  select(ionum:orgname) |>
   tibble()
 #> # A tibble: 62 × 3
 #>    ionum ioname orgname                             
@@ -129,8 +129,8 @@ igo_search(10) %>%
 #> 10   810 BIS    Bank for International Settlements  
 #> # ℹ 52 more rows
 
-igo_search(10, exact = TRUE) %>%
-  select(ionum:orgname) %>%
+igo_search(10, exact = TRUE) |>
+  select(ionum:orgname) |>
   tibble()
 #> # A tibble: 1 × 3
 #>   ionum ioname orgname              
@@ -138,8 +138,8 @@ igo_search(10, exact = TRUE) %>%
 #> 1    10 ACPEU  ACP/EU Joint Assembly
 
 # Search with a regular expression.
-igo_search("NAFTA|UN|EU") %>%
-  select(ionum:orgname) %>%
+igo_search("NAFTA|UN|EU") |>
+  select(ionum:orgname) |>
   tibble()
 #> # A tibble: 196 × 3
 #>    ionum ioname   orgname                                                  
@@ -157,8 +157,8 @@ igo_search("NAFTA|UN|EU") %>%
 #> # ℹ 186 more rows
 
 # Search for several exact identifiers.
-igo_search("^NAFTA$|^UN$|^EU$") %>%
-  select(ionum:orgname) %>%
+igo_search("^NAFTA$|^UN$|^EU$") |>
+  select(ionum:orgname) |>
   tibble()
 #> # A tibble: 3 × 3
 #>   ionum ioname orgname           

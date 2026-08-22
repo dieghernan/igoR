@@ -1,4 +1,4 @@
-# Extract IGO membership records
+# Extract IGO membership records by organization
 
 Extracts state-level membership records for one or more IGOs and years.
 
@@ -31,20 +31,21 @@ reference.
 
 - status:
 
-  A character vector of membership statuses to extract. See
+  A character vector of membership statuses to extract from state-level
+  IGO membership records. See
   [state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md)
   for valid statuses.
 
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
-per matching state, IGO, year and membership status.
+per matching state, IGO-year and membership status.
 
 ## References
 
 Pevehouse, J. C., Nordstrom, T., McManus, R. W. & Jamison, A. S. (2020).
 Tracking organizations in the world: The Correlates of War IGO Version
-3.0 data sets. *Journal of Peace Research, 57*(3), 492–503.
+3.0 data sets. *Journal of Peace Research*, **57**(3), 492–503.
 [doi:10.1177/0022343319881175](https://doi.org/10.1177/0022343319881175)
 .
 
@@ -70,7 +71,7 @@ library(dplyr)
 #> The following objects are masked from ‘package:base’:
 #> 
 #>     intersect, setdiff, setequal, union
-igo_members("EU", year = 1993) %>% as_tibble()
+igo_members("EU", year = 1993) |> as_tibble()
 #> # A tibble: 12 × 8
 #>    ioname ccode state       statenme        year value category        orgname  
 #>    <chr>  <dbl> <chr>       <chr>          <dbl> <dbl> <fct>           <chr>    
@@ -86,7 +87,7 @@ igo_members("EU", year = 1993) %>% as_tibble()
 #> 10 EU       325 italy       Italy           1993     1 Full Membership European…
 #> 11 EU       350 greece      Greece          1993     1 Full Membership European…
 #> 12 EU       390 denmark     Denmark         1993     1 Full Membership European…
-igo_members("EU") %>% as_tibble()
+igo_members("EU") |> as_tibble()
 #> # A tibble: 28 × 8
 #>    ioname ccode state       statenme        year value category        orgname  
 #>    <chr>  <dbl> <chr>       <chr>          <dbl> <dbl> <fct>           <chr>    
@@ -101,7 +102,7 @@ igo_members("EU") %>% as_tibble()
 #>  9 EU       255 germany     Germany         2014     1 Full Membership European…
 #> 10 EU       290 poland      Poland          2014     1 Full Membership European…
 #> # ℹ 18 more rows
-igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
+igo_members("NAFTA", year = c(1995:1998)) |> as_tibble()
 #> # A tibble: 12 × 8
 #>    ioname ccode state  statenme                  year value category     orgname
 #>    <chr>  <dbl> <chr>  <chr>                    <dbl> <dbl> <fct>        <chr>  
@@ -119,7 +120,7 @@ igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
 #> 12 NAFTA     70 mexico Mexico                    1998     1 Full Member… North …
 
 # Extract multiple membership statuses.
-igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
+igo_members("ACCT", status = c("Associate Membership", "Observer")) |>
   as_tibble()
 #> # A tibble: 25 × 8
 #>    ioname ccode state       statenme            year value category      orgname
@@ -137,7 +138,7 @@ igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
 #> # ℹ 15 more rows
 
 # States that are not members of the UN.
-igo_members("UN", status = "No Membership") %>%
+igo_members("UN", status = "No Membership") |>
   as_tibble()
 #> # A tibble: 2 × 8
 #>   ioname ccode state  statenme  year value category      orgname       
@@ -146,8 +147,8 @@ igo_members("UN", status = "No Membership") %>%
 #> 2 UN       713 taiwan Taiwan    2014     0 No Membership United Nations
 
 # Vectorized search.
-igo_members(c("NAFTA", "EU"), year = 1993) %>%
-  as_tibble() %>%
+igo_members(c("NAFTA", "EU"), year = 1993) |>
+  as_tibble() |>
   arrange(state)
 #> # A tibble: 15 × 8
 #>    ioname ccode state       statenme                 year value category orgname

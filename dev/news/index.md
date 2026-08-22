@@ -2,6 +2,12 @@
 
 ## igoR (development version)
 
+- The minimum required **R** version is now 4.1.0.
+
+## igoR 1.0.3
+
+CRAN release: 2026-06-24
+
 - Internal code paths were simplified with AI-assisted refactoring to
   reduce duplicated result handling, status validation and dyad-year
   joint membership recoding.
@@ -22,7 +28,7 @@ CRAN release: 2026-05-23
 CRAN release: 2026-03-13
 
 - Updated the `COPYRIGHTS` file.
-- Migrated documentation and vignettes to Quarto.
+- Migrated documentation and vignettes to **Quarto**.
 
 ## igoR 1.0.0
 
@@ -77,7 +83,7 @@ CRAN release: 2021-10-20
 CRAN release: 2021-08-04
 
 - Compiled the “Mapping IGOs” article as a vignette.
-- Updated documentation. It is now in Markdown format using
+- Updated documentation. It is now in **Markdown** format using
   `roxygen2md::roxygen2md()`.
 - Moved tests to **testthat**.
 
@@ -90,7 +96,7 @@ CRAN release: 2021-01-27
 ## igoR 0.1.0
 
 - Generalized search to ignore case.
-- More vignettes are available on the
+- Additional vignettes are available on the
   [website](https://dieghernan.github.io/igoR/).
 - `cow_country_codes` is now internal.
 - [`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
