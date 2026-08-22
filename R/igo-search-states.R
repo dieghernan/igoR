@@ -13,11 +13,11 @@
 #' abbreviations, names and the matching `state` identifiers used by
 #' [state_year_format3].
 #'
-#' @inherit igo_members source references
+#' @inherit igo_dyadic source references
 #'
-#' @seealso [states2024].
+#' @seealso [states2024] for state codes, abbreviations and names.
 #'
-#' @family query functions
+#' @family queries
 #'
 #' @export
 #' @encoding UTF-8

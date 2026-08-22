@@ -6,21 +6,9 @@
 #' Creates dyad-year IGO data. Each row represents a pair of states in one year
 #' and summarizes their joint memberships across IGOs.
 #'
-#' @param country1,country2 A state or a vector of states to compare. Each value
-#'   can be any state name or Correlates of War code in [states2024].
-#' @param year An integer or vector of years to assess.
-#' @param ioname An optional IGO identifier or vector of identifiers. If `NULL`
-#'   (the default), all IGOs are included. Use [igo_search()] to find valid
-#'   identifiers.
-#'
-#' @returns
-#' A coded [`data.frame`][data.frame()] with one row per state-pair-year and one
-#' column per selected IGO. See **Details** for the membership status
-#' coding scheme.
-#'
 #' @details
 #' The arguments `country1` and `country2` are named for compatibility with
-#' earlier versions of **igoR**. Values are matched against states in
+#' earlier versions of \CRANpkg{igoR}. Values are matched against states in
 #' [states2024].
 #'
 #' This function reproduces the structure of the original dyad-year file
@@ -52,7 +40,7 @@
 #' ```
 #'
 #' Use [igo_recode_dyadic()] to recode the numerical values as
-#' [factors][base::factor].
+#' [factors][base::factor()].
 #'
 #' If one state in an IGO is a full member but the other is an associate member
 #' or observer, that IGO is not coded as a joint membership.
@@ -66,6 +54,18 @@
 #' See [Codebook Version 3 IGO
 #' Data](https://correlatesofwar.org/data-sets/IGOs/).
 #'
+#' @param country1,country2 A state or a vector of states to compare. Each value
+#'   can be any state name or Correlates of War code in [states2024].
+#' @param year An integer or vector of years to assess.
+#' @param ioname An optional IGO identifier or vector of identifiers. If `NULL`
+#'   (the default), all IGOs are included. Use [igo_search()] to find valid
+#'   identifiers.
+#'
+#' @returns
+#' A coded [`data.frame`][data.frame()] with one row per state-pair-year and one
+#' column per selected IGO. See **Details** for the membership status
+#' coding scheme.
+#'
 #' @source
 #' [Codebook Version 3 IGO
 #' Data](https://correlatesofwar.org/data-sets/IGOs/) for the full
@@ -78,9 +78,11 @@
 #' \doi{10.1177/0022343319881175}.
 #'
 #' @seealso
-#' [state_year_format3], [states2024], [igo_search()], [igo_recode_dyadic()].
+#' [igo_recode_dyadic()] to recode results, [igo_search()] to find IGO
+#' identifiers, [states2024] for state identifiers and [state_year_format3]
+#' for the source membership data.
 #'
-#' @family membership functions
+#' @family membership
 #'
 #' @export
 #' @encoding UTF-8

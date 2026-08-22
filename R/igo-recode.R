@@ -1,11 +1,11 @@
 #' Recode membership status values
 #'
-#' @name igo_recode_igoyear
+#' @name igo_recode
 #' @rdname igo_recode
 #'
 #' @description
 #' Converts the numeric membership status values in [igo_year_format3],
-#' [state_year_format3] and [igo_dyadic()] into [factors][base::factor]. Use
+#' [state_year_format3] and [igo_dyadic()] into [factors][base::factor()]. Use
 #' [igo_recode_igoyear()] with values from [igo_year_format3],
 #' [igo_recode_stateyear()] with values from [state_year_format3] and
 #' [igo_recode_dyadic()] with values from [igo_dyadic()].
@@ -13,9 +13,11 @@
 #' @param x A numeric membership status value or vector of values to recode.
 #'
 #' @returns
-#' A [factor][base::factor] with the recoded membership status values.
+#' A [factor][base::factor()] with the recoded membership status values.
 #'
-#' @family recode helpers
+#' @seealso
+#' [igo_year_format3], [state_year_format3] and [igo_dyadic()] for the data
+#' corresponding to each recoding function.
 #'
 #' @export
 #' @encoding UTF-8

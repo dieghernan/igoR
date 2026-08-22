@@ -66,10 +66,9 @@ Correlates of War Project. 2025. "State System Membership, v2024."
 Online, \url{https://correlatesofwar.org/}.
 }
 \seealso{
-Other data sets:
+IGO data sets:
 \code{\link{igo_year_format3}},
 \code{\link{state_year_format3}}
 }
-\concept{data sets}
 \concept{datasets}
 \keyword{datasets}

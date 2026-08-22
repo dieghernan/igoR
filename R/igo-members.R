@@ -20,9 +20,10 @@
 #' @inherit igo_dyadic source references
 #'
 #' @seealso
-#' [igo_year_format3], [igo_search()], [state_year_format3].
+#' [igo_search()] to find IGO identifiers, [igo_year_format3] for IGO-year
+#' data and [state_year_format3] for state-year membership data.
 #'
-#' @family membership functions
+#' @family membership
 #'
 #' @export
 #' @encoding UTF-8

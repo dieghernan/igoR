@@ -65,10 +65,9 @@ data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}} to convert between different country code
 schemes.
 
-Other data sets:
+IGO data sets:
 \code{\link{igo_year_format3}},
 \code{\link{states2024}}
 }
-\concept{data sets}
 \concept{datasets}
 \keyword{datasets}

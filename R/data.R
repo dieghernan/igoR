@@ -42,7 +42,7 @@
 #' ```
 #'
 #' Use [igo_recode_igoyear()] to recode the numerical values as
-#' [factors][base::factor].
+#' [factors][base::factor()].
 #'
 #' @inherit igo_dyadic references
 #'
@@ -54,11 +54,10 @@
 #' See the [Codebook Version 3 IGO
 #' Data](https://correlatesofwar.org/data-sets/IGOs/) for the full reference.
 #'
-#' @family data sets
-#' @keywords datasets
-#' @concept datasets
-#'
 #' @note Data distributed with \CRANpkg{igoR}.
+#'
+#' @family datasets
+#' @keywords datasets
 #'
 #' @encoding UTF-8
 #'
@@ -128,7 +127,7 @@ NULL
 #' ```
 #'
 #' Use [igo_recode_stateyear()] to recode the numerical values as
-#' [factors][base::factor].
+#' [factors][base::factor()].
 #'
 #' See the [Codebook Version 3 IGO
 #' Data](https://correlatesofwar.org/data-sets/IGOs/).
@@ -139,9 +138,8 @@ NULL
 #' [countrycode::countrycode()] to convert between different country code
 #' schemes.
 #'
-#' @family data sets
+#' @family datasets
 #' @keywords datasets
-#' @concept datasets
 #'
 #' @encoding UTF-8
 #'
@@ -206,13 +204,12 @@ NULL
 #' Correlates of War Project. 2025. "State System Membership, v2024."
 #' Online, <https://correlatesofwar.org/>.
 #'
-#' @family data sets
-#' @keywords datasets
-#' @concept datasets
-#'
 #' @note
 #' The `state` variable was added to the original data to support comparisons
 #' across data sets in this package.
+#'
+#' @family datasets
+#' @keywords datasets
 #'
 #' @encoding UTF-8
 #'

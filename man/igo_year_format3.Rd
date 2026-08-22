@@ -85,10 +85,9 @@ data sets. \emph{Journal of Peace Research}, \strong{57}(3), 492–503.
 \doi{10.1177/0022343319881175}.
 }
 \seealso{
-Other data sets:
+IGO data sets:
 \code{\link{state_year_format3}},
 \code{\link{states2024}}
 }
-\concept{data sets}
 \concept{datasets}
 \keyword{datasets}

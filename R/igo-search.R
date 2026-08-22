@@ -5,6 +5,12 @@
 #' @description
 #' Searches for IGOs by name or regular expression.
 #'
+#' @details
+#' The information for each IGO is retrieved from the latest year available in
+#' [igo_year_format3].
+#'
+#' The `label` column provides a cleaned version of `longorgname`.
+#'
 #' @param pattern A [regular expression][base::regex] used to match IGO names
 #'   and identifiers. If `NULL`, all IGOs in [igo_year_format3] are returned.
 #'   Numeric identifiers are accepted.
@@ -15,17 +21,11 @@
 #' A [`data.frame`][data.frame()] with IGO identifiers, names, years and other
 #' metadata from the latest available IGO-year for each IGO.
 #'
-#' @details
-#' The information for each IGO is retrieved from the latest year available in
-#' [igo_year_format3].
+#' @inherit igo_dyadic source references
 #'
-#' The `label` column provides a cleaned version of `longorgname`.
+#' @seealso [igo_year_format3] for the IGO metadata being searched.
 #'
-#' @inherit igo_members source references
-#'
-#' @seealso [igo_year_format3].
-#'
-#' @family query functions
+#' @family queries
 #'
 #' @export
 #' @encoding UTF-8

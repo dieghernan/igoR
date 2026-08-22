@@ -5,7 +5,7 @@
 #' @description
 #' Extracts IGO membership records for one or more states and years.
 #'
-#' @inheritParams igo_search_states
+#' @inheritParams igo_search_states state
 #' @param year An integer or vector of years to assess. If `NULL`, the latest
 #'   available year for each state is used.
 #' @param status A character vector of membership statuses to extract from
@@ -16,12 +16,13 @@
 #' A [`data.frame`][data.frame()] with one row per matching state, IGO-year and
 #' membership status.
 #'
-#' @inherit igo_members source references
+#' @inherit igo_dyadic source references
 #'
 #' @seealso
-#' [igo_year_format3], [igo_search_states()], [states2024].
+#' [igo_search_states()] to find state identifiers, [igo_year_format3] for
+#' IGO-year membership data and [states2024] for state metadata.
 #'
-#' @family membership functions
+#' @family membership
 #'
 #' @export
 #' @encoding UTF-8
