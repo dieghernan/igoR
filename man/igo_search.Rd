@@ -38,34 +38,34 @@ The \code{label} column provides a cleaned version of \code{longorgname}.
 library(dplyr)
 all <- igo_search()
 
-all \%>\% tibble()
+all |> tibble()
 
 # Search by pattern.
-igo_search("EU") \%>\%
-  select(ionum:orgname) \%>\%
+igo_search("EU") |>
+  select(ionum:orgname) |>
   tibble()
 
-igo_search("EU", exact = TRUE) \%>\%
-  select(ionum:orgname) \%>\%
+igo_search("EU", exact = TRUE) |>
+  select(ionum:orgname) |>
   tibble()
 
 # Search by numeric identifier.
-igo_search(10) \%>\%
-  select(ionum:orgname) \%>\%
+igo_search(10) |>
+  select(ionum:orgname) |>
   tibble()
 
-igo_search(10, exact = TRUE) \%>\%
-  select(ionum:orgname) \%>\%
+igo_search(10, exact = TRUE) |>
+  select(ionum:orgname) |>
   tibble()
 
 # Search with a regular expression.
-igo_search("NAFTA|UN|EU") \%>\%
-  select(ionum:orgname) \%>\%
+igo_search("NAFTA|UN|EU") |>
+  select(ionum:orgname) |>
   tibble()
 
 # Search for several exact identifiers.
-igo_search("^NAFTA$|^UN$|^EU$") \%>\%
-  select(ionum:orgname) \%>\%
+igo_search("^NAFTA$|^UN$|^EU$") |>
+  select(ionum:orgname) |>
   tibble()
 \dontshow{\}) # examplesIf}
 }

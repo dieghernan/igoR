@@ -18,10 +18,10 @@ library(dplyr)
 # unzip("./data-raw/igo_year_formatv3.zip", exdir = "./data-raw/igo_year_formatv3")
 
 # Read
-igo_year_format3 <- haven::read_dta("data-raw/igo_year_format_3.dta") %>%
+igo_year_format3 <- haven::read_dta("data-raw/igo_year_format_3.dta") |>
   as.data.frame()
 
-state_year_format3 <- haven::read_dta("./data-raw/state_year_format3.dta") %>%
+state_year_format3 <- haven::read_dta("./data-raw/state_year_format3.dta") |>
   as.data.frame()
 
 

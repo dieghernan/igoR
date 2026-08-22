@@ -32,21 +32,21 @@ Extracts state-level membership records for one or more IGOs and years.
 \examples{
 \dontshow{if (requireNamespace("dplyr", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 library(dplyr)
-igo_members("EU", year = 1993) \%>\% as_tibble()
-igo_members("EU") \%>\% as_tibble()
-igo_members("NAFTA", year = c(1995:1998)) \%>\% as_tibble()
+igo_members("EU", year = 1993) |> as_tibble()
+igo_members("EU") |> as_tibble()
+igo_members("NAFTA", year = c(1995:1998)) |> as_tibble()
 
 # Extract multiple membership statuses.
-igo_members("ACCT", status = c("Associate Membership", "Observer")) \%>\%
+igo_members("ACCT", status = c("Associate Membership", "Observer")) |>
   as_tibble()
 
 # States that are not members of the UN.
-igo_members("UN", status = "No Membership") \%>\%
+igo_members("UN", status = "No Membership") |>
   as_tibble()
 
 # Vectorized search.
-igo_members(c("NAFTA", "EU"), year = 1993) \%>\%
-  as_tibble() \%>\%
+igo_members(c("NAFTA", "EU"), year = 1993) |>
+  as_tibble() |>
   arrange(state)
 
 # Use the countrycode package to add codes.

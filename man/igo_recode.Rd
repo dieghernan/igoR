@@ -33,19 +33,19 @@ data("igo_year_format3")
 # Recode membership status values for selected states.
 library(dplyr)
 
-samp <- igo_year_format3 \%>\%
-  select(ioname:year, spain, france) \%>\%
-  filter(year > 2000) \%>\%
+samp <- igo_year_format3 |>
+  select(ioname:year, spain, france) |>
+  filter(year > 2000) |>
   as_tibble()
 
 glimpse(samp)
 
 # Recode the membership columns.
-samp \%>\%
+samp |>
   mutate(
     spain = igo_recode_igoyear(spain),
     france = igo_recode_igoyear(france)
-  ) \%>\%
+  ) |>
   glimpse()
 \dontshow{\}) # examplesIf}
 }

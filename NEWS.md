@@ -1,3 +1,7 @@
+# igoR (development version)
+
+- The minimum required **R** version is now 4.1.0.
+
 # igoR 1.0.3
 
 - Internal code paths were simplified with AI-assisted refactoring to reduce

@@ -68,24 +68,24 @@
 #' # Show a glimpse.
 #' library(dplyr)
 #'
-#' igo_year_format3 %>%
-#'   select(ioname:year, spain, france) %>%
-#'   filter(year > 1990) %>%
+#' igo_year_format3 |>
+#'   select(ioname:year, spain, france) |>
+#'   filter(year > 1990) |>
 #'   glimpse()
 #'
 #' # Prepare a sample of numerical membership values.
-#' sample_igo_year <- igo_year_format3 %>%
-#'   as_tibble() %>%
-#'   select(ioname:year, spain, france) %>%
+#' sample_igo_year <- igo_year_format3 |>
+#'   as_tibble() |>
+#'   select(ioname:year, spain, france) |>
 #'   filter(year == 1990)
 #'
-#' sample_igo_year %>% glimpse()
+#' sample_igo_year |> glimpse()
 #'
 #' # Recode the membership columns.
-#' sample_igo_year_recoded <- sample_igo_year %>%
+#' sample_igo_year_recoded <- sample_igo_year |>
 #'   mutate(across(c(spain, france), igo_recode_igoyear))
 #'
-#' sample_igo_year_recoded %>% glimpse()
+#' sample_igo_year_recoded |> glimpse()
 NULL
 
 #' Country-year IGO membership data

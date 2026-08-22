@@ -13,8 +13,8 @@ states2016 <- read.csv2(
 )
 
 # Add codes from IGO
-codesigo <- igoR::state_year_format3 %>%
-  select(ccode, state) %>%
+codesigo <- igoR::state_year_format3 |>
+  select(ccode, state) |>
   unique()
 
 colnames(states2016) <- tolower(colnames(states2016))

@@ -25,15 +25,15 @@
 #' @examplesIf requireNamespace("dplyr", quietly = TRUE)
 #' library(dplyr)
 #'
-#' igo_search_states("Spain") %>% as_tibble()
+#' igo_search_states("Spain") |> as_tibble()
 #'
-#' igo_search_states(c(20, 150)) %>% as_tibble()
+#' igo_search_states(c(20, 150)) |> as_tibble()
 #'
-#' igo_search_states("congo") %>% as_tibble()
+#' igo_search_states("congo") |> as_tibble()
 #'
-#' igo_search_states(c("Germany", "papal states")) %>% as_tibble()
+#' igo_search_states(c("Germany", "papal states")) |> as_tibble()
 #'
-#' igo_search_states(c("FRN", "United Kingdom", 240, "italy")) %>% as_tibble()
+#' igo_search_states(c("FRN", "United Kingdom", 240, "italy")) |> as_tibble()
 igo_search_states <- function(state) {
   # Keep one lookup result for each input value.
   find_v <- lapply(state, igo_search_state_single)

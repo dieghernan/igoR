@@ -8,7 +8,7 @@ message: 'To cite package "igoR" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'igoR: Access the Intergovernmental Organizations (''IGO'') Database'
-version: 1.0.3
+version: 1.0.3.9000
 doi: 10.32614/CRAN.package.igoR
 identifiers:
 - type: doi
@@ -33,7 +33,7 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
   doi: 10.32614/CRAN.package.igoR
   year: '2026'
-  version: 1.0.3
+  version: 1.0.3.9000
   url: https://dieghernan.github.io/igoR/
   abstract: Provides tools for searching, extracting and recoding the Intergovernmental
     Organizations (IGO) Database (version 3), distributed by the Correlates of War
@@ -91,7 +91,7 @@ references:
     address: Vienna, Austria
   year: '2026'
   doi: 10.32614/R.manuals
-  version: '>= 3.6.0'
+  version: '>= 4.1.0'
 - type: software
   title: stats
   abstract: 'R: A Language and Environment for Statistical Computing'
