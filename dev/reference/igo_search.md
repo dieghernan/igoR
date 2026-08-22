@@ -52,9 +52,10 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-[igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md).
+[igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md)
+for the IGO metadata being searched.
 
-Other query functions:
+Search IGO and state metadata:
 [`igo_search_states()`](https://dieghernan.github.io/igoR/dev/reference/igo_search_states.md)
 
 ## Examples

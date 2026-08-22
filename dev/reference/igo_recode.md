@@ -34,6 +34,14 @@ igo_recode_dyadic(x)
 A [factor](https://rdrr.io/r/base/factor.html) with the recoded
 membership status values.
 
+## See also
+
+[igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
+[state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md)
+and
+[`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md)
+for the data corresponding to each recoding function.
+
 ## Examples
 
 ``` r

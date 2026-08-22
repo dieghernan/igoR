@@ -39,9 +39,10 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-[states2024](https://dieghernan.github.io/igoR/dev/reference/states2024.md).
+[states2024](https://dieghernan.github.io/igoR/dev/reference/states2024.md)
+for state codes, abbreviations and names.
 
-Other query functions:
+Search IGO and state metadata:
 [`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md)
 
 ## Examples

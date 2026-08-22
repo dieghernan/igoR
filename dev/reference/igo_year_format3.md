@@ -71,7 +71,7 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-Other data sets:
+IGO data sets:
 [`state_year_format3`](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md),
 [`states2024`](https://dieghernan.github.io/igoR/dev/reference/states2024.md)
 

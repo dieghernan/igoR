@@ -43,7 +43,8 @@ for the membership status coding scheme.
 ## Details
 
 The arguments `country1` and `country2` are named for compatibility with
-earlier versions of **igoR**. Values are matched against states in
+earlier versions of [igoR](https://CRAN.R-project.org/package=igoR).
+Values are matched against states in
 [states2024](https://dieghernan.github.io/igoR/dev/reference/states2024.md).
 
 This function reproduces the structure of the original dyad-year file
@@ -95,12 +96,16 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-[state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md),
-[states2024](https://dieghernan.github.io/igoR/dev/reference/states2024.md),
-[`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md),
-[`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md).
+[`igo_recode_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_recode.md)
+to recode results,
+[`igo_search()`](https://dieghernan.github.io/igoR/dev/reference/igo_search.md)
+to find IGO identifiers,
+[states2024](https://dieghernan.github.io/igoR/dev/reference/states2024.md)
+for state identifiers and
+[state_year_format3](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md)
+for the source membership data.
 
-Other membership functions:
+Extract IGO membership data:
 [`igo_members()`](https://dieghernan.github.io/igoR/dev/reference/igo_members.md),
 [`igo_state_membership()`](https://dieghernan.github.io/igoR/dev/reference/igo_state_membership.md)
 

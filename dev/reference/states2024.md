@@ -91,7 +91,7 @@ Online, <https://correlatesofwar.org/>.
 
 ## See also
 
-Other data sets:
+IGO data sets:
 [`igo_year_format3`](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
 [`state_year_format3`](https://dieghernan.github.io/igoR/dev/reference/state_year_format3.md)
 

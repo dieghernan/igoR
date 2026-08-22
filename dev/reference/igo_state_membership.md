@@ -48,11 +48,14 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-[igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
-[`igo_search_states()`](https://dieghernan.github.io/igoR/dev/reference/igo_search_states.md),
-[states2024](https://dieghernan.github.io/igoR/dev/reference/states2024.md).
+[`igo_search_states()`](https://dieghernan.github.io/igoR/dev/reference/igo_search_states.md)
+to find state identifiers,
+[igo_year_format3](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md)
+for IGO-year membership data and
+[states2024](https://dieghernan.github.io/igoR/dev/reference/states2024.md)
+for state metadata.
 
-Other membership functions:
+Extract IGO membership data:
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/dev/reference/igo_dyadic.md),
 [`igo_members()`](https://dieghernan.github.io/igoR/dev/reference/igo_members.md)
 

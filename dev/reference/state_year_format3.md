@@ -69,7 +69,7 @@ Tracking organizations in the world: The Correlates of War IGO Version
 [`countrycode::countrycode()`](https://rdrr.io/pkg/countrycode/man/countrycode.html)
 to convert between different country code schemes.
 
-Other data sets:
+IGO data sets:
 [`igo_year_format3`](https://dieghernan.github.io/igoR/dev/reference/igo_year_format3.md),
 [`states2024`](https://dieghernan.github.io/igoR/dev/reference/states2024.md)
 
