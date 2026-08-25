@@ -10,7 +10,7 @@ A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with 15,557
 rows. Relevant fields:
 
 - `ccode`: Correlates of War country number. See
-  [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
+  [states2024](https://dieghernan.github.io/igoR/reference/states2024.md).
 
 - `year`: Calendar year.
 
@@ -69,9 +69,9 @@ Tracking organizations in the world: The Correlates of War IGO Version
 [`countrycode::countrycode()`](https://rdrr.io/pkg/countrycode/man/countrycode.html)
 to convert between different country code schemes.
 
-Other data sets:
+IGO data sets:
 [`igo_year_format3`](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
-[`states2016`](https://dieghernan.github.io/igoR/reference/states2016.md)
+[`states2024`](https://dieghernan.github.io/igoR/reference/states2024.md)
 
 ## Examples
 

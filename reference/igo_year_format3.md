@@ -71,9 +71,9 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-Other data sets:
+IGO data sets:
 [`state_year_format3`](https://dieghernan.github.io/igoR/reference/state_year_format3.md),
-[`states2016`](https://dieghernan.github.io/igoR/reference/states2016.md)
+[`states2024`](https://dieghernan.github.io/igoR/reference/states2024.md)
 
 ## Examples
 
@@ -83,9 +83,9 @@ data("igo_year_format3")
 # Show a glimpse.
 library(dplyr)
 
-igo_year_format3 %>%
-  select(ioname:year, spain, france) %>%
-  filter(year > 1990) %>%
+igo_year_format3 |>
+  select(ioname:year, spain, france) |>
+  filter(year > 1990) |>
   glimpse()
 #> Rows: 8,019
 #> Columns: 5
@@ -96,12 +96,12 @@ igo_year_format3 %>%
 #> $ france  <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
 
 # Prepare a sample of numerical membership values.
-sample_igo_year <- igo_year_format3 %>%
-  as_tibble() %>%
-  select(ioname:year, spain, france) %>%
+sample_igo_year <- igo_year_format3 |>
+  as_tibble() |>
+  select(ioname:year, spain, france) |>
   filter(year == 1990)
 
-sample_igo_year %>% glimpse()
+sample_igo_year |> glimpse()
 #> Rows: 314
 #> Columns: 5
 #> $ ioname  <chr> "ACPEU", "ACSSRB", "CAMES", "ACI", "AfDB", "AFGEC", "AIPO", "A…
@@ -111,10 +111,10 @@ sample_igo_year %>% glimpse()
 #> $ france  <dbl> 1, 1, -9, 0, 1, 0, 0, 0, -9, 0, 0, 0, 0, 1, -9, -9, 0, 0, 0, 0…
 
 # Recode the membership columns.
-sample_igo_year_recoded <- sample_igo_year %>%
+sample_igo_year_recoded <- sample_igo_year |>
   mutate(across(c(spain, france), igo_recode_igoyear))
 
-sample_igo_year_recoded %>% glimpse()
+sample_igo_year_recoded |> glimpse()
 #> Rows: 314
 #> Columns: 5
 #> $ ioname  <chr> "ACPEU", "ACSSRB", "CAMES", "ACI", "AfDB", "AFGEC", "AIPO", "A…

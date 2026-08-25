@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="igoR logo" height="34" width="34" class="d-inline-block me-1">igoR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,6 +31,8 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Data</h6></li>
     <li><a class="dropdown-item" href="../articles/list-igos.html">IGOs and states in the Correlates of War system</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -50,7 +52,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Extract IGO membership records by organization</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/igoR/blob/main/R/igo_members.R" class="external-link"><code>R/igo_members.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/igoR/blob/main/R/igo-members.R" class="external-link"><code>R/igo-members.R</code></a></small>
       <div class="d-none name"><code>igo_members.Rd</code></div>
     </div>
 
@@ -103,8 +105,9 @@ data sets. <em>Journal of Peace Research</em>, <strong>57</strong>(3), 492–503
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="igo_year_format3.html">igo_year_format3</a>, <code><a href="igo_search.html">igo_search()</a></code>, <a href="state_year_format3.html">state_year_format3</a>.</p>
-<p>Other membership functions:
+    <div class="dont-index"><p><code><a href="igo_search.html">igo_search()</a></code> to find IGO identifiers, <a href="igo_year_format3.html">igo_year_format3</a> for IGO-year
+data and <a href="state_year_format3.html">state_year_format3</a> for state-year membership data.</p>
+<p>Extract IGO membership data:
 <code><a href="igo_dyadic.html">igo_dyadic()</a></code>,
 <code><a href="igo_state_membership.html">igo_state_membership()</a></code></p></div>
     </div>
@@ -120,7 +123,7 @@ data sets. <em>Journal of Peace Research</em>, <strong>57</strong>(3), 492–503
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:base’:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
-<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"EU"</span>, year <span class="op">=</span> <span class="fl">1993</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"EU"</span>, year <span class="op">=</span> <span class="fl">1993</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ioname ccode state       statenme        year value category        orgname  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
@@ -136,7 +139,7 @@ data sets. <em>Journal of Peace Research</em>, <strong>57</strong>(3), 492–503
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> EU       325 italy       Italy           <span style="text-decoration: underline;">1</span>993     1 Full Membership European…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> EU       350 greece      Greece          <span style="text-decoration: underline;">1</span>993     1 Full Membership European…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> EU       390 denmark     Denmark         <span style="text-decoration: underline;">1</span>993     1 Full Membership European…</span>
-<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"EU"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"EU"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 28 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ioname ccode state       statenme        year value category        orgname  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
@@ -151,7 +154,7 @@ data sets. <em>Journal of Peace Research</em>, <strong>57</strong>(3), 492–503
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> EU       255 germany     Germany         <span style="text-decoration: underline;">2</span>014     1 Full Membership European…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> EU       290 poland      Poland          <span style="text-decoration: underline;">2</span>014     1 Full Membership European…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 18 more rows</span></span>
-<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"NAFTA"</span>, year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1995</span><span class="op">:</span><span class="fl">1998</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"NAFTA"</span>, year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1995</span><span class="op">:</span><span class="fl">1998</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ioname ccode state  statenme                  year value category     orgname</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -169,9 +172,9 @@ data sets. <em>Journal of Peace Research</em>, <strong>57</strong>(3), 492–503
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> NAFTA     70 mexico Mexico                    <span style="text-decoration: underline;">1</span>998     1 Full Member… North …</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract multiple membership statuses.</span></span></span>
-<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"ACCT"</span>, status <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Associate Membership"</span>, <span class="st">"Observer"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"ACCT"</span>, status <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Associate Membership"</span>, <span class="st">"Observer"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 25 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 26 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ioname ccode state       statenme            year value category      orgname</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ACCT     347 kosovo      Kosovo              <span style="text-decoration: underline;">2</span>014     2 Associate Me… Franco…</span>
@@ -184,10 +187,10 @@ data sets. <em>Journal of Peace Research</em>, <strong>57</strong>(3), 492–503
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ACCT     290 poland      Poland              <span style="text-decoration: underline;">2</span>014     3 Observer      Franco…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ACCT     305 austria     Austria             <span style="text-decoration: underline;">2</span>014     3 Observer      Franco…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ACCT     310 hungary     Hungary             <span style="text-decoration: underline;">2</span>014     3 Observer      Franco…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 15 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># States that are not members of the UN.</span></span></span>
-<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"UN"</span>, status <span class="op">=</span> <span class="st">"No Membership"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="st">"UN"</span>, status <span class="op">=</span> <span class="st">"No Membership"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ioname ccode state  statenme  year value category      orgname       </span>
@@ -196,8 +199,8 @@ data sets. <em>Journal of Peace Research</em>, <strong>57</strong>(3), 492–503
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> UN       713 taiwan Taiwan    <span style="text-decoration: underline;">2</span>014     0 No Membership United Nations</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Vectorized search.</span></span></span>
-<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NAFTA"</span>, <span class="st">"EU"</span><span class="op">)</span>, year <span class="op">=</span> <span class="fl">1993</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">igo_members</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NAFTA"</span>, <span class="st">"EU"</span><span class="op">)</span>, year <span class="op">=</span> <span class="fl">1993</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 15 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ioname ccode state       statenme                 year value category orgname</span>

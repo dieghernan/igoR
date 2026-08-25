@@ -19,7 +19,7 @@ reference.
 - state:
 
   A state name or code, or a vector of names or codes, as specified in
-  [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
+  [states2024](https://dieghernan.github.io/igoR/reference/states2024.md).
 
 - year:
 
@@ -48,11 +48,14 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-[igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
-[`igo_search_states()`](https://dieghernan.github.io/igoR/reference/igo_search_states.md),
-[states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
+[`igo_search_states()`](https://dieghernan.github.io/igoR/reference/igo_search_states.md)
+to find state identifiers,
+[igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
+for IGO-year membership data and
+[states2024](https://dieghernan.github.io/igoR/reference/states2024.md)
+for state metadata.
 
-Other membership functions:
+Extract IGO membership data:
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md),
 [`igo_members()`](https://dieghernan.github.io/igoR/reference/igo_members.md)
 

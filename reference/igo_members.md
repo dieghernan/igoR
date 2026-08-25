@@ -51,11 +51,14 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-[igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
-[`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md),
-[state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
+[`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md)
+to find IGO identifiers,
+[igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md)
+for IGO-year data and
+[state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
+for state-year membership data.
 
-Other membership functions:
+Extract IGO membership data:
 [`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md),
 [`igo_state_membership()`](https://dieghernan.github.io/igoR/reference/igo_state_membership.md)
 
@@ -71,7 +74,7 @@ library(dplyr)
 #> The following objects are masked from ‘package:base’:
 #> 
 #>     intersect, setdiff, setequal, union
-igo_members("EU", year = 1993) %>% as_tibble()
+igo_members("EU", year = 1993) |> as_tibble()
 #> # A tibble: 12 × 8
 #>    ioname ccode state       statenme        year value category        orgname  
 #>    <chr>  <dbl> <chr>       <chr>          <dbl> <dbl> <fct>           <chr>    
@@ -87,7 +90,7 @@ igo_members("EU", year = 1993) %>% as_tibble()
 #> 10 EU       325 italy       Italy           1993     1 Full Membership European…
 #> 11 EU       350 greece      Greece          1993     1 Full Membership European…
 #> 12 EU       390 denmark     Denmark         1993     1 Full Membership European…
-igo_members("EU") %>% as_tibble()
+igo_members("EU") |> as_tibble()
 #> # A tibble: 28 × 8
 #>    ioname ccode state       statenme        year value category        orgname  
 #>    <chr>  <dbl> <chr>       <chr>          <dbl> <dbl> <fct>           <chr>    
@@ -102,7 +105,7 @@ igo_members("EU") %>% as_tibble()
 #>  9 EU       255 germany     Germany         2014     1 Full Membership European…
 #> 10 EU       290 poland      Poland          2014     1 Full Membership European…
 #> # ℹ 18 more rows
-igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
+igo_members("NAFTA", year = c(1995:1998)) |> as_tibble()
 #> # A tibble: 12 × 8
 #>    ioname ccode state  statenme                  year value category     orgname
 #>    <chr>  <dbl> <chr>  <chr>                    <dbl> <dbl> <fct>        <chr>  
@@ -120,9 +123,9 @@ igo_members("NAFTA", year = c(1995:1998)) %>% as_tibble()
 #> 12 NAFTA     70 mexico Mexico                    1998     1 Full Member… North …
 
 # Extract multiple membership statuses.
-igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
+igo_members("ACCT", status = c("Associate Membership", "Observer")) |>
   as_tibble()
-#> # A tibble: 25 × 8
+#> # A tibble: 26 × 8
 #>    ioname ccode state       statenme            year value category      orgname
 #>    <chr>  <dbl> <chr>       <chr>              <dbl> <dbl> <fct>         <chr>  
 #>  1 ACCT     347 kosovo      Kosovo              2014     2 Associate Me… Franco…
@@ -135,10 +138,10 @@ igo_members("ACCT", status = c("Associate Membership", "Observer")) %>%
 #>  8 ACCT     290 poland      Poland              2014     3 Observer      Franco…
 #>  9 ACCT     305 austria     Austria             2014     3 Observer      Franco…
 #> 10 ACCT     310 hungary     Hungary             2014     3 Observer      Franco…
-#> # ℹ 15 more rows
+#> # ℹ 16 more rows
 
 # States that are not members of the UN.
-igo_members("UN", status = "No Membership") %>%
+igo_members("UN", status = "No Membership") |>
   as_tibble()
 #> # A tibble: 2 × 8
 #>   ioname ccode state  statenme  year value category      orgname       
@@ -147,8 +150,8 @@ igo_members("UN", status = "No Membership") %>%
 #> 2 UN       713 taiwan Taiwan    2014     0 No Membership United Nations
 
 # Vectorized search.
-igo_members(c("NAFTA", "EU"), year = 1993) %>%
-  as_tibble() %>%
+igo_members(c("NAFTA", "EU"), year = 1993) |>
+  as_tibble() |>
   arrange(state)
 #> # A tibble: 15 × 8
 #>    ioname ccode state       statenme                 year value category orgname

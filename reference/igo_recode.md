@@ -34,6 +34,14 @@ igo_recode_dyadic(x)
 A [factor](https://rdrr.io/r/base/factor.html) with the recoded
 membership status values.
 
+## See also
+
+[igo_year_format3](https://dieghernan.github.io/igoR/reference/igo_year_format3.md),
+[state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md)
+and
+[`igo_dyadic()`](https://dieghernan.github.io/igoR/reference/igo_dyadic.md)
+for the data corresponding to each recoding function.
+
 ## Examples
 
 ``` r
@@ -42,9 +50,9 @@ data("igo_year_format3")
 # Recode membership status values for selected states.
 library(dplyr)
 
-samp <- igo_year_format3 %>%
-  select(ioname:year, spain, france) %>%
-  filter(year > 2000) %>%
+samp <- igo_year_format3 |>
+  select(ioname:year, spain, france) |>
+  filter(year > 2000) |>
   as_tibble()
 
 glimpse(samp)
@@ -57,11 +65,11 @@ glimpse(samp)
 #> $ france  <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
 
 # Recode the membership columns.
-samp %>%
+samp |>
   mutate(
     spain = igo_recode_igoyear(spain),
     france = igo_recode_igoyear(france)
-  ) %>%
+  ) |>
   glimpse()
 #> Rows: 4,661
 #> Columns: 5

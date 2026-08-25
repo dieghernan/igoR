@@ -2,7 +2,7 @@
 
 This annex lists the IGOs ([Pevehouse et al. 2020](#ref-pevehouse2020))
 and states in the Correlates of War state system ([Correlates of War
-Project 2017](#ref-correlatesofwarproject2017)) included in **igoR**.
+Project 2025](#ref-correlatesofwarproject2025)) included in **igoR**.
 
 ## IGOs
 
@@ -10,8 +10,8 @@ Project 2017](#ref-correlatesofwarproject2017)) included in **igoR**.
 
 ## References
 
-Correlates of War Project. 2017. *State System Membership List, V2016*.
-<https://correlatesofwar.org/data-sets/state-system-membership/>.
+Correlates of War Project. 2025. *State System Membership, V2024*.
+<https://correlatesofwar.org>.
 
 Pevehouse, Jon C. W., Timothy Nordstrom, Roseanne W. McManus, and Anne
 Spencer Jamison. 2020. “Tracking Organizations in the World: The

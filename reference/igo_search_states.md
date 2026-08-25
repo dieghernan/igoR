@@ -20,7 +20,7 @@ reference.
 - state:
 
   A state name or code, or a vector of names or codes, as specified in
-  [states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
+  [states2024](https://dieghernan.github.io/igoR/reference/states2024.md).
 
 ## Value
 
@@ -39,9 +39,10 @@ Tracking organizations in the world: The Correlates of War IGO Version
 
 ## See also
 
-[states2016](https://dieghernan.github.io/igoR/reference/states2016.md).
+[states2024](https://dieghernan.github.io/igoR/reference/states2024.md)
+for state codes, abbreviations and names.
 
-Other query functions:
+Search IGO and state metadata:
 [`igo_search()`](https://dieghernan.github.io/igoR/reference/igo_search.md)
 
 ## Examples
@@ -49,33 +50,33 @@ Other query functions:
 ``` r
 library(dplyr)
 
-igo_search_states("Spain") %>% as_tibble()
+igo_search_states("Spain") |> as_tibble()
 #> # A tibble: 1 × 4
 #>   ccode stateabb statenme state
 #>   <int> <chr>    <chr>    <chr>
 #> 1   230 SPN      Spain    spain
 
-igo_search_states(c(20, 150)) %>% as_tibble()
+igo_search_states(c(20, 150)) |> as_tibble()
 #> # A tibble: 2 × 4
 #>   ccode stateabb statenme state   
 #>   <int> <chr>    <chr>    <chr>   
 #> 1    20 CAN      Canada   canada  
 #> 2   150 PAR      Paraguay paraguay
 
-igo_search_states("congo") %>% as_tibble()
+igo_search_states("congo") |> as_tibble()
 #> # A tibble: 1 × 4
 #>   ccode stateabb statenme state     
 #>   <int> <chr>    <chr>    <chr>     
 #> 1   484 CON      Congo    congobrazz
 
-igo_search_states(c("Germany", "papal states")) %>% as_tibble()
+igo_search_states(c("Germany", "papal states")) |> as_tibble()
 #> # A tibble: 2 × 4
 #>   ccode stateabb statenme     state      
 #>   <int> <chr>    <chr>        <chr>      
 #> 1   255 GMY      Germany      germany    
 #> 2   327 PAP      Papal States papalstates
 
-igo_search_states(c("FRN", "United Kingdom", 240, "italy")) %>% as_tibble()
+igo_search_states(c("FRN", "United Kingdom", 240, "italy")) |> as_tibble()
 #> # A tibble: 4 × 4
 #>   ccode stateabb statenme       state  
 #>   <int> <chr>    <chr>          <chr>  

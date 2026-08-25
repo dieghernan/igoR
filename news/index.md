@@ -1,5 +1,12 @@
 # Changelog
 
+## igoR 1.1.0
+
+- The minimum required **R** version is now 4.1.0.
+- [`igoR::states2024`](https://dieghernan.github.io/igoR/reference/states2024.md)
+  replaces `states2016` with State System Membership data through
+  December 2024.
+
 ## igoR 1.0.3
 
 CRAN release: 2026-06-24
@@ -103,5 +110,3 @@ CRAN release: 2021-01-27
   was added.
 - [`igo_state_membership()`](https://dieghernan.github.io/igoR/reference/igo_state_membership.md)
   was added.
-- [`igoR::states2016`](https://dieghernan.github.io/igoR/reference/states2016.md)
-  was added as a replacement for `cow_country_codes`.

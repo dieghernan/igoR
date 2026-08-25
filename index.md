@@ -7,7 +7,7 @@ the Correlates of War Project ([Pevehouse et al.
 
 The IGO-year data set contains **534** IGOs recorded from 1816 to 2014.
 The package also includes country-year membership data, state system
-data ([Correlates of War Project 2017](#ref-correlatesofwarproject2017))
+data ([Correlates of War Project 2025](#ref-correlatesofwarproject2025))
 and functions for deriving dyad-year joint membership results.
 
 - Source: [Intergovernmental Organizations (version
@@ -121,7 +121,7 @@ For **LaTeX** users, a **BibTeX** entry is:
   doi = {10.32614/CRAN.package.igoR},
   author = {Diego Hernangómez},
   year = {2026},
-  version = {1.0.3},
+  version = {1.1.0},
   url = {https://dieghernan.github.io/igoR/},
   abstract = {Provides tools for searching, extracting and recoding the Intergovernmental Organizations (IGO) Database (version 3), distributed by the Correlates of War Project <https://correlatesofwar.org/>. Includes IGO-year and country-year membership data, state system data and functions for deriving dyad-year joint membership results. For a description of the data, see Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.},
 }
@@ -129,8 +129,8 @@ For **LaTeX** users, a **BibTeX** entry is:
 
 ## References
 
-Correlates of War Project. 2017. *State System Membership List, V2016*.
-<https://correlatesofwar.org/data-sets/state-system-membership/>.
+Correlates of War Project. 2025. *State System Membership, V2024*.
+<https://correlatesofwar.org>.
 
 Pevehouse, Jon C. W., Timothy Nordstrom, Roseanne W. McManus, and Anne
 Spencer Jamison. 2020. “Tracking Organizations in the World: The
