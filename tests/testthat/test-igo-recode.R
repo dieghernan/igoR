@@ -85,19 +85,10 @@ test_that("dyadic values are recoded to joint membership labels", {
 })
 
 test_that("internal dyadic recoding preserves membership precedence", {
-  mat1 <- matrix(
-    c(1, -9, -1, 0, 2, NA, 1, 3, -1, -9),
-    ncol = 2
-  )
-  mat2 <- matrix(
-    c(1, 1, 1, 1, 3, 1, 0, 1, -1, -1),
-    ncol = 2
-  )
+  mat1 <- matrix(c(1, -9, -1, 0, 2, NA, 1, 3, -1, -9), ncol = 2)
+  mat2 <- matrix(c(1, 1, 1, 1, 3, 1, 0, 1, -1, -1), ncol = 2)
 
   recoded <- recode_joint_matrix(mat1, mat2)
 
-  expect_equal(
-    recoded,
-    matrix(c(1, -9, -1, 0, 0, -9, 0, 0, -1, -9), ncol = 2)
-  )
+  expect_equal(recoded, matrix(c(1, -9, -1, 0, 0, -9, 0, 0, -1, -9), ncol = 2))
 })

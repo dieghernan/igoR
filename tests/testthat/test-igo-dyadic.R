@@ -146,12 +146,7 @@ test_that("dyadic identifiers use both state codes", {
 })
 
 test_that("dyadic output contains known joint membership values", {
-  res <- igo_dyadic(
-    "USA",
-    "Spain",
-    1990,
-    c("UN", "EU", "AAAID", "ARCAL")
-  )
+  res <- igo_dyadic("USA", "Spain", 1990, c("UN", "EU", "AAAID", "ARCAL"))
 
   expect_identical(
     res[, c("year", "un", "eu", "aaaid", "arcal")],

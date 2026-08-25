@@ -12,9 +12,7 @@ test_that("internal result binding drops empty results and resets rows", {
 })
 
 test_that("internal result binding warns when every result is empty", {
-  expect_snapshot(
-    bound <- igo_bind_results(list(NULL, NULL), "No results.")
-  )
+  expect_snapshot(bound <- igo_bind_results(list(NULL, NULL), "No results."))
 
   expect_null(bound)
 })
@@ -22,12 +20,10 @@ test_that("internal result binding warns when every result is empty", {
 test_that("internal status validation reports invalid values only", {
   valid_status <- c("No Membership", "Full Membership")
 
-  expect_snapshot(
-    igo_warn_invalid_status(
-      c("Full Membership", "Invalid"),
-      valid_status
-    )
-  )
+  expect_snapshot(igo_warn_invalid_status(
+    c("Full Membership", "Invalid"),
+    valid_status
+  ))
 
   expect_silent(igo_warn_invalid_status("Full Membership", valid_status))
 })

@@ -47,11 +47,7 @@ igo_warn_invalid_status <- function(
 
 igo_last_year_rows <- function(db, id_column) {
   db_last <- db[, c(id_column, "year")]
-  db_lastyear <- aggregate(
-    db_last,
-    by = list(db_last[[id_column]]),
-    FUN = max
-  )
+  db_lastyear <- aggregate(db_last, by = list(db_last[[id_column]]), FUN = max)
   db_lastyear <- db_lastyear[, c(id_column, "year")]
 
   merge(db, db_lastyear)

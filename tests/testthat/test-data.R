@@ -54,14 +54,8 @@ test_that("data sets expose stable schemas and column types", {
 })
 
 test_that("data sets have unique compound keys and expected year ranges", {
-  expect_identical(
-    anyDuplicated(igo_year_format3[c("ioname", "year")]),
-    0L
-  )
-  expect_identical(
-    anyDuplicated(state_year_format3[c("state", "year")]),
-    0L
-  )
+  expect_identical(anyDuplicated(igo_year_format3[c("ioname", "year")]), 0L)
+  expect_identical(anyDuplicated(state_year_format3[c("state", "year")]), 0L)
   expect_identical(anyDuplicated(states2024[c("ccode", "styear")]), 0L)
 
   expect_identical(range(igo_year_format3$year), c(1816, 2014))
@@ -79,9 +73,10 @@ test_that("membership columns contain only documented status values", {
     igo_year_format3[state_columns],
     use.names = FALSE
   ))
-  state_values <- unique(
-    unlist(state_year_format3[igo_columns], use.names = FALSE)
-  )
+  state_values <- unique(unlist(
+    state_year_format3[igo_columns],
+    use.names = FALSE
+  ))
 
   expect_setequal(igo_values[!is.na(igo_values)], c(-9, 0, 1, 2, 3))
   expect_in(NA_real_, igo_values)
