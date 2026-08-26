@@ -1,6 +1,5 @@
 [lint]
 select = ["ALL"]
-ignore = ["implicit_assignment"]
 exclude = ["data-raw/"]
 check-roxygen = true
 fix-roxygen = true
