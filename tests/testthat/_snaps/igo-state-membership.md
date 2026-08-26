@@ -3,7 +3,7 @@
     Code
       igo_state_membership()
     Condition
-      Error in `igo_state_membership()`:
+      Error:
       ! `state` must be supplied.
 
 # unknown states return NULL with a warning

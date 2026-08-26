@@ -63,7 +63,7 @@
 igo_members <- function(ioname, year = NULL, status = "Full Membership") {
   # Require an explicit IGO identifier.
   if (missing(ioname)) {
-    stop("`ioname` must be supplied.")
+    stop("`ioname` must be supplied.", call. = FALSE)
   }
 
   levls <- igo_status_levels(igo_recode_stateyear)

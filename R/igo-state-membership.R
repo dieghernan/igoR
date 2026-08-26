@@ -62,7 +62,7 @@ igo_state_membership <- function(
 ) {
   # Require an explicit state identifier.
   if (missing(state)) {
-    stop("`state` must be supplied.")
+    stop("`state` must be supplied.", call. = FALSE)
   }
 
   df_states <- suppressWarnings(igoR::igo_search_states(state))

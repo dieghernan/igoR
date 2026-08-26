@@ -3,7 +3,7 @@
     Code
       igo_members()
     Condition
-      Error in `igo_members()`:
+      Error:
       ! `ioname` must be supplied.
 
 # unknown IGO identifiers return NULL with a warning
