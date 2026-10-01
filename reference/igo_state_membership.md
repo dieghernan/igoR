@@ -36,7 +36,8 @@ reference.
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
-per matching state, IGO-year and membership status.
+per matching state, IGO and year, including the membership status.
+Returns `NULL` invisibly if no results are available.
 
 ## References
 
@@ -257,7 +258,7 @@ igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #> 7      0        1
 #> 8      1        0
 
-# Use the countrycode package to add codes.
+# Add country codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   IT <- igo_state_membership("Italy", year = 1880)

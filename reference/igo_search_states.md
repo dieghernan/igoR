@@ -28,6 +28,7 @@ A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with Correlates
 of War country codes, abbreviations, names and the matching `state`
 identifiers used by
 [state_year_format3](https://dieghernan.github.io/igoR/reference/state_year_format3.md).
+Returns `NULL` invisibly if no results are available.
 
 ## References
 

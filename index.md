@@ -12,7 +12,7 @@ and functions for deriving dyad-year joint membership results.
 
 - Source: [Intergovernmental Organizations (version
   3)](https://correlatesofwar.org/data-sets/IGOs/).
-- Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
+- Documentation and vignettes: <https://dieghernan.github.io/igoR/>.
 
 Note
 
@@ -113,7 +113,7 @@ Hernangómez D (2026). *igoR: Access the Intergovernmental Organizations
 [doi:10.32614/CRAN.package.igoR](https://doi.org/10.32614/CRAN.package.igoR).
 <https://dieghernan.github.io/igoR/>.
 
-For **LaTeX** users, a **BibTeX** entry is:
+For **LaTeX** users, the **BibTeX** entry is:
 
 ``` R
 @Manual{R-igoR,

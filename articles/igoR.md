@@ -89,7 +89,7 @@ theme_igor <- theme(
 )
 ```
 
-### IGOs overview
+### IGO overview
 
 The following code counts IGOs and states in the Correlates of War (COW)
 system by year. The data cover 1816 to 2014.
@@ -127,7 +127,11 @@ ggplot(all_by_year, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![](igoR_files/figure-html/fig-f1-1.png)
+![Line chart with year on the horizontal axis and counts on the vertical
+axis. The solid line represents IGOs and the dashed line represents COW
+states. IGO counts rise sharply after 1945, reaching roughly 330 by
+2014, compared with roughly 195 states. Vertical reference lines mark
+1945 and 1989. ](igoR_files/figure-html/fig-f1-1.png)
 
 Figure 1: IGOs and COW states in the state system, 1816-2014
 
@@ -169,7 +173,11 @@ ggplot(births_and_deads, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![](igoR_files/figure-html/fig-f2-1.png)
+![Line chart with year on the horizontal axis and annual counts on the
+vertical axis. Solid and dashed lines distinguish IGO starts and
+endings. Starts generally outnumber endings, with frequent spikes after
+1945, while endings are less frequent but also show occasional spikes.
+](igoR_files/figure-html/fig-f2-1.png)
 
 Figure 2: IGO starts and endings, 1816-2014
 
@@ -582,7 +590,12 @@ ggplot(regionsum, aes(x = year, y = value)) +
   theme_igor
 ```
 
-![](igoR_files/figure-html/fig-f3-1.png)
+![Line chart with year on the horizontal axis and IGO counts on the
+vertical axis. Five line patterns distinguish Asia, Europe, Africa, the
+Americas and the Middle East. Counts grow most rapidly after 1950.
+Africa peaks at about 70 IGOs in the 1990s before declining, while
+Europe ends with the highest count.
+](igoR_files/figure-html/fig-f3-1.png)
 
 Figure 3: IGO counts across regions, 1816-2014
 
@@ -633,7 +646,12 @@ ggplot(asia5, aes(x = year, y = values)) +
   theme_igor
 ```
 
-![](igoR_files/figure-html/fig-f4-1.png)
+![Line chart with year on the horizontal axis and the number of full IGO
+memberships on the vertical axis. Five line patterns distinguish China,
+India, Pakistan, Indonesia and Bangladesh. Membership counts generally
+rise after 1950, with India reaching the highest count by 2014. China
+falls sharply around 1950 before recovering in later decades.
+](igoR_files/figure-html/fig-f4-1.png)
 
 Figure 4: IGO membership: five states in Asia, 1865-2014
 
@@ -687,7 +705,12 @@ ggplot(spain_selected, aes(x = year, y = values)) +
   )
 ```
 
-![](igoR_files/figure-html/fig-f5-1.png)
+![Line chart with year on the horizontal axis and the number of full
+joint IGO memberships with Spain on the vertical axis. Four line
+patterns identify China, France, Morocco and the United States, with all
+four series at zero in the displayed results. Vertical lines mark 1939
+and 1978, annotated with the Spanish Civil War and the Constitution of
+Spain. ](igoR_files/figure-html/fig-f5-1.png)
 
 Figure 5: Number of IGOs with full joint memberships with Spain
 (selected states), 1816-2014

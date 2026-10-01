@@ -71,7 +71,7 @@ The data are now ready to plot with **ggplot2**.
 
 ggplot(un_all_sf) +
   geom_sf(aes(fill = category), color = NA, show.legend = FALSE) +
-  # Robinson
+  # Use the Robinson projection.
   coord_sf(crs = "ESRI:54030") +
   facet_wrap(~year, ncol = 1, strip.position = "left") +
   scale_fill_manual(
@@ -90,7 +90,12 @@ ggplot(un_all_sf) +
   )
 ```
 
-![Figure 1: UN members (1950, 1980, 2010)](./fig-UNMaps-1.png)
+![Three world maps stacked vertically, with blue indicating recorded
+full UN membership and gray indicating no matched membership record.
+Membership expands especially across Africa and Asia between 1950 and
+1980 and covers most mapped states by 2010. Modern country boundaries
+are used, so historical states are not represented separately.
+](./fig-UNMaps-1.png)
 
 Figure 1: UN members (1950, 1980, 2010)
 
@@ -131,7 +136,7 @@ ggplot(sharedmap) +
     fill = "black",
     color = NA,
   ) +
-  # Robinson
+  # Use the Robinson projection.
   coord_sf(crs = "ESRI:54030") +
   scale_fill_gradientn(colours = pal, n.breaks = 10) +
   guides(fill = guide_legend(nrow = 1)) +
@@ -157,27 +162,48 @@ ggplot(sharedmap) +
   )
 ```
 
-![Figure 2: Full joint memberships with Australia
-(2014)](./fig-AustShared-1.png)
+![World choropleth map with a color scale indicating the number of full
+IGO memberships shared with Australia. Light yellow indicates fewer
+shared memberships and dark purple indicates more, with Australia
+highlighted in black. India, Japan and New Zealand are among the states
+with the highest counts, while many African states have lower counts.
+Gray areas have no matched data. ](./fig-AustShared-1.png)
 
 Figure 2: Full joint memberships with Australia (2014)
 
 ## Joint memberships across North America
 
-The following map shows how the number of full joint memberships among
-North American states changed from 1930 to 2010 at ten-year intervals.
+The following map shows, for each selected state and year, the number of
+IGOs in which it shares full membership with at least one other selected
+state. An IGO shared by all three states counts once for each state,
+rather than once for each pair. The maps cover 1930 to 2010 at ten-year
+intervals.
 
 ``` r
 
 # Select years.
 years <- seq(1930, 2010, 10)
 
-# Find joint memberships.
+# Find full memberships for the selected states.
 cntries <- c("USA", "CAN", "MEX")
-all <- igo_dyadic(cntries, cntries, years) |>
-  rowwise() |>
-  mutate(value = sum(c_across(aaaid:wassen) == 1)) |>
-  mutate(ISO3_CODE = countrycode(ccode1, "cown", "iso3c")) |>
+memberships <- igo_state_membership(cntries, years, status = "Full Membership")
+
+# Count each IGO once per state when at least two selected states are members.
+shared_counts <- memberships |>
+  group_by(year, ioname) |>
+  filter(n_distinct(ccode) >= 2) |>
+  ungroup() |>
+  distinct(ccode, year, ioname) |>
+  count(ccode, year, name = "value")
+
+# Retain states with no shared memberships as zero.
+all <- memberships |>
+  distinct(ccode, year) |>
+  left_join(shared_counts, by = c("ccode", "year")) |>
+  mutate(
+    value = coalesce(value, 0L),
+    ISO3_CODE = countrycode(ccode, "cown", "iso3c")
+  ) |>
   select(ISO3_CODE, year, value)
 
 # Get shapes for the map.
@@ -191,7 +217,7 @@ ggplot(countries_sf) +
   facet_wrap(~year, ncol = 3) +
   scale_fill_gradientn(
     colors = hcl.colors(10, "YlGn", rev = TRUE),
-    breaks = seq(0, 100, 5)
+    breaks = seq(0, 100, 10)
   ) +
   guides(fill = guide_legend(reverse = TRUE)) +
   labs(
@@ -209,8 +235,12 @@ ggplot(countries_sf) +
   )
 ```
 
-![Figure 3: Full joint memberships in North America
-(1930-2010)](./fig-NAShared-1.png)
+![Nine choropleth maps arranged in a three-by-three grid, one per decade
+from 1930 to 2010, showing Canada, the United States and Mexico. A
+shared scale runs from pale yellow for fewer shared full IGO memberships
+to dark green for more. Each state's count includes IGOs shared with at
+least one other selected state, counting each IGO once even if all three
+are members. ](./fig-NAShared-1.png)
 
 Figure 3: Full joint memberships in North America (1930-2010)
 
