@@ -1,6 +1,6 @@
 library(hexSticker)
 # https://github.com/GuangchuangYu/hexSticker
-# Add font
+# Add the logo font.
 sysfonts::font_add_google("IBM Plex Sans", "ibm")
 
 imgurl <- "data-raw/handshake.png"
@@ -18,7 +18,6 @@ p <- sticker(
   p_color = "white",
   filename = "man/figures/logo.png"
 )
-
 
 par(mar = c(0, 0, 0, 0))
 plot(p)

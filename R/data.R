@@ -9,7 +9,7 @@
 #' at five-year intervals through 1965 and annually thereafter.
 #'
 #' @format
-#' A [`data.frame`][data.frame()] with
+#' A [`data.frame`][base::data.frame] with
 #' `r prettyNum(nrow(igoR::igo_year_format3), big.mark = ",")` rows. Relevant
 #' fields:
 #'
@@ -42,7 +42,7 @@
 #' ```
 #'
 #' Use [igo_recode_igoyear()] to recode the numerical values as
-#' [factors][base::factor()].
+#' [factors][base::factor].
 #'
 #' @inherit igo_dyadic references
 #'
@@ -98,7 +98,7 @@ NULL
 #' intervals through 1965 and annually thereafter.
 #'
 #' @format
-#' A [`data.frame`][data.frame()] with
+#' A [`data.frame`][base::data.frame] with
 #' `r prettyNum(nrow(igoR::state_year_format3), big.mark = ",")` rows. Relevant
 #' fields:
 #'
@@ -127,7 +127,7 @@ NULL
 #' ```
 #'
 #' Use [igo_recode_stateyear()] to recode the numerical values as
-#' [factors][base::factor()].
+#' [factors][base::factor].
 #'
 #' See the [Codebook Version 3 IGO
 #' Data](https://correlatesofwar.org/data-sets/IGOs/).
@@ -158,7 +158,7 @@ NULL
 #' the `state` field from [state_year_format3].
 #'
 #' @format
-#' A [`data.frame`][data.frame()] with
+#' A [`data.frame`][base::data.frame] with
 #' `r prettyNum(nrow(igoR::states2024), big.mark = ",")` rows and 11 variables:
 #'
 #' \describe{
@@ -181,8 +181,8 @@ NULL
 #' distributed by the Correlates of War Project.
 #'
 #' It identifies states, their standard Correlates of War country code or state
-#' number, state abbreviations and dates of membership as states and major
-#' powers in the international system.
+#' number, state abbreviations and dates of membership in the international
+#' system.
 #'
 #' The Correlates of War Project includes a state in the international system
 #' from 1816 to 2024 according to the following criteria:

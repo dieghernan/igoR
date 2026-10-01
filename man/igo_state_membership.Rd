@@ -23,8 +23,9 @@ IGO-level state membership records. See \link{igo_year_format3} for valid
 statuses.}
 }
 \value{
-A \code{\link{data.frame}} with one row per matching state, IGO-year and
-membership status.
+A \code{\link[base:data.frame]{data.frame}} with one row per matching state, IGO and
+year, including the membership status.
+Returns \code{NULL} invisibly if no results are available.
 }
 \description{
 Extracts IGO membership records for one or more states and years.
@@ -50,7 +51,7 @@ igo_state_membership("kosovo", status = c(
 # Vectorized search.
 igo_state_membership(c("usa", "spain"), year = 1870:1871)
 
-# Use the countrycode package to add codes.
+# Add country codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   IT <- igo_state_membership("Italy", year = 1880)

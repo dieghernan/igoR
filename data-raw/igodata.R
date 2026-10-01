@@ -1,4 +1,4 @@
-# Download
+# Download source data.
 rm(list = ls())
 
 library(dplyr)
@@ -8,7 +8,7 @@ library(dplyr)
 #   "./data-raw/IGO Codebook_v3_short copy.pdf"
 # )
 
-# Files
+# Download and extract data files.
 
 # download.file(
 #   "https://correlatesofwar.org/data-sets/IGOs/igo-data-stata-files-zip/@@download/file/IGO_stata.ZIP",
@@ -17,13 +17,12 @@ library(dplyr)
 
 # unzip("./data-raw/igo_year_formatv3.zip", exdir = "./data-raw/igo_year_formatv3")
 
-# Read
+# Read membership data.
 igo_year_format3 <- haven::read_dta("data-raw/igo_year_format_3.dta") |>
   as.data.frame()
 
 state_year_format3 <- haven::read_dta("./data-raw/state_year_format3.dta") |>
   as.data.frame()
-
 
 usethis::use_data(igo_year_format3, overwrite = TRUE)
 usethis::use_data(state_year_format3, overwrite = TRUE)

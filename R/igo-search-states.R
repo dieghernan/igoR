@@ -9,9 +9,10 @@
 #'   specified in [states2024].
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with Correlates of War country codes,
+#' A [`data.frame`][base::data.frame] with Correlates of War country codes,
 #' abbreviations, names and the matching `state` identifiers used by
 #' [state_year_format3].
+#' Returns `NULL` invisibly if no results are available.
 #'
 #' @inherit igo_dyadic source references
 #'

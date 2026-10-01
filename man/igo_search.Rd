@@ -20,8 +20,9 @@ Numeric identifiers are accepted.}
 complete match.}
 }
 \value{
-A \code{\link{data.frame}} with IGO identifiers, names, years and other
-metadata from the latest available IGO-year for each IGO.
+A \code{\link[base:data.frame]{data.frame}} with IGO identifiers, names and other
+metadata from the latest available year for each IGO.
+Returns \code{NULL} invisibly if no results are available.
 }
 \description{
 Searches for IGOs by name or regular expression.

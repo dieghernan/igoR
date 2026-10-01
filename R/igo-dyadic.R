@@ -40,7 +40,7 @@
 #' ```
 #'
 #' Use [igo_recode_dyadic()] to recode the numerical values as
-#' [factors][base::factor()].
+#' [factors][base::factor].
 #'
 #' If one state in an IGO is a full member but the other is an associate member
 #' or observer, that IGO is not coded as a joint membership.
@@ -62,9 +62,10 @@
 #'   identifiers.
 #'
 #' @returns
-#' A coded [`data.frame`][data.frame()] with one row per state-pair-year and one
-#' column per selected IGO. See **Details** for the membership status
-#' coding scheme.
+#' A [`data.frame`][base::data.frame] with one row per state pair and year and
+#' one column per selected IGO. See **Details** for the membership status coding
+#' scheme.
+#' Returns `NULL` invisibly if no results are available.
 #'
 #' @source
 #' [Codebook Version 3 IGO

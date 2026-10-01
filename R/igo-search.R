@@ -18,8 +18,9 @@
 #'   complete match.
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with IGO identifiers, names, years and other
-#' metadata from the latest available IGO-year for each IGO.
+#' A [`data.frame`][base::data.frame] with IGO identifiers, names and other
+#' metadata from the latest available year for each IGO.
+#' Returns `NULL` invisibly if no results are available.
 #'
 #' @inherit igo_dyadic source references
 #'

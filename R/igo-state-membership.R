@@ -13,8 +13,9 @@
 #'   statuses.
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with one row per matching state, IGO-year and
-#' membership status.
+#' A [`data.frame`][base::data.frame] with one row per matching state, IGO and
+#' year, including the membership status.
+#' Returns `NULL` invisibly if no results are available.
 #'
 #' @inherit igo_dyadic source references
 #'
@@ -48,7 +49,7 @@
 #' # Vectorized search.
 #' igo_state_membership(c("usa", "spain"), year = 1870:1871)
 #'
-#' # Use the countrycode package to add codes.
+#' # Add country codes.
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   IT <- igo_state_membership("Italy", year = 1880)
@@ -108,7 +109,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
   year <- sort(unique(year))
   ccode <- state_db$ccode[1]
 
-  # Build the requested country-year combinations.
+  # Build the requested state-year combinations.
   master_db <- expand.grid(ccode = ccode, year = year, stringsAsFactors = FALSE)
 
   igo_db2 <- merge(state_db, master_db)[, c("ccode", "year", "state")]
@@ -151,7 +152,7 @@ igo_state_mmb_single <- function(state_names, year, status) {
   )
   state_igo$category <- igo_recode_igoyear(state_igo$value)
 
-  # Join membership status to the requested country-year combinations.
+  # Join membership status to the requested state-year combinations.
   igo_w_year <- merge(igo_db2, state_igo)
   igo_w_year <- igo_w_year[igo_w_year$category %in% status, ]
 

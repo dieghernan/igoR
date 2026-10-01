@@ -23,8 +23,9 @@ state-level IGO membership records. See \link{state_year_format3} for valid
 statuses.}
 }
 \value{
-A \code{\link{data.frame}} with one row per matching state, IGO-year and
-membership status.
+A \code{\link[base:data.frame]{data.frame}} with one row per matching state, IGO and
+year, including the membership status.
+Returns \code{NULL} invisibly if no results are available.
 }
 \description{
 Extracts state-level membership records for one or more IGOs and years.
@@ -49,7 +50,7 @@ igo_members(c("NAFTA", "EU"), year = 1993) |>
   as_tibble() |>
   arrange(state)
 
-# Use the countrycode package to add codes.
+# Add country codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")

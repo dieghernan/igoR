@@ -2,7 +2,7 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-# igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" align="right" height="139"/></a>
+# igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" alt="igoR hexagonal logo with the package name and a handshake." align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -37,7 +37,7 @@ and functions for deriving dyad-year joint membership results.
 
 - Source: [Intergovernmental Organizations (version
   3)](https://correlatesofwar.org/data-sets/IGOs/).
-- Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
+- Documentation and vignettes: <https://dieghernan.github.io/igoR/>.
 
 > [!NOTE]
 >
@@ -177,7 +177,7 @@ Organizations (IGO) Database</em>.
 <a href="https://dieghernan.github.io/igoR/">https://dieghernan.github.io/igoR/</a>.
 </p>
 
-For **LaTeX** users, a **BibTeX** entry is:
+For **LaTeX** users, the **BibTeX** entry is:
 
     @Manual{R-igoR,
       title = {{igoR}: Access the Intergovernmental Organizations ({IGO}) Database},

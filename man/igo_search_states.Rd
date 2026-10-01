@@ -16,9 +16,10 @@ igo_search_states(state)
 specified in \link{states2024}.}
 }
 \value{
-A \code{\link{data.frame}} with Correlates of War country codes,
+A \code{\link[base:data.frame]{data.frame}} with Correlates of War country codes,
 abbreviations, names and the matching \code{state} identifiers used by
 \link{state_year_format3}.
+Returns \code{NULL} invisibly if no results are available.
 }
 \description{
 Finds Correlates of War country codes, abbreviations and names for states.

@@ -1,17 +1,13 @@
 # igoR 1.1.0
 
 - The minimum required **R** version is now 4.1.0.
-- `igoR::states2024` replaces `states2016` with State System Membership data
-  through December 2024.
+- `igoR::states2024` replaces `states2016` with state system membership data through December 2024.
 
 # igoR 1.0.3
 
-- Internal code paths were simplified with AI-assisted refactoring to reduce
-  duplicated result handling, status validation and dyad-year joint membership
-  recoding.
+- Internal code paths were simplified with AI-assisted refactoring to reduce duplicated result handling, status validation and dyad-year joint membership recoding.
 - `igo_dyadic()` now computes `dyadid` with both state codes, as documented.
-- User-facing messages were revised for clearer wording and consistent argument
-  names.
+- User-facing messages were revised for clearer wording and consistent argument names.
 
 # igoR 1.0.2
 
@@ -37,9 +33,7 @@ First major version of the package.
 - Refactored internal code without user-visible changes.
 - Updated documentation and basic package maintenance.
 - `igo_dyadic()` now also accepts a vector of states in the `country1` argument.
-- `igo_recode_igoyear()`, `igo_recode_stateyear()` and `igo_recode_dyadic()` are
-  new helper functions for converting numerical membership codes to factor
-  labels.
+- `igo_recode_igoyear()`, `igo_recode_stateyear()` and `igo_recode_dyadic()` are new helper functions for converting numerical membership codes to factor labels.
 
 # igoR 0.1.5
 
@@ -56,19 +50,17 @@ First major version of the package.
 # igoR 0.1.2
 
 - Compiled the "Mapping IGOs" article as a vignette.
-- Updated documentation. It is now in **Markdown** format using
-  `roxygen2md::roxygen2md()`.
+- Updated documentation. It is now in **Markdown** format using `roxygen2md::roxygen2md()`.
 - Moved tests to **testthat**.
 
 # igoR 0.1.1
 
-- Removed **lifecycle** badge.
+- Removed the **lifecycle** badge.
 
 # igoR 0.1.0
 
 - Generalized search to ignore case.
-- Additional vignettes are available on the
-  [website](https://dieghernan.github.io/igoR/).
+- Additional vignettes are available on the [website](https://dieghernan.github.io/igoR/).
 - `cow_country_codes` is now internal.
 - `igo_dyadic()` was added.
 - `igo_members()` was vectorized.

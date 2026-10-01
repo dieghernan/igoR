@@ -14,8 +14,9 @@
 #'   statuses.
 #'
 #' @returns
-#' A [`data.frame`][data.frame()] with one row per matching state, IGO-year and
-#' membership status.
+#' A [`data.frame`][base::data.frame] with one row per matching state, IGO and
+#' year, including the membership status.
+#' Returns `NULL` invisibly if no results are available.
 #'
 #' @inherit igo_dyadic source references
 #'
@@ -47,7 +48,7 @@
 #'   as_tibble() |>
 #'   arrange(state)
 #'
-#' # Use the countrycode package to add codes.
+#' # Add country codes.
 #' if (requireNamespace("countrycode", quietly = TRUE)) {
 #'   library(countrycode)
 #'   EU <- igo_members("EU")
@@ -158,7 +159,6 @@ igo_member_single <- function(ioname, year, status) {
 
   igo_reset_rows(cntriesend)
 }
-
 
 cow_cntr_codes <- function(col_names = names(igoR::states2024)) {
   df <- unique(igoR::states2024[, c("ccode", "stateabb", "statenme", "state")])

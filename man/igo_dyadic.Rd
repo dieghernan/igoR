@@ -22,9 +22,10 @@ can be any state name or Correlates of War code in \link{states2024}.}
 identifiers.}
 }
 \value{
-A coded \code{\link{data.frame}} with one row per state-pair-year and one
-column per selected IGO. See \strong{Details} for the membership status
-coding scheme.
+A \code{\link[base:data.frame]{data.frame}} with one row per state pair and year and
+one column per selected IGO. See \strong{Details} for the membership status coding
+scheme.
+Returns \code{NULL} invisibly if no results are available.
 }
 \description{
 Creates dyad-year IGO data. Each row represents a pair of states in one year

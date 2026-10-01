@@ -6,7 +6,7 @@
 \alias{igo_year_format3}
 \title{IGO-year membership data}
 \format{
-A \code{\link{data.frame}} with
+A \code{\link[base:data.frame]{data.frame}} with
 19,335 rows. Relevant
 fields:
 \itemize{

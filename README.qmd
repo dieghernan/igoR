@@ -17,7 +17,7 @@ knitr:
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-# igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" align="right" height="139"/></a>
+# igoR <a href='https://dieghernan.github.io/igoR/'><img src="man/figures/logo.png" alt="igoR hexagonal logo with the package name and a handshake." align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -51,7 +51,7 @@ for deriving dyad-year joint membership results.
 
 - Source: [Intergovernmental Organizations (version
   3)](https://correlatesofwar.org/data-sets/IGOs/).
-- Documentation and vignettes at <https://dieghernan.github.io/igoR/>.
+- Documentation and vignettes: <https://dieghernan.github.io/igoR/>.
 
 ::: callout-note
 This package is stable and maintained on a best-effort basis. I currently
@@ -177,7 +177,7 @@ cat(
 print(citation("igoR")[1], style = "html")
 ```
 
-For **LaTeX** users, a **BibTeX** entry is:
+For **LaTeX** users, the **BibTeX** entry is:
 
 ```{r}
 #| echo: false

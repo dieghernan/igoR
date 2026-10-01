@@ -6,7 +6,7 @@
 \alias{states2024}
 \title{State system membership (v2024)}
 \format{
-A \code{\link{data.frame}} with
+A \code{\link[base:data.frame]{data.frame}} with
 244 rows and 11 variables:
 
 \describe{
@@ -37,8 +37,8 @@ This data set contains the states in the international system as updated and
 distributed by the Correlates of War Project.
 
 It identifies states, their standard Correlates of War country code or state
-number, state abbreviations and dates of membership as states and major
-powers in the international system.
+number, state abbreviations and dates of membership in the international
+system.
 
 The Correlates of War Project includes a state in the international system
 from 1816 to 2024 according to the following criteria:
