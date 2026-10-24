@@ -725,7 +725,7 @@ Correlates of War IGO Version 3.0 Datasets.” *Journal of Peace Research*
 Pevehouse, Jon, Roseanne McManus, and Timothy Nordstrom. 2019. *Codebook
 for Correlates of War 3 International Governmental Organizations Data
 Set Version
-3.0*.[https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf](https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf%0A%09)
+3.0*.[https://correlatesofwar.org/wp-content/uploads/IGO-Codebook_v3_short-copy.pdf](NA)
 .
 
 PRIO. 2020. *Replication Datasets: Journal of Peace Research*. Peace
