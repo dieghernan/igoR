@@ -39,7 +39,8 @@ reference.
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with one row
-per matching state, IGO-year and membership status.
+per matching state, IGO and year, including the membership status.
+Returns `NULL` invisibly if no results are available.
 
 ## References
 
@@ -172,7 +173,7 @@ igo_members(c("NAFTA", "EU"), year = 1993) |>
 #> 14 EU       200 uk          United Kingdom           1993     1 Full Me… Europe…
 #> 15 NAFTA      2 usa         United States of Ameri…  1993     1 Full Me… North …
 
-# Use the countrycode package to add codes.
+# Add country codes.
 if (requireNamespace("countrycode", quietly = TRUE)) {
   library(countrycode)
   EU <- igo_members("EU")

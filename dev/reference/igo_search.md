@@ -31,8 +31,8 @@ reference.
 ## Value
 
 A [`data.frame`](https://rdrr.io/r/base/data.frame.html) with IGO
-identifiers, names, years and other metadata from the latest available
-IGO-year for each IGO.
+identifiers, names and other metadata from the latest available year for
+each IGO. Returns `NULL` invisibly if no results are available.
 
 ## Details
 

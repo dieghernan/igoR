@@ -2,9 +2,13 @@
 
 ## igoR (development version)
 
+## igoR 1.1.0
+
+CRAN release: 2026-08-25
+
 - The minimum required **R** version is now 4.1.0.
 - [`igoR::states2024`](https://dieghernan.github.io/igoR/dev/reference/states2024.md)
-  replaces `states2016` with State System Membership data through
+  replaces `states2016` with state system membership data through
   December 2024.
 
 ## igoR 1.0.3
@@ -94,7 +98,7 @@ CRAN release: 2021-08-04
 
 CRAN release: 2021-01-27
 
-- Removed **lifecycle** badge.
+- Removed the **lifecycle** badge.
 
 ## igoR 0.1.0
 
