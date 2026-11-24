@@ -1,3 +1,5 @@
+# igoR (development version)
+
 # igoR 1.1.0
 
 - The minimum required **R** version is now 4.1.0.
